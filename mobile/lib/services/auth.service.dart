@@ -1,21 +1,21 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/settings_key.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/utils/background_sync.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/infrastructure/repositories/network.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/models/auth/auxilary_endpoint.model.dart';
-import 'package:immich_mobile/models/auth/login_response.model.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
-import 'package:immich_mobile/repositories/auth.repository.dart';
-import 'package:immich_mobile/repositories/auth_api.repository.dart';
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/services/network.service.dart';
+import 'package:universal_photos/domain/models/settings_key.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/domain/utils/background_sync.dart';
+import 'package:universal_photos/entities/store.entity.dart';
+import 'package:universal_photos/infrastructure/repositories/network.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos/models/auth/auxilary_endpoint.model.dart';
+import 'package:universal_photos/models/auth/login_response.model.dart';
+import 'package:universal_photos/providers/api.provider.dart';
+import 'package:universal_photos/providers/background_sync.provider.dart';
+import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos/repositories/auth.repository.dart';
+import 'package:universal_photos/repositories/auth_api.repository.dart';
+import 'package:universal_photos/services/api.service.dart';
+import 'package:universal_photos/services/network.service.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 

@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_album.repository.dart';
-import 'package:immich_mobile/platform/native_sync_api.g.dart';
+import 'package:universal_photos/extensions/platform_extensions.dart';
+import 'package:universal_photos/infrastructure/repositories/local_album.repository.dart';
+import 'package:universal_photos/platform/native_sync_api.g.dart';
 import 'package:logging/logging.dart';
 
 @visibleForTesting

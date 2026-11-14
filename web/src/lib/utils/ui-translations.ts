@@ -1,4 +1,4 @@
-import { Theme, themeManager } from '@immich/ui';
+import { Theme, themeManager } from '@universalphotos/ui';
 import type { MessageFormatter } from 'svelte-i18n';
 
 export const getUiTranslations = ($t: MessageFormatter) => ({

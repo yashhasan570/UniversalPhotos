@@ -3,7 +3,7 @@ import type {
   AssetVisibility,
   TagResponseDto,
   WorkflowType,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 
 type DeepPartial<T> = T extends Date
   ? T

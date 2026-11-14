@@ -2,7 +2,7 @@ import { Kysely, sql } from 'kysely';
 
 export async function up(db: Kysely<any>): Promise<void> {
   await sql`ALTER TABLE "albums_assets_assets" ADD "updatedAt" timestamp with time zone NOT NULL DEFAULT now();`.execute(db);
-  await sql`ALTER TABLE "albums_assets_assets" ADD "updateId" uuid NOT NULL DEFAULT immich_uuid_v7();`.execute(db);
+  await sql`ALTER TABLE "albums_assets_assets" ADD "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7();`.execute(db);
   await sql`CREATE INDEX "IDX_album_assets_update_id" ON "albums_assets_assets" ("updateId")`.execute(db);
   await sql`CREATE OR REPLACE TRIGGER "album_assets_updated_at"
   BEFORE UPDATE ON "albums_assets_assets"

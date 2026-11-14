@@ -14,10 +14,10 @@ import {
 } from 'src/enum.js';
 import { BaseService } from 'src/services/base.service.js';
 import type { JobOf, SystemFlags } from 'src/types.js';
-import { ImmichStartupError } from 'src/utils/misc.js';
+import { UniversalPhotosStartupError } from 'src/utils/misc.js';
 import { detectMediaLocation } from 'src/utils/storage.js';
 
-const docsMessage = `Please see https://docs.immich.app/administration/system-integrity#folder-checks for more information.`;
+const docsMessage = `Please see https://docs./administration/system-integrity#folder-checks for more information.`;
 
 @Injectable()
 export class StorageService extends BaseService {
@@ -143,7 +143,7 @@ export class StorageService extends BaseService {
       await this.storageRepository.readFile(internalPath);
     } catch (error) {
       this.logger.error(`Failed to read (${internalPath}): ${error}`);
-      throw new ImmichStartupError(`Failed to read: "${externalPath} (${internalPath}) - ${docsMessage}"`);
+      throw new UniversalPhotosStartupError(`Failed to read: "${externalPath} (${internalPath}) - ${docsMessage}"`);
     }
   }
 
@@ -158,7 +158,7 @@ export class StorageService extends BaseService {
         return;
       }
       this.logger.error(`Failed to create ${internalPath}: ${error}`);
-      throw new ImmichStartupError(`Failed to create "${externalPath} - ${docsMessage}"`);
+      throw new UniversalPhotosStartupError(`Failed to create "${externalPath} - ${docsMessage}"`);
     }
   }
 
@@ -168,14 +168,14 @@ export class StorageService extends BaseService {
       await this.storageRepository.overwriteFile(internalPath, Buffer.from(Date.now().toString()));
     } catch (error) {
       this.logger.error(`Failed to write ${internalPath}: ${error}`);
-      throw new ImmichStartupError(`Failed to write "${externalPath} - ${docsMessage}"`);
+      throw new UniversalPhotosStartupError(`Failed to write "${externalPath} - ${docsMessage}"`);
     }
   }
 
   private getMountFilePaths(folder: StorageFolder) {
     const folderPath = StorageCore.getBaseFolder(folder);
-    const internalPath = join(folderPath, '.immich');
-    const externalPath = `<UPLOAD_LOCATION>/${folder}/.immich`;
+    const internalPath = join(folderPath, '');
+    const externalPath = `<UPLOAD_LOCATION>/${folder}/`;
 
     return { folderPath, internalPath, externalPath };
   }

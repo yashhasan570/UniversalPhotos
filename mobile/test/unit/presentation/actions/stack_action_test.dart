@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/stack.action.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/stack.action.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../service.mocks.dart';
@@ -68,7 +68,7 @@ void main() {
       await pumpStack(tester, {owned(), owned()});
       await tester.pumpAndSettle();
 
-      expect(find.byType(ImmichIconButton), findsNothing, reason: 'an empty selection hides the action');
+      expect(find.byType(UniversalPhotosIconButton), findsNothing, reason: 'an empty selection hides the action');
     });
 
     testWidgets('is hidden when a unstacked asset has nothing to stack onto', (tester) async {
@@ -78,7 +78,7 @@ void main() {
         overrides: context.selected({owned()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('is hidden when none of the selected assets are owned', (tester) async {
@@ -88,7 +88,7 @@ void main() {
         overrides: context.selected({RemoteAssetFactory.create(), RemoteAssetFactory.create()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
   });
 }

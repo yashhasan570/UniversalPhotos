@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { factory } from '#test/common/factories.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { AssetJobName, AssetTypeEnum } from '@immich/sdk';
+import { AssetJobName, AssetTypeEnum } from '@universalphotos/sdk';
 
 test('runs each asset job from the viewer', async ({ page, data, api, app }) => {
   const asset = factory.asset({ type: AssetTypeEnum.Video });

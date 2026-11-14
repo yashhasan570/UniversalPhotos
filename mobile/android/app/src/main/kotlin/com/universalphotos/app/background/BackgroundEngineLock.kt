@@ -2,13 +2,13 @@ package com.universalphotos.app.background
 
 import android.content.Context
 import android.util.Log
-import com.universalphotos.app.core.ImmichPlugin
+import com.universalphotos.app.core.UniversalPhotosPlugin
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import java.util.concurrent.atomic.AtomicInteger
 
 private const val TAG = "BackgroundEngineLock"
 
-class BackgroundEngineLock(context: Context) : BackgroundWorkerLockApi, ImmichPlugin() {
+class BackgroundEngineLock(context: Context) : BackgroundWorkerLockApi, UniversalPhotosPlugin() {
   private val ctx: Context = context.applicationContext
 
   companion object {

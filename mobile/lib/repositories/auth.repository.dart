@@ -1,10 +1,10 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/sync_stream.repository.dart';
-import 'package:immich_mobile/models/auth/auxilary_endpoint.model.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/sync_stream.repository.dart';
+import 'package:universal_photos/models/auth/auxilary_endpoint.model.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
 
 final authRepositoryProvider = Provider<AuthRepository>(
   (ref) => AuthRepository(ref.watch(driftProvider), ref.watch(settingsProvider)),

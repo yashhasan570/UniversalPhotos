@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/infrastructure/current_album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/remote_album.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
+import 'package:universal_photos/providers/infrastructure/current_album.provider.dart';
+import 'package:universal_photos/providers/infrastructure/remote_album.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/widgets/common/user_circle_avatar.dart';
 
 class RemoteAlbumSharedUserIcons extends ConsumerWidget {
   const RemoteAlbumSharedUserIcons({super.key});

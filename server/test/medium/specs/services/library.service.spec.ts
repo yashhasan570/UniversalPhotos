@@ -159,7 +159,7 @@ describe(LibraryService.name, () => {
   let outsidePath: string;
 
   beforeEach(async () => {
-    tempDir = await mkdtemp(join(tmpdir(), 'immich-library-'));
+    tempDir = await mkdtemp(join(tmpdir(), 'universalphotos-library-'));
     importRoot = join(tempDir, 'libraries/offline');
     importPath = join(importRoot, 'in-path');
     excludedPath = join(importRoot, 'excluded');

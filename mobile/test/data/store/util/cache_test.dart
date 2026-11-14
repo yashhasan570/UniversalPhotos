@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store/util/cache.dart';
+import 'package:universal_photos/data/store/util/cache.dart';
 
 typedef _Item = ({String id, String scope, int version});
 

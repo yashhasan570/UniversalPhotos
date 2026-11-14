@@ -11,8 +11,8 @@
     getUsersForPeople,
     type PersonResponseDto,
     type UserResponseDto,
-  } from '@immich/sdk';
-  import { ActionButton, BasicModal, HStack, Text, type ActionItem } from '@immich/ui';
+  } from '@Universal Photos/sdk';
+  import { ActionButton, BasicModal, HStack, Text, type ActionItem } from '@Universal Photos/ui';
   import { mdiAccountMultipleOutline } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';

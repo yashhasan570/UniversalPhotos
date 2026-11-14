@@ -11,8 +11,8 @@ import {
   setMaintenanceMode,
   type DatabaseBackupDto,
   type DatabaseBackupUploadDto,
-} from '@immich/sdk';
-import { modalManager, type ActionItem } from '@immich/ui';
+} from '@universalphotos/sdk';
+import { modalManager, type ActionItem } from '@universalphotos/ui';
 import { mdiDownload, mdiTrashCanOutline } from '@mdi/js';
 import { DateTime } from 'luxon';
 import type { MessageFormatter } from 'svelte-i18n';

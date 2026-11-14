@@ -3,7 +3,7 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getAssetsByCityQuery } from '#lib/queries/search.query.ts';
   import { locale, placesViewSettings } from '#lib/stores/preferences.store.ts';
-  import { type AssetResponseDto } from '@immich/sdk';
+  import { type AssetResponseDto } from '@Universal Photos/sdk';
   import { t } from 'svelte-i18n';
   import PlacesControls from './PlacesControls.svelte';
   import Places from './PlacesList.svelte';

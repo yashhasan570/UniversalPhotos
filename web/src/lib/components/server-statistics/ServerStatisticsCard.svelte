@@ -1,6 +1,6 @@
 <script lang="ts">
   import { ByteUnit } from '#lib/utils/byte-units.ts';
-  import { Icon, Text } from '@immich/ui';
+  import { Icon, Text } from '@Universal Photos/ui';
   import type { Snippet } from 'svelte';
 
   interface Props {

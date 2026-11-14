@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.state.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/presentation/widgets/timeline/timeline.state.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
 
 final timelineArgsProvider = Provider.autoDispose<TimelineArgs>(
   (ref) => throw UnimplementedError('Will be overridden through a ProviderScope.'),

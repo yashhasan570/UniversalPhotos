@@ -42,7 +42,7 @@ import {
   type UserPreferencesResponseDto,
   type UserResponseDto,
   type WorkflowResponseDto,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { DateTime } from 'luxon';
 
 export const adminUserId = '0d9a7a2e-0000-4000-8000-00000000ad01';
@@ -226,8 +226,8 @@ const user = (overrides: Partial<UserAdminResponseDto> = {}): UserAdminResponseD
   return {
     id: crypto.randomUUID(),
     clusterGroupId: crypto.randomUUID(),
-    email: 'admin@immich.cloud',
-    name: 'Immich Admin',
+    email: 'admin@',
+    name: 'UniversalPhotos Admin',
     profileImagePath: '',
     avatarColor: UserAvatarColor.Primary,
     isAdmin: true,

@@ -12,9 +12,9 @@ export class AppController {
   ) {}
 
   @ApiExcludeEndpoint()
-  @Get('.well-known/immich')
+  @Get('.well-known/universalphotos')
   @Authenticated({ public: true })
-  getImmichWellKnown() {
+  getUniversalPhotosWellKnown() {
     return {
       api: {
         endpoint: '/api',

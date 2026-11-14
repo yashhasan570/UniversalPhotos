@@ -8,7 +8,7 @@
     toggleAlbumGroupCollapsing,
     type AlbumGroup,
   } from '#lib/utils/album-utils.ts';
-  import { Icon } from '@immich/ui';
+  import { Icon } from '@Universal Photos/ui';
   import { mdiChevronRight } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { slide } from 'svelte/transition';
@@ -23,7 +23,7 @@
 
 <table class="mt-2 w-full text-start">
   <thead
-    class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-primary dark:border-immich-dark-gray dark:bg-immich-dark-gray"
+    class="mb-4 flex h-12 w-full rounded-md border bg-gray-50 text-primary dark:border-Universal Photos-dark-gray dark:bg-Universal Photos-dark-gray"
   >
     <tr class="flex w-full place-items-center p-2 md:p-5">
       {#each sortOptionsMetadata as option, index (index)}
@@ -32,7 +32,7 @@
     </tr>
   </thead>
   {#if albumGroupOption === AlbumGroupBy.None}
-    <tbody class="block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray dark:text-immich-dark-fg">
+    <tbody class="block w-full overflow-y-auto rounded-md border dark:border-Universal Photos-dark-gray dark:text-Universal Photos-dark-fg">
       {#each groupedAlbums[0].albums as album (album.id)}
         <AlbumTableRow {album} />
       {/each}
@@ -42,7 +42,7 @@
       {const isCollapsed = $derived(isAlbumGroupCollapsed($albumViewSettings, albumGroup.id))}
       {const iconRotation = $derived(isCollapsed ? 'rotate-0' : 'rotate-90')}
       <tbody
-        class="mt-4 block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray dark:text-immich-dark-fg"
+        class="mt-4 block w-full overflow-y-auto rounded-md border dark:border-Universal Photos-dark-gray dark:text-Universal Photos-dark-fg"
       >
         <tr
           class="flex w-full place-items-center p-2 md:py-3 md:ps-5 md:pe-5"
@@ -64,7 +64,7 @@
       </tbody>
       {#if !isCollapsed}
         <tbody
-          class="mt-4 block w-full overflow-y-auto rounded-md border dark:border-immich-dark-gray dark:text-immich-dark-fg"
+          class="mt-4 block w-full overflow-y-auto rounded-md border dark:border-Universal Photos-dark-gray dark:text-Universal Photos-dark-fg"
           transition:slide={{ duration: 300 }}
         >
           {#each albumGroup.albums as album (album.id)}

@@ -1,17 +1,17 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/constants.dart';
-import 'package:immich_ui/src/internal.dart';
+import 'package:universalphotos_ui/src/constants.dart';
+import 'package:universalphotos_ui/src/internal.dart';
 
-class ImmichMenu extends StatefulWidget {
+class UniversalPhotosMenu extends StatefulWidget {
   final List<Widget> children;
   final MenuAnchorChildBuilder builder;
   final MenuStyle? style;
   final bool consumeOutsideTap;
   final Widget? child;
 
-  const ImmichMenu({
+  const UniversalPhotosMenu({
     super.key,
     required this.children,
     required this.builder,
@@ -21,15 +21,15 @@ class ImmichMenu extends StatefulWidget {
   });
 
   @override
-  State<ImmichMenu> createState() => _ImmichMenuState();
+  State<UniversalPhotosMenu> createState() => _UniversalPhotosMenuState();
 }
 
-class _ImmichMenuState extends State<ImmichMenu> {
+class _UniversalPhotosMenuState extends State<UniversalPhotosMenu> {
   final _controller = MenuController();
 
   @override
   Widget build(BuildContext context) {
-    return _ImmichMenuScope(
+    return _UniversalPhotosMenuScope(
       controller: _controller,
       child: MenuAnchor(
         controller: _controller,
@@ -43,25 +43,25 @@ class _ImmichMenuState extends State<ImmichMenu> {
   }
 }
 
-class _ImmichMenuScope extends InheritedWidget {
+class _UniversalPhotosMenuScope extends InheritedWidget {
   final MenuController controller;
 
-  const _ImmichMenuScope({required this.controller, required super.child});
+  const _UniversalPhotosMenuScope({required this.controller, required super.child});
 
   static MenuController? maybeOf(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<_ImmichMenuScope>()?.controller;
+      context.dependOnInheritedWidgetOfExactType<_UniversalPhotosMenuScope>()?.controller;
 
   @override
-  bool updateShouldNotify(_ImmichMenuScope oldWidget) => controller != oldWidget.controller;
+  bool updateShouldNotify(_UniversalPhotosMenuScope oldWidget) => controller != oldWidget.controller;
 }
 
-class ImmichMenuItem extends StatefulWidget {
+class UniversalPhotosMenuItem extends StatefulWidget {
   final IconData icon;
   final String label;
   final FutureOr<void> Function() onPressed;
   final bool disabled;
 
-  const ImmichMenuItem({
+  const UniversalPhotosMenuItem({
     super.key,
     required this.icon,
     required this.label,
@@ -70,10 +70,10 @@ class ImmichMenuItem extends StatefulWidget {
   });
 
   @override
-  State<ImmichMenuItem> createState() => _ImmichMenuItemState();
+  State<UniversalPhotosMenuItem> createState() => _UniversalPhotosMenuItemState();
 }
 
-class _ImmichMenuItemState extends State<ImmichMenuItem> {
+class _UniversalPhotosMenuItemState extends State<UniversalPhotosMenuItem> {
   Future<void> _onPressed(MenuController? controller) async {
     try {
       await widget.onPressed();
@@ -84,17 +84,17 @@ class _ImmichMenuItemState extends State<ImmichMenuItem> {
 
   @override
   Widget build(BuildContext context) {
-    final controller = _ImmichMenuScope.maybeOf(context);
+    final controller = _UniversalPhotosMenuScope.maybeOf(context);
     return MenuItemButton(
       onPressed: widget.disabled ? null : () => _onPressed(controller),
       closeOnActivate: controller == null,
       style: MenuItemButton.styleFrom(
         foregroundColor: context.colorOverride,
         alignment: .centerLeft,
-        padding: const .symmetric(horizontal: ImmichSpacing.lg, vertical: ImmichSpacing.md),
+        padding: const .symmetric(horizontal: UniversalPhotosSpacing.lg, vertical: UniversalPhotosSpacing.md),
       ),
-      leadingIcon: Icon(widget.icon, size: ImmichIconSize.sm),
-      child: Text(widget.label, style: const .new(fontSize: ImmichTextSize.body)),
+      leadingIcon: Icon(widget.icon, size: UniversalPhotosIconSize.sm),
+      child: Text(widget.label, style: const .new(fontSize: UniversalPhotosTextSize.body)),
     );
   }
 }

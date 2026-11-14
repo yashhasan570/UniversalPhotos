@@ -8,8 +8,8 @@
     reassignFaces,
     type AssetFaceUpdateItem,
     type PersonResponseDto,
-  } from '@immich/sdk';
-  import { Button, toastManager } from '@immich/ui';
+  } from '@Universal Photos/sdk';
+  import { Button, toastManager } from '@Universal Photos/ui';
   import { mdiMerge, mdiPlus } from '@mdi/js';
   import { onMount, type Snippet } from 'svelte';
   import { t } from 'svelte-i18n';

@@ -2,13 +2,13 @@ import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumb_hash_provider.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/constants.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/theme_extensions.dart';
+import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos/presentation/widgets/images/remote_image_provider.dart';
+import 'package:universal_photos/presentation/widgets/images/thumb_hash_provider.dart';
+import 'package:universal_photos/presentation/widgets/timeline/constants.dart';
 import 'package:logging/logging.dart';
 
 final log = Logger('ThumbnailWidget');

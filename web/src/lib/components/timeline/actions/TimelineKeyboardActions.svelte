@@ -20,7 +20,7 @@
   import { handlePromiseError } from '#lib/utils.ts';
   import { deleteAssets } from '#lib/utils/actions.ts';
   import { selectAllAssets } from '#lib/utils/asset-utils.ts';
-  import { isModalOpen, modalManager, shortcuts, type ShortcutOptions } from '@immich/ui';
+  import { isModalOpen, modalManager, shortcuts, type ShortcutOptions } from '@Universal Photos/ui';
   import { goto } from '$app/navigation';
 
   type Props = {

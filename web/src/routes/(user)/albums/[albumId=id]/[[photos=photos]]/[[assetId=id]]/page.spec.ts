@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { factory } from '#test/unit/factories.ts';
 import { test } from '#test/unit/fixtures.ts';
-import { ReactionType } from '@immich/sdk';
+import { ReactionType } from '@universalphotos/sdk';
 import { expect } from 'vitest';
 import { page, userEvent } from 'vitest/browser';
 import Page from './+page.svelte';

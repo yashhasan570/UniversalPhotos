@@ -1,5 +1,5 @@
 [project]
-name = "immich-ml"
+name = "universalphotos-ml"
 version = "3.4.0rc0"
 description = ""
 authors = [{ name = "Hau Tran", email = "alex.tran1502@gmail.com" }]
@@ -9,7 +9,7 @@ dependencies = [
     "fastapi>=0.95.2,<1.0",
     "gunicorn>=21.1.0",
     "huggingface-hub>=1.0,<2.0",
-    "immich-model",
+    "universalphotos-model",
     "numpy>=2.4.0,<3.0",
     "onnx>=1.22.0",
     "opencv-python-headless>=4.7.0.72,<5.0",
@@ -74,7 +74,7 @@ compile-bytecode = true
 override-dependencies = ["opencv-python ; sys_platform == 'never'"] # only install the headless version
 
 [tool.uv.sources]
-immich-model = { git = "https://github.com/immich-app/ml-models.git", rev = "f5d9c851010c47324f8fa4cae8a3fd8d0340b90e" }
+universalphotos-model = { git = "https://github.com/universalphotos-app/ml-models.git", rev = "f5d9c851010c47324f8fa4cae8a3fd8d0340b90e" }
 onnxruntime-gpu = { index = "onnxruntime-cuda-12" }
 openvino = { index = "openvino-nightly" }
 
@@ -90,10 +90,10 @@ explicit = true
 
 
 [tool.hatch.build.targets.sdist]
-include = ["immich_ml"]
+include = ["universal_photos_ml"]
 
 [tool.hatch.build.targets.wheel]
-include = ["immich_ml"]
+include = ["universal_photos_ml"]
 
 [build-system]
 requires = ["hatchling"]

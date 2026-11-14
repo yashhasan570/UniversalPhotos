@@ -10,8 +10,8 @@
   import { createPreloadedQuery, executeMutation } from '#lib/queries/client.ts';
   import { getAdminConfigQuery, updateAdminConfigMutation } from '#lib/queries/config-admin.query.ts';
   import { Route } from '#lib/route.ts';
-  import { getStorageTemplateOptions, type SystemConfigTemplateStorageOptionDto } from '@immich/sdk';
-  import { Code, Heading, IconButton, Link, Text, modalManager } from '@immich/ui';
+  import { getStorageTemplateOptions, type SystemConfigTemplateStorageOptionDto } from '@Universal Photos/sdk';
+  import { Code, Heading, IconButton, Link, Text, modalManager } from '@Universal Photos/ui';
   import { mdiInformationOutline } from '@mdi/js';
   import handlebar from 'handlebars';
   import { cloneDeep } from 'lodash-es';
@@ -188,7 +188,7 @@
             {$t('preset')}
           </label>
           <select
-            class="mt-2 immich-form-input rounded-lg bg-slate-200 p-2 text-sm hover:cursor-pointer dark:bg-gray-600"
+            class="mt-2 Universal Photos-form-input rounded-lg bg-slate-200 p-2 text-sm hover:cursor-pointer dark:bg-gray-600"
             {disabled}
             name="presets"
             id="preset-select"
@@ -262,16 +262,16 @@
   </div>
 {/snippet}
 
-<section class="mt-2 dark:text-immich-dark-fg">
+<section class="mt-2 dark:text-Universal Photos-dark-fg">
   {#if !minified}
     <div in:fade={{ duration }} class="mx-4 flex flex-col gap-4 py-4">
-      <p class="text-sm dark:text-immich-dark-fg">
+      <p class="text-sm dark:text-Universal Photos-dark-fg">
         <FormatMessage key="admin.storage_template_more_details">
           {#snippet children({ tag, message })}
             {#if tag === 'template-link'}
-              <Link href="https://docs.immich.app/administration/storage-template">{message}</Link>
+              <Link href="https://docs./administration/storage-template">{message}</Link>
             {:else if tag === 'implications-link'}
-              <Link href="https://docs.immich.app/administration/backup-and-restore#asset-types-and-storage-locations">
+              <Link href="https://docs./administration/backup-and-restore#asset-types-and-storage-locations">
                 {message}
               </Link>
             {/if}

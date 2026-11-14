@@ -50,7 +50,7 @@ import { PersonUserTable } from 'src/schema/tables/person-user.table.js';
 import { BaseService } from 'src/services/base.service.js';
 import type { JobItem, JobOf } from 'src/types.js';
 import { getDimensions, getMyPartnerIds } from 'src/utils/asset.util.js';
-import { ImmichFileResponse } from 'src/utils/file.js';
+import { UniversalPhotosFileResponse } from 'src/utils/file.js';
 import { isHttpException } from 'src/utils/logger.js';
 import { mimeTypes } from 'src/utils/mime-types.js';
 import { batched, findOrFail, hasSomeDefined, isFacialRecognitionEnabled } from 'src/utils/misc.js';
@@ -205,7 +205,7 @@ export class PersonService extends BaseService {
     return this.personRepository.getStatistics(personGroupId, { ownerId: auth.user.id, partnerIds });
   }
 
-  async getThumbnail(auth: AuthDto, personGroupId: string): Promise<ImmichFileResponse> {
+  async getThumbnail(auth: AuthDto, personGroupId: string): Promise<UniversalPhotosFileResponse> {
     await this.requirePersonAccess({
       auth,
       permission: Permission.PersonRead,
@@ -217,7 +217,7 @@ export class PersonService extends BaseService {
       throw new NotFoundException();
     }
 
-    return new ImmichFileResponse({
+    return new UniversalPhotosFileResponse({
       path: thumbnailPath,
       contentType: mimeTypes.lookup(thumbnailPath),
       cacheControl: CacheControl.PrivateWithoutCache,

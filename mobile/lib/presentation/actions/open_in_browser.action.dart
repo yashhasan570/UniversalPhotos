@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/providers/infrastructure/store.provider.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.dart';
+import 'package:universal_photos/providers/infrastructure/store.provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class OpenInBrowserAction extends ActionBuilder {

@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["local>immich-app/.github:renovate-config"],
+  "extends": ["local>universalphotos-app/.github:renovate-config"],
   "packageRules": [
     {
       "matchFileNames": [
@@ -33,12 +33,12 @@
       ]
     },
     {
-      "matchPackageNames": ["ghcr.io/immich-app/postgres"],
+      "matchPackageNames": ["/postgres"],
       "matchUpdateTypes": ["major"],
       "enabled": false
     },
     {
-      "matchPackageNames": ["ghcr.io/immich-app/base-server-*"],
+      "matchPackageNames": ["/base-server-*"],
       "maxMajorIncrement": 0
     },
     {

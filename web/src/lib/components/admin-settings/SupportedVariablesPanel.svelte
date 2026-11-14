@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Card, CardBody, Heading, Text } from '@immich/ui';
+  import { Card, CardBody, Heading, Text } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 </script>
 

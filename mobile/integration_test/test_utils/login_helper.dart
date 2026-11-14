@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
+import 'package:universal_photos/generated/translations.g.dart';
 
 import 'general_helper.dart';
 
-class ImmichTestLoginHelper {
+class UniversalPhotosTestLoginHelper {
   final WidgetTester tester;
 
-  const ImmichTestLoginHelper(this.tester);
+  const UniversalPhotosTestLoginHelper(this.tester);
 
   Future<void> waitForLoginScreen() async {
     await pumpUntilFound(tester, find.text("Login"));
@@ -59,11 +59,11 @@ class ImmichTestLoginHelper {
 }
 
 enum LoginCredentials {
-  testInstance("https://flutter-int-test.preview.immich.app", "demo@immich.app", "demo"),
+  testInstance("https://flutter-int-test.preview.", "demo@", "demo"),
 
-  testInstanceButWithWrongPassword("https://flutter-int-test.preview.immich.app", "demo@immich.app", "wrong"),
+  testInstanceButWithWrongPassword("https://flutter-int-test.preview.", "demo@", "wrong"),
 
-  wrongInstanceUrl("https://does-not-exist.preview.immich.app", "demo@immich.app", "demo");
+  wrongInstanceUrl("https://does-not-exist.preview.", "demo@", "demo");
 
   const LoginCredentials(this.server, this.email, this.password);
 

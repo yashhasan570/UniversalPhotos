@@ -5,12 +5,12 @@ import { JobsOptions, Queue, Worker } from 'bullmq';
 import { setTimeout } from 'node:timers/promises';
 import { JobConfig } from 'src/decorators.js';
 import { QueueJobResponseDto, QueueJobSearchDto } from 'src/dtos/queue.dto.js';
-import { ImmichWorker, JobName, JobStatus, MetadataKey, QueueCleanType, QueueJobStatus, QueueName } from 'src/enum.js';
+import { UniversalPhotosWorker, JobName, JobStatus, MetadataKey, QueueCleanType, QueueJobStatus, QueueName } from 'src/enum.js';
 import { ConfigRepository } from 'src/repositories/config.repository.js';
 import { EventRepository } from 'src/repositories/event.repository.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
 import type { JobCounts, JobItem, JobOf } from 'src/types.js';
-import { ImmichStartupError, getKeyByValue, getMethodNames } from 'src/utils/misc.js';
+import { UniversalPhotosStartupError, getKeyByValue, getMethodNames } from 'src/utils/misc.js';
 
 type JobMapItem = {
   jobName: JobName;
@@ -60,7 +60,7 @@ export class JobRepository {
           this.logger.error(
             `${errorMessage}. JobName.${jobKey} is already handled by ${this.handlers[jobName]!.label}.`,
           );
-          throw new ImmichStartupError(errorMessage);
+          throw new UniversalPhotosStartupError(errorMessage);
         }
 
         this.handlers[jobName] = {
@@ -82,7 +82,7 @@ export class JobRepository {
         this.logger.error(
           `${errorMessage}. Make sure to add the @OnJob({ name: JobName.${jobKey}, queue: QueueName.XYZ }) decorator for the new job.`,
         );
-        throw new ImmichStartupError(errorMessage);
+        throw new UniversalPhotosStartupError(errorMessage);
       }
     }
   }
@@ -94,7 +94,7 @@ export class JobRepository {
       this.workers[queueName] = new Worker(
         queueName,
         (job) => this.eventRepository.emit('JobRun', queueName, job as JobItem),
-        { ...bull.config, concurrency: 1, name: ImmichWorker.Microservices },
+        { ...bull.config, concurrency: 1, name: UniversalPhotosWorker.Microservices },
       );
     }
   }
@@ -115,7 +115,7 @@ export class JobRepository {
   private async checkWorkers() {
     let isPresent: boolean;
     try {
-      const suffix = `:w:${ImmichWorker.Microservices}`;
+      const suffix = `:w:${UniversalPhotosWorker.Microservices}`;
       const workers = await this.getQueue(QueueName.BackgroundTask).getWorkers();
       isPresent = workers.some((worker) => worker.rawname?.endsWith(suffix));
     } catch {

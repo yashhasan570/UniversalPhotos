@@ -6,20 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/events.model.dart';
-import 'package:immich_mobile/domain/utils/event_stream.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/map_bottom_sheet.widget.dart';
-import 'package:immich_mobile/presentation/widgets/map/map.state.dart';
-import 'package:immich_mobile/presentation/widgets/map/map_utils.dart';
-import 'package:immich_mobile/providers/routes.provider.dart';
-import 'package:immich_mobile/utils/async_mutex.dart';
-import 'package:immich_mobile/utils/debounce.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/map/map_theme_override.dart';
+import 'package:universal_photos/domain/models/events.model.dart';
+import 'package:universal_photos/domain/utils/event_stream.dart';
+import 'package:universal_photos/extensions/asyncvalue_extensions.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:universal_photos/presentation/widgets/bottom_sheet/map_bottom_sheet.widget.dart';
+import 'package:universal_photos/presentation/widgets/map/map.state.dart';
+import 'package:universal_photos/presentation/widgets/map/map_utils.dart';
+import 'package:universal_photos/providers/routes.provider.dart';
+import 'package:universal_photos/utils/async_mutex.dart';
+import 'package:universal_photos/utils/debounce.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universal_photos/widgets/map/map_theme_override.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -170,7 +170,7 @@ class _MapViewState extends ConsumerState<MapView> {
     final (location, error) = await MapUtils.checkPermAndGetLocation(context: context);
     if (error != null) {
       if (error == LocationPermission.unableToDetermine && context.mounted) {
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           gravity: ToastGravity.BOTTOM,
           toastType: ToastType.error,

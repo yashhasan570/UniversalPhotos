@@ -1,8 +1,8 @@
 <script lang="ts">
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { getAssetUrl } from '#lib/utils.ts';
-  import { AssetMediaSize, viewAsset, type AssetResponseDto } from '@immich/sdk';
-  import { LoadingSpinner } from '@immich/ui';
+  import { AssetMediaSize, viewAsset, type AssetResponseDto } from '@Universal Photos/sdk';
+  import { LoadingSpinner } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
 

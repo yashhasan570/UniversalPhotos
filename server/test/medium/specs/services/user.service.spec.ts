@@ -1,6 +1,6 @@
 import { Kysely } from 'kysely';
 import { DateTime } from 'luxon';
-import { ImmichEnvironment, JobName, JobStatus, PersonUpdateStrategy, UserAvatarColor } from 'src/enum.js';
+import { UniversalPhotosEnvironment, JobName, JobStatus, PersonUpdateStrategy, UserAvatarColor } from 'src/enum.js';
 import { ClusterGroupRepository } from 'src/repositories/cluster-group.repository.js';
 import { ConfigRepository } from 'src/repositories/config.repository.js';
 import { CryptoRepository } from 'src/repositories/crypto.repository.js';
@@ -25,7 +25,7 @@ const userLicense = {
 let defaultDatabase: Kysely<DB>;
 
 const setup = (db?: Kysely<DB>) => {
-  process.env.IMMICH_ENV = ImmichEnvironment.Testing;
+  process.env.UNIVERSALPHOTOS_ENV = UniversalPhotosEnvironment.Testing;
 
   return newMediumService(UserService, {
     database: db || defaultDatabase,
@@ -37,7 +37,7 @@ const setup = (db?: Kysely<DB>) => {
 beforeAll(async () => {
   defaultDatabase = await getKyselyDB();
   const { ctx } = setup();
-  await ctx.newUser({ isAdmin: true, email: 'admin@immich.cloud' });
+  await ctx.newUser({ isAdmin: true, email: 'admin@' });
 });
 
 describe(UserService.name, () => {
@@ -173,7 +173,7 @@ describe(UserService.name, () => {
       const { user } = await ctx.newUser();
       const auth = factory.auth({ user: { id: user.id } });
 
-      const dto = { email: 'updated@immich.cloud' };
+      const dto = { email: 'updated@' };
 
       await expect(sut.updateMe(auth, dto)).resolves.toMatchObject(dto);
       await expect(sut.getMe(auth)).resolves.toMatchObject(dto);

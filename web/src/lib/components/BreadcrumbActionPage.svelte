@@ -10,7 +10,7 @@
     Scrollable,
     isMenuItemType,
     type BreadcrumbItem,
-  } from '@immich/ui';
+  } from '@Universal Photos/ui';
   import { mdiSlashForward } from '@mdi/js';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';

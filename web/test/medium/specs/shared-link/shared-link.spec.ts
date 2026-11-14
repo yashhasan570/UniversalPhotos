@@ -2,7 +2,7 @@ import { Route } from '#lib/route.ts';
 import type { MockData } from '#test/common/data.ts';
 import { factory } from '#test/common/factories.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { SharedLinkType } from '@immich/sdk';
+import { SharedLinkType } from '@universalphotos/sdk';
 
 const setup = (data: MockData, overrides = {}) => {
   const assets = [factory.asset(), factory.asset()];

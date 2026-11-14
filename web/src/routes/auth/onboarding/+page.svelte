@@ -4,7 +4,7 @@
   import { getServerConfigQuery } from '#lib/queries/server-info.query.ts';
   import { Route } from '#lib/route.ts';
   import { OnboardingRole } from '#lib/types.ts';
-  import { setUserOnboarding, updateAdminOnboarding } from '@immich/sdk';
+  import { setUserOnboarding, updateAdminOnboarding } from '@Universal Photos/sdk';
   import {
     mdiCellphoneArrowDownVariant,
     mdiCloudCheckOutline,

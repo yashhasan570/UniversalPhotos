@@ -16,7 +16,7 @@ import {
   ChecksumAlgorithm,
   DatabaseLock,
   ExifOrientation,
-  ImmichWorker,
+  UniversalPhotosWorker,
   JobName,
   JobStatus,
   QueueName,
@@ -24,7 +24,7 @@ import {
 } from 'src/enum.js';
 import type { ArgOf } from 'src/repositories/event.repository.js';
 import { ReverseGeocodeResult } from 'src/repositories/map.repository.js';
-import { ImmichTags } from 'src/repositories/metadata.repository.js';
+import { UniversalPhotosTags } from 'src/repositories/metadata.repository.js';
 import { AssetExifTable } from 'src/schema/tables/asset-exif.table.js';
 import { AssetFaceTable } from 'src/schema/tables/asset-face.table.js';
 import { BaseService } from 'src/services/base.service.js';
@@ -41,7 +41,7 @@ const POSTGRES_INT_MAX = 2_147_483_647;
 const POSTGRES_INT_MIN = -2_147_483_648;
 
 /** look for a date from these tags (in order) */
-const EXIF_DATE_TAGS: Array<keyof ImmichTags> = [
+const EXIF_DATE_TAGS: Array<keyof UniversalPhotosTags> = [
   'SubSecDateTimeOriginal',
   'SubSecCreateDate',
   'DateTimeOriginal',
@@ -53,10 +53,10 @@ const EXIF_DATE_TAGS: Array<keyof ImmichTags> = [
   'DateTimeUTC',
   'SonyDateTime2',
   // Undocumented, non-standard tag from insta360 in xmp.GPano namespace
-  'SourceImageCreateTime' as keyof ImmichTags,
+  'SourceImageCreateTime' as keyof UniversalPhotosTags,
 ];
 
-export function firstDateTime(tags: ImmichTags) {
+export function firstDateTime(tags: UniversalPhotosTags) {
   for (const tag of EXIF_DATE_TAGS) {
     const tagValue = tags?.[tag];
 
@@ -114,7 +114,7 @@ const validateRange = (value: number | undefined, min: number, max: number): Non
   return Math.round(val);
 };
 
-const getLensModel = (exifTags: ImmichTags): string | null => {
+const getLensModel = (exifTags: UniversalPhotosTags): string | null => {
   const lensModel = String(
     exifTags.LensID ?? exifTags.LensType ?? exifTags.LensSpec ?? exifTags.LensModel ?? '',
   ).trim();
@@ -127,7 +127,7 @@ const getLensModel = (exifTags: ImmichTags): string | null => {
   return lensModel || null;
 };
 
-type ImmichTagsWithFaces = ImmichTags & { RegionInfo: NonNullable<ImmichTags['RegionInfo']> };
+type UniversalPhotosTagsWithFaces = UniversalPhotosTags & { RegionInfo: NonNullable<UniversalPhotosTags['RegionInfo']> };
 
 type Dates = {
   dateTimeOriginal: Date;
@@ -136,7 +136,7 @@ type Dates = {
 
 @Injectable()
 export class MetadataService extends BaseService {
-  @OnEvent({ name: 'AppBootstrap', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', workers: [UniversalPhotosWorker.Microservices] })
   async onBootstrap() {
     this.logger.log('Bootstrapping metadata service');
     await this.init();
@@ -147,12 +147,12 @@ export class MetadataService extends BaseService {
     await this.metadataRepository.teardown();
   }
 
-  @OnEvent({ name: 'ConfigInit', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'ConfigInit', workers: [UniversalPhotosWorker.Microservices] })
   onConfigInit({ newConfig }: ArgOf<'ConfigInit'>) {
     this.metadataRepository.setMaxConcurrency(newConfig.job.metadataExtraction.concurrency);
   }
 
-  @OnEvent({ name: 'ConfigUpdate', workers: [ImmichWorker.Microservices], server: true })
+  @OnEvent({ name: 'ConfigUpdate', workers: [UniversalPhotosWorker.Microservices], server: true })
   onConfigUpdate({ newConfig }: ArgOf<'ConfigUpdate'>) {
     this.metadataRepository.setMaxConcurrency(newConfig.job.metadataExtraction.concurrency);
   }
@@ -553,7 +553,7 @@ export class MetadataService extends BaseService {
     return candidates;
   }
 
-  private getImageDimensions(exifTags: ImmichTags): { width?: number; height?: number } {
+  private getImageDimensions(exifTags: UniversalPhotosTags): { width?: number; height?: number } {
     /*
      * The "true" values for width and height are a bit hidden, depending on the camera model and file format.
      * For RAW images in the CR2 or RAF format, the "ImageSize" value seems to be correct,
@@ -628,7 +628,7 @@ export class MetadataService extends BaseService {
     };
   }
 
-  private getTagList(exifTags: ImmichTags): string[] {
+  private getTagList(exifTags: UniversalPhotosTags): string[] {
     let tags: string[];
     if (exifTags.TagsList) {
       tags = exifTags.TagsList.map(String);
@@ -666,11 +666,11 @@ export class MetadataService extends BaseService {
     );
   }
 
-  private isMotionPhoto(asset: { type: AssetType }, tags: ImmichTags): boolean {
+  private isMotionPhoto(asset: { type: AssetType }, tags: UniversalPhotosTags): boolean {
     return asset.type === AssetType.Image && !!(tags.MotionPhoto || tags.MicroVideo);
   }
 
-  private async applyMotionPhotos(asset: Asset, tags: ImmichTags, dates: Dates, stats: Stats) {
+  private async applyMotionPhotos(asset: Asset, tags: UniversalPhotosTags, dates: Dates, stats: Stats) {
     const isMotionPhoto = tags.MotionPhoto;
     const isMicroVideo = tags.MicroVideo;
     const videoOffset = tags.MicroVideoOffset;
@@ -796,7 +796,7 @@ export class MetadataService extends BaseService {
         // (if it did, getByChecksum() would've returned a motionAsset with the same ID as livePhotoVideoId)
         // note asset.livePhotoVideoId is not motionAsset.id yet
         if (asset.livePhotoVideoId) {
-          // the old motion may be the user's own file (linked by livePhotoCID or manually), only remove ones Immich extracted
+          // the old motion may be the user's own file (linked by livePhotoCID or manually), only remove ones UniversalPhotos extracted
           const oldMotion = await this.assetRepository.getById(asset.livePhotoVideoId);
           const deleteOnDisk = !!oldMotion && StorageCore.isAndroidMotionPath(oldMotion.originalPath);
           await this.jobRepository.queue({
@@ -827,16 +827,16 @@ export class MetadataService extends BaseService {
     }
   }
 
-  private hasTaggedFaces(tags: ImmichTags): tags is ImmichTagsWithFaces {
+  private hasTaggedFaces(tags: UniversalPhotosTags): tags is UniversalPhotosTagsWithFaces {
     return (
       tags.RegionInfo !== undefined && tags.RegionInfo.AppliedToDimensions && tags.RegionInfo.RegionList.length > 0
     );
   }
 
   private orientRegionInfo(
-    regionInfo: ImmichTagsWithFaces['RegionInfo'],
+    regionInfo: UniversalPhotosTagsWithFaces['RegionInfo'],
     orientation: ExifOrientation | undefined,
-  ): ImmichTagsWithFaces['RegionInfo'] {
+  ): UniversalPhotosTagsWithFaces['RegionInfo'] {
     // skip default Orientation
     if (orientation === undefined || orientation === ExifOrientation.Horizontal) {
       return regionInfo;
@@ -917,7 +917,7 @@ export class MetadataService extends BaseService {
       faces: { id: string; sourceType: SourceType }[];
       originalPath: string;
     },
-    tags: ImmichTags,
+    tags: UniversalPhotosTags,
   ) {
     if (!tags.RegionInfo?.AppliedToDimensions || tags.RegionInfo.RegionList.length === 0) {
       return;
@@ -1013,7 +1013,7 @@ export class MetadataService extends BaseService {
 
   private getDates(
     asset: { id: string; originalPath: string; fileCreatedAt: Date },
-    exifTags: ImmichTags,
+    exifTags: UniversalPhotosTags,
     stats: Stats,
   ) {
     const result = firstDateTime(exifTags);
@@ -1080,20 +1080,20 @@ export class MetadataService extends BaseService {
     };
   }
 
-  private hasGeo(tags: ImmichTags) {
+  private hasGeo(tags: UniversalPhotosTags) {
     const lat = Number(tags.GPSLatitude);
     const lng = Number(tags.GPSLongitude);
     return !Number.isNaN(lat) && !Number.isNaN(lng) && (lat !== 0 || lng !== 0);
   }
 
-  private getAutoStackId(tags: ImmichTags | null): string | null {
+  private getAutoStackId(tags: UniversalPhotosTags | null): string | null {
     if (!tags) {
       return null;
     }
     return tags.BurstID ?? tags.BurstUUID ?? tags.CameraBurstID ?? tags.MediaUniqueID ?? null;
   }
 
-  private getBitsPerSample(tags: ImmichTags): number | null {
+  private getBitsPerSample(tags: UniversalPhotosTags): number | null {
     const bitDepthTags = [
       tags.BitsPerSample,
       tags.ComponentBitDepth,
@@ -1111,7 +1111,7 @@ export class MetadataService extends BaseService {
     return bitsPerSample;
   }
 
-  private getDuration(tags: ImmichTags): number | null {
+  private getDuration(tags: UniversalPhotosTags): number | null {
     const duration = tags.Duration;
     // eslint-disable-next-line unicorn/prefer-number-coercion
     const seconds = typeof duration === 'number' ? duration : Number.parseFloat(duration as string);
@@ -1124,7 +1124,7 @@ export class MetadataService extends BaseService {
     const audio = audioStreams[0];
     const packets = video?.timeBase ? await this.mediaRepository.probePackets(originalPath, video.index) : null;
 
-    const tags: Pick<ImmichTags, 'Duration' | 'Orientation' | 'ImageWidth' | 'ImageHeight'> = {};
+    const tags: Pick<UniversalPhotosTags, 'Duration' | 'Orientation' | 'ImageWidth' | 'ImageHeight'> = {};
 
     if (video) {
       if (video.width) {
@@ -1161,7 +1161,7 @@ export class MetadataService extends BaseService {
     return { tags, audio, video, packets, format };
   }
 
-  private getHeifOrientation(exifTags: ImmichTags): ExifOrientation | null {
+  private getHeifOrientation(exifTags: UniversalPhotosTags): ExifOrientation | null {
     // https://exiftool.org/TagNames/QuickTime.html#ItemPropCont
     const rotation = typeof exifTags.Rotation === 'number' ? exifTags.Rotation : undefined;
     switch (rotation) {

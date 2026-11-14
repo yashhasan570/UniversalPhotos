@@ -23,7 +23,7 @@ import {
 } from 'src/dtos/auth.dto.js';
 import { SystemConfig, defaults } from 'src/dtos/config.dto.js';
 import { UserAdminResponseDto, mapUserAdmin } from 'src/dtos/user.dto.js';
-import { AuthType, ImmichCookie, ImmichHeader, ImmichQuery, JobName, Permission } from 'src/enum.js';
+import { AuthType, UniversalPhotosCookie, UniversalPhotosHeader, UniversalPhotosQuery, JobName, Permission } from 'src/enum.js';
 import { OAuthConfig, OAuthRawProfile } from 'src/repositories/oauth.repository.js';
 import { BaseService } from 'src/services/base.service.js';
 import { isGranted } from 'src/utils/access.js';
@@ -239,14 +239,14 @@ export class AuthService extends BaseService {
   }
 
   private async validate({ headers, queryParams }: Omit<ValidateRequest, 'metadata'>): Promise<AuthDto> {
-    const shareKey = (headers[ImmichHeader.SharedLinkKey] || queryParams[ImmichQuery.SharedLinkKey]) as string;
-    const shareSlug = (headers[ImmichHeader.SharedLinkSlug] || queryParams[ImmichQuery.SharedLinkSlug]) as string;
-    const session = (headers[ImmichHeader.UserToken] ||
-      headers[ImmichHeader.SessionToken] ||
-      queryParams[ImmichQuery.SessionKey] ||
+    const shareKey = (headers[UniversalPhotosHeader.SharedLinkKey] || queryParams[UniversalPhotosQuery.SharedLinkKey]) as string;
+    const shareSlug = (headers[UniversalPhotosHeader.SharedLinkSlug] || queryParams[UniversalPhotosQuery.SharedLinkSlug]) as string;
+    const session = (headers[UniversalPhotosHeader.UserToken] ||
+      headers[UniversalPhotosHeader.SessionToken] ||
+      queryParams[UniversalPhotosQuery.SessionKey] ||
       this.getBearerToken(headers) ||
       this.getCookieToken(headers)) as string;
-    const apiKey = (headers[ImmichHeader.ApiKey] || queryParams[ImmichQuery.ApiKey]) as string;
+    const apiKey = (headers[UniversalPhotosHeader.ApiKey] || queryParams[UniversalPhotosQuery.ApiKey]) as string;
 
     if (shareKey) {
       return this.validateSharedLinkKey(shareKey);
@@ -291,10 +291,10 @@ export class AuthService extends BaseService {
 
     return OAuthProfileSchema.parse({
       ...profile,
-      defaults: { immich_quota_bytes: defaultStorageQuota },
-      immich_storage_label: profile[storageLabelClaim],
-      immich_quota_bytes: profile[storageQuotaClaim],
-      immich_role: profile[roleClaim],
+      defaults: { universalphotos_quota_bytes: defaultStorageQuota },
+      universalphotos_storage_label: profile[storageLabelClaim],
+      universalphotos_quota_bytes: profile[storageQuotaClaim],
+      universalphotos_role: profile[roleClaim],
     });
   }
 
@@ -337,9 +337,9 @@ export class AuthService extends BaseService {
       }
     }
 
-    const isAdmin = profile.immich_role === 'admin';
+    const isAdmin = profile_role === 'admin';
 
-    if (user && profile.immich_role && isAdmin !== user.isAdmin) {
+    if (user && profile_role && isAdmin !== user.isAdmin) {
       user = await this.userRepository.update(user.id, { isAdmin });
     }
 
@@ -369,8 +369,8 @@ export class AuthService extends BaseService {
         email: profile.email,
         oauthId: profile.sub,
         quotaSizeInBytes:
-          profile.immich_quota_bytes === undefined ? profile.defaults.immich_quota_bytes : profile.immich_quota_bytes,
-        storageLabel: profile.immich_storage_label ?? null,
+          profile_quota_bytes === undefined ? profile.defaults_quota_bytes : profile_quota_bytes,
+        storageLabel: profile_storage_label ?? null,
         isAdmin,
       });
     }
@@ -487,17 +487,17 @@ export class AuthService extends BaseService {
 
   private getCookieToken(headers: IncomingHttpHeaders): string | null {
     const cookies = parseCookie(headers.cookie || '');
-    return cookies[ImmichCookie.AccessToken] || null;
+    return cookies[UniversalPhotosCookie.AccessToken] || null;
   }
 
   private getCookieOauthState(headers: IncomingHttpHeaders): string | null {
     const cookies = parseCookie(headers.cookie || '');
-    return cookies[ImmichCookie.OAuthState] || null;
+    return cookies[UniversalPhotosCookie.OAuthState] || null;
   }
 
   private getCookieCodeVerifier(headers: IncomingHttpHeaders): string | null {
     const cookies = parseCookie(headers.cookie || '');
-    return cookies[ImmichCookie.OAuthCodeVerifier] || null;
+    return cookies[UniversalPhotosCookie.OAuthCodeVerifier] || null;
   }
 
   async validateSharedLinkKey(key: string | string[]): Promise<AuthDto> {
@@ -623,22 +623,22 @@ export class AuthService extends BaseService {
 
     if (
       oauth.storageLabelClaim !== defaults.oauth.storageLabelClaim &&
-      profile.immich_storage_label !== undefined &&
-      profile.immich_storage_label !== user.storageLabel
+      profile_storage_label !== undefined &&
+      profile_storage_label !== user.storageLabel
     ) {
-      const duplicate = profile.immich_storage_label
-        ? await this.userRepository.getByStorageLabel(profile.immich_storage_label)
+      const duplicate = profile_storage_label
+        ? await this.userRepository.getByStorageLabel(profile_storage_label)
         : undefined;
 
       if (duplicate && duplicate.id !== user.id) {
         this.logger.warn(`Unable to sync OAuth storage label for user ${user.id}: label already in use`);
       } else {
-        updates.storageLabel = profile.immich_storage_label;
+        updates.storageLabel = profile_storage_label;
       }
     }
 
-    if (profile.immich_quota_bytes !== undefined && profile.immich_quota_bytes !== user.quotaSizeInBytes) {
-      updates.quotaSizeInBytes = profile.immich_quota_bytes;
+    if (profile_quota_bytes !== undefined && profile_quota_bytes !== user.quotaSizeInBytes) {
+      updates.quotaSizeInBytes = profile_quota_bytes;
     }
 
     if (Object.keys(updates).length === 0) {
@@ -657,7 +657,7 @@ export class AuthService extends BaseService {
     url: string,
   ) {
     if (mobileOverrideEnabled && mobileRedirectUri) {
-      return url.replace(/app\.immich:\/+oauth-callback/, () => mobileRedirectUri);
+      return url.replace(/app\:\/+oauth-callback/, () => mobileRedirectUri);
     }
     return url;
   }

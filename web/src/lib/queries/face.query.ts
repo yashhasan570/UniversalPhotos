@@ -1,5 +1,5 @@
 import { asMutation, queryClient } from '#lib/queries/client.ts';
-import { createFace, deleteFace, getFaces, reassignFacesById, type AssetFaceResponseDto } from '@immich/sdk';
+import { createFace, deleteFace, getFaces, reassignFacesById, type AssetFaceResponseDto } from '@universalphotos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 export const getFacesQuery = (assetId: string) =>

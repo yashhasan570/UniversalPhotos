@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
 
-const providerLogoutUrl = 'https://oauth.example.com/logout?post_logout_redirect_uri=immich';
+const providerLogoutUrl = 'https://oauth.example.com/logout?post_logout_redirect_uri=universalphotos';
 
 test.describe('logout', () => {
   test.afterEach(async ({ page }) => {

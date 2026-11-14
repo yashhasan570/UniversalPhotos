@@ -5,7 +5,7 @@ import { basename, extname } from 'node:path';
 import { promisify } from 'node:util';
 import { CacheControl } from 'src/enum.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
-import { ImmichReadStream } from 'src/repositories/storage.repository.js';
+import { UniversalPhotosReadStream } from 'src/repositories/storage.repository.js';
 import { onRouteError } from 'src/utils/logger.js';
 
 export function getFileNameWithoutExtension(path: string): string {
@@ -24,13 +24,13 @@ export function getLivePhotoMotionFilename(stillName: string, motionName: string
   return getFileNameWithoutExtension(stillName) + getFilenameExtension(motionName);
 }
 
-export class ImmichFileResponse {
+export class UniversalPhotosFileResponse {
   public readonly path!: string;
   public readonly contentType!: string;
   public readonly cacheControl!: CacheControl;
   public readonly fileName?: string;
 
-  constructor(response: ImmichFileResponse) {
+  constructor(response: UniversalPhotosFileResponse) {
     Object.assign(this, response);
   }
 }
@@ -47,7 +47,7 @@ const cacheControlHeaders: Record<CacheControl, string | null> = {
 export const sendFile = async (
   res: Response,
   next: NextFunction,
-  handler: () => Promise<ImmichFileResponse> | ImmichFileResponse,
+  handler: () => Promise<UniversalPhotosFileResponse> | UniversalPhotosFileResponse,
   logger: LoggingRepository,
 ): Promise<void> => {
   // promisified version of 'res.sendFile' for cleaner async handling
@@ -79,6 +79,6 @@ export const sendFile = async (
   }
 };
 
-export const asStreamableFile = ({ stream, type, disposition, length }: ImmichReadStream) => {
+export const asStreamableFile = ({ stream, type, disposition, length }: UniversalPhotosReadStream) => {
   return new StreamableFile(stream, { type, disposition, length });
 };

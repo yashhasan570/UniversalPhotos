@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/presentation/widgets/slideshow/slideshow_controller.dart';
+import 'package:universal_photos/presentation/widgets/slideshow/slideshow_controller.dart';
 
 const slideDuration = Duration(seconds: 5);
 const tick = Duration(milliseconds: 1);

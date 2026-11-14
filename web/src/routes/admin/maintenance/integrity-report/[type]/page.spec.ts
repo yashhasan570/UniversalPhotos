@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { factory } from '#test/unit/factories.ts';
 import { test } from '#test/unit/fixtures.ts';
-import { IntegrityReport, ManualJobName } from '@immich/sdk';
+import { IntegrityReport, ManualJobName } from '@universalphotos/sdk';
 import { expect } from 'vitest';
 import Page from './+page.svelte';
 import { load } from './+page.ts';

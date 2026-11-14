@@ -4,7 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
 
 /// Mapping of pinch to zoom on the timeline grid to the number of columns displayed. Directly drives the `timelineTilesPerRow` setting
 class TimelinePinchZoom extends ConsumerStatefulWidget {

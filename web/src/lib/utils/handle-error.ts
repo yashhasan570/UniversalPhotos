@@ -1,5 +1,5 @@
-import { isHttpError } from '@immich/sdk';
-import { toastManager } from '@immich/ui';
+import { isHttpError } from '@universalphotos/sdk';
+import { toastManager } from '@universalphotos/ui';
 
 export function getServerErrorMessage(error: unknown) {
   if (!isHttpError(error)) {
@@ -47,7 +47,7 @@ export function handleError(error: unknown, localizedMessage: string, options?: 
   try {
     let serverMessage = getServerErrorMessage(error);
     if (serverMessage) {
-      serverMessage = `${serverMessage.slice(0, 75)}\n(Immich Server Error)`;
+      serverMessage = `${serverMessage.slice(0, 75)}\n(UniversalPhotos Server Error)`;
     }
 
     const errorMessage = serverMessage || localizedMessage;

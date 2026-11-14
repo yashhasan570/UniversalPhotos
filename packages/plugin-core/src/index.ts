@@ -1,5 +1,5 @@
-import { wrapper } from '@immich/plugin-sdk';
-import { AssetVisibility } from '@immich/sdk';
+import { wrapper } from '@universalphotos/plugin-sdk';
+import { AssetVisibility } from '@universalphotos/sdk';
 import type { Manifest } from '../dist/index.d.ts';
 
 type MatchValueConfig = {

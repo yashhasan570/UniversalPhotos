@@ -6,8 +6,8 @@ import { createWorkflowMutation, deleteWorkflowMutation, updateWorkflowMutation 
 import { Route } from '#lib/route.ts';
 import { copyToClipboard, downloadJson } from '#lib/utils.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { WorkflowTrigger, type WorkflowResponseDto } from '@immich/sdk';
-import { modalManager, type ActionItem } from '@immich/ui';
+import { WorkflowTrigger, type WorkflowResponseDto } from '@universalphotos/sdk';
+import { modalManager, type ActionItem } from '@universalphotos/ui';
 import {
   mdiCodeJson,
   mdiContentCopy,

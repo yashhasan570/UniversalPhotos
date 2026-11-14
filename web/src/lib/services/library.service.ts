@@ -7,8 +7,8 @@ import { deleteLibraryMutation, scanLibraryMutation, updateLibraryMutation } fro
 import { scanAllLibrariesMutation } from '#lib/queries/queue.query.ts';
 import { Route } from '#lib/route.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import type { LibraryResponseDto } from '@immich/sdk';
-import { modalManager, type ActionItem } from '@immich/ui';
+import type { LibraryResponseDto } from '@universalphotos/sdk';
+import { modalManager, type ActionItem } from '@universalphotos/ui';
 import { mdiInformationOutline, mdiPencilOutline, mdiPlusBoxOutline, mdiSync, mdiTrashCanOutline } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';
 import { goto } from '$app/navigation';

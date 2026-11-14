@@ -16,7 +16,7 @@
   import { TimelineManager } from '#lib/managers/timeline-manager/timeline-manager.svelte.ts';
   import { Route } from '#lib/route.ts';
   import { getUserActions } from '#lib/services/user.service.ts';
-  import { AssetVisibility } from '@immich/sdk';
+  import { AssetVisibility } from '@Universal Photos/sdk';
   import { mdiDotsVertical } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';

@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:core';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/constants.dart';
-import 'package:immich_ui/src/internal.dart';
+import 'package:universalphotos_ui/src/constants.dart';
+import 'package:universalphotos_ui/src/internal.dart';
 
-class ImmichColumnButton extends StatefulWidget {
+class UniversalPhotosColumnButton extends StatefulWidget {
   final IconData icon;
   final String label;
   final FutureOr<void> Function() onPressed;
@@ -13,7 +13,7 @@ class ImmichColumnButton extends StatefulWidget {
   final bool disabled;
   final bool? loading;
 
-  const ImmichColumnButton({
+  const UniversalPhotosColumnButton({
     super.key,
     required this.icon,
     required this.label,
@@ -24,10 +24,10 @@ class ImmichColumnButton extends StatefulWidget {
   });
 
   @override
-  State<ImmichColumnButton> createState() => _ImmichColumnButtonState();
+  State<UniversalPhotosColumnButton> createState() => _UniversalPhotosColumnButtonState();
 }
 
-class _ImmichColumnButtonState extends State<ImmichColumnButton> {
+class _UniversalPhotosColumnButtonState extends State<UniversalPhotosColumnButton> {
   bool _running = false;
   bool get _isLoading => widget.loading ?? _running;
   bool get _isDisabled => widget.disabled || _isLoading;
@@ -61,9 +61,9 @@ class _ImmichColumnButtonState extends State<ImmichColumnButton> {
       onLongPress: _onLongPress,
       style: TextButton.styleFrom(
         foregroundColor: foreground,
-        padding: const .symmetric(horizontal: ImmichSpacing.sm, vertical: ImmichSpacing.md),
+        padding: const .symmetric(horizontal: UniversalPhotosSpacing.sm, vertical: UniversalPhotosSpacing.md),
         tapTargetSize: .shrinkWrap,
-        shape: const RoundedRectangleBorder(borderRadius: .all(.circular(ImmichRadius.xl))),
+        shape: const RoundedRectangleBorder(borderRadius: .all(.circular(UniversalPhotosRadius.xl))),
       ),
       child: ConstrainedBox(
         constraints: const .new(maxWidth: 90),
@@ -72,17 +72,17 @@ class _ImmichColumnButtonState extends State<ImmichColumnButton> {
           children: [
             _isLoading
                 ? const SizedBox.square(
-                    dimension: ImmichIconSize.md,
-                    child: CircularProgressIndicator(strokeWidth: ImmichBorderWidth.lg),
+                    dimension: UniversalPhotosIconSize.md,
+                    child: CircularProgressIndicator(strokeWidth: UniversalPhotosBorderWidth.lg),
                   )
-                : Icon(widget.icon, size: ImmichIconSize.md),
-            const SizedBox(height: ImmichSpacing.sm),
+                : Icon(widget.icon, size: UniversalPhotosIconSize.md),
+            const SizedBox(height: UniversalPhotosSpacing.sm),
             Text(
               widget.label,
               maxLines: 2,
               textAlign: .center,
               overflow: .ellipsis,
-              style: const .new(fontSize: ImmichTextSize.body, fontWeight: .w500),
+              style: const .new(fontSize: UniversalPhotosTextSize.body, fontWeight: .w500),
             ),
           ],
         ),

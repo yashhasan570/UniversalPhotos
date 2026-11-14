@@ -50,12 +50,12 @@ class BackgroundWorkerApiImpl(context: Context) : BackgroundWorkerFgHostApi {
   }
 
   companion object {
-    private const val BACKGROUND_WORKER_NAME = "immich/BackgroundWorkerV1"
-    private const val RETRY_WORKER_NAME = "immich/BackgroundWorkerRetryV1"
-    private const val OBSERVER_WORKER_NAME = "immich/MediaObserverV1"
-    private const val PERIODIC_WORKER_NAME = "immich/PeriodicBackgroundWorkerV1"
-    const val ENGINE_CACHE_KEY = "immich::background_worker::engine"
-    const val RETRY_TAG = "immich/retryWhenConnected"
+    private const val BACKGROUND_WORKER_NAME = "universalphotos/BackgroundWorkerV1"
+    private const val RETRY_WORKER_NAME = "universalphotos/BackgroundWorkerRetryV1"
+    private const val OBSERVER_WORKER_NAME = "universalphotos/MediaObserverV1"
+    private const val PERIODIC_WORKER_NAME = "universalphotos/PeriodicBackgroundWorkerV1"
+    const val ENGINE_CACHE_KEY = "universalphotos::background_worker::engine"
+    const val RETRY_TAG = "universalphotos/retryWhenConnected"
 
 
     fun enqueueMediaObserver(ctx: Context) {

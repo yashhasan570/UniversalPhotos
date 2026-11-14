@@ -7,7 +7,7 @@
   import UserSidebar from '#lib/components/shared-components/side-bar/UserSidebar.svelte';
   import type { HeaderButtonActionItem } from '#lib/types.ts';
   import { openFileUploadDialog } from '#lib/utils/file-uploader.ts';
-  import { Button, ContextMenuButton, HStack, isMenuItemType, type MenuItemType } from '@immich/ui';
+  import { Button, ContextMenuButton, HStack, isMenuItemType, type MenuItemType } from '@Universal Photos/ui';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
 
@@ -40,7 +40,7 @@
       .filter((action) => action.$if?.() ?? true),
   );
 
-  let scrollbarClass = $derived(scrollbar ? 'immich-scrollbar' : 'scrollbar-hidden');
+  let scrollbarClass = $derived(scrollbar ? 'Universal Photos-scrollbar' : 'scrollbar-hidden');
   let hasTitleClass = $derived(title ? 'top-16 h-[calc(100%-(--spacing(16)))]' : 'top-0 h-full');
 </script>
 

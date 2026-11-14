@@ -41,7 +41,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   LANGUAGE PLPGSQL
   AS $$
     BEGIN
-      UPDATE album SET "updatedAt" = clock_timestamp(), "updateId" = immich_uuid_v7(clock_timestamp())
+      UPDATE album SET "updatedAt" = clock_timestamp(), "updateId" = universalphotos_uuid_v7(clock_timestamp())
       WHERE "id" IN (SELECT DISTINCT "albumId" FROM inserted_rows);
       RETURN NULL;
     END
@@ -88,7 +88,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   $$;`.execute(db);
 
   // update overrides
-  await sql`UPDATE "migration_overrides" SET "value" = '{"type":"function","name":"album_user_after_insert","sql":"CREATE OR REPLACE FUNCTION album_user_after_insert()\\n  RETURNS TRIGGER\\n  LANGUAGE PLPGSQL\\n  AS $$\\n    BEGIN\\n      UPDATE album SET \\"updatedAt\\" = clock_timestamp(), \\"updateId\\" = immich_uuid_v7(clock_timestamp())\\n      WHERE \\"id\\" IN (SELECT DISTINCT \\"albumId\\" FROM inserted_rows);\\n      RETURN NULL;\\n    END\\n  $$;"}'::jsonb WHERE "name" = 'function_album_user_after_insert';`.execute(db);
+  await sql`UPDATE "migration_overrides" SET "value" = '{"type":"function","name":"album_user_after_insert","sql":"CREATE OR REPLACE FUNCTION album_user_after_insert()\\n  RETURNS TRIGGER\\n  LANGUAGE PLPGSQL\\n  AS $$\\n    BEGIN\\n      UPDATE album SET \\"updatedAt\\" = clock_timestamp(), \\"updateId\\" = universalphotos_uuid_v7(clock_timestamp())\\n      WHERE \\"id\\" IN (SELECT DISTINCT \\"albumId\\" FROM inserted_rows);\\n      RETURN NULL;\\n    END\\n  $$;"}'::jsonb WHERE "name" = 'function_album_user_after_insert';`.execute(db);
   await sql`UPDATE "migration_overrides" SET "value" = '{"type":"function","name":"album_asset_delete_audit","sql":"CREATE OR REPLACE FUNCTION album_asset_delete_audit()\\n  RETURNS TRIGGER\\n  LANGUAGE PLPGSQL\\n  AS $$\\n    BEGIN\\n      INSERT INTO album_asset_audit (\\"albumId\\", \\"assetId\\")\\n      SELECT \\"albumId\\", \\"assetId\\" FROM OLD\\n      WHERE \\"albumId\\" IN (SELECT \\"id\\" FROM album WHERE \\"id\\" IN (SELECT \\"albumId\\" FROM OLD));\\n      RETURN NULL;\\n    END\\n  $$;"}'::jsonb WHERE "name" = 'function_album_asset_delete_audit';`.execute(db);
   await sql`UPDATE "migration_overrides" SET "value" = '{"type":"function","name":"album_user_delete_audit","sql":"CREATE OR REPLACE FUNCTION album_user_delete_audit()\\n  RETURNS TRIGGER\\n  LANGUAGE PLPGSQL\\n  AS $$\\n    BEGIN\\n      INSERT INTO album_audit (\\"albumId\\", \\"userId\\")\\n      SELECT \\"albumId\\", \\"userId\\"\\n      FROM OLD;\\n\\n      IF pg_trigger_depth() = 1 THEN\\n        INSERT INTO album_user_audit (\\"albumId\\", \\"userId\\")\\n        SELECT \\"albumId\\", \\"userId\\"\\n        FROM OLD;\\n      END IF;\\n\\n      RETURN NULL;\\n    END\\n  $$;"}'::jsonb WHERE "name" = 'function_album_user_delete_audit';`.execute(db);
   await sql`UPDATE "migration_overrides" SET "value" = '{"type":"function","name":"memory_asset_delete_audit","sql":"CREATE OR REPLACE FUNCTION memory_asset_delete_audit()\\n  RETURNS TRIGGER\\n  LANGUAGE PLPGSQL\\n  AS $$\\n    BEGIN\\n      INSERT INTO memory_asset_audit (\\"memoryId\\", \\"assetId\\")\\n      SELECT \\"memoriesId\\", \\"assetId\\" FROM OLD\\n      WHERE \\"memoriesId\\" IN (SELECT \\"id\\" FROM memory WHERE \\"id\\" IN (SELECT \\"memoriesId\\" FROM OLD));\\n      RETURN NULL;\\n    END\\n  $$;"}'::jsonb WHERE "name" = 'function_memory_asset_delete_audit';`.execute(db);

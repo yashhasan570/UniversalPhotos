@@ -2,8 +2,8 @@
   import ControlAppBar from '#lib/components/shared-components/ControlAppBar.svelte';
   import { Route } from '#lib/route.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { getAllPeople, getPerson, mergePeople, type PersonResponseDto } from '@immich/sdk';
-  import { Button, Icon, IconButton, modalManager, toastManager } from '@immich/ui';
+  import { getAllPeople, getPerson, mergePeople, type PersonResponseDto } from '@Universal Photos/sdk';
+  import { Button, Icon, IconButton, modalManager, toastManager } from '@Universal Photos/ui';
   import { mdiCallMerge, mdiMerge, mdiSwapHorizontal } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';

@@ -6,8 +6,8 @@
   import type { OnLink, OnUnlink } from '#lib/utils/actions.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import { getAssetInfo, updateAsset } from '@immich/sdk';
-  import { IconButton } from '@immich/ui';
+  import { getAssetInfo, updateAsset } from '@Universal Photos/sdk';
+  import { IconButton } from '@Universal Photos/ui';
   import { mdiLinkOff, mdiMotionPlayOutline, mdiTimerSand } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

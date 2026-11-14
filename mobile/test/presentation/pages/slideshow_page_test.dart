@@ -4,18 +4,18 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/config/app_config.dart';
-import 'package:immich_mobile/domain/models/config/slideshow_config.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/presentation/pages/slideshow.page.dart';
-import 'package:immich_mobile/presentation/widgets/slideshow/slideshow_controller.dart';
-import 'package:immich_mobile/presentation/widgets/slideshow/slideshow_slide.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/video_player_provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/config/app_config.dart';
+import 'package:universal_photos/domain/models/config/slideshow_config.dart';
+import 'package:universal_photos/domain/models/timeline.model.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/presentation/pages/slideshow.page.dart';
+import 'package:universal_photos/presentation/widgets/slideshow/slideshow_controller.dart';
+import 'package:universal_photos/presentation/widgets/slideshow/slideshow_slide.widget.dart';
+import 'package:universal_photos/providers/asset_viewer/video_player_provider.dart';
+import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos/widgets/common/universalphotos_loading_indicator.dart';
 
 import '../../unit/factories/remote_asset_factory.dart';
 import '../../unit/presentation/presentation_context.dart';
@@ -203,7 +203,7 @@ void main() {
       await tester.drag(find.byType(PageView), const Offset(-800, 0));
       await tester.pump();
 
-      expect(find.byType(ImmichLoadingIndicator), findsOneWidget);
+      expect(find.byType(UniversalPhotosLoadingIndicator), findsOneWidget);
     }, timeline: () => partlyLoaded(images(2), stall: Completer<void>()));
   });
 

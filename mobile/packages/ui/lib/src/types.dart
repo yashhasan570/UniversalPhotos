@@ -1,5 +1,5 @@
-enum ImmichVariant { filled, ghost }
+enum UniversalPhotosVariant { filled, ghost }
 
-enum ImmichColor { primary, secondary }
+enum UniversalPhotosColor { primary, secondary }
 
 enum SnackbarType { info, success, error }

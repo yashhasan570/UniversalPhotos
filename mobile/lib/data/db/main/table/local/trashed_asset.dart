@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/main/table/local/trashed_asset.drift.dart';
-import 'package:immich_mobile/data/db/util/asset_mixin.dart';
-import 'package:immich_mobile/data/db/util/defaults_mixin.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/data/db/main/table/local/trashed_asset.drift.dart';
+import 'package:universal_photos/data/db/util/asset_mixin.dart';
+import 'package:universal_photos/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
 
 enum TrashOrigin {
   // do not change this order!

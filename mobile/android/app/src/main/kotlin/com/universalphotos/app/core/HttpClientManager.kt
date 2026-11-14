@@ -53,19 +53,19 @@ import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509KeyManager
 import javax.net.ssl.X509TrustManager
 
-const val USER_AGENT = "immich-android/${BuildConfig.VERSION_NAME}"
+const val USER_AGENT = "universalphotos-android/${BuildConfig.VERSION_NAME}"
 private const val CERT_ALIAS = "client_cert"
-private const val PREFS_NAME = "immich.ssl"
-private const val PREFS_CERT_ALIAS = "immich.client_cert"
-private const val PREFS_HEADERS = "immich.request_headers"
-private const val PREFS_SERVER_URLS = "immich.server_urls"
-private const val PREFS_COOKIES = "immich.cookies"
+private const val PREFS_NAME = "universalphotos.ssl"
+private const val PREFS_CERT_ALIAS = "universalphotos.client_cert"
+private const val PREFS_HEADERS = "universalphotos.request_headers"
+private const val PREFS_SERVER_URLS = "universalphotos.server_urls"
+private const val PREFS_COOKIES = "universalphotos.cookies"
 private const val COOKIE_EXPIRY_DAYS = 400L
 
 private enum class AuthCookie(val cookieName: String, val httpOnly: Boolean) {
-  ACCESS_TOKEN("immich_access_token", httpOnly = true),
-  IS_AUTHENTICATED("immich_is_authenticated", httpOnly = false),
-  AUTH_TYPE("immich_auth_type", httpOnly = true);
+  ACCESS_TOKEN("universalphotos_access_token", httpOnly = true),
+  IS_AUTHENTICATED("universalphotos_is_authenticated", httpOnly = false),
+  AUTH_TYPE("universalphotos_auth_type", httpOnly = true);
 
   companion object {
     val names = entries.map { it.cookieName }.toSet()

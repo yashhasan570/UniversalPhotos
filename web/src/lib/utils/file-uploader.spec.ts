@@ -5,7 +5,7 @@ import { UploadState } from '#lib/types.ts';
 import { uploadRequest } from '#lib/utils.ts';
 import { factory } from '#test/unit/factories.ts';
 import { test } from '#test/unit/fixtures.ts';
-import { AssetMediaStatus, type AssetMediaResponseDto } from '@immich/sdk';
+import { AssetMediaStatus, type AssetMediaResponseDto } from '@universalphotos/sdk';
 import { get } from 'svelte/store';
 import { beforeEach, describe, expect, vi } from 'vitest';
 import { fileUploadHandler, openFilePicker } from './file-uploader';

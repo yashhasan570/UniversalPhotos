@@ -1,9 +1,9 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_asset.repository.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/repositories/asset_media.repository.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/extensions/platform_extensions.dart';
+import 'package:universal_photos/infrastructure/repositories/local_asset.repository.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/repositories/asset_media.repository.dart';
 
 final cleanupServiceProvider = Provider<CleanupService>((ref) {
   return CleanupService(ref.watch(driftProvider).localAssetRepository, ref.watch(assetMediaRepositoryProvider));

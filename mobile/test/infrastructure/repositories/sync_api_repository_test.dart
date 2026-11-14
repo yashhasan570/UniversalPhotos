@@ -5,12 +5,12 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/domain/models/sync_event.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/sync_api.repository.dart';
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/domain/models/sync_event.model.dart';
+import 'package:universal_photos/domain/services/store.service.dart';
+import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/sync_api.repository.dart';
+import 'package:universal_photos/utils/semver.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:openapi/api.dart';
 
@@ -56,7 +56,7 @@ void main() {
 
     when(() => mockApiService.apiClient).thenReturn(mockApiClient);
     when(() => mockApiService.syncApi).thenReturn(mockSyncApi);
-    when(() => mockApiClient.basePath).thenReturn('http://demo.immich.app/api');
+    when(() => mockApiClient.basePath).thenReturn('http://demo./api');
     // Mock HTTP client behavior
     when(() => mockHttpClient.send(any())).thenAnswer((_) async => mockStreamedResponse);
     when(() => mockStreamedResponse.statusCode).thenReturn(200);

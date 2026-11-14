@@ -1,4 +1,4 @@
-import type { WorkflowStepConfig, WorkflowTrigger } from '@immich/plugin-sdk';
+import type { WorkflowStepConfig, WorkflowTrigger } from '@universalphotos/plugin-sdk';
 import z from 'zod';
 import { WorkflowResultSchema, WorkflowTriggerSchema, WorkflowTypeSchema } from 'src/enum.js';
 import { isoDatetimeToDate } from 'src/validation.js';

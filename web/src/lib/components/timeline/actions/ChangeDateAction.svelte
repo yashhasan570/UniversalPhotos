@@ -3,7 +3,7 @@
   import { assetMultiSelectManager } from '#lib/managers/asset-multi-select-manager.svelte.ts';
   import AssetSelectionChangeDateModal from '#lib/modals/AssetSelectionChangeDateModal.svelte';
   import { fromTimelinePlainDateTime } from '#lib/utils/timeline-util.ts';
-  import { modalManager } from '@immich/ui';
+  import { modalManager } from '@Universal Photos/ui';
   import { mdiCalendarEditOutline } from '@mdi/js';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';

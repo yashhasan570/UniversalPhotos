@@ -3,7 +3,7 @@
   import { updateWorkflowMutation } from '#lib/queries/workflow.query.ts';
   import { Route } from '#lib/route.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
-  import { WorkflowResult, getWorkflowLogs, type WorkflowLogEntryDto, type WorkflowResponseDto } from '@immich/sdk';
+  import { WorkflowResult, getWorkflowLogs, type WorkflowLogEntryDto, type WorkflowResponseDto } from '@Universal Photos/sdk';
   import {
     Button,
     HStack,
@@ -19,7 +19,7 @@
     TableRow,
     VStack,
     type SelectOption,
-  } from '@immich/ui';
+  } from '@Universal Photos/ui';
   import { mdiHistory, mdiOpenInNew } from '@mdi/js';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Field, FormModal, HelperText, NumberInput, Select, Switch } from '@immich/ui';
+  import { Field, FormModal, HelperText, NumberInput, Select, Switch } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import {
     SlideshowLook,

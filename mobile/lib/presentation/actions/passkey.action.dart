@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/models/passkey.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/providers/infrastructure/toast.provider.dart';
-import 'package:immich_mobile/utils/error_handler.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/models/passkey.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.dart';
+import 'package:universal_photos/providers/infrastructure/toast.provider.dart';
+import 'package:universal_photos/utils/error_handler.dart';
+import 'package:universal_photos/widgets/common/confirm_dialog.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class PasskeyCreateAction extends ActionBuilder {
   const PasskeyCreateAction();
@@ -118,7 +118,7 @@ class _PasskeyNameDialogState extends State<_PasskeyNameDialog> {
     return AlertDialog(
       scrollable: true,
       title: Text(context.t.passkeys(count: 1)),
-      content: ImmichTextInput(
+      content: UniversalPhotosTextInput(
         controller: _controller,
         label: context.t.name,
         autofocus: true,

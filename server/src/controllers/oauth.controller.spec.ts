@@ -36,13 +36,13 @@ describe(OAuthController.name, () => {
 
       const { status, headers } = await request(ctx.getHttpServer())
         .post('/oauth/authorize')
-        .send({ redirectUri: 'http://immich/auth/login' });
+        .send({ redirectUri: 'http://universalphotos/auth/login' });
 
       expect(status).toBe(201);
       const cookies = (headers['set-cookie'] as unknown as string[]) ?? [];
       expect(cookies).toEqual([
-        expect.stringContaining('immich_oauth_state=server-state'),
-        expect.stringContaining('immich_oauth_code_verifier=verifier'),
+        expect.stringContaining('universalphotos_oauth_state=server-state'),
+        expect.stringContaining('universalphotos_oauth_code_verifier=verifier'),
       ]);
     });
 
@@ -51,7 +51,7 @@ describe(OAuthController.name, () => {
 
       const { status, headers } = await request(ctx.getHttpServer())
         .post('/oauth/authorize')
-        .send({ redirectUri: 'http://immich/auth/login', state: 'client-state', codeChallenge: 'challenge' });
+        .send({ redirectUri: 'http://universalphotos/auth/login', state: 'client-state', codeChallenge: 'challenge' });
 
       expect(status).toBe(201);
       expect(headers['set-cookie']).toBeUndefined();

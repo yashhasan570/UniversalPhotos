@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/models/folder/root_folder.model.dart';
-import 'package:immich_mobile/services/folder.service.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/models/folder/root_folder.model.dart';
+import 'package:universal_photos/services/folder.service.dart';
 import 'package:logging/logging.dart';
 
 class FolderStructureNotifier extends StateNotifier<AsyncValue<RootFolder>> {

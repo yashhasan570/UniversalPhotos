@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/server/person.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/models/person.model.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/data/server/person.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/models/person.model.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../medium/repository_context.dart';

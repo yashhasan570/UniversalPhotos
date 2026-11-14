@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/routing/router.dart';
 
 class _Stat {
   const _Stat({required this.name, required this.load});

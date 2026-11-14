@@ -12,40 +12,40 @@ import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/constants/locales.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/services/background_worker.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/codegen_loader.g.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/infrastructure/repositories/network.repository.dart';
-import 'package:immich_mobile/pages/common/splash_screen.page.dart';
-import 'package:immich_mobile/platform/background_worker_lock_api.g.dart';
-import 'package:immich_mobile/platform/native_sync_api.g.dart';
-import 'package:immich_mobile/platform/permission_api.g.dart';
-import 'package:immich_mobile/providers/app_life_cycle.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/share_intent_upload.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/locale_provider.dart';
-import 'package:immich_mobile/providers/routes.provider.dart';
-import 'package:immich_mobile/providers/theme.provider.dart';
-import 'package:immich_mobile/providers/view_intent/view_intent_handler.provider.dart';
-import 'package:immich_mobile/repositories/asset_media.repository.dart';
-import 'package:immich_mobile/routing/app_navigation_observer.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/deep_link.service.dart';
-import 'package:immich_mobile/theme/dynamic_theme.dart';
-import 'package:immich_mobile/theme/theme_data.dart';
-import 'package:immich_mobile/utils/bootstrap.dart';
-import 'package:immich_mobile/utils/cache/widgets_binding.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
-import 'package:immich_mobile/utils/fallback_localizations.dart';
-import 'package:immich_mobile/utils/licenses.dart';
-import 'package:immich_mobile/utils/migration.dart';
-import 'package:immich_mobile/wm_executor.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/constants/constants.dart';
+import 'package:universal_photos/constants/locales.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/services/background_worker.service.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/codegen_loader.g.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/infrastructure/repositories/network.repository.dart';
+import 'package:universal_photos/pages/common/splash_screen.page.dart';
+import 'package:universal_photos/platform/background_worker_lock_api.g.dart';
+import 'package:universal_photos/platform/native_sync_api.g.dart';
+import 'package:universal_photos/platform/permission_api.g.dart';
+import 'package:universal_photos/providers/app_life_cycle.provider.dart';
+import 'package:universal_photos/providers/asset_viewer/share_intent_upload.provider.dart';
+import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos/providers/locale_provider.dart';
+import 'package:universal_photos/providers/routes.provider.dart';
+import 'package:universal_photos/providers/theme.provider.dart';
+import 'package:universal_photos/providers/view_intent/view_intent_handler.provider.dart';
+import 'package:universal_photos/repositories/asset_media.repository.dart';
+import 'package:universal_photos/routing/app_navigation_observer.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/services/deep_link.service.dart';
+import 'package:universal_photos/theme/dynamic_theme.dart';
+import 'package:universal_photos/theme/theme_data.dart';
+import 'package:universal_photos/utils/bootstrap.dart';
+import 'package:universal_photos/utils/cache/widgets_binding.dart';
+import 'package:universal_photos/utils/debug_print.dart';
+import 'package:universal_photos/utils/fallback_localizations.dart';
+import 'package:universal_photos/utils/licenses.dart';
+import 'package:universal_photos/utils/migration.dart';
+import 'package:universal_photos/wm_executor.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:logging/logging.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
@@ -59,7 +59,7 @@ void main() async {
     // that leaks a presentation window and SurfaceFlinger layer for every map built, and it is never discarded
     MapLibreMap.useHybridComposition = true;
 
-    ImmichWidgetsBinding();
+    UniversalPhotosWidgetsBinding();
     unawaited(BackgroundWorkerLockService(BackgroundWorkerLockApi()).lock());
     await EasyLocalization.ensureInitialized();
     final (dataController, apiService) = await Bootstrap.initDomain();
@@ -94,7 +94,7 @@ Future<void> initApp() async {
 
   await DynamicTheme.fetchSystemPalette();
 
-  final log = Logger("ImmichErrorLogger");
+  final log = Logger("UniversalPhotosErrorLogger");
 
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
@@ -131,14 +131,14 @@ Future<void> initApp() async {
   });
 }
 
-class ImmichApp extends ConsumerStatefulWidget {
-  const ImmichApp({super.key});
+class UniversalPhotosApp extends ConsumerStatefulWidget {
+  const UniversalPhotosApp({super.key});
 
   @override
-  ImmichAppState createState() => ImmichAppState();
+  UniversalPhotosAppState createState() => UniversalPhotosAppState();
 }
 
-class ImmichAppState extends ConsumerState<ImmichApp> with WidgetsBindingObserver {
+class UniversalPhotosAppState extends ConsumerState<UniversalPhotosApp> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     switch (state) {
@@ -198,10 +198,10 @@ class ImmichAppState extends ConsumerState<ImmichApp> with WidgetsBindingObserve
     final isColdStart = currentRouteName == null || currentRouteName == SplashScreenRoute.name;
 
     PageRouteInfo? route;
-    if (deepLink.uri.scheme == "immich") {
+    if (deepLink.uri.scheme == "universalphotos") {
       route = await deepLinkHandler.handleScheme(deepLink, ref);
-    } else if (deepLink.uri.host == "my.immich.app") {
-      route = await deepLinkHandler.handleMyImmichApp(deepLink, ref);
+    } else if (deepLink.uri.host == "my.") {
+      route = await deepLinkHandler.handleMyUniversalPhotosApp(deepLink, ref);
     } else {
       return DeepLink.path(deepLink.path);
     }
@@ -279,27 +279,27 @@ class ImmichAppState extends ConsumerState<ImmichApp> with WidgetsBindingObserve
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(appRouterProvider);
-    final immichTheme = ref.watch(immichThemeProvider);
+    final universalphotosTheme = ref.watch(universalphotosThemeProvider);
 
     return ProviderScope(
       overrides: [localeProvider.overrideWithValue(context.locale)],
       child: MaterialApp.router(
-        title: 'Immich',
+        title: 'UniversalPhotos',
         debugShowCheckedModeBanner: true,
         scaffoldMessengerKey: scaffoldMessengerKey,
         localizationsDelegates: [...context.localizationDelegates, ...fallbackLocalizationDelegates],
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         themeMode: ref.watch(appConfigProvider.select((config) => config.theme.mode)),
-        darkTheme: getThemeData(colorScheme: immichTheme.dark, locale: context.locale),
-        theme: getThemeData(colorScheme: immichTheme.light, locale: context.locale),
-        builder: (context, child) => ImmichTranslationProvider(
-          translations: ImmichTranslations(
+        darkTheme: getThemeData(colorScheme: universalphotosTheme.dark, locale: context.locale),
+        theme: getThemeData(colorScheme: universalphotosTheme.light, locale: context.locale),
+        builder: (context, child) => UniversalPhotosTranslationProvider(
+          translations: UniversalPhotosTranslations(
             submit: context.t.submit,
             password: context.t.password,
             undo: context.t.undo,
           ),
-          child: ImmichThemeProvider(colorScheme: context.colorScheme, child: child!),
+          child: UniversalPhotosThemeProvider(colorScheme: context.colorScheme, child: child!),
         ),
         routerConfig: router.config(
           deepLinkBuilder: _deepLinkBuilder,
@@ -321,7 +321,7 @@ class MainWidget extends StatelessWidget {
       useFallbackTranslations: true,
       fallbackLocale: locales.values.first,
       assetLoader: const CodegenLoader(),
-      child: const ImmichApp(),
+      child: const UniversalPhotosApp(),
     );
   }
 }

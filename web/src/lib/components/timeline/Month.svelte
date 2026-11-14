@@ -9,7 +9,7 @@
   import { uploadAssetsStore } from '#lib/stores/upload.ts';
   import type { CommonPosition } from '#lib/utils/layout-utils.ts';
   import { fromTimelinePlainDate, getDateLocaleString } from '#lib/utils/timeline-util.ts';
-  import { Icon } from '@immich/ui';
+  import { Icon } from '@Universal Photos/ui';
   import { mdiCheckCircle, mdiCircleOutline } from '@mdi/js';
   import type { Snippet } from 'svelte';
 
@@ -71,7 +71,7 @@
   >
     <!-- Day title -->
     <div
-      class="flex h-6 place-items-center pt-7 pb-5 text-xs font-medium text-immich-fg max-md:pt-5 max-md:pb-3 md:text-sm dark:text-immich-dark-fg"
+      class="flex h-6 place-items-center pt-7 pb-5 text-xs font-medium text-Universal Photos-fg max-md:pt-5 max-md:pb-3 md:text-sm dark:text-Universal Photos-dark-fg"
       style:width={timelineDay.width + 'px'}
     >
       {#if !singleSelect}

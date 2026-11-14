@@ -4,7 +4,7 @@
   import { Route } from '#lib/route.ts';
   import { searchStore } from '#lib/stores/search.svelte.ts';
   import { handlePromiseError } from '#lib/utils.ts';
-  import { IconButton, shortcuts } from '@immich/ui';
+  import { IconButton, shortcuts } from '@Universal Photos/ui';
   import { mdiClose, mdiMagnify } from '@mdi/js';
   import { onDestroy, tick } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -153,9 +153,9 @@
         type="text"
         name="q"
         id="main-search-bar"
-        class="w-full border-b py-4 ps-14 text-immich-fg/75 transition-all max-md:py-2 dark:text-immich-dark-fg
+        class="w-full border-b py-4 ps-14 text-Universal Photos-fg/75 transition-all max-md:py-2 dark:text-Universal Photos-dark-fg
         {showClearIcon ? 'pe-22.5' : 'pe-14'}
-        {grayTheme || showSuggestions ? 'dark:bg-immich-dark-gray' : 'dark:bg-immich-dark-bg'}
+        {grayTheme || showSuggestions ? 'dark:bg-Universal Photos-dark-gray' : 'dark:bg-Universal Photos-dark-bg'}
         {showSuggestions ? 'rounded-t-3xl shadow-[0_8px_20px_rgba(0,0,0,0.12)]' : 'rounded-3xl bg-gray-200'}
         {searchStore.isSearchEnabled ? 'border-light-200 bg-white dark:border-dark-600' : 'border-transparent'}"
         {placeholder}

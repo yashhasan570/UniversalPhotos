@@ -1,5 +1,5 @@
 import { getOrderingDate, plainDateTimeCompare, type TimelineYearMonth } from '#lib/utils/timeline-util.ts';
-import { AssetOrder, AssetOrderBy, type AssetResponseDto } from '@immich/sdk';
+import { AssetOrder, AssetOrderBy, type AssetResponseDto } from '@universalphotos/sdk';
 import { DateTime } from 'luxon';
 import { TimelineManager } from '../timeline-manager.svelte';
 import type { TimelineMonth } from '../timeline-month.svelte';

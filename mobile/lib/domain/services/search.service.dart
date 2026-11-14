@@ -1,8 +1,8 @@
-import 'package:immich_mobile/domain/models/search_result.model.dart';
-import 'package:immich_mobile/extensions/asset_extensions.dart';
-import 'package:immich_mobile/extensions/string_extensions.dart';
-import 'package:immich_mobile/infrastructure/repositories/search_api.repository.dart';
-import 'package:immich_mobile/models/search/search_filter.model.dart';
+import 'package:universal_photos/domain/models/search_result.model.dart';
+import 'package:universal_photos/extensions/asset_extensions.dart';
+import 'package:universal_photos/extensions/string_extensions.dart';
+import 'package:universal_photos/infrastructure/repositories/search_api.repository.dart';
+import 'package:universal_photos/models/search/search_filter.model.dart';
 import 'package:logging/logging.dart';
 
 class SearchService {

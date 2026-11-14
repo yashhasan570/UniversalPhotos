@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/constants.dart';
+import 'package:universalphotos_ui/src/constants.dart';
 import 'package:material_color_utilities/blend/blend.dart';
 import 'package:material_color_utilities/hct/hct.dart';
 import 'package:material_color_utilities/palettes/tonal_palette.dart';
 
-class ImmichThemeProvider extends StatelessWidget {
+class UniversalPhotosThemeProvider extends StatelessWidget {
   final ColorScheme colorScheme;
   final Widget child;
 
-  const ImmichThemeProvider({super.key, required this.colorScheme, required this.child});
+  const UniversalPhotosThemeProvider({super.key, required this.colorScheme, required this.child});
 
   @override
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(
-        extensions: [ImmichColors.harmonized(colorScheme)],
+        extensions: [UniversalPhotosColors.harmonized(colorScheme)],
         colorScheme: colorScheme,
         brightness: colorScheme.brightness,
         inputDecorationTheme: InputDecorationTheme(
@@ -27,14 +27,14 @@ class ImmichThemeProvider extends StatelessWidget {
                 : colorScheme.outline;
             return OutlineInputBorder(
               borderSide: BorderSide(color: color),
-              borderRadius: const BorderRadius.all(Radius.circular(ImmichRadius.md)),
+              borderRadius: const BorderRadius.all(Radius.circular(UniversalPhotosRadius.md)),
             );
           }),
           labelStyle: WidgetStateTextStyle.resolveWith((states) {
             final color = states.contains(WidgetState.error) ? colorScheme.error : colorScheme.primary;
             return TextStyle(color: color, fontWeight: FontWeight.w600);
           }),
-          hintStyle: const TextStyle(fontSize: ImmichTextSize.body),
+          hintStyle: const TextStyle(fontSize: UniversalPhotosTextSize.body),
           errorStyle: TextStyle(color: colorScheme.error, fontWeight: FontWeight.w600),
         ),
       ),
@@ -43,7 +43,7 @@ class ImmichThemeProvider extends StatelessWidget {
   }
 }
 
-class ImmichColors extends ThemeExtension<ImmichColors> {
+class UniversalPhotosColors extends ThemeExtension<UniversalPhotosColors> {
   final Color info;
   final Color onInfo;
   final Color success;
@@ -51,7 +51,7 @@ class ImmichColors extends ThemeExtension<ImmichColors> {
   final Color error;
   final Color onError;
 
-  const ImmichColors({
+  const UniversalPhotosColors({
     required this.info,
     required this.onInfo,
     required this.success,
@@ -60,11 +60,11 @@ class ImmichColors extends ThemeExtension<ImmichColors> {
     required this.onError,
   });
 
-  factory ImmichColors.harmonized(ColorScheme scheme) {
+  factory UniversalPhotosColors.harmonized(ColorScheme scheme) {
     final (info, onInfo) = scheme.harmonized(const Color(0xFF1984E9));
     final (success, onSuccess) = scheme.harmonized(const Color(0xFF10C14D));
     final (error, onError) = scheme.harmonized(const Color(0xFFFA2921));
-    return ImmichColors(
+    return UniversalPhotosColors(
       info: info,
       onInfo: onInfo,
       success: success,
@@ -75,8 +75,8 @@ class ImmichColors extends ThemeExtension<ImmichColors> {
   }
 
   @override
-  ImmichColors copyWith({Color? info, Color? onInfo, Color? success, Color? onSuccess, Color? error, Color? onError}) {
-    return ImmichColors(
+  UniversalPhotosColors copyWith({Color? info, Color? onInfo, Color? success, Color? onSuccess, Color? error, Color? onError}) {
+    return UniversalPhotosColors(
       info: info ?? this.info,
       onInfo: onInfo ?? this.onInfo,
       success: success ?? this.success,
@@ -87,11 +87,11 @@ class ImmichColors extends ThemeExtension<ImmichColors> {
   }
 
   @override
-  ImmichColors lerp(ImmichColors? other, double t) {
+  UniversalPhotosColors lerp(UniversalPhotosColors? other, double t) {
     if (other == null) {
       return this;
     }
-    return ImmichColors(
+    return UniversalPhotosColors(
       info: Color.lerp(info, other.info, t)!,
       onInfo: Color.lerp(onInfo, other.onInfo, t)!,
       success: Color.lerp(success, other.success, t)!,

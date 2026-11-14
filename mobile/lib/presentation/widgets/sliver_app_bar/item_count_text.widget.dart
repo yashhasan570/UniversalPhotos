@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/events.model.dart';
-import 'package:immich_mobile/domain/utils/event_stream.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos/domain/models/events.model.dart';
+import 'package:universal_photos/domain/utils/event_stream.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
 
 /// Displays the number of timeline items in this view
 ///

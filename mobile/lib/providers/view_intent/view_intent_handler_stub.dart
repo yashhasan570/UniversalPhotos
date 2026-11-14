@@ -1,5 +1,5 @@
-import 'package:immich_mobile/platform/view_intent_api.g.dart';
-import 'package:immich_mobile/providers/view_intent/view_intent_handler.provider.dart';
+import 'package:universal_photos/platform/view_intent_api.g.dart';
+import 'package:universal_photos/providers/view_intent/view_intent_handler.provider.dart';
 
 class StubViewIntentHandler implements ViewIntentHandler {
   const StubViewIntentHandler();

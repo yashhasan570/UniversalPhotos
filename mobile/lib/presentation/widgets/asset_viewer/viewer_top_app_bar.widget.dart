@@ -3,22 +3,22 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/datetime_extensions.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/favorite.action.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/motion_photo_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/viewer_kebab_menu.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/asset_viewer/asset.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/current_album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:immich_mobile/providers/routes.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/timezone.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/datetime_extensions.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/favorite.action.dart';
+import 'package:universal_photos/presentation/widgets/action_buttons/motion_photo_action_button.widget.dart';
+import 'package:universal_photos/presentation/widgets/asset_viewer/viewer_kebab_menu.widget.dart';
+import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos/providers/infrastructure/asset_viewer/asset.provider.dart';
+import 'package:universal_photos/providers/infrastructure/current_album.provider.dart';
+import 'package:universal_photos/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:universal_photos/providers/routes.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/utils/timezone.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class ViewerTopAppBar extends ConsumerWidget implements PreferredSizeWidget {
   const ViewerTopAppBar({super.key});
@@ -63,7 +63,7 @@ class ViewerTopAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
       const ActionIconButton(action: FavoriteAction(source: .viewer)),
 
-      ImmichColorOverride(color: null, child: ViewerKebabMenu(originalTheme: originalTheme)),
+      UniversalPhotosColorOverride(color: null, child: ViewerKebabMenu(originalTheme: originalTheme)),
     ];
 
     final lockedViewActions = <Widget>[ViewerKebabMenu(originalTheme: originalTheme)];
@@ -102,7 +102,7 @@ class ViewerTopAppBar extends ConsumerWidget implements PreferredSizeWidget {
                     leading: const _AppBarBackButton(),
                     middle: showingDetails ? null : _AssetInfoTitle(asset: asset),
                     trailing: !showingDetails && !isReadonlyModeEnabled
-                        ? ImmichColorOverride(
+                        ? UniversalPhotosColorOverride(
                             color: Colors.white,
                             child: Row(
                               mainAxisSize: MainAxisSize.min,

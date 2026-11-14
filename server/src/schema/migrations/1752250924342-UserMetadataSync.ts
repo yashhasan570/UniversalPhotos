@@ -13,7 +13,7 @@ export async function up(db: Kysely<any>): Promise<void> {
     END
   $$;`.execute(db);
   await sql`CREATE TABLE "user_metadata_audit" (
-  "id" uuid NOT NULL DEFAULT immich_uuid_v7(),
+  "id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
   "userId" uuid NOT NULL,
   "key" character varying NOT NULL,
   "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(),
@@ -22,7 +22,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   await sql`CREATE INDEX "IDX_user_metadata_audit_user_id" ON "user_metadata_audit" ("userId");`.execute(db);
   await sql`CREATE INDEX "IDX_user_metadata_audit_key" ON "user_metadata_audit" ("key");`.execute(db);
   await sql`CREATE INDEX "IDX_user_metadata_audit_deleted_at" ON "user_metadata_audit" ("deletedAt");`.execute(db);
-  await sql`ALTER TABLE "user_metadata" ADD "updateId" uuid NOT NULL DEFAULT immich_uuid_v7();`.execute(db);
+  await sql`ALTER TABLE "user_metadata" ADD "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7();`.execute(db);
   await sql`ALTER TABLE "user_metadata" ADD "updatedAt" timestamp with time zone NOT NULL DEFAULT now();`.execute(db);
   await sql`CREATE INDEX "IDX_user_metadata_update_id" ON "user_metadata" ("updateId");`.execute(db);
   await sql`CREATE INDEX "IDX_user_metadata_updated_at" ON "user_metadata" ("updatedAt");`.execute(db);

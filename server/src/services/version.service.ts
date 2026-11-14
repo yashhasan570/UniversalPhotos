@@ -7,7 +7,7 @@ import { ReleaseEventV1, ReleaseType, ServerVersionResponseDto } from 'src/dtos/
 import {
   CronJob,
   DatabaseLock,
-  ImmichWorker,
+  UniversalPhotosWorker,
   JobName,
   JobStatus,
   QueueName,
@@ -37,7 +37,7 @@ const asNotification = (
 
 @Injectable()
 export class VersionService extends BaseService {
-  @OnEvent({ name: 'AppBootstrap', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', workers: [UniversalPhotosWorker.Microservices] })
   async onBootstrap(): Promise<void> {
     const hasLock = await this.databaseRepository.tryLock(DatabaseLock.VersionCheck);
     if (hasLock) {

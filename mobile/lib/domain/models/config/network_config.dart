@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:immich_mobile/utils/option.dart';
+import 'package:universal_photos/utils/option.dart';
 
 part 'network_config.freezed.dart';
 

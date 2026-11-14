@@ -5,15 +5,15 @@ import 'dart:ui' as ui;
 import 'package:ffi/ffi.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/infrastructure/loaders/image_request.dart';
-import 'package:immich_mobile/platform/remote_image_api.g.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:universal_photos/infrastructure/loaders/image_request.dart';
+import 'package:universal_photos/platform/remote_image_api.g.dart';
+import 'package:universal_photos/presentation/widgets/images/remote_image_provider.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   const channel = BasicMessageChannel<Object?>(
-    'dev.flutter.pigeon.immich_mobile.RemoteImageApi.requestImage',
+    'dev.flutter.pigeon_mobile.RemoteImageApi.requestImage',
     RemoteImageApi.pigeonChannelCodec,
   );
   late List<Object?> args;
@@ -103,7 +103,7 @@ void main() {
   });
 
   test('preserves cover quality for extreme aspect ratios', () async {
-    final image = await loadEncoded('assets/immich-logo-inline-light.png', const ui.Size.square(320));
+    final image = await loadEncoded('assets/universalphotos-logo-inline-light.png', const ui.Size.square(320));
 
     expect(image.width, 1311);
     expect(image.height, 320);

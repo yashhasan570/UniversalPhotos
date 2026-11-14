@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { IconButton, LoadingSpinner } from '@immich/ui';
+  import { IconButton, LoadingSpinner } from '@Universal Photos/ui';
   import { mdiClose, mdiMagnify } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

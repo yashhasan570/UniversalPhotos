@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import helmetMiddleware from 'helmet';
 import { existsSync } from 'node:fs';
 import sirv from 'sirv';
-import { IMMICH_SERVER_START, excludePaths, serverVersion } from 'src/constants.js';
+import { UNIVERSALPHOTOS_SERVER_START, excludePaths, serverVersion } from 'src/constants.js';
 import { MaintenanceWorkerService } from 'src/maintenance/maintenance-worker.service.js';
 import { WebSocketAdapter } from 'src/middleware/websocket.adapter.js';
 import { ConfigRepository } from 'src/repositories/config.repository.js';
@@ -96,5 +96,5 @@ export async function configureExpress(
     });
   });
 
-  logger.log(`${IMMICH_SERVER_START} on ${await app.getUrl()} [v${serverVersion}] [${environment}] `);
+  logger.log(`${UNIVERSALPHOTOS_SERVER_START} on ${await app.getUrl()} [v${serverVersion}] [${environment}] `);
 }

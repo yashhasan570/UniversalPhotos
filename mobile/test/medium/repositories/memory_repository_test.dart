@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/memory.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/memory.repository.dart';
+import 'package:universal_photos/domain/models/memory.model.dart';
+import 'package:universal_photos/infrastructure/repositories/memory.repository.dart';
 
 import '../repository_context.dart';
 

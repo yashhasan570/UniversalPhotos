@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/exif.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/exif.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/infrastructure/action.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
 
 class SheetAssetDescription extends ConsumerStatefulWidget {
   final BaseAsset asset;
@@ -45,7 +45,7 @@ class _SheetAssetDescriptionState extends ConsumerState<SheetAssetDescription> {
         return;
       }
 
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         msg: context.t.exif_bottom_sheet_description_error,
         toastType: ToastType.error,

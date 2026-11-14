@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/widgets/action_buttons/base_action_button.widget.dart';
 
 class RemoteAlbumOption extends StatelessWidget {
   const RemoteAlbumOption({

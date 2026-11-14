@@ -1,7 +1,7 @@
 <script lang="ts">
   import { locale } from '#lib/stores/preferences.store.ts';
-  import type { SessionResponseDto } from '@immich/sdk';
-  import { Icon, IconButton } from '@immich/ui';
+  import type { SessionResponseDto } from '@Universal Photos/sdk';
+  import { Icon, IconButton } from '@Universal Photos/ui';
   import {
     mdiAndroid,
     mdiApple,

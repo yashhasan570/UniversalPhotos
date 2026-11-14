@@ -2,19 +2,19 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/domain/models/config/app_config.dart';
-import 'package:immich_mobile/domain/models/settings_key.dart';
-import 'package:immich_mobile/domain/services/sync_linked_album.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/backup/backup_album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/album/local_album.model.dart';
+import 'package:universal_photos/domain/models/config/app_config.dart';
+import 'package:universal_photos/domain/models/settings_key.dart';
+import 'package:universal_photos/domain/services/sync_linked_album.service.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/platform_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/background_sync.provider.dart';
+import 'package:universal_photos/providers/backup/backup_album.provider.dart';
+import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class BackupSettings extends StatelessWidget {
   const BackupSettings({super.key});

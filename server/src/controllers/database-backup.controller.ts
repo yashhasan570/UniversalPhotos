@@ -8,7 +8,7 @@ import {
   DatabaseBackupListResponseDto,
   DatabaseBackupUploadDto,
 } from 'src/dtos/database-backup.dto.js';
-import { ApiTag, ImmichCookie, Permission } from 'src/enum.js';
+import { ApiTag, UniversalPhotosCookie, Permission } from 'src/enum.js';
 import { Authenticated, FileResponse, GetLoginDetails } from 'src/middleware/auth.guard.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
 import type { LoginDetails } from 'src/services/auth.service.js';
@@ -68,7 +68,7 @@ export class DatabaseBackupController {
   @Post('start-restore')
   @Endpoint({
     summary: 'Start database backup restore flow',
-    description: 'Put Immich into maintenance mode to restore a backup (Immich must not be configured)',
+    description: 'Put UniversalPhotos into maintenance mode to restore a backup (UniversalPhotos must not be configured)',
     history: new HistoryBuilder().added('v2.5.0').alpha('v2.5.0'),
   })
   @Authenticated({ public: true, setup: true })
@@ -79,7 +79,7 @@ export class DatabaseBackupController {
     const { jwt } = await this.maintenanceService.startRestoreFlow();
     return respondWithCookie(res, undefined, {
       isSecure: loginDetails.isSecure,
-      values: [{ key: ImmichCookie.MaintenanceToken, value: jwt }],
+      values: [{ key: UniversalPhotosCookie.MaintenanceToken, value: jwt }],
     });
   }
 

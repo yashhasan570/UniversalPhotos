@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/extensions/string_extensions.dart';
+import 'package:universal_photos/extensions/string_extensions.dart';
 
 void main() {
   group('Test toDuration', () {

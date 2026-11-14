@@ -1,8 +1,8 @@
 import { eventManager } from '#lib/managers/event-manager.svelte.ts';
 import { handleError } from '#lib/utils/handle-error.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { createJob, type JobCreateDto } from '@immich/sdk';
-import { toastManager } from '@immich/ui';
+import { createJob, type JobCreateDto } from '@universalphotos/sdk';
+import { toastManager } from '@universalphotos/ui';
 
 export const handleCreateJob = async (dto: JobCreateDto) => {
   const $t = await getFormatter();

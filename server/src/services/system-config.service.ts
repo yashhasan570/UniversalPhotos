@@ -62,7 +62,7 @@ export class SystemConfigService extends BaseService {
     const configLevel = logging.enabled && logging.level;
     const level = envLevel ?? configLevel;
     this.logger.setLogLevel(level);
-    this.logger.log(`LogLevel=${level} ${envLevel ? '(set via IMMICH_LOG_LEVEL)' : '(set via system config)'}`);
+    this.logger.log(`LogLevel=${level} ${envLevel ? '(set via UNIVERSALPHOTOS_LOG_LEVEL)' : '(set via system config)'}`);
 
     this.machineLearningRepository.setup(machineLearning);
   }
@@ -77,14 +77,14 @@ export class SystemConfigService extends BaseService {
   onConfigValidate({ newConfig, oldConfig }: ArgOf<'ConfigValidate'>) {
     const { logLevel } = this.configRepository.getEnv();
     if (logLevel && !isEqual(toPlainObject(newConfig.logging), oldConfig.logging)) {
-      throw new Error('Logging cannot be changed while the environment variable IMMICH_LOG_LEVEL is set.');
+      throw new Error('Logging cannot be changed while the environment variable UNIVERSALPHOTOS_LOG_LEVEL is set.');
     }
   }
 
   async updateAdminConfig(dto: AdminConfigDto): Promise<AdminConfigDto> {
     const { configFile } = this.configRepository.getEnv();
     if (configFile) {
-      throw new BadRequestException('Cannot update configuration while IMMICH_CONFIG_FILE is in use');
+      throw new BadRequestException('Cannot update configuration while UNIVERSALPHOTOS_CONFIG_FILE is in use');
     }
 
     const oldConfig = await this.getConfig({ withCache: false });

@@ -3,7 +3,7 @@
   import { uploadAssetsStore } from '#lib/stores/upload.ts';
   import { uploadExecutionQueue } from '#lib/utils/file-uploader.ts';
   import { acquireWakeLock, releaseWakeLock } from '#lib/utils/wakelock.svelte.ts';
-  import { Icon, IconButton, toastManager } from '@immich/ui';
+  import { Icon, IconButton, toastManager } from '@Universal Photos/ui';
   import { mdiCancel, mdiCloudUploadOutline, mdiCog, mdiWindowMinimize } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { quartInOut } from 'svelte/easing';
@@ -57,7 +57,7 @@
       >
         <div class="place-item-center mb-4 flex justify-between">
           <div class="flex flex-col gap-1">
-            <p class="text-xm immich-form-label">
+            <p class="text-xm Universal Photos-form-label">
               {$t('upload_progress', {
                 values: {
                   remaining: $remainingUploads,
@@ -66,7 +66,7 @@
                 },
               })}
             </p>
-            <p class="text-xs immich-form-label">
+            <p class="text-xs Universal Photos-form-label">
               {$t('upload_status_uploaded')}
               <span class="text-success">{$stats.success.toLocaleString($locale)}</span>
               -
@@ -112,12 +112,12 @@
           </div>
         </div>
         {#if showOptions}
-          <div class="mb-4 max-h-100 immich-scrollbar overflow-y-auto rounded-lg">
+          <div class="mb-4 max-h-100 Universal Photos-scrollbar overflow-y-auto rounded-lg">
             <div class="flex h-6.5 place-items-center gap-1">
-              <label class="immich-form-label" for="upload-concurrency">{$t('upload_concurrency')}</label>
+              <label class="Universal Photos-form-label" for="upload-concurrency">{$t('upload_concurrency')}</label>
             </div>
             <input
-              class="immich-form-input w-full"
+              class="Universal Photos-form-input w-full"
               aria-labelledby={$t('upload_concurrency')}
               id="upload-concurrency"
               name={$t('upload_concurrency')}
@@ -130,7 +130,7 @@
             />
           </div>
         {/if}
-        <div class="flex max-h-[400px] immich-scrollbar flex-col gap-2 overflow-y-auto rounded-lg">
+        <div class="flex max-h-[400px] Universal Photos-scrollbar flex-col gap-2 overflow-y-auto rounded-lg">
           {#each $uploadAssetsStore as uploadAsset (uploadAsset.id)}
             <UploadAssetPreview {uploadAsset} />
           {/each}

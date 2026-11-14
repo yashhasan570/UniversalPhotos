@@ -8,7 +8,7 @@ import {
   Table,
   type Generated,
   type Timestamp,
-} from '@immich/sql-tools';
+} from '@universalphotos/sql-tools';
 import type { VideoSegmentCodec } from 'src/enum.js';
 import { video_stream_variant_codec_enum } from 'src/schema/enums.js';
 import { AssetTable } from 'src/schema/tables/asset.table.js';

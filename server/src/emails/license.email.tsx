@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link, Section, Text } from 'react-email';
-import { ImmichButton } from 'src/emails/components/button.component.js';
+import { UniversalPhotosButton } from 'src/emails/components/button.component.js';
 import FutoLayout from 'src/emails/components/futo.layout.js';
 
 /**
@@ -8,15 +8,15 @@ import FutoLayout from 'src/emails/components/futo.layout.js';
  * Variable is {{LICENSEKEY}}
  * */
 export const LicenseEmail = () => (
-  <FutoLayout preview="Your Immich Server License">
-    <Text>Thank you for supporting Immich and open-source software</Text>
+  <FutoLayout preview="Your UniversalPhotos Server License">
+    <Text>Thank you for supporting UniversalPhotos and open-source software</Text>
 
     <Text>
-      Your <strong>Immich</strong> key is
+      Your <strong>UniversalPhotos</strong> key is
     </Text>
 
     <Section className="my-2 bg-gray-200 rounded-2xl text-center p-4">
-      <Text className="m-0 text-monospace font-bold text-immich-primary">{'{{LICENSEKEY}}'}</Text>
+      <Text className="m-0 text-monospace font-bold text-universalphotos-primary">{'{{LICENSEKEY}}'}</Text>
     </Section>
 
     <Text>
@@ -24,20 +24,20 @@ export const LicenseEmail = () => (
     </Text>
 
     <Section className="flex justify-center my-6">
-      <ImmichButton
-        href={`https://my.immich.app/link?target=activate_license&licenseKey={{LICENSEKEY}}&activationKey={{ACTIVATIONKEY}}`}
+      <UniversalPhotosButton
+        href={`https://my./link?target=activate_license&licenseKey={{LICENSEKEY}}&activationKey={{ACTIVATIONKEY}}`}
       >
         Activate
-      </ImmichButton>
+      </UniversalPhotosButton>
     </Section>
 
     <Text className="text-center">
       <Link
-        className="text-immich-primary text-sm"
+        className="text-universalphotos-primary text-sm"
         // style={{ marginTop: '50px', color: 'rgb(66, 80, 175)', fontSize: '0.9rem' }}
-        href={`https://my.immich.app/link?target=activate_license&licenseKey={{LICENSEKEY}}&activationKey={{ACTIVATIONKEY}}`}
+        href={`https://my./link?target=activate_license&licenseKey={{LICENSEKEY}}&activationKey={{ACTIVATIONKEY}}`}
       >
-        https://my.immich.app/link?target=activate_license&licenseKey={'{{LICENSEKEY}}'}&activationKey=
+        https://my./link?target=activate_license&licenseKey={'{{LICENSEKEY}}'}&activationKey=
         {'{{ACTIVATIONKEY}}'}
       </Link>
     </Text>

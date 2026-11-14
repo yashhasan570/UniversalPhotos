@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/asset_debug.action.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/domain/services/store.service.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/asset_debug.action.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 import '../../factories/remote_asset_factory.dart';
 import '../presentation_context.dart';
@@ -28,7 +28,7 @@ void main() {
         overrides: context.selected({RemoteAssetFactory.create()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsOneWidget);
+      expect(find.byType(UniversalPhotosIconButton), findsOneWidget);
     });
 
     testWidgets('hidden for multiple assets', (tester) async {
@@ -38,7 +38,7 @@ void main() {
         overrides: context.selected({RemoteAssetFactory.create(), RemoteAssetFactory.create()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('hidden when advanced troubleshooting is off', (tester) async {
@@ -50,7 +50,7 @@ void main() {
         overrides: context.selected({RemoteAssetFactory.create()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
   });
 }

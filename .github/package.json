@@ -1,5 +1,5 @@
 {
-  "name": "immich-github",
+  "name": "universalphotos-github",
   "private": true,
   "scripts": {
     "format": "prettier --cache --check .",

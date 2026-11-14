@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/immich_ui.dart';
-import 'package:immich_ui/src/internal.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universalphotos_ui/src/internal.dart';
 
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
@@ -36,7 +36,7 @@ class SnackbarManager {
 
   SnackBar _build(BuildContext context, String message, SnackbarType type, Duration duration, SnackbarAction? action) {
     final theme = Theme.of(context);
-    final colors = theme.extension<ImmichColors>() ?? ImmichColors.harmonized(theme.colorScheme);
+    final colors = theme.extension<UniversalPhotosColors>() ?? UniversalPhotosColors.harmonized(theme.colorScheme);
     final (IconData icon, Color background, Color foreground) = switch (type) {
       .info => (Icons.info_rounded, colors.info, colors.onInfo),
       .success => (Icons.check_circle_rounded, colors.success, colors.onSuccess),
@@ -56,19 +56,19 @@ class SnackbarManager {
       behavior: .floating,
       backgroundColor: background,
       duration: duration,
-      shape: const RoundedRectangleBorder(borderRadius: .all(.circular(ImmichRadius.sm))),
+      shape: const RoundedRectangleBorder(borderRadius: .all(.circular(UniversalPhotosRadius.sm))),
       // A snackbar carrying an action stays up until it is tapped by default; our actions are optional
       persist: false,
       content: Row(
         children: [
-          Icon(icon, color: foreground, size: ImmichIconSize.sm),
-          const SizedBox(width: ImmichSpacing.md),
+          Icon(icon, color: foreground, size: UniversalPhotosIconSize.sm),
+          const SizedBox(width: UniversalPhotosSpacing.md),
           Expanded(
             child: Text(
               message,
               maxLines: 2,
               overflow: .ellipsis,
-              style: .new(color: foreground, fontWeight: .w600, fontSize: ImmichTextSize.body),
+              style: .new(color: foreground, fontWeight: .w600, fontSize: UniversalPhotosTextSize.body),
             ),
           ),
         ],

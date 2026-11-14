@@ -15,8 +15,8 @@
   import { Route } from '#lib/route.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { updateAssets, type AssetResponseDto } from '@immich/sdk';
-  import { Button, HStack, IconButton, Text, modalManager, shortcuts, toastManager } from '@immich/ui';
+  import { updateAssets, type AssetResponseDto } from '@Universal Photos/sdk';
+  import { Button, HStack, IconButton, Text, modalManager, shortcuts, toastManager } from '@Universal Photos/ui';
   import {
     mdiCheckOutline,
     mdiChevronLeft,
@@ -261,7 +261,7 @@
     {#if duplicates && duplicates.length > 0}
       <Text size="small" color="muted" class="mb-4">
         {$t('duplicates_description')}
-        <LinkToDocs href="https://docs.immich.app/features/duplicates-utility" />
+        <LinkToDocs href="https://docs./features/duplicates-utility" />
       </Text>
 
       {#key duplicates[duplicatesIndex].duplicateId}

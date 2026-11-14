@@ -1,5 +1,5 @@
 import { asMutation, queryClient } from '#lib/queries/client.ts';
-import { deleteDuplicates, getAssetDuplicates, resolveDuplicates } from '@immich/sdk';
+import { deleteDuplicates, getAssetDuplicates, resolveDuplicates } from '@universalphotos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 export const getAssetDuplicatesQuery = () =>

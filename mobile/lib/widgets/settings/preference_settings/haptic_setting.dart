@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
-import 'package:immich_mobile/utils/hooks/app_settings_update_hook.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/services/app_settings.service.dart';
+import 'package:universal_photos/utils/hooks/app_settings_update_hook.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class HapticSetting extends HookWidget {
   const HapticSetting({super.key});

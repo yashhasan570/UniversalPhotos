@@ -7,7 +7,7 @@ import WidgetKit
 struct MemoryConfigurationAppIntent: WidgetConfigurationIntent {
   static var title: LocalizedStringResource { "Memories" }
   static var description: IntentDescription {
-    "See memories from Immich."
+    "See memories from UniversalPhotos."
   }
 
   @Parameter(title: "Always Display in Full Color", default: false)
@@ -16,7 +16,7 @@ struct MemoryConfigurationAppIntent: WidgetConfigurationIntent {
 
 // MARK: Provider
 
-struct ImmichMemoryProvider: AppIntentTimelineProvider {
+struct UniversalPhotosMemoryProvider: AppIntentTimelineProvider {
   func getYearDifferenceSubtitle(assetYear: Int) -> String {
     let currentYear = Calendar.current.component(.year, from: Date.now)
     // construct a "X years ago" subtitle
@@ -35,7 +35,7 @@ struct ImmichMemoryProvider: AppIntentTimelineProvider {
   ) async -> ImageEntry {
     let cacheKey = "memory_\(context.family.rawValue)"
 
-    guard let api = try? await ImmichAPI() else {
+    guard let api = try? await UniversalPhotosAPI() else {
       return ImageEntry.handleError(for: cacheKey, error: .noLogin).entries
         .first!
     }
@@ -85,7 +85,7 @@ struct ImmichMemoryProvider: AppIntentTimelineProvider {
 
     let cacheKey = "memory_\(context.family.rawValue)"
 
-    guard let api = try? await ImmichAPI() else {
+    guard let api = try? await UniversalPhotosAPI() else {
       return ImageEntry.handleError(for: cacheKey, error: .noLogin)
     }
 
@@ -158,16 +158,16 @@ struct ImmichMemoryProvider: AppIntentTimelineProvider {
   }
 }
 
-struct ImmichMemoryWidget: Widget {
-  let kind: String = "com.immich.widget.memory"
+struct UniversalPhotosMemoryWidget: Widget {
+  let kind: String = "com.widget.memory"
 
   var body: some WidgetConfiguration {
     AppIntentConfiguration(
       kind: kind,
       intent: MemoryConfigurationAppIntent.self,
-      provider: ImmichMemoryProvider()
+      provider: UniversalPhotosMemoryProvider()
     ) { entry in
-      ImmichWidgetView(entry: entry)
+      UniversalPhotosWidgetView(entry: entry)
         .containerBackground(.regularMaterial, for: .widget)
     }
     // allow image to take up entire widget
@@ -175,6 +175,6 @@ struct ImmichMemoryWidget: Widget {
 
     // widget picker info
     .configurationDisplayName("Memories")
-    .description("See memories from Immich.")
+    .description("See memories from UniversalPhotos.")
   }
 }

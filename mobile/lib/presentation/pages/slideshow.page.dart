@@ -4,24 +4,24 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/config/slideshow_config.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/scroll_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/pages/common/settings.page.dart';
-import 'package:immich_mobile/presentation/widgets/slideshow/slideshow_controller.dart';
-import 'package:immich_mobile/presentation/widgets/slideshow/slideshow_progress_bar.widget.dart';
-import 'package:immich_mobile/presentation/widgets/slideshow/slideshow_slide.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/video_player_provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/system_ui.utils.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
-import 'package:immich_mobile/widgets/photo_view/photo_view.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/config/slideshow_config.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/scroll_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/pages/common/settings.page.dart';
+import 'package:universal_photos/presentation/widgets/slideshow/slideshow_controller.dart';
+import 'package:universal_photos/presentation/widgets/slideshow/slideshow_progress_bar.widget.dart';
+import 'package:universal_photos/presentation/widgets/slideshow/slideshow_slide.widget.dart';
+import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos/providers/asset_viewer/video_player_provider.dart';
+import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/utils/system_ui.utils.dart';
+import 'package:universal_photos/widgets/common/universalphotos_loading_indicator.dart';
+import 'package:universal_photos/widgets/photo_view/photo_view.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 @RoutePage()
@@ -247,7 +247,7 @@ class _SlideshowPageState extends ConsumerState<SlideshowPage>
   Widget _buildSlide(int index, SlideshowLook look) {
     final asset = _assetAt(index);
     if (asset == null) {
-      return const Center(child: ImmichLoadingIndicator());
+      return const Center(child: UniversalPhotosLoadingIndicator());
     }
 
     return SlideshowSlide(

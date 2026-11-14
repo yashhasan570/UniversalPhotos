@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/util/datetime_clamp_type.dart';
-import 'package:immich_mobile/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos/data/db/util/datetime_clamp_type.dart';
+import 'package:universal_photos/data/db/util/defaults_mixin.dart';
 
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_asset_face_person_id ON asset_face_entity (person_id)')
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_asset_face_asset_id ON asset_face_entity (asset_id)')

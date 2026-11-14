@@ -47,7 +47,7 @@ describe(MaintenanceHealthRepository.name, () => {
         expect.stringMatching(/workers\/api\.js$/),
         [],
         expect.objectContaining({
-          env: expect.objectContaining({ IMMICH_HOST: '127.0.0.1', IMMICH_PORT: '33001' }),
+          env: expect.objectContaining({ UNIVERSALPHOTOS_HOST: '127.0.0.1', UNIVERSALPHOTOS_PORT: '33001' }),
         }),
       );
     });

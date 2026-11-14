@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/theme_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/infrastructure/user.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/widgets/common/user_circle_avatar.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class AssetOwnerDetails extends ConsumerWidget {
   final BaseAsset asset;
@@ -52,13 +52,13 @@ class _OwnerDetailsTile extends ConsumerWidget {
 
         return Padding(
           padding: const .only(
-            left: ImmichSpacing.lg,
-            right: ImmichSpacing.lg,
-            top: ImmichSpacing.md,
-            bottom: ImmichSpacing.sm,
+            left: UniversalPhotosSpacing.lg,
+            right: UniversalPhotosSpacing.lg,
+            top: UniversalPhotosSpacing.md,
+            bottom: UniversalPhotosSpacing.sm,
           ),
           child: Row(
-            spacing: ImmichSpacing.md,
+            spacing: UniversalPhotosSpacing.md,
             children: [
               UserCircleAvatar.fromUser(user: ownerDto, size: 24, hasBorder: false, opacity: 0.8),
               Text(

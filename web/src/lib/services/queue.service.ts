@@ -4,8 +4,8 @@ import { executeMutation } from '#lib/queries/client.ts';
 import { emptyQueueMutation, runQueueCommandLegacyMutation, updateQueueMutation } from '#lib/queries/queue.query.ts';
 import { Route } from '#lib/route.ts';
 import type { HeaderButtonActionItem } from '#lib/types.ts';
-import { QueueCommand, QueueName, type QueueResponseDto } from '@immich/sdk';
-import { modalManager, toastManager, type ActionItem, type IconLike } from '@immich/ui';
+import { QueueCommand, QueueName, type QueueResponseDto } from '@universalphotos/sdk';
+import { modalManager, toastManager, type ActionItem, type IconLike } from '@universalphotos/ui';
 import {
   mdiClose,
   mdiCog,

@@ -7,7 +7,7 @@ import {
   Unique,
   UpdateDateColumn,
   type Generated,
-} from '@immich/sql-tools';
+} from '@universalphotos/sql-tools';
 import { PluginTemplate } from 'src/dtos/plugin.dto.js';
 
 @Unique({ columns: ['name', 'version'] })

@@ -2,7 +2,7 @@
   import { searchManager } from '#lib/managers/search-manager.svelte.ts';
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
-  import { Text } from '@immich/ui';
+  import { Text } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import SearchButton from './SearchButton.svelte';
   import { getSearchTypeTitle } from './search-bar-utils';

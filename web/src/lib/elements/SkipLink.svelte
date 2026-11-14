@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getTabbable } from '#lib/utils/focus-util.ts';
-  import { Button } from '@immich/ui';
+  import { Button } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   interface Props {

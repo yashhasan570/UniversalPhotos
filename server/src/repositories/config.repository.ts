@@ -1,4 +1,4 @@
-import { DatabaseConnectionParams } from '@immich/sql-tools';
+import { DatabaseConnectionParams } from '@universalphotos/sql-tools';
 import { RegisterQueueOptions } from '@nestjs/bullmq';
 import { Inject, Injectable, Optional } from '@nestjs/common';
 import { QueueOptions } from 'bullmq';
@@ -14,10 +14,10 @@ import { Telemetry } from 'src/decorators.js';
 import { EnvSchema } from 'src/dtos/env.dto.js';
 import {
   DatabaseExtension,
-  ImmichEnvironment,
-  ImmichHeader,
-  ImmichTelemetry,
-  ImmichWorker,
+  UniversalPhotosEnvironment,
+  UniversalPhotosHeader,
+  UniversalPhotosTelemetry,
+  UniversalPhotosWorker,
   LogFormat,
   LogLevel,
   QueueName,
@@ -27,7 +27,7 @@ import type { VectorExtension } from 'src/types.js';
 export interface EnvData {
   host?: string;
   port: number;
-  environment: ImmichEnvironment;
+  environment: UniversalPhotosEnvironment;
   configFile?: string;
   logLevel?: LogLevel;
   logFormat?: LogFormat;
@@ -108,7 +108,7 @@ export interface EnvData {
   telemetry: {
     apiPort: number;
     microservicesPort: number;
-    metrics: Set<ImmichTelemetry>;
+    metrics: Set<UniversalPhotosTelemetry>;
   };
 
   storage: {
@@ -116,7 +116,7 @@ export interface EnvData {
     mediaLocation?: string;
   };
 
-  workers: ImmichWorker[];
+  workers: UniversalPhotosWorker[];
 
   plugins: {
     external: {
@@ -143,8 +143,8 @@ const stagingKeys = {
     'LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUE3Sy8yd3ZLUS9NdU8ydi9MUm5saAoyUy9zTHhDOGJiTEw1UUlKOGowQ3BVZW40YURlY2dYMUpKUmtGNlpUVUtpNTdTbEhtS3RSM2JOTzJmdTBUUVg5Ck5WMEJzVzllZVB0MmlTMWl4VVFmTzRObjdvTjZzbEtac01qd29RNGtGRGFmM3VHTlZJc0dMb3UxVWRLUVhpeDEKUlRHcXVTb3NZVjNWRlk3Q1hGYTVWaENBL3poVXNsNGFuVXp3eEF6M01jUFVlTXBaenYvbVZiQlRKVzBPSytWZgpWQUJvMXdYMkVBanpBekVHVzQ3Vko4czhnMnQrNHNPaHFBNStMQjBKVzlORUg5QUpweGZzWE4zSzVtM00yNUJVClZXcTlRYStIdHRENnJ0bnAvcUFweXVkWUdwZk9HYTRCUlZTR1MxMURZM0xrb2FlRzYwUEU5NHpoYjduOHpMWkgKelFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tDQo=',
 };
 
-const WORKER_TYPES = new Set(Object.values(ImmichWorker));
-const TELEMETRY_TYPES = new Set(Object.values(ImmichTelemetry));
+const WORKER_TYPES = new Set(Object.values(UniversalPhotosWorker));
+const TELEMETRY_TYPES = new Set(Object.values(UniversalPhotosTelemetry));
 
 const asSet = <T>(value: string | undefined, defaults: T[]) => {
   const values = (value || '').replaceAll(/\s/g, '').split(',').filter(Boolean);
@@ -217,8 +217,8 @@ const getEnv = (): EnvData => {
   }
   const dto = parseResult.data;
 
-  const includedWorkers = asSet(dto.IMMICH_WORKERS_INCLUDE, [ImmichWorker.Api, ImmichWorker.Microservices]);
-  const excludedWorkers = asSet(dto.IMMICH_WORKERS_EXCLUDE, []);
+  const includedWorkers = asSet(dto.UNIVERSALPHOTOS_WORKERS_INCLUDE, [UniversalPhotosWorker.Api, UniversalPhotosWorker.Microservices]);
+  const excludedWorkers = asSet(dto.UNIVERSALPHOTOS_WORKERS_EXCLUDE, []);
   const workers = [...includedWorkers.difference(excludedWorkers)];
   for (const worker of workers) {
     if (!WORKER_TYPES.has(worker)) {
@@ -226,9 +226,9 @@ const getEnv = (): EnvData => {
     }
   }
 
-  const environment = dto.IMMICH_ENV || ImmichEnvironment.Production;
-  const isProd = environment === ImmichEnvironment.Production;
-  const buildFolder = dto.IMMICH_BUILD_DATA || '/build';
+  const environment = dto.UNIVERSALPHOTOS_ENV || UniversalPhotosEnvironment.Production;
+  const isProd = environment === UniversalPhotosEnvironment.Production;
+  const buildFolder = dto.UNIVERSALPHOTOS_BUILD_DATA || '/build';
   const folders = {
     geodata: join(buildFolder, 'geodata'),
     web: join(buildFolder, 'www'),
@@ -253,11 +253,11 @@ const getEnv = (): EnvData => {
   }
 
   const includedTelemetries =
-    dto.IMMICH_TELEMETRY_INCLUDE === 'all'
-      ? new Set(Object.values(ImmichTelemetry))
-      : asSet<ImmichTelemetry>(dto.IMMICH_TELEMETRY_INCLUDE, []);
+    dto.UNIVERSALPHOTOS_TELEMETRY_INCLUDE === 'all'
+      ? new Set(Object.values(UniversalPhotosTelemetry))
+      : asSet<UniversalPhotosTelemetry>(dto.UNIVERSALPHOTOS_TELEMETRY_INCLUDE, []);
 
-  const excludedTelemetries = asSet<ImmichTelemetry>(dto.IMMICH_TELEMETRY_EXCLUDE, []);
+  const excludedTelemetries = asSet<UniversalPhotosTelemetry>(dto.UNIVERSALPHOTOS_TELEMETRY_EXCLUDE, []);
   const telemetries = includedTelemetries.difference(excludedTelemetries);
   for (const telemetry of telemetries) {
     if (!TELEMETRY_TYPES.has(telemetry)) {
@@ -273,7 +273,7 @@ const getEnv = (): EnvData => {
         port: dto.DB_PORT || 5432,
         username: dto.DB_USERNAME || 'postgres',
         password: dto.DB_PASSWORD || 'postgres',
-        database: dto.DB_DATABASE_NAME || 'immich',
+        database: dto.DB_DATABASE_NAME || 'universalphotos',
         ssl: dto.DB_SSL_MODE || undefined,
       };
 
@@ -292,32 +292,32 @@ const getEnv = (): EnvData => {
   }
 
   return {
-    host: dto.IMMICH_HOST,
-    port: dto.IMMICH_PORT || 2283,
+    host: dto.UNIVERSALPHOTOS_HOST,
+    port: dto.UNIVERSALPHOTOS_PORT || 2283,
     environment,
-    configFile: dto.IMMICH_CONFIG_FILE,
-    logLevel: dto.IMMICH_LOG_LEVEL,
-    logFormat: dto.IMMICH_LOG_FORMAT || LogFormat.Console,
+    configFile: dto.UNIVERSALPHOTOS_CONFIG_FILE,
+    logLevel: dto.UNIVERSALPHOTOS_LOG_LEVEL,
+    logFormat: dto.UNIVERSALPHOTOS_LOG_FORMAT || LogFormat.Console,
 
     buildMetadata: {
-      build: dto.IMMICH_BUILD,
-      buildUrl: dto.IMMICH_BUILD_URL,
-      buildImage: dto.IMMICH_BUILD_IMAGE,
-      buildImageUrl: dto.IMMICH_BUILD_IMAGE_URL,
-      repository: dto.IMMICH_REPOSITORY,
-      repositoryUrl: dto.IMMICH_REPOSITORY_URL,
-      sourceRef: dto.IMMICH_SOURCE_REF,
-      sourceCommit: dto.IMMICH_SOURCE_COMMIT,
-      sourceUrl: dto.IMMICH_SOURCE_URL,
-      thirdPartySourceUrl: dto.IMMICH_THIRD_PARTY_SOURCE_URL,
-      thirdPartyBugFeatureUrl: dto.IMMICH_THIRD_PARTY_BUG_FEATURE_URL,
-      thirdPartyDocumentationUrl: dto.IMMICH_THIRD_PARTY_DOCUMENTATION_URL,
-      thirdPartySupportUrl: dto.IMMICH_THIRD_PARTY_SUPPORT_URL,
+      build: dto.UNIVERSALPHOTOS_BUILD,
+      buildUrl: dto.UNIVERSALPHOTOS_BUILD_URL,
+      buildImage: dto.UNIVERSALPHOTOS_BUILD_IMAGE,
+      buildImageUrl: dto.UNIVERSALPHOTOS_BUILD_IMAGE_URL,
+      repository: dto.UNIVERSALPHOTOS_REPOSITORY,
+      repositoryUrl: dto.UNIVERSALPHOTOS_REPOSITORY_URL,
+      sourceRef: dto.UNIVERSALPHOTOS_SOURCE_REF,
+      sourceCommit: dto.UNIVERSALPHOTOS_SOURCE_COMMIT,
+      sourceUrl: dto.UNIVERSALPHOTOS_SOURCE_URL,
+      thirdPartySourceUrl: dto.UNIVERSALPHOTOS_THIRD_PARTY_SOURCE_URL,
+      thirdPartyBugFeatureUrl: dto.UNIVERSALPHOTOS_THIRD_PARTY_BUG_FEATURE_URL,
+      thirdPartyDocumentationUrl: dto.UNIVERSALPHOTOS_THIRD_PARTY_DOCUMENTATION_URL,
+      thirdPartySupportUrl: dto.UNIVERSALPHOTOS_THIRD_PARTY_SUPPORT_URL,
     },
 
     bull: {
       config: {
-        prefix: 'immich_bull',
+        prefix: 'universalphotos_bull',
         connection: { ...redisConfig },
         defaultJobOptions: {
           attempts: 1,
@@ -334,9 +334,9 @@ const getEnv = (): EnvData => {
           mount: true,
           generateId: true,
           setup: (cls, req: Request, res: Response) => {
-            const cid = req.header(ImmichHeader.CorrelationId) || cls.get(CLS_ID);
+            const cid = req.header(UniversalPhotosHeader.CorrelationId) || cls.get(CLS_ID);
             cls.set(CLS_ID, cid);
-            res.header(ImmichHeader.CorrelationId, cid);
+            res.header(UniversalPhotosHeader.CorrelationId, cid);
           },
         },
       },
@@ -349,22 +349,22 @@ const getEnv = (): EnvData => {
     },
 
     helmet: {
-      config: resolveHelmetFile(dto.IMMICH_HELMET_FILE, folders.web),
+      config: resolveHelmetFile(dto.UNIVERSALPHOTOS_HELMET_FILE, folders.web),
     },
 
     licensePublicKey: isProd ? productionKeys : stagingKeys,
 
     versionCheck: {
-      url: isProd ? 'https://version.immich.cloud/version' : 'https://version.dev.immich.cloud/version',
+      url: isProd ? 'https://version./version' : 'https://version.dev./version',
     },
 
     network: {
-      trustedProxies: dto.IMMICH_TRUSTED_PROXIES ?? ['linklocal', 'uniquelocal'],
+      trustedProxies: dto.UNIVERSALPHOTOS_TRUSTED_PROXIES ?? ['linklocal', 'uniquelocal'],
     },
 
     otel: {
       metrics: {
-        hostMetrics: telemetries.has(ImmichTelemetry.Host),
+        hostMetrics: telemetries.has(UniversalPhotosTelemetry.Host),
       },
     },
 
@@ -384,21 +384,21 @@ const getEnv = (): EnvData => {
         root: folders.web,
         indexHtml: join(folders.web, 'index.html'),
       },
-      corePlugin: join(buildFolder, 'plugins', 'immich-plugin-core'),
+      corePlugin: join(buildFolder, 'plugins', 'universalphotos-plugin-core'),
     },
 
     setup: {
-      allow: dto.IMMICH_ALLOW_SETUP ?? true,
+      allow: dto.UNIVERSALPHOTOS_ALLOW_SETUP ?? true,
     },
 
     storage: {
-      ignoreMountCheckErrors: !!dto.IMMICH_IGNORE_MOUNT_CHECK_ERRORS,
-      mediaLocation: dto.IMMICH_MEDIA_LOCATION,
+      ignoreMountCheckErrors: !!dto.UNIVERSALPHOTOS_IGNORE_MOUNT_CHECK_ERRORS,
+      mediaLocation: dto.UNIVERSALPHOTOS_MEDIA_LOCATION,
     },
 
     telemetry: {
-      apiPort: dto.IMMICH_API_METRICS_PORT || 8081,
-      microservicesPort: dto.IMMICH_MICROSERVICES_METRICS_PORT || 8082,
+      apiPort: dto.UNIVERSALPHOTOS_API_METRICS_PORT || 8081,
+      microservicesPort: dto.UNIVERSALPHOTOS_MICROSERVICES_METRICS_PORT || 8082,
       metrics: telemetries,
     },
 
@@ -406,8 +406,8 @@ const getEnv = (): EnvData => {
 
     plugins: {
       external: {
-        allow: dto.IMMICH_ALLOW_EXTERNAL_PLUGINS ?? false,
-        installFolder: dto.IMMICH_PLUGINS_INSTALL_FOLDER,
+        allow: dto.UNIVERSALPHOTOS_ALLOW_EXTERNAL_PLUGINS ?? false,
+        installFolder: dto.UNIVERSALPHOTOS_PLUGINS_INSTALL_FOLDER,
       },
     },
 
@@ -420,7 +420,7 @@ let cached: EnvData | undefined;
 @Injectable()
 @Telemetry({ enabled: false })
 export class ConfigRepository {
-  constructor(@Inject(IWorker) @Optional() private worker?: ImmichWorker) {}
+  constructor(@Inject(IWorker) @Optional() private worker?: UniversalPhotosWorker) {}
 
   getEnv() {
     if (!cached) {
@@ -431,11 +431,11 @@ export class ConfigRepository {
   }
 
   isDev() {
-    return this.getEnv().environment === ImmichEnvironment.Development;
+    return this.getEnv().environment === UniversalPhotosEnvironment.Development;
   }
 
   isProduction() {
-    return this.getEnv().environment === ImmichEnvironment.Production;
+    return this.getEnv().environment === UniversalPhotosEnvironment.Production;
   }
 
   getWorker() {

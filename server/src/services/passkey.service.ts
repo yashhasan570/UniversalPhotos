@@ -26,16 +26,16 @@ import type { LoginDetails } from 'src/services/auth.service.js';
 import { BaseService } from 'src/services/base.service.js';
 import { findOrFail } from 'src/utils/misc.js';
 
-const RP_NAME = 'Immich';
+const RP_NAME = 'UniversalPhotos';
 
 const CHALLENGE_TTL = Duration.fromObject({ minutes: 5 });
 
-const MOBILE_RP_ID = 'my.immich.app';
+const MOBILE_RP_ID = 'my.';
 
 // iOS apps send https:// + the rp id as their origin
 const IOS_ORIGIN = `https://${MOBILE_RP_ID}`;
 
-// keep in sync with https://my.immich.app/.well-known/assetlinks.json
+// keep in sync with https://my./.well-known/assetlinks.json
 const ANDROID_CERTIFICATE_FINGERPRINTS = [
   '86:C5:C4:55:DF:AF:49:85:92:3A:8F:35:AD:B3:1D:0C:9E:0B:95:7D:7F:94:C2:D2:AF:6A:24:38:AA:96:00:20',
   '5A:22:C1:83:47:54:05:F5:49:C4:EB:9F:B2:6C:2E:93:A3:EF:9C:57:66:15:0A:7A:F3:8C:8D:3F:E5:15:CC:D6',

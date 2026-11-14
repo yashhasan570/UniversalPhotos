@@ -12,7 +12,7 @@
     Logo,
     Text,
     VStack,
-  } from '@immich/ui';
+  } from '@Universal Photos/ui';
   import { mdiAlarmLight, mdiCodeTags, mdiContentCopy, mdiMessage, mdiPartyPopper } from '@mdi/js';
   import { t } from 'svelte-i18n';
 
@@ -33,7 +33,7 @@
 
 <div class="flex h-dvh w-dvw flex-col">
   <section>
-    <div class="flex place-items-center border-b px-6 py-4 dark:border-b-immich-dark-gray">
+    <div class="flex place-items-center border-b px-6 py-4 dark:border-b-Universal Photos-dark-gray">
       <Link href="/photos">
         <Logo variant="inline" />
       </Link>
@@ -66,19 +66,19 @@
         </CardBody>
 
         <CardFooter class="items-start">
-          <Link href="https://discord.immich.app" class="flex grow basis-0 justify-center">
+          <Link href="https://discord." class="flex grow basis-0 justify-center">
             <VStack>
               <Icon icon={mdiMessage} size="24" />
               <Text size="small" class="text-center">{$t('get_help')}</Text>
             </VStack>
           </Link>
-          <Link href="https://github.com/immich-app/immich/releases" class="flex grow basis-0 justify-center">
+          <Link href="https://github.com/yashhasan570/UniversalPhotos/releases" class="flex grow basis-0 justify-center">
             <VStack>
               <Icon icon={mdiPartyPopper} size="24" />
               <Text size="small" class="text-center">{$t('read_changelog')}</Text>
             </VStack>
           </Link>
-          <Link href="https://docs.immich.app/guides/docker-help" class="flex grow basis-0 justify-center">
+          <Link href="https://docs./guides/docker-help" class="flex grow basis-0 justify-center">
             <VStack>
               <Icon icon={mdiCodeTags} size="24" />
               <Text size="small" class="text-center">{$t('check_logs')}</Text>

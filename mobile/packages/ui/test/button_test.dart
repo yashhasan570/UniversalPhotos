@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_ui/src/components/column_button.dart';
-import 'package:immich_ui/src/components/icon_button.dart';
-import 'package:immich_ui/src/components/text_button.dart';
+import 'package:universalphotos_ui/src/components/column_button.dart';
+import 'package:universalphotos_ui/src/components/icon_button.dart';
+import 'package:universalphotos_ui/src/components/text_button.dart';
 
 import 'test_utils.dart';
 
@@ -28,18 +28,18 @@ void main() {
     expect(runs, 2);
   }
 
-  testWidgets('ImmichTextButton runs its action once for two taps in one frame', (tester) async {
-    await tapTwiceInOneFrame(tester, (onPressed) => ImmichTextButton(labelText: 'Save', onPressed: onPressed));
+  testWidgets('UniversalPhotosTextButton runs its action once for two taps in one frame', (tester) async {
+    await tapTwiceInOneFrame(tester, (onPressed) => UniversalPhotosTextButton(labelText: 'Save', onPressed: onPressed));
   });
 
-  testWidgets('ImmichIconButton runs its action once for two taps in one frame', (tester) async {
-    await tapTwiceInOneFrame(tester, (onPressed) => ImmichIconButton(icon: Icons.add, onPressed: onPressed));
+  testWidgets('UniversalPhotosIconButton runs its action once for two taps in one frame', (tester) async {
+    await tapTwiceInOneFrame(tester, (onPressed) => UniversalPhotosIconButton(icon: Icons.add, onPressed: onPressed));
   });
 
-  testWidgets('ImmichColumnButton runs its action once for two taps in one frame', (tester) async {
+  testWidgets('UniversalPhotosColumnButton runs its action once for two taps in one frame', (tester) async {
     await tapTwiceInOneFrame(
       tester,
-      (onPressed) => ImmichColumnButton(icon: Icons.share, label: 'Share', onPressed: onPressed),
+      (onPressed) => UniversalPhotosColumnButton(icon: Icons.share, label: 'Share', onPressed: onPressed),
     );
   });
 }

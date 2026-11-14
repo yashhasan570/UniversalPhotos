@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Card, CardBody, CardHeader, Heading, Logo, VStack, immichLogo } from '@immich/ui';
+  import { Card, CardBody, CardHeader, Heading, Logo, VStack, Universal PhotosLogo } from '@Universal Photos/ui';
   import type { Snippet } from 'svelte';
 
   interface Props {
@@ -16,12 +16,12 @@
   {#if withBackdrop}
     <div class="absolute -z-10 flex size-full place-content-center place-items-center">
       <img
-        src={immichLogo}
+        src={Universal PhotosLogo}
         class="mx-auto mb-2 h-full max-w-(--breakpoint-md) overflow-hidden antialiased"
-        alt="Immich logo"
+        alt="Universal Photos logo"
       />
       <div
-        class="absolute inset-s-0 top-0 h-[99%] w-full bg-transparent backdrop-blur-[200px] dark:bg-immich-dark-bg/20"
+        class="absolute inset-s-0 top-0 h-[99%] w-full bg-transparent backdrop-blur-[200px] dark:bg-Universal Photos-dark-bg/20"
       ></div>
     </div>
   {/if}

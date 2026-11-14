@@ -1,7 +1,7 @@
 import sanitize from 'sanitize-filename';
 import z from 'zod';
 import { AuthApiKey, AuthSession, AuthSharedLink, AuthUser, UserAdmin } from 'src/database.js';
-import { ImmichCookie, UserMetadataKey } from 'src/enum.js';
+import { UniversalPhotosCookie, UserMetadataKey } from 'src/enum.js';
 import type { UserMetadataItem } from 'src/types.js';
 import { HumanReadableSize } from 'src/utils/bytes.js';
 import { toEmail } from 'src/validation.js';
@@ -9,7 +9,7 @@ import { createZodDto } from 'src/zod.js';
 
 export type CookieResponse = {
   isSecure: boolean;
-  values: Array<{ key: ImmichCookie; value: string | null }>;
+  values: Array<{ key: UniversalPhotosCookie; value: string | null }>;
 };
 
 export const pinCodeRegex = /^\d{6}$/;
@@ -53,7 +53,7 @@ const quotaSizeInBytesSchema = z.coerce
 
 export const OAuthProfileSchema = z.object({
   defaults: z.object({
-    immich_quota_bytes: quotaSizeInBytesSchema,
+    universalphotos_quota_bytes: quotaSizeInBytesSchema,
   }),
   sub: z.string(),
   email: z.string().trim().toLowerCase().optional().catch(undefined),
@@ -63,9 +63,9 @@ export const OAuthProfileSchema = z.object({
   family_name: z.string().trim().optional().catch(undefined),
   preferred_username: z.string().trim().optional().catch(undefined),
   picture: z.string().optional().catch(undefined),
-  immich_storage_label: storageLabelClaimSchema,
-  immich_quota_bytes: quotaSizeInBytesSchema,
-  immich_role: z
+  universalphotos_storage_label: storageLabelClaimSchema,
+  universalphotos_quota_bytes: quotaSizeInBytesSchema,
+  universalphotos_role: z
     .union([z.string(), z.array(z.string())])
     .optional()
     .transform((value) => {

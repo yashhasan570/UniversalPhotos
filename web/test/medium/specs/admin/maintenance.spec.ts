@@ -1,6 +1,6 @@
 import { Route } from '#lib/route.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { IntegrityReport, ManualJobName } from '@immich/sdk';
+import { IntegrityReport, ManualJobName } from '@universalphotos/sdk';
 
 test('check all queues the integrity jobs and refreshes the report', async ({ page, data, api, app }) => {
   const { checkAllButton, reportCount } = app.admin.maintenance;

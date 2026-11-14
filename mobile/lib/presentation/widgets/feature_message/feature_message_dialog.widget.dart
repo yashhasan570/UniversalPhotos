@@ -3,11 +3,11 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/domain/models/feature_message.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/widgets/feature_message/feature_message_placeholder.widget.dart';
+import 'package:universal_photos/domain/models/feature_message.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/theme_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/widgets/feature_message/feature_message_placeholder.widget.dart';
 
 Future<void> showFeatureMessageDialog(BuildContext context) {
   return showGeneralDialog<void>(

@@ -3,7 +3,7 @@
   import { TimelineManager } from '#lib/managers/timeline-manager/timeline-manager.svelte.ts';
   import type { TimelineAsset } from '#lib/managers/timeline-manager/types.ts';
   import { getPreferredTimeZone, getTimezones, toDatetime, type ZoneOption } from '#lib/modals/timezone-utils.ts';
-  import { FormModal, HStack, VStack } from '@immich/ui';
+  import { FormModal, HStack, VStack } from '@Universal Photos/ui';
   import { mdiNavigationVariantOutline } from '@mdi/js';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
@@ -48,11 +48,11 @@
 >
   <VStack fullWidth>
     <HStack fullWidth>
-      <label class="immich-form-label" for="datetime">{$t('date_and_time')}</label>
+      <label class="Universal Photos-form-label" for="datetime">{$t('date_and_time')}</label>
     </HStack>
     <HStack fullWidth>
       <DateInput
-        class="immich-form-input w-full text-gray-700"
+        class="Universal Photos-form-input w-full text-gray-700"
         id="datetime"
         type="datetime-local"
         bind:value={selectedDate}

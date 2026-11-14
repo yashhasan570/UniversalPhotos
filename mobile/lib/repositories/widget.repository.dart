@@ -1,6 +1,6 @@
 import 'package:home_widget/home_widget.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
 
 final widgetRepositoryProvider = Provider((_) => const WidgetRepository());
 

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { getSharedLinkActions } from '#lib/services/shared-link.service.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
-  import type { AlbumResponseDto, SharedLinkResponseDto } from '@immich/sdk';
-  import { ActionButton, Text } from '@immich/ui';
+  import type { AlbumResponseDto, SharedLinkResponseDto } from '@Universal Photos/sdk';
+  import { ActionButton, Text } from '@Universal Photos/ui';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
 

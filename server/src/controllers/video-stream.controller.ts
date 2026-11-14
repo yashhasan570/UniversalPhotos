@@ -11,7 +11,7 @@ import {
   HlsSessionParamDto,
   HlsVariantParamDto,
 } from 'src/dtos/streaming.dto.js';
-import { ApiTag, ImmichHeader, Permission, RouteKey } from 'src/enum.js';
+import { ApiTag, UniversalPhotosHeader, Permission, RouteKey } from 'src/enum.js';
 import { Auth, Authenticated, FileResponse } from 'src/middleware/auth.guard.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
 import { HlsService } from 'src/services/hls.service.js';
@@ -55,7 +55,7 @@ export class VideoStreamController {
     @Param() { id, sessionId, variantIndex }: HlsVariantParamDto,
     @Headers() headers: HlsPlaylistHeaderDto,
   ) {
-    return this.service.getMediaPlaylist(auth, id, sessionId, variantIndex, headers[ImmichHeader.HlsPosition]);
+    return this.service.getMediaPlaylist(auth, id, sessionId, variantIndex, headers[UniversalPhotosHeader.HlsPosition]);
   }
 
   @Get(':id/video/stream/:sessionId/:variantIndex/:filename')
@@ -76,7 +76,7 @@ export class VideoStreamController {
     await sendFile(
       res,
       next,
-      () => this.service.getSegment(auth, id, sessionId, variantIndex, filename, headers[ImmichHeader.HlsInitSegment]),
+      () => this.service.getSegment(auth, id, sessionId, variantIndex, filename, headers[UniversalPhotosHeader.HlsInitSegment]),
       this.logger,
     );
   }

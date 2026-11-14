@@ -4,7 +4,7 @@ import { ChildProcess, fork } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { Worker } from 'node:worker_threads';
 import { PostgresError } from 'postgres';
-import { DatabaseLock, ExitCode, ImmichWorker, LogLevel, SystemMetadataKey } from 'src/enum.js';
+import { DatabaseLock, ExitCode, UniversalPhotosWorker, LogLevel, SystemMetadataKey } from 'src/enum.js';
 import { ConfigRepository } from 'src/repositories/config.repository.js';
 import { SystemMetadataRepository } from 'src/repositories/system-metadata.repository.js';
 import { type DB } from 'src/schema/index.js';
@@ -13,7 +13,7 @@ import { getKyselyConfig } from 'src/utils/database.js';
 /** Manages worker lifecycle */
 class Workers {
   /** Currently running workers */
-  workers: Partial<Record<ImmichWorker, { kill: (signal: NodeJS.Signals) => Promise<void> | void }>> = {};
+  workers: Partial<Record<UniversalPhotosWorker, { kill: (signal: NodeJS.Signals) => Promise<void> | void }>> = {};
 
   /** Fail-safe in case anything dies during restart */
   restarting = false;
@@ -24,7 +24,7 @@ class Workers {
     const { workers } = new ConfigRepository().getEnv();
 
     if (isMaintenanceMode) {
-      this.startWorker(ImmichWorker.Maintenance);
+      this.startWorker(UniversalPhotosWorker.Maintenance);
     } else {
       await this.waitForFreeLock();
 
@@ -87,7 +87,7 @@ class Workers {
   Start an individual worker
   @param name Worker
   */
-  private startWorker(name: ImmichWorker) {
+  private startWorker(name: UniversalPhotosWorker) {
     console.log(`Starting ${name} worker`);
 
     const basePath = dirname(import.meta.filename);
@@ -96,7 +96,7 @@ class Workers {
     let anyWorker: Worker | ChildProcess;
     let kill: (signal?: NodeJS.Signals) => Promise<void> | void;
 
-    if (name === ImmichWorker.Api) {
+    if (name === UniversalPhotosWorker.Api) {
       const worker = fork(workerFile, [], {
         execArgv: process.execArgv.map((arg) => (arg.startsWith('--inspect') ? '--inspect=0.0.0.0:9231' : arg)),
       });
@@ -117,12 +117,12 @@ class Workers {
     this.workers[name] = { kill };
   }
 
-  onError(name: ImmichWorker, error: Error) {
+  onError(name: UniversalPhotosWorker, error: Error) {
     console.error(`${name} worker error: ${error}, stack: ${error.stack}`);
   }
 
-  onExit(name: ImmichWorker, exitCode: number | null) {
-    // restart immich server
+  onExit(name: UniversalPhotosWorker, exitCode: number | null) {
+    // restart universalphotos server
     if (exitCode === ExitCode.AppRestart || this.restarting) {
       this.restarting = true;
 
@@ -144,9 +144,9 @@ class Workers {
     if (exitCode !== 0) {
       console.error(`${name} worker exited with code ${exitCode}`);
 
-      if (Object.hasOwn(this.workers, ImmichWorker.Api) && name !== ImmichWorker.Api) {
+      if (Object.hasOwn(this.workers, UniversalPhotosWorker.Api) && name !== UniversalPhotosWorker.Api) {
         console.error('Killing api process');
-        void this.workers[ImmichWorker.Api]!.kill('SIGTERM');
+        void this.workers[UniversalPhotosWorker.Api]!.kill('SIGTERM');
       }
     }
 
@@ -155,35 +155,35 @@ class Workers {
 }
 
 async function main() {
-  const immichApp = process.argv[2];
-  if (immichApp) {
+  const universalphotosApp = process.argv[2];
+  if (universalphotosApp) {
     process.argv.splice(2, 1);
   }
 
-  if (immichApp === 'immich-admin') {
-    process.title = 'immich_admin_cli';
-    process.env.IMMICH_LOG_LEVEL = LogLevel.Warn;
+  if (universalphotosApp === 'universalphotos-admin') {
+    process.title = 'universalphotos_admin_cli';
+    process.env.UNIVERSALPHOTOS_LOG_LEVEL = LogLevel.Warn;
 
     // imported lazily, so that the supervisor process does not build the whole application
     // graph on every start.
-    const { ImmichAdminModule } = await import('./app.module.js');
+    const { UniversalPhotosAdminModule } = await import('./app.module.js');
 
-    return CommandFactory.run(ImmichAdminModule);
+    return CommandFactory.run(UniversalPhotosAdminModule);
   }
 
-  if (immichApp === 'immich' || immichApp === 'microservices') {
+  if (universalphotosApp === 'universalphotos' || universalphotosApp === 'microservices') {
     console.error(
-      `Using "start.sh ${immichApp}" has been deprecated. See https://github.com/yashhasan570/UniversalPhotos/releases/tag/v1.118.0 for more information.`,
+      `Using "start.sh ${universalphotosApp}" has been deprecated. See https://github.com/yashhasan570/UniversalPhotos/releases/tag/v1.118.0 for more information.`,
     );
     process.exit(1);
   }
 
-  if (immichApp) {
-    console.error(`Unknown command: "${immichApp}"`);
+  if (universalphotosApp) {
+    console.error(`Unknown command: "${universalphotosApp}"`);
     process.exit(1);
   }
 
-  process.title = 'immich';
+  process.title = 'universalphotos';
   void new Workers().bootstrap();
 }
 

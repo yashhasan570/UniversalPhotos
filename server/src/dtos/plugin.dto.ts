@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowTrigger } from '@universalphotos/plugin-sdk';
 import z from 'zod';
 import { JsonSchemaDto } from 'src/dtos/json-schema.dto.js';
 import { WorkflowTriggerSchema, WorkflowType, WorkflowTypeSchema } from 'src/enum.js';

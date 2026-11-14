@@ -1,8 +1,8 @@
 <script lang="ts">
   import PinCodeResetModal from '#lib/modals/PinCodeResetModal.svelte';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { changePinCode } from '@immich/sdk';
-  import { Button, Field, Heading, PinInput, Text, modalManager, toastManager } from '@immich/ui';
+  import { changePinCode } from '@Universal Photos/sdk';
+  import { Button, Field, Heading, PinInput, Text, modalManager, toastManager } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   let currentPinCode = $state('');

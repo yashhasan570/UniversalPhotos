@@ -6,17 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/backup/backup_server.provider.dart';
-import 'package:immich_mobile/providers/upload_profile_image.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/utils/image_converter.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/providers/backup/backup_server.provider.dart';
+import 'package:universal_photos/providers/upload_profile_image.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/utils/image_converter.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 @RoutePage()
 class ProfilePictureCropPage extends ConsumerStatefulWidget {
@@ -91,7 +91,7 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
         }
         unawaited(ref.read(backupServerProvider.notifier).updateDiskInfo());
 
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.profile_picture_set,
           gravity: ToastGravity.BOTTOM,
@@ -100,7 +100,7 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
 
         unawaited(context.maybePop());
       } else {
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.errors.unable_to_set_profile_picture,
           toastType: ToastType.error,
@@ -112,7 +112,7 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
         return;
       }
 
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         msg: context.t.errors.unable_to_set_profile_picture,
         toastType: ToastType.error,
@@ -136,7 +136,7 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
       appBar: AppBar(
         backgroundColor: context.scaffoldBackgroundColor,
         title: Text(context.t.set_profile_picture),
-        leading: _isLoading ? null : const ImmichCloseButton(),
+        leading: _isLoading ? null : const UniversalPhotosCloseButton(),
         actions: [
           if (_isLoading)
             const Padding(
@@ -144,10 +144,10 @@ class _ProfilePictureCropPageState extends ConsumerState<ProfilePictureCropPage>
               child: SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2)),
             )
           else
-            ImmichIconButton(
+            UniversalPhotosIconButton(
               icon: Icons.done_rounded,
-              color: ImmichColor.primary,
-              variant: ImmichVariant.ghost,
+              color: UniversalPhotosColor.primary,
+              variant: UniversalPhotosVariant.ghost,
               onPressed: _handleDone,
             ),
         ],

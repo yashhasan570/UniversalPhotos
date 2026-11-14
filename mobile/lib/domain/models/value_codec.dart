@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:universal_photos/utils/semver.dart';
 
 sealed class ValueCodec<T> {
   const ValueCodec();

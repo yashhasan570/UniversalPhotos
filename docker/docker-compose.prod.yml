@@ -1,5 +1,5 @@
 #
-# WARNING: To install Immich, follow our guide: https://docs.immich.app/install/docker-compose
+# WARNING: To install UniversalPhotos, follow our guide: https://docs./install/docker-compose
 #
 # Make sure to use the docker-compose.yml of the current release:
 #
@@ -7,12 +7,12 @@
 #
 # The compose file on main may not be compatible with the latest release.
 
-name: immich-prod
+name: universalphotos-prod
 
 services:
-  immich-server:
-    container_name: immich_server
-    image: immich-server:latest
+  universalphotos-server:
+    container_name: universalphotos_server
+    image: universalphotos-server:latest
     # extends:
     #   file: hwaccel.transcoding.yml
     #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
@@ -33,9 +33,9 @@ services:
     healthcheck:
       disable: false
 
-  immich-machine-learning:
-    container_name: immich_machine_learning
-    image: immich-machine-learning:latest
+  universalphotos-machine-learning:
+    container_name: universalphotos_machine_learning
+    image: universalphotos-machine-learning:latest
     # extends:
     #   file: hwaccel.ml.yml
     #   service: cpu # set to one of [armnn, cuda, rocm, openvino, openvino-wsl, rknn] for accelerated inference
@@ -55,15 +55,15 @@ services:
       disable: false
 
   redis:
-    container_name: immich_redis
+    container_name: universalphotos_redis
     image: docker.io/valkey/valkey:9@sha256:3add1a336a920ea54770a001ab6feb3da5fceea96a40373a3a2cd469b815f0b7
     healthcheck:
       test: redis-cli ping | grep -q PONG || exit 1
     restart: always
 
   database:
-    container_name: immich_postgres
-    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
+    container_name: universalphotos_postgres
+    image: /postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
     env_file:
       - .env
     environment:
@@ -80,9 +80,9 @@ services:
     healthcheck:
       disable: false
 
-  # set IMMICH_TELEMETRY_INCLUDE=all in .env to enable metrics
-  immich-prometheus:
-    container_name: immich_prometheus
+  # set UNIVERSALPHOTOS_TELEMETRY_INCLUDE=all in .env to enable metrics
+  universalphotos-prometheus:
+    container_name: universalphotos_prometheus
     ports:
       - 9090:9090
     image: prom/prometheus@sha256:e04987641b57704f408e31f6373ba4138ecf27cb4a165d24aabb6c38fddd0f06
@@ -91,9 +91,9 @@ services:
       - prometheus-data:/prometheus
 
   # first login uses admin/admin
-  # add data source for http://immich-prometheus:9090 to get started
-  immich-grafana:
-    container_name: immich_grafana
+  # add data source for http://universalphotos-prometheus:9090 to get started
+  universalphotos-grafana:
+    container_name: universalphotos_grafana
     command: ['./run.sh', '-disable-reporting']
     ports:
       - 3000:3000

@@ -6,7 +6,7 @@ import {
   isHttpError,
   isMalformedResponseError,
   Permission,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { convertPathToPattern, glob } from 'fast-glob';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
@@ -76,7 +76,7 @@ Please make sure your API key has the correct permissions.`,
 };
 
 export const connect = async (url: string, key: string) => {
-  const wellKnownUrl = new URL('.well-known/immich', url);
+  const wellKnownUrl = new URL('.well-known/universalphotos', url);
   try {
     // eslint-disable-next-line unicorn/prefer-await
     const wellKnown = (await fetch(wellKnownUrl).then((response) => response.json())) as { api: { endpoint: string } };
@@ -107,7 +107,7 @@ export const logError = (error: unknown, message: string) => {
   } else if (isMalformedResponseError(error)) {
     console.error(`${message}: ${error.message}`);
     console.error(
-      'Check that the URL points at the Immich API, and that nothing in front of it (reverse proxy, SSO portal) is answering instead.',
+      'Check that the URL points at the UniversalPhotos API, and that nothing in front of it (reverse proxy, SSO portal) is answering instead.',
     );
   } else {
     console.error(`${message} - ${error}`);

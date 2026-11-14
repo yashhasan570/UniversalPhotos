@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:immich_mobile/constants/locales.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
+import 'package:universal_photos/constants/locales.dart';
+import 'package:universal_photos/extensions/theme_extensions.dart';
 
-class ImmichTheme {
+class UniversalPhotosTheme {
   final ColorScheme light;
   final ColorScheme dark;
 
-  const ImmichTheme({required this.light, required this.dark});
+  const UniversalPhotosTheme({required this.light, required this.dark});
 }
 
 ThemeData getThemeData({required ColorScheme colorScheme, required Locale locale}) {
@@ -116,11 +116,11 @@ ThemeData getThemeData({required ColorScheme colorScheme, required Locale locale
   );
 }
 
-// This method replaces all surface shades in ImmichTheme to a static ones
+// This method replaces all surface shades in UniversalPhotosTheme to a static ones
 // as we are creating the colorscheme through seedColor the default surfaces are
 // tinted with primary color
-ImmichTheme decolorizeSurfaces({required ImmichTheme theme}) {
-  return ImmichTheme(
+UniversalPhotosTheme decolorizeSurfaces({required UniversalPhotosTheme theme}) {
+  return UniversalPhotosTheme(
     light: theme.light.copyWith(
       surface: const Color(0xFFf9f9f9),
       onSurface: const Color(0xFF1b1b1b),

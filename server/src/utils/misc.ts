@@ -14,7 +14,7 @@ import picomatch from 'picomatch';
 import { CLIP_MODEL_INFO, JOBS_ASSET_PAGINATION_SIZE, endpointTags, serverVersion } from 'src/constants.js';
 import { extraModels } from 'src/decorators.js';
 import { SystemConfig } from 'src/dtos/config.dto.js';
-import { ApiCustomExtension, ImmichCookie, ImmichHeader, MetadataKey } from 'src/enum.js';
+import { ApiCustomExtension, UniversalPhotosCookie, UniversalPhotosHeader, MetadataKey } from 'src/enum.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
 import { patchOpenApiParameters, toOpenApiComponents, toOpenApiSchema } from 'src/zod.js';
 
@@ -23,8 +23,8 @@ type ReferenceOrSchemaObject = Extract<ApiBodyOptions, { schema: unknown }>['sch
 type ReferenceObject = Extract<ReferenceOrSchemaObject, { $ref: unknown }>;
 type SchemaObject = Exclude<ReferenceOrSchemaObject, ReferenceObject>;
 
-export class ImmichStartupError extends Error {}
-export const isStartUpError = (error: unknown): error is ImmichStartupError => error instanceof ImmichStartupError;
+export class UniversalPhotosStartupError extends Error {}
+export const isStartUpError = (error: unknown): error is UniversalPhotosStartupError => error instanceof UniversalPhotosStartupError;
 
 export const getKeyByValue = (object: Record<string, unknown>, value: unknown) =>
   Object.keys(object).find((key) => object[key] === value);
@@ -49,7 +49,7 @@ export const getMethodNames = (instance: any) => {
   return methods;
 };
 
-export const getExternalDomain = (server: SystemConfig['server'], defaultDomain = 'https://my.immich.app') =>
+export const getExternalDomain = (server: SystemConfig['server'], defaultDomain = 'https://my.') =>
   server.externalDomain || defaultDomain;
 
 /** @returns a list of strings representing the keys of the object in dot notation */
@@ -315,8 +315,8 @@ const patchOpenAPI = (document: OpenAPIObject) => {
 
 export const useSwagger = (app: INestApplication, { write }: { write: boolean }) => {
   const builder = new DocumentBuilder()
-    .setTitle('Immich')
-    .setDescription('Immich API')
+    .setTitle('UniversalPhotos')
+    .setDescription('UniversalPhotos API')
     .setVersion(serverVersion.toString())
     .setOpenAPIVersion('3.1.0')
     .addBearerAuth({
@@ -324,12 +324,12 @@ export const useSwagger = (app: INestApplication, { write }: { write: boolean })
       scheme: 'Bearer',
       in: 'header',
     })
-    .addCookieAuth(ImmichCookie.AccessToken)
+    .addCookieAuth(UniversalPhotosCookie.AccessToken)
     .addApiKey(
       {
         type: 'apiKey',
         in: 'header',
-        name: ImmichHeader.ApiKey,
+        name: UniversalPhotosHeader.ApiKey,
       },
       MetadataKey.ApiKeySecurity,
     )
@@ -358,7 +358,7 @@ export const useSwagger = (app: INestApplication, { write }: { write: boolean })
     },
     jsonDocumentUrl: '/api/spec.json',
     yamlDocumentUrl: '/api/spec.yaml',
-    customSiteTitle: 'Immich API Documentation',
+    customSiteTitle: 'UniversalPhotos API Documentation',
   };
 
   SwaggerModule.setup('doc', app, specification, customOptions);
@@ -368,7 +368,7 @@ export const useSwagger = (app: INestApplication, { write }: { write: boolean })
     return;
   }
 
-  const outputPath = path.resolve(process.cwd(), '../open-api/immich-openapi-specs.json');
+  const outputPath = path.resolve(process.cwd(), '../open-api/universalphotos-openapi-specs.json');
   writeFileSync(outputPath, JSON.stringify(canonicalize(patchOpenAPI(specification)), null, 2), { encoding: 'utf8' });
 };
 

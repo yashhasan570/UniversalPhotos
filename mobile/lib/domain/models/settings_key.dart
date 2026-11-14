@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/constants/colors.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/log.model.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/models/value_codec.dart';
-import 'package:immich_mobile/providers/album/album_sort_by_options.provider.dart';
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:universal_photos/constants/colors.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/models/log.model.dart';
+import 'package:universal_photos/domain/models/timeline.model.dart';
+import 'package:universal_photos/domain/models/value_codec.dart';
+import 'package:universal_photos/providers/album/album_sort_by_options.provider.dart';
+import 'package:universal_photos/utils/semver.dart';
 
 enum SettingsKey<T> {
   // Theme
-  themePrimaryColor<ImmichColorPreset>(codec: EnumCodec(ImmichColorPreset.values)),
+  themePrimaryColor<UniversalPhotosColorPreset>(codec: EnumCodec(UniversalPhotosColorPreset.values)),
   themeMode<ThemeMode>(codec: EnumCodec(ThemeMode.values)),
   themeDynamic<bool>(),
   themeColorfulInterface<bool>(),

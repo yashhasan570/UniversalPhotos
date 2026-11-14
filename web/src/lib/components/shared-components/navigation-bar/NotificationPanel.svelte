@@ -9,8 +9,8 @@
     updateNotificationsMutation,
   } from '#lib/queries/notification.query.ts';
   import { Route } from '#lib/route.ts';
-  import { NotificationType, type NotificationDto } from '@immich/sdk';
-  import { Button, Icon, Scrollable, Stack, Text } from '@immich/ui';
+  import { NotificationType, type NotificationDto } from '@Universal Photos/sdk';
+  import { Button, Icon, Scrollable, Stack, Text } from '@Universal Photos/ui';
   import { mdiBellOutline, mdiCheckAll } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
@@ -70,7 +70,7 @@
   in:fade={{ duration: 100 }}
   out:fade={{ duration: 100 }}
   id="notification-panel"
-  class="absolute top-17.5 right-6 z-1 w-[min(360px,100vw-50px)] rounded-3xl border border-gray-200 bg-gray-100 text-light shadow-lg dark:border dark:border-light dark:bg-immich-dark-gray"
+  class="absolute top-17.5 right-6 z-1 w-[min(360px,100vw-50px)] rounded-3xl border border-gray-200 bg-gray-100 text-light shadow-lg dark:border dark:border-light dark:bg-Universal Photos-dark-gray"
   {@attach focusTrap()}
 >
   <Stack class="max-h-125">

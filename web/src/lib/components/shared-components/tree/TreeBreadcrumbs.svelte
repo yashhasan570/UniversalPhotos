@@ -1,6 +1,6 @@
 <script lang="ts">
   import { TreeNode } from '#lib/utils/tree-utils.ts';
-  import { Breadcrumbs, ControlBar, ControlBarHeader, IconButton } from '@immich/ui';
+  import { Breadcrumbs, ControlBar, ControlBarHeader, IconButton } from '@Universal Photos/ui';
   import { mdiArrowUpLeft } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

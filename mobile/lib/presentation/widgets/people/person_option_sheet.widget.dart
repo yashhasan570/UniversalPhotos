@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
+import 'package:universal_photos/generated/translations.g.dart';
 
 class PersonOptionSheet extends StatelessWidget {
   const PersonOptionSheet({super.key, this.onEditName, this.onEditBirthday, this.birthdayExists = false});

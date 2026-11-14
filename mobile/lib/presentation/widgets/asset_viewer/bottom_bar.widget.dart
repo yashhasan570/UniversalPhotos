@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/presentation/actions/delete.action.dart';
-import 'package:immich_mobile/presentation/actions/edit_asset.action.dart';
-import 'package:immich_mobile/presentation/actions/restore.action.dart';
-import 'package:immich_mobile/presentation/actions/share.action.dart';
-import 'package:immich_mobile/presentation/actions/upload.action.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/add_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/ocr_toggle_button.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/routes.provider.dart';
-import 'package:immich_mobile/widgets/asset_viewer/video_controls.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/presentation/actions/action.dart';
+import 'package:universal_photos/presentation/actions/delete.action.dart';
+import 'package:universal_photos/presentation/actions/edit_asset.action.dart';
+import 'package:universal_photos/presentation/actions/restore.action.dart';
+import 'package:universal_photos/presentation/actions/share.action.dart';
+import 'package:universal_photos/presentation/actions/upload.action.dart';
+import 'package:universal_photos/presentation/widgets/action_buttons/add_action_button.widget.dart';
+import 'package:universal_photos/presentation/widgets/asset_viewer/ocr_toggle_button.widget.dart';
+import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos/providers/routes.provider.dart';
+import 'package:universal_photos/widgets/asset_viewer/video_controls.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 // Resolved here rather than as an ActionColumnButton so a hidden restore
 // takes no slot in the spaceEvenly row below.
 List<Widget> _actionColumnButtons(BuildContext context, WidgetRef ref, List<ActionBuilder> actions) => actions
     .map((a) => a.create(context, ref))
     .nonNulls
-    .map<ImmichColumnButton>(
+    .map<UniversalPhotosColumnButton>(
       (item) => .new(icon: item.icon, label: item.label, onPressed: item.onAction, onLongPress: item.onSecondaryAction),
     )
     .toList(growable: false);
@@ -53,7 +53,7 @@ class ViewerBottomBar extends ConsumerWidget {
             UploadAction(source: .viewer, showProgress: true),
             EditAssetAction(source: .viewer),
           ]),
-          if (asset.hasRemote) ImmichColorOverride(color: null, child: AddActionButton(originalTheme: originalTheme)),
+          if (asset.hasRemote) UniversalPhotosColorOverride(color: null, child: AddActionButton(originalTheme: originalTheme)),
         ],
         ..._actionColumnButtons(context, ref, const [DeleteAction(source: .viewer)]),
       ],
@@ -65,7 +65,7 @@ class ViewerBottomBar extends ConsumerWidget {
           ? const SizedBox.shrink()
           : Theme(
               data: context.themeData.copyWith(
-                iconTheme: const IconThemeData(size: ImmichIconSize.md, color: Colors.white),
+                iconTheme: const IconThemeData(size: UniversalPhotosIconSize.md, color: Colors.white),
                 textTheme: context.themeData.textTheme.copyWith(
                   labelLarge: context.themeData.textTheme.labelLarge?.copyWith(color: Colors.white),
                 ),
@@ -96,7 +96,7 @@ class ViewerBottomBar extends ConsumerWidget {
                           if (asset.isImage) OcrToggleButton(asset: asset),
                           if (asset.isVideo) VideoControls(videoPlayerName: asset.id),
                           if (!isReadonlyModeEnabled)
-                            ImmichColorOverride(
+                            UniversalPhotosColorOverride(
                               color: Colors.white,
                               child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: actions),
                             ),

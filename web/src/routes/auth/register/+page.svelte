@@ -4,8 +4,8 @@
   import { getServerConfigQuery } from '#lib/queries/server-info.query.ts';
   import { Route } from '#lib/route.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { signUpAdmin } from '@immich/sdk';
-  import { Alert, Button, Field, Input, PasswordInput, Text } from '@immich/ui';
+  import { signUpAdmin } from '@Universal Photos/sdk';
+  import { Alert, Button, Field, Input, PasswordInput, Text } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
   import type { PageData } from './$types';

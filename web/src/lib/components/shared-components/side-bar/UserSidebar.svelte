@@ -7,7 +7,7 @@
   import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
   import { Route } from '#lib/route.ts';
   import { recentAlbumsDropdown } from '#lib/stores/preferences.store.ts';
-  import { NavbarGroup, NavbarItem } from '@immich/ui';
+  import { NavbarGroup, NavbarItem } from '@Universal Photos/ui';
   import {
     mdiAccount,
     mdiAccountMultiple,

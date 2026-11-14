@@ -149,7 +149,7 @@ export class StorageCore {
     return originalPath.startsWith(StorageCore.getBaseFolder(StorageFolder.EncodedVideo));
   }
 
-  static isImmichPath(path: string) {
+  static isUniversalPhotosPath(path: string) {
     const resolvedPath = resolve(path);
     const resolvedAppMediaLocation = StorageCore.getMediaLocation();
     const normalizedPath = resolvedPath.endsWith('/') ? resolvedPath : resolvedPath + '/';
@@ -264,7 +264,7 @@ export class StorageCore {
         try {
           await this.storageRepository.unlink(move.oldPath);
         } catch (error: any) {
-          this.logger.warn(`Unable to delete old file, it will now no longer be tracked by Immich: ${error.message}`);
+          this.logger.warn(`Unable to delete old file, it will now no longer be tracked by UniversalPhotos: ${error.message}`);
         }
       }
     }

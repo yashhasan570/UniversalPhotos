@@ -1,5 +1,5 @@
 [tasks.install]
-run = "pnpm install --filter immich-web --frozen-lockfile"
+run = "pnpm install --filter universalphotos-web --frozen-lockfile"
 
 [tasks.build]
 run = "pnpm run build"
@@ -19,7 +19,7 @@ run = [
 ]
 
 [tasks."start-demo"]
-env.IMMICH_SERVER_URL = "https://demo.immich.app"
+env.UNIVERSALPHOTOS_SERVER_URL = "https://demo."
 run = { task = ":start" }
 
 [tasks.test]

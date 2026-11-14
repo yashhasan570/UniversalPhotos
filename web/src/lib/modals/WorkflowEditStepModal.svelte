@@ -4,8 +4,8 @@
   import PluginMethodPicker from '#lib/modals/PluginMethodPicker.svelte';
   import { type JSONSchemaProperty, type SchemaConfig } from '#lib/types.ts';
   import { getWorkflowDefaultConfig } from '#lib/utils/workflow.ts';
-  import { WorkflowTrigger, type WorkflowStepDto } from '@immich/sdk';
-  import { Button, FormModal, Stack, Text, Textarea, modalManager } from '@immich/ui';
+  import { WorkflowTrigger, type WorkflowStepDto } from '@Universal Photos/sdk';
+  import { Button, FormModal, Stack, Text, Textarea, modalManager } from '@Universal Photos/ui';
   import { mdiPencilOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

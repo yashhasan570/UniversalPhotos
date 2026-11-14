@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/domain/models/person.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/widgets/people/person_edit_birthday_modal.widget.dart';
-import 'package:immich_mobile/presentation/widgets/people/person_edit_name_modal.widget.dart';
+import 'package:universal_photos/domain/models/person.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/widgets/people/person_edit_birthday_modal.widget.dart';
+import 'package:universal_photos/presentation/widgets/people/person_edit_name_modal.widget.dart';
 
 String? formatAge(DateTime birthDate, DateTime referenceDate) {
   final int ageInYears = _calculateAge(birthDate, referenceDate);

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Switch } from '@immich/ui';
+  import { Switch } from '@Universal Photos/ui';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
   import { quintOut } from 'svelte/easing';
@@ -47,7 +47,7 @@
     </div>
 
     {#if subtitle}
-      <p id={subtitleId} class="text-sm dark:text-immich-dark-fg">{subtitle}</p>
+      <p id={subtitleId} class="text-sm dark:text-Universal Photos-dark-fg">{subtitle}</p>
     {/if}
     {@render children?.()}
   </div>

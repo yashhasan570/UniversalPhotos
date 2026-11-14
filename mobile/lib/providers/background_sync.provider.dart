@@ -1,7 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/utils/background_sync.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/providers/sync_status.provider.dart';
+import 'package:universal_photos/domain/utils/background_sync.dart';
+import 'package:universal_photos/providers/backup/backup.provider.dart';
+import 'package:universal_photos/providers/sync_status.provider.dart';
 
 final backgroundSyncProvider = Provider<BackgroundSyncManager>((ref) {
   final syncStatusNotifier = ref.read(syncStatusProvider.notifier);

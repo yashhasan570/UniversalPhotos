@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/email_input.dart';
-import 'package:immich_ui/src/previews.dart';
+import 'package:universalphotos_ui/src/components/email_input.dart';
+import 'package:universalphotos_ui/src/previews.dart';
 
-@ImmichPreview(group: 'EmailInput', name: 'Basic')
+@UniversalPhotosPreview(group: 'EmailInput', name: 'Basic')
 Widget previewEmailInput() => const _PreviewEmailInput();
 
 class _PreviewEmailInput extends StatefulWidget {
@@ -23,6 +23,6 @@ class _PreviewEmailInputState extends State<_PreviewEmailInput> {
 
   @override
   Widget build(BuildContext context) {
-    return ImmichEmailInput(label: 'Email', hintText: 'user@immich.app', controller: _controller);
+    return UniversalPhotosEmailInput(label: 'Email', hintText: 'user@', controller: _controller);
   }
 }

@@ -1,5 +1,5 @@
 import ShortcutsModal from '#lib/modals/ShortcutsModal.svelte';
-import { modalManager, type ActionItem } from '@immich/ui';
+import { modalManager, type ActionItem } from '@universalphotos/ui';
 import { mdiKeyboard } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';
 

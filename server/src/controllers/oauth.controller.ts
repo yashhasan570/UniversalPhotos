@@ -11,7 +11,7 @@ import {
   type AuthDto,
 } from 'src/dtos/auth.dto.js';
 import { UserAdminResponseDto } from 'src/dtos/user.dto.js';
-import { ApiTag, AuthType, ImmichCookie } from 'src/enum.js';
+import { ApiTag, AuthType, UniversalPhotosCookie } from 'src/enum.js';
 import { Auth, Authenticated, GetLoginDetails } from 'src/middleware/auth.guard.js';
 import { AuthService, type LoginDetails } from 'src/services/auth.service.js';
 import { respondWithCookie } from 'src/utils/response.js';
@@ -56,8 +56,8 @@ export class OAuthController {
       {
         isSecure: loginDetails.isSecure,
         values: [
-          { key: ImmichCookie.OAuthState, value: dto.state ? null : state },
-          { key: ImmichCookie.OAuthCodeVerifier, value: codeVerifier },
+          { key: UniversalPhotosCookie.OAuthState, value: dto.state ? null : state },
+          { key: UniversalPhotosCookie.OAuthCodeVerifier, value: codeVerifier },
         ],
       },
     );
@@ -77,14 +77,14 @@ export class OAuthController {
     @GetLoginDetails() loginDetails: LoginDetails,
   ): Promise<LoginResponseDto> {
     const body = await this.service.callback(dto, request.headers, loginDetails);
-    res.clearCookie(ImmichCookie.OAuthState);
-    res.clearCookie(ImmichCookie.OAuthCodeVerifier);
+    res.clearCookie(UniversalPhotosCookie.OAuthState);
+    res.clearCookie(UniversalPhotosCookie.OAuthCodeVerifier);
     return respondWithCookie(res, body, {
       isSecure: loginDetails.isSecure,
       values: [
-        { key: ImmichCookie.AccessToken, value: body.accessToken },
-        { key: ImmichCookie.AuthType, value: AuthType.OAuth },
-        { key: ImmichCookie.IsAuthenticated, value: 'true' },
+        { key: UniversalPhotosCookie.AccessToken, value: body.accessToken },
+        { key: UniversalPhotosCookie.AuthType, value: AuthType.OAuth },
+        { key: UniversalPhotosCookie.IsAuthenticated, value: 'true' },
       ],
     });
   }

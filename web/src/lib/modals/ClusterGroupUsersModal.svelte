@@ -1,7 +1,7 @@
 <script lang="ts">
   import UserAvatar from '#lib/components/shared-components/UserAvatar.svelte';
-  import { getClusterGroupUsers, type UserResponseDto } from '@immich/sdk';
-  import { Button, HStack, LoadingSpinner, Modal, ModalBody, ModalFooter, Text } from '@immich/ui';
+  import { getClusterGroupUsers, type UserResponseDto } from '@Universal Photos/sdk';
+  import { Button, HStack, LoadingSpinner, Modal, ModalBody, ModalFooter, Text } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {
@@ -31,7 +31,7 @@
         <Text size="small" fontWeight="medium">{$t('users')}</Text>
       </div>
 
-      <div class="mt-4 flex max-h-75 immich-scrollbar flex-col gap-4 overflow-y-auto">
+      <div class="mt-4 flex max-h-75 Universal Photos-scrollbar flex-col gap-4 overflow-y-auto">
         {#each users as user (user.id)}
           <div class="flex items-center gap-4">
             <UserAvatar {user} size="md" />

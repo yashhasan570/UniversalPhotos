@@ -10,32 +10,32 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store/passkey.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/models/auth/login_response.model.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/feature_message.provider.dart';
-import 'package:immich_mobile/providers/gallery_permission.provider.dart';
-import 'package:immich_mobile/providers/oauth.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/view_intent/view_intent_handler.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/repositories/permission.repository.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/error_handler.dart';
-import 'package:immich_mobile/utils/provider_utils.dart';
-import 'package:immich_mobile/utils/semver.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
-import 'package:immich_mobile/utils/version_compatibility.dart';
-import 'package:immich_mobile/widgets/common/immich_logo.dart';
-import 'package:immich_mobile/widgets/common/immich_title_text.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/data/store/passkey.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/entities/store.entity.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos/models/auth/login_response.model.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/providers/background_sync.provider.dart';
+import 'package:universal_photos/providers/feature_message.provider.dart';
+import 'package:universal_photos/providers/gallery_permission.provider.dart';
+import 'package:universal_photos/providers/oauth.provider.dart';
+import 'package:universal_photos/providers/server_info.provider.dart';
+import 'package:universal_photos/providers/view_intent/view_intent_handler.provider.dart';
+import 'package:universal_photos/providers/websocket.provider.dart';
+import 'package:universal_photos/repositories/permission.repository.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/utils/error_handler.dart';
+import 'package:universal_photos/utils/provider_utils.dart';
+import 'package:universal_photos/utils/semver.dart';
+import 'package:universal_photos/utils/url_helper.dart';
+import 'package:universal_photos/utils/version_compatibility.dart';
+import 'package:universal_photos/widgets/common/universalphotos_logo.dart';
+import 'package:universal_photos/widgets/common/universalphotos_title_text.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -100,7 +100,7 @@ class LoginForm extends HookConsumerWidget {
 
       // Guard empty URL
       if (serverUrl.isEmpty) {
-        ImmichToast.show(context: context, msg: context.t.login_form_server_empty, toastType: ToastType.error);
+        UniversalPhotosToast.show(context: context, msg: context.t.login_form_server_empty, toastType: ToastType.error);
       }
 
       try {
@@ -135,7 +135,7 @@ class LoginForm extends HookConsumerWidget {
           return;
         }
 
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: e.message ?? context.t.login_form_api_exception,
           toastType: ToastType.error,
@@ -148,7 +148,7 @@ class LoginForm extends HookConsumerWidget {
           return;
         }
 
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.login_form_handshake_exception,
           toastType: ToastType.error,
@@ -161,7 +161,7 @@ class LoginForm extends HookConsumerWidget {
           return;
         }
 
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.login_form_server_error,
           toastType: ToastType.error,
@@ -181,9 +181,9 @@ class LoginForm extends HookConsumerWidget {
     }, []);
 
     void populateTestLoginInfo() {
-      emailController.text = 'demo@immich.app';
+      emailController.text = 'demo@';
       passwordController.text = 'demo';
-      serverEndpointController.text = 'https://demo.immich.app';
+      serverEndpointController.text = 'https://demo.';
     }
 
     void populateTestLoginInfo1() {
@@ -303,7 +303,7 @@ class LoginForm extends HookConsumerWidget {
           return;
         }
 
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.login_form_failed_login,
           toastType: ToastType.error,
@@ -361,7 +361,7 @@ class LoginForm extends HookConsumerWidget {
           return;
         }
 
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.login_form_failed_get_oauth_server_config,
           toastType: ToastType.error,
@@ -395,7 +395,7 @@ class LoginForm extends HookConsumerWidget {
             return;
           }
 
-          ImmichToast.show(
+          UniversalPhotosToast.show(
             context: context,
             msg: error.toString(),
             toastType: ToastType.error,
@@ -407,7 +407,7 @@ class LoginForm extends HookConsumerWidget {
           return;
         }
 
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.login_form_failed_get_oauth_server_disable,
           toastType: ToastType.info,
@@ -432,7 +432,7 @@ class LoginForm extends HookConsumerWidget {
           return;
         }
 
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: serverErrorMessage(error) ?? context.t.errors.something_went_wrong,
           toastType: ToastType.error,
@@ -474,15 +474,15 @@ class LoginForm extends HookConsumerWidget {
 
     final serverSelectionOrLogin = serverEndpoint.value == null
         ? Padding(
-            padding: const EdgeInsets.only(top: ImmichSpacing.md),
+            padding: const EdgeInsets.only(top: UniversalPhotosSpacing.md),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                ImmichForm(
+                UniversalPhotosForm(
                   onSubmit: getServerAuthSettings,
                   submitText: context.t.next,
                   submitIcon: Icons.arrow_forward_rounded,
-                  builder: (_, form) => ImmichURLInput(
+                  builder: (_, form) => UniversalPhotosURLInput(
                     controller: serverEndpointController,
                     label: context.t.login_form_endpoint_url,
                     hintText: context.t.login_form_endpoint_hint,
@@ -491,10 +491,10 @@ class LoginForm extends HookConsumerWidget {
                     onSubmit: (_) => form.submit(),
                   ),
                 ),
-                ImmichTextButton(
+                UniversalPhotosTextButton(
                   labelText: context.t.settings,
                   icon: Icons.settings,
-                  variant: ImmichVariant.ghost,
+                  variant: UniversalPhotosVariant.ghost,
                   onPressed: () => context.pushRoute(const SettingsRoute()),
                 ),
               ],
@@ -507,7 +507,7 @@ class LoginForm extends HookConsumerWidget {
               children: [
                 buildVersionCompatWarning(),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: ImmichSpacing.md),
+                  padding: const EdgeInsets.only(bottom: UniversalPhotosSpacing.md),
                   child: Text(
                     normalizeServerUrl(serverEndpointController.text),
                     style: context.textTheme.displaySmall,
@@ -515,14 +515,14 @@ class LoginForm extends HookConsumerWidget {
                   ),
                 ),
                 if (isPasswordLoginEnable.value)
-                  ImmichForm(
+                  UniversalPhotosForm(
                     onSubmit: login,
                     submitText: context.t.login,
                     submitIcon: Icons.login_rounded,
                     builder: (context, form) => Column(
-                      spacing: ImmichSpacing.md,
+                      spacing: UniversalPhotosSpacing.md,
                       children: [
-                        ImmichEmailInput(
+                        UniversalPhotosEmailInput(
                           controller: emailController,
                           label: context.t.email,
                           hintText: context.t.login_form_email_hint,
@@ -530,7 +530,7 @@ class LoginForm extends HookConsumerWidget {
                           keyboardAction: TextInputAction.next,
                           onSubmit: (_) => passwordFocusNode.requestFocus(),
                         ),
-                        ImmichPasswordInput(
+                        UniversalPhotosPasswordInput(
                           controller: passwordController,
                           focusNode: passwordFocusNode,
                           label: context.t.password,
@@ -542,7 +542,7 @@ class LoginForm extends HookConsumerWidget {
                     ),
                   ),
                 if (isOauthEnable.value)
-                  ImmichForm(
+                  UniversalPhotosForm(
                     onSubmit: oAuthLogin,
                     submitText: oAuthButtonLabel.value,
                     submitIcon: Icons.pin_outlined,
@@ -554,7 +554,7 @@ class LoginForm extends HookConsumerWidget {
                         : const SizedBox.shrink(),
                   ),
                 if (isPasskeyEnable.value)
-                  ImmichForm(
+                  UniversalPhotosForm(
                     onSubmit: passkeyLogin,
                     submitText: context.t.login_with_passkey,
                     submitIcon: Icons.key_outlined,
@@ -567,10 +567,10 @@ class LoginForm extends HookConsumerWidget {
                   ),
                 if (!isOauthEnable.value && !isPasswordLoginEnable.value && !isPasskeyEnable.value)
                   Center(child: Text(context.t.login_disabled)),
-                ImmichTextButton(
+                UniversalPhotosTextButton(
                   labelText: context.t.back,
                   icon: Icons.arrow_back,
-                  variant: ImmichVariant.ghost,
+                  variant: UniversalPhotosVariant.ghost,
                   onPressed: () => serverEndpoint.value = null,
                 ),
               ],
@@ -595,9 +595,9 @@ class LoginForm extends HookConsumerWidget {
                       GestureDetector(
                         onDoubleTap: () => populateTestLoginInfo(),
                         onLongPress: () => populateTestLoginInfo1(),
-                        child: RotationTransition(turns: logoAnimationController, child: const ImmichLogo()),
+                        child: RotationTransition(turns: logoAnimationController, child: const UniversalPhotosLogo()),
                       ),
-                      const Padding(padding: EdgeInsets.only(top: 8.0, bottom: 16), child: ImmichTitleText()),
+                      const Padding(padding: EdgeInsets.only(top: 8.0, bottom: 16), child: UniversalPhotosTitleText()),
                     ],
                   ),
 

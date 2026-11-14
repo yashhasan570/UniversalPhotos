@@ -5,7 +5,7 @@ import { expect, test } from '#test/medium/fixtures.ts';
 import type { Page } from '@playwright/test';
 
 const helloWorld = { text: 'Hello World', x1: 0.1, y1: 0.1, x2: 0.4, y2: 0.1, x3: 0.4, y3: 0.15, x4: 0.1, y4: 0.15 };
-const immichPhoto = { text: 'Immich Photo', x1: 0.2, y1: 0.3, x2: 0.6, y2: 0.3, x3: 0.6, y3: 0.36, x4: 0.2, y4: 0.36 };
+const universalphotosPhoto = { text: 'UniversalPhotos Photo', x1: 0.2, y1: 0.3, x2: 0.6, y2: 0.3, x3: 0.6, y3: 0.36, x4: 0.2, y4: 0.36 };
 const secondText = {
   text: 'Second Asset Text',
   x1: 0.15,
@@ -22,7 +22,7 @@ const setup = (data: MockData) => {
   const asset = factory.asset({ width: 4000, height: 3000, fileCreatedAt: '2024-06-01T12:00:00.000Z' });
   data
     .addAssets(asset)
-    .addOcr([factory.ocr({ assetId: asset.id, ...helloWorld }), factory.ocr({ assetId: asset.id, ...immichPhoto })]);
+    .addOcr([factory.ocr({ assetId: asset.id, ...helloWorld }), factory.ocr({ assetId: asset.id, ..Photo })]);
   return asset;
 };
 
@@ -71,7 +71,7 @@ test.describe('OCR bounding boxes', () => {
     await app.viewer.ocr.button.click();
     await expect(app.viewer.ocr.boxes).toHaveCount(2);
     await expect(app.viewer.ocr.boxes.nth(0)).toContainText('Hello World');
-    await expect(app.viewer.ocr.boxes.nth(1)).toContainText('Immich Photo');
+    await expect(app.viewer.ocr.boxes.nth(1)).toContainText('UniversalPhotos Photo');
 
     await app.viewer.ocr.button.click();
     await expect(app.viewer.ocr.boxes).toHaveCount(0);

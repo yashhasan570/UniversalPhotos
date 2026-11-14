@@ -16,8 +16,8 @@
   import { handleError } from '#lib/utils/handle-error.ts';
   import { getOcrBoundingBoxes } from '#lib/utils/ocr-utils.ts';
   import { getBoundingBox, type BoundingBox } from '#lib/utils/people-utils.ts';
-  import { type SharedLinkResponseDto } from '@immich/sdk';
-  import { shortcuts, toastManager } from '@immich/ui';
+  import { type SharedLinkResponseDto } from '@Universal Photos/sdk';
+  import { shortcuts, toastManager } from '@Universal Photos/ui';
   import { onDestroy, untrack } from 'svelte';
   import { useSwipe, type SwipeCustomEvent } from 'svelte-gestures';
   import { t } from 'svelte-i18n';

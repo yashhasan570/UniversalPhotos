@@ -1,6 +1,6 @@
 import { Route } from '#lib/route.ts';
 import type { MockData } from '#test/common/data.ts';
-import type { AssetResponseDto, IntegrityReport } from '@immich/sdk';
+import type { AssetResponseDto, IntegrityReport } from '@universalphotos/sdk';
 import { expect, type Page } from '@playwright/test';
 import { DateTime } from 'luxon';
 
@@ -162,7 +162,7 @@ export const createApp = (page: Page, data: MockData) => {
       archiveLink: link('archive'),
       trashLink: link('trash'),
       purchaseInfo: {
-        buyButton: sidebar.getByRole('button', { name: 'purchase_button_buy_immich' }),
+        buyButton: sidebar.getByRole('button', { name: 'purchase_button_buy_universalphotos' }),
         panel: purchasePanel,
         neverShowAgainButton: purchasePanel.getByRole('button', { name: 'purchase_button_never_show_again' }),
         remindMeButton: purchasePanel.getByRole('button', { name: 'purchase_button_reminder' }),
@@ -170,7 +170,7 @@ export const createApp = (page: Page, data: MockData) => {
     },
 
     navbar: {
-      logoLink: link('Immich logo'),
+      logoLink: link('UniversalPhotos logo'),
       avatar: accountButton,
       editAvatarButton: button('edit_avatar'),
       openAvatarEditor: async () => {
@@ -251,7 +251,7 @@ const createTimeline = (page: Page, data: MockData) => {
       unfavoriteButton: page.getByLabel('remove_from_favorites', { exact: true }),
       unarchiveButton: page.getByLabel('unarchive', { exact: true }),
       restoreButton: page.getByRole('button', { name: 'restore', exact: true }),
-      // TODO: wire the app translations into the @immich/ui ControlBar so this can target the `close` key
+      // TODO: wire the app translations into the @universalphotos/ui ControlBar so this can target the `close` key
       closeButton: page.getByTestId('control-bar').getByLabel('Close'),
 
       archive: () => menuItem('to_archive'),
@@ -356,7 +356,7 @@ const createTimeline = (page: Page, data: MockData) => {
 };
 
 const createViewer = (page: Page) => {
-  const root = page.locator('#immich-asset-viewer');
+  const root = page.locator('#universalphotos-asset-viewer');
   const content = page.getByTestId('viewer-content');
   const detailPanel = page.getByTestId('detail-panel');
   const stack = page.getByTestId('stack-slideshow');

@@ -15,9 +15,9 @@ export class WebSocketAdapter extends IoAdapter {
     const server = super.createIOServer(port, options);
     const pubClient = new Redis(redis);
     const subClient = pubClient.duplicate();
-    const isImmichSocket = !options?.path || options.path === '/api/socket.io';
+    const isUniversalPhotosSocket = !options?.path || options.path === '/api/socket.io';
     const adapterOpts = {
-      key: isImmichSocket ? undefined : `socket.io` + options.path,
+      key: isUniversalPhotosSocket ? undefined : `socket.io` + options.path,
     };
     server.adapter(createAdapter(pubClient, subClient, adapterOpts));
     return server;

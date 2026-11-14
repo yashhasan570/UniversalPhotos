@@ -1,8 +1,8 @@
 import 'package:drift_dev/api/migrations_native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/timeline.repository.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/domain/models/timeline.model.dart';
+import 'package:universal_photos/infrastructure/repositories/timeline.repository.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import '../../drift/main/generated/schema.dart';

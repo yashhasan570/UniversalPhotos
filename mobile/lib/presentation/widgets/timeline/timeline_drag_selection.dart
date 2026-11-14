@@ -5,12 +5,12 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.state.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline_drag_region.dart';
-import 'package:immich_mobile/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/presentation/widgets/timeline/timeline.state.dart';
+import 'package:universal_photos/presentation/widgets/timeline/timeline_drag_region.dart';
+import 'package:universal_photos/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos/providers/timeline/multiselect.provider.dart';
 
 /// Listens to long hold drags on a timeline [ScrollView] and handles multi-select scenarios with automated scrolling
 class TimelineDragSelection extends ConsumerStatefulWidget {

@@ -2,8 +2,8 @@ import { replaceTemplateTags, templatePreview } from 'src/utils/replace-template
 
 describe(replaceTemplateTags.name, () => {
   it('should replace tags', () => {
-    expect(replaceTemplateTags('Hello {name}, welcome to {instance}', { name: 'Alan', instance: 'Immich' })).toBe(
-      'Hello Alan, welcome to Immich',
+    expect(replaceTemplateTags('Hello {name}, welcome to {instance}', { name: 'Alan', instance: 'UniversalPhotos' })).toBe(
+      'Hello Alan, welcome to UniversalPhotos',
     );
   });
 

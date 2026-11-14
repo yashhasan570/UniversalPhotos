@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/widgets/settings/beta_sync_settings/sync_status_and_actions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/widgets/settings/beta_sync_settings/sync_status_and_actions.dart';
 
 @RoutePage()
 class SyncStatusPage extends StatelessWidget {

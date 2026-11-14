@@ -87,14 +87,14 @@ describe('passkey config', () => {
   });
 
   it('should reject domains that are not https', () => {
-    expect(passkeyMessages({ enabled: true, domain: 'ftp://immich.example', additionalDomains: [] })).toEqual([
+    expect(passkeyMessages({ enabled: true, domain: 'ftp://universalphotos.example', additionalDomains: [] })).toEqual([
       'Invalid URL',
     ]);
   });
 
   it('should reject domains with a path', () => {
     expect(
-      passkeyMessages({ enabled: true, domain: null, additionalDomains: ['https://immich.tailnet.example/photos'] }),
+      passkeyMessages({ enabled: true, domain: null, additionalDomains: ['https://universalphotos.tailnet.example/photos'] }),
     ).toEqual(['Additional domain must not include a path, query, or fragment']);
   });
 
@@ -103,7 +103,7 @@ describe('passkey config', () => {
       passkeyMessages({
         enabled: true,
         domain: null,
-        additionalDomains: ['https://immich.tailnet.example', 'https://immich.tailnet.example/'],
+        additionalDomains: ['https://universalphotos.tailnet.example', 'https://universalphotos.tailnet.example/'],
       }),
     ).toEqual(['Duplicate domain']);
   });
@@ -112,8 +112,8 @@ describe('passkey config', () => {
     expect(
       passkeyMessages({
         enabled: true,
-        domain: 'https://immich.example',
-        additionalDomains: ['https://immich.example/'],
+        domain: 'https://universalphotos.example',
+        additionalDomains: ['https://universalphotos.example/'],
       }),
     ).toEqual(['The passkey domain is always allowed and must not be listed as an additional domain']);
   });

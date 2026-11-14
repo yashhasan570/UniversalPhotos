@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/domain/services/local_album.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_album.repository.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/domain/models/album/local_album.model.dart';
+import 'package:universal_photos/domain/services/local_album.service.dart';
+import 'package:universal_photos/infrastructure/repositories/local_album.repository.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
 
 final backupAlbumProvider = StateNotifierProvider<BackupAlbumNotifier, List<LocalAlbum>>(
   (ref) => BackupAlbumNotifier(LocalAlbumService(ref.watch(driftProvider).localAlbumRepository)),

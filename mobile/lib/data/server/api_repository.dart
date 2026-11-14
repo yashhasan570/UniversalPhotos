@@ -1,4 +1,4 @@
-import 'package:immich_mobile/data/server/errors.dart';
+import 'package:universal_photos/data/server/errors.dart';
 
 class ApiRepository {
   const ApiRepository();

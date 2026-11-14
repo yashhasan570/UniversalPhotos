@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/widgets/settings/preference_settings/haptic_setting.dart';
-import 'package:immich_mobile/widgets/settings/preference_settings/share_setting.dart';
-import 'package:immich_mobile/widgets/settings/preference_settings/theme_setting.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/widgets/settings/preference_settings/haptic_setting.dart';
+import 'package:universal_photos/widgets/settings/preference_settings/share_setting.dart';
+import 'package:universal_photos/widgets/settings/preference_settings/theme_setting.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class PreferenceSetting extends StatelessWidget {
   const PreferenceSetting({super.key});

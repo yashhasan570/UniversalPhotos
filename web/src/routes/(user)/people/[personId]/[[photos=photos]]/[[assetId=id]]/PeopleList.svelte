@@ -1,7 +1,7 @@
 <script lang="ts">
   import SearchPeople from '#lib/components/faces-page/PeopleSearch.svelte';
-  import { type PersonResponseDto } from '@immich/sdk';
-  import { IconButton } from '@immich/ui';
+  import { type PersonResponseDto } from '@Universal Photos/sdk';
+  import { IconButton } from '@Universal Photos/ui';
   import { mdiSwapVertical } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import FaceThumbnail from './FaceThumbnail.svelte';
@@ -47,7 +47,7 @@
 </div>
 
 <div
-  class="mt-6 immich-scrollbar overflow-y-auto rounded-3xl bg-gray-200 p-10 dark:bg-immich-dark-gray"
+  class="mt-6 Universal Photos-scrollbar overflow-y-auto rounded-3xl bg-gray-200 p-10 dark:bg-Universal Photos-dark-gray"
   style:max-height={screenHeight - 400 + 'px'}
 >
   <div class="grid-col-2 grid gap-8 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10">

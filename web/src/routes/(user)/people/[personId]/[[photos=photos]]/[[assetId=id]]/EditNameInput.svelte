@@ -1,8 +1,8 @@
 <script lang="ts">
   import ImageThumbnail from '#lib/components/assets/thumbnail/ImageThumbnail.svelte';
   import SearchPeople from '#lib/components/faces-page/PeopleSearch.svelte';
-  import { type PersonResponseDto } from '@immich/sdk';
-  import { Button } from '@immich/ui';
+  import { type PersonResponseDto } from '@Universal Photos/sdk';
+  import { Button } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   interface Props {
@@ -31,8 +31,8 @@
 
 <div
   class="flex h-14 w-full place-items-center {suggestedPeople.length > 0
-    ? 'rounded-t-lg dark:border-immich-dark-gray'
-    : 'rounded-lg'} border border-gray-200 bg-gray-100 p-2 dark:border-immich-dark-gray dark:bg-gray-700"
+    ? 'rounded-t-lg dark:border-Universal Photos-dark-gray'
+    : 'rounded-lg'} border border-gray-200 bg-gray-100 p-2 dark:border-Universal Photos-dark-gray dark:bg-gray-700"
 >
   <ImageThumbnail circle shadow url={thumbnailData} altText={person.name} widthStyle="2rem" heightStyle="2rem" />
   <form class="ms-4 flex w-full justify-between gap-16" autocomplete="off" {onsubmit}>

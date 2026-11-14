@@ -16,7 +16,7 @@ import {
   type ServerVersionResponseDto,
   type SyncAssetEditV1,
   type SyncAssetV2,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { isEqual } from 'lodash-es';
 import { io, type Socket } from 'socket.io-client';
 import { get, writable } from 'svelte/store';

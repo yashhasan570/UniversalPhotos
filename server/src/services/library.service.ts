@@ -23,7 +23,7 @@ import {
   ChecksumAlgorithm,
   CronJob,
   DatabaseLock,
-  ImmichWorker,
+  UniversalPhotosWorker,
   JobName,
   JobStatus,
   QueueName,
@@ -42,7 +42,7 @@ export class LibraryService extends BaseService {
   private lock = false;
   private watchers: Record<string, () => Promise<void>> = {};
 
-  @OnEvent({ name: 'ConfigInit', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'ConfigInit', workers: [UniversalPhotosWorker.Microservices] })
   async onConfigInit({
     newConfig: {
       library: { watch, scan },
@@ -302,7 +302,7 @@ export class LibraryService extends BaseService {
     validation.importPath = importPath;
     validation.isValid = false;
 
-    if (StorageCore.isImmichPath(importPath)) {
+    if (StorageCore.isUniversalPhotosPath(importPath)) {
       validation.message = 'Cannot use media upload folder for external libraries';
       return validation;
     }

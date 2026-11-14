@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/network.provider.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/providers/network.provider.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class LocalNetworkPreference extends HookConsumerWidget {
   const LocalNetworkPreference({super.key, required this.enabled});
@@ -28,8 +28,8 @@ class LocalNetworkPreference extends HookConsumerWidget {
       builder: (context) => AlertDialog(
         title: Text(title),
         content: isUrlField
-            ? ImmichURLInput(controller: controller, autofocus: true, keyboardAction: .done, hintText: hintText)
-            : ImmichTextInput(controller: controller, autofocus: true, keyboardAction: .done, hintText: hintText),
+            ? UniversalPhotosURLInput(controller: controller, autofocus: true, keyboardAction: .done, hintText: hintText)
+            : UniversalPhotosTextInput(controller: controller, autofocus: true, keyboardAction: .done, hintText: hintText),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),

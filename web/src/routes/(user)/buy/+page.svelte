@@ -4,7 +4,7 @@
   import LicenseContent from '#lib/components/shared-components/purchasing/PurchaseContent.svelte';
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { Route } from '#lib/route.ts';
-  import { Alert, Container, Stack } from '@immich/ui';
+  import { Alert, Container, Stack } from '@Universal Photos/ui';
   import { mdiAlertCircleOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';

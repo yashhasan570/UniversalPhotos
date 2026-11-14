@@ -16,8 +16,8 @@
     type AlbumResponseDto,
     type UpdateAlbumDto,
     type UserResponseDto,
-  } from '@immich/sdk';
-  import { Field, HStack, Modal, ModalBody, Select, Stack, Switch, Text, type SelectOption } from '@immich/ui';
+  } from '@Universal Photos/sdk';
+  import { Field, HStack, Modal, ModalBody, Select, Stack, Switch, Text, type SelectOption } from '@Universal Photos/ui';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
 

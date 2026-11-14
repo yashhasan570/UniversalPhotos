@@ -1,7 +1,7 @@
 {
-  "name": "immich-monorepo",
+  "name": "universalphotos-monorepo",
   "version": "3.4.0-rc.0",
-  "description": "Monorepo for Immich",
+  "description": "Monorepo for UniversalPhotos",
   "type": "module",
   "private": true,
   "scripts": {

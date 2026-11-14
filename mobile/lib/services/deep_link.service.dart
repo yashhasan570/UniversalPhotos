@@ -1,19 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/models/memory.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/services/asset.service.dart' as beta_asset_service;
-import 'package:immich_mobile/domain/services/memory.service.dart';
-import 'package:immich_mobile/domain/services/remote_album.service.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_viewer.page.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart' as beta_asset_provider;
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/models/memory.model.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/domain/services/asset.service.dart' as beta_asset_service;
+import 'package:universal_photos/domain/services/memory.service.dart';
+import 'package:universal_photos/domain/services/remote_album.service.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/presentation/widgets/asset_viewer/asset_viewer.page.dart';
+import 'package:universal_photos/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos/providers/infrastructure/asset.provider.dart' as beta_asset_provider;
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/routing/router.dart';
 
 final deepLinkServiceProvider = Provider(
   (ref) => DeepLinkService(
@@ -56,7 +56,7 @@ class DeepLinkService {
     };
   }
 
-  Future<PageRouteInfo?> handleMyImmichApp(PlatformDeepLink link, WidgetRef ref) async {
+  Future<PageRouteInfo?> handleMyUniversalPhotosApp(PlatformDeepLink link, WidgetRef ref) async {
     final path = link.uri.path;
 
     const uuidRegex = r'[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}';

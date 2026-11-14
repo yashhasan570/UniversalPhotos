@@ -4,12 +4,12 @@ import 'dart:ui' as ui;
 
 import 'package:async/async.dart';
 import 'package:flutter/widgets.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/infrastructure/loaders/image_request.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/presentation/widgets/images/local_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/constants.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/infrastructure/loaders/image_request.dart';
+import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos/presentation/widgets/images/local_image_provider.dart';
+import 'package:universal_photos/presentation/widgets/images/remote_image_provider.dart';
+import 'package:universal_photos/presentation/widgets/timeline/constants.dart';
 import 'package:logging/logging.dart';
 
 // The provider is also the cache key and can be resolved more than once.

@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/providers/backup/backup.provider.dart';
-import 'package:immich_mobile/services/background_upload.service.dart';
-import 'package:immich_mobile/services/foreground_upload.service.dart';
-import 'package:immich_mobile/utils/upload_speed_calculator.dart';
+import 'package:universal_photos/providers/backup/backup.provider.dart';
+import 'package:universal_photos/services/background_upload.service.dart';
+import 'package:universal_photos/services/foreground_upload.service.dart';
+import 'package:universal_photos/utils/upload_speed_calculator.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockForegroundUploadService extends Mock implements ForegroundUploadService {}

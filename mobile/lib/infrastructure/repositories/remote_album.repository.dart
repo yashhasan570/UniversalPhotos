@@ -2,18 +2,18 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/data/db/main/table/remote/album.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/album_asset.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/album_user.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/asset.dart';
-import 'package:immich_mobile/data/db/main/table/remote/asset.drift.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/remote_album.repository.drift.dart';
-import 'package:immich_mobile/utils/datetime_helpers.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/data/db/main/table/remote/album.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/album_asset.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/album_user.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos/data/db/main/table/remote/asset.drift.dart';
+import 'package:universal_photos/domain/models/album/album.model.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/infrastructure/repositories/remote_album.repository.drift.dart';
+import 'package:universal_photos/utils/datetime_helpers.dart';
 
 enum SortRemoteAlbumsBy { id, updatedAt }
 

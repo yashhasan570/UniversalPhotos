@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/toast.provider.dart';
-import 'package:immich_mobile/services/toast.service.dart';
-import 'package:immich_mobile/utils/error_handler.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/extensions/platform_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.dart';
+import 'package:universal_photos/providers/infrastructure/asset.provider.dart';
+import 'package:universal_photos/providers/infrastructure/toast.provider.dart';
+import 'package:universal_photos/services/toast.service.dart';
+import 'package:universal_photos/utils/error_handler.dart';
+import 'package:universal_photos/widgets/common/confirm_dialog.dart';
 import 'package:logging/logging.dart';
 
 typedef _State = ({bool shouldLock, List<String> assetIds, List<String> localIds});

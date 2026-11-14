@@ -3,17 +3,17 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/domain/services/background_worker.service.dart';
-import 'package:immich_mobile/domain/utils/background_sync.dart';
-import 'package:immich_mobile/main.dart' as app;
-import 'package:immich_mobile/platform/background_worker_api.g.dart';
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/utils/bootstrap.dart';
-import 'package:immich_mobile/wm_executor.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/domain/services/background_worker.service.dart';
+import 'package:universal_photos/domain/utils/background_sync.dart';
+import 'package:universal_photos/main.dart' as app;
+import 'package:universal_photos/platform/background_worker_api.g.dart';
+import 'package:universal_photos/services/api.service.dart';
+import 'package:universal_photos/utils/bootstrap.dart';
+import 'package:universal_photos/wm_executor.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'test_utils/fake_immich_server.dart';
+import 'test_utils/fake_universalphotos_server.dart';
 
 // Issue #28082: a remote sync in-flight when the app is backgrounded stays referenced
 // but frozen across the suspension. On resume the app drops the stale task
@@ -30,7 +30,7 @@ void main() {
   binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
   late Drift drift;
-  late FakeImmichServer server;
+  late FakeUniversalPhotosServer server;
 
   // main()'s formula with a higher floor: a wedged frozen worker plus a full local
   // sync must not starve the fresh resume sync out of its 25s window on 4 cores.
@@ -57,7 +57,7 @@ void main() {
       poolSize,
       reason: 'init was ignored: a straggler from the previous test re-warmed the pool',
     );
-    server = await FakeImmichServer.start();
+    server = await FakeUniversalPhotosServer.start();
     await ApiService().resolveAndSetEndpoint(server.endpoint);
     await drift.delete(drift.userEntity).go();
   });

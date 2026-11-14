@@ -1,8 +1,8 @@
 <script lang="ts">
   import GeolocationPointPickerModal from '#lib/modals/GeolocationPointPickerModal.svelte';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { updateAsset, type AssetResponseDto } from '@immich/sdk';
-  import { Icon, modalManager } from '@immich/ui';
+  import { updateAsset, type AssetResponseDto } from '@Universal Photos/sdk';
+  import { Icon, modalManager } from '@Universal Photos/ui';
   import { mdiMapMarkerOutline, mdiPencil } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

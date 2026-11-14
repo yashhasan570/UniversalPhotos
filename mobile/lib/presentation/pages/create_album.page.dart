@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumbnail.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/widgets/album/album_action_filled_button.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/widgets/images/thumbnail.widget.dart';
+import 'package:universal_photos/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/widgets/album/album_action_filled_button.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
 
 @RoutePage()
 class CreateAlbumPage extends ConsumerStatefulWidget {
@@ -194,7 +194,7 @@ class _CreateAlbumPageState extends ConsumerState<CreateAlbumPage> {
         return;
       }
 
-      ImmichToast.show(context: context, toastType: ToastType.error, msg: context.t.errors.failed_to_create_album);
+      UniversalPhotosToast.show(context: context, toastType: ToastType.error, msg: context.t.errors.failed_to_create_album);
     } finally {
       if (mounted) {
         setState(() => isCreatingAlbum = false);

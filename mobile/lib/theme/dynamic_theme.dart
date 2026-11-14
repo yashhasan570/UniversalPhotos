@@ -1,12 +1,12 @@
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/theme/theme_data.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:universal_photos/theme/theme_data.dart';
+import 'package:universal_photos/utils/debug_print.dart';
 
 abstract final class DynamicTheme {
   const DynamicTheme._();
 
-  static ImmichTheme? _theme;
+  static UniversalPhotosTheme? _theme;
   // Method to fetch dynamic system colors
   static Future<void> fetchSystemPalette() async {
     try {
@@ -17,7 +17,7 @@ abstract final class DynamicTheme {
 
         // Some palettes do not generate surface container colors accurately,
         // so we regenerate all colors using the primary color
-        _theme = ImmichTheme(
+        _theme = UniversalPhotosTheme(
           light: ColorScheme.fromSeed(
             seedColor: primaryColor,
             brightness: Brightness.light,
@@ -35,6 +35,6 @@ abstract final class DynamicTheme {
     }
   }
 
-  static ImmichTheme? get theme => _theme;
+  static UniversalPhotosTheme? get theme => _theme;
   static bool get isAvailable => _theme != null;
 }

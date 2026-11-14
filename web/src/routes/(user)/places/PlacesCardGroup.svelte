@@ -3,8 +3,8 @@
   import { placesViewSettings } from '#lib/stores/preferences.store.ts';
   import { getAssetMediaUrl } from '#lib/utils.ts';
   import { isPlacesGroupCollapsed, togglePlacesGroupCollapsing, type PlacesGroup } from '#lib/utils/places-utils.ts';
-  import { AssetMediaSize, type AssetResponseDto } from '@immich/sdk';
-  import { Icon } from '@immich/ui';
+  import { AssetMediaSize, type AssetResponseDto } from '@Universal Photos/sdk';
+  import { Icon } from '@Universal Photos/ui';
   import { mdiChevronRight } from '@mdi/js';
   import { t } from 'svelte-i18n';
 
@@ -24,14 +24,14 @@
     <button
       type="button"
       onclick={() => togglePlacesGroupCollapsing(group.id)}
-      class="my-2 w-fit pe-2 pt-2 dark:text-immich-dark-fg"
+      class="my-2 w-fit pe-2 pt-2 dark:text-Universal Photos-dark-fg"
       aria-expanded={!isCollapsed}
     >
       <Icon icon={mdiChevronRight} size="24" class="-mt-2.5 inline-block transition-all duration-250 {iconRotation}" />
       <span class="text-3xl font-bold text-black dark:text-white">{group.name}</span>
       <span class="ms-1.5">({$t('places_count', { values: { count: places.length } })})</span>
     </button>
-    <hr class="dark:border-immich-dark-gray" />
+    <hr class="dark:border-Universal Photos-dark-gray" />
   </div>
 {/if}
 

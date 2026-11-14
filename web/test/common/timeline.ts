@@ -1,4 +1,4 @@
-import type { AssetResponseDto } from '@immich/sdk';
+import type { AssetResponseDto } from '@universalphotos/sdk';
 import { DateTime } from 'luxon';
 
 export const yearMonthsOf = (assets: AssetResponseDto[]) => [...new Set(assets.map((asset) => yearMonthOf(asset)))];

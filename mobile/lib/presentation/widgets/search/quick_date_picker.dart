@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:immich_mobile/extensions/datetime_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
+import 'package:universal_photos/extensions/datetime_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
 import 'package:intl/intl.dart';
 
 sealed class DateFilterInputModel {

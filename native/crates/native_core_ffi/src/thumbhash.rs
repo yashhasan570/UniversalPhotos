@@ -54,7 +54,7 @@ pub unsafe extern "C" fn native_core_thumbhash(
 
 #[cfg(target_os = "android")]
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_immich_images_ThumbHash_decode<'caller>(
+pub extern "system" fn Java_app_alextran_Universal Photos_images_ThumbHash_decode<'caller>(
     mut env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     hash: JByteArray<'caller>,

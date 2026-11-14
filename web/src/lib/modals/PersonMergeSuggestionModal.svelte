@@ -1,8 +1,8 @@
 <script lang="ts">
   import { getPeopleThumbnailUrl } from '#lib/utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { mergePeople, type PersonResponseDto } from '@immich/sdk';
-  import { FormModal, Icon, IconButton, toastManager } from '@immich/ui';
+  import { mergePeople, type PersonResponseDto } from '@Universal Photos/sdk';
+  import { FormModal, Icon, IconButton, toastManager } from '@Universal Photos/ui';
   import { mdiArrowLeft, mdiCallMerge, mdiSwapHorizontal } from '@mdi/js';
   import { onMount, tick } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -94,7 +94,7 @@
       <button
         type="button"
         disabled={potentialMergePeople.length === 0}
-        class="flex size-28 items-center rounded-full border-2 border-immich-primary px-1 md:size-32 md:px-2 dark:border-immich-dark-primary"
+        class="flex size-28 items-center rounded-full border-2 border-Universal Photos-primary px-1 md:size-32 md:px-2 dark:border-Universal Photos-dark-primary"
         onclick={() => {
           if (potentialMergePeople.length > 0) {
             choosePersonToMerge = !choosePersonToMerge;

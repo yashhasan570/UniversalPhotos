@@ -1,6 +1,6 @@
 <script lang="ts">
   import { copyToClipboard } from '#lib/utils.ts';
-  import { BasicModal, Code, IconButton, Text } from '@immich/ui';
+  import { BasicModal, Code, IconButton, Text } from '@Universal Photos/ui';
   import { mdiCheck, mdiContentCopy } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

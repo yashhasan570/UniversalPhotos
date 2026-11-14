@@ -1,8 +1,8 @@
 <script lang="ts">
   import ServerAboutItem from '#lib/components/ServerAboutItem.svelte';
   import { locale } from '#lib/stores/preferences.store.ts';
-  import { type ServerAboutResponseDto, type ServerVersionHistoryResponseDto } from '@immich/sdk';
-  import { Alert, Label, Modal, ModalBody } from '@immich/ui';
+  import { type ServerAboutResponseDto, type ServerVersionHistoryResponseDto } from '@Universal Photos/sdk';
+  import { Alert, Label, Modal, ModalBody } from '@Universal Photos/ui';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
 
@@ -18,11 +18,11 @@
 <Modal title={$t('about')} {onClose}>
   <ModalBody>
     <div class="flex flex-col gap-4 sm:grid sm:grid-cols-2">
-      {#if info.sourceRef === 'main' && info.repository === 'immich-app/immich'}
+      {#if info.sourceRef === 'main' && info.repository === 'Universal Photos-app/Universal Photos'}
         <Alert color="warning" title={$t('main_branch_warning')} class="col-span-full" size="small" />
       {/if}
 
-      <ServerAboutItem id="immich" title="Immich" version={info.version} versionHref={info.versionUrl} />
+      <ServerAboutItem id="Universal Photos" title="Universal Photos" version={info.version} versionHref={info.versionUrl} />
       <ServerAboutItem id="exif" title="ExifTool" version={info.exiftool} />
       <ServerAboutItem id="nodejs" title="Node.js" version={info.nodejs} />
       <ServerAboutItem id="libvips" title="Libvips" version={info.libvips} />
@@ -77,7 +77,7 @@
             {const createdAt = DateTime.fromISO(item.createdAt)}
             <li>
               <span
-                class="pb-2 text-xs immich-form-label"
+                class="pb-2 text-xs Universal Photos-form-label"
                 id="version-history"
                 title={createdAt.toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS, { locale: $locale })}
               >

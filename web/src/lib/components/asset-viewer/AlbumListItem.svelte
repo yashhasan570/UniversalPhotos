@@ -3,8 +3,8 @@
   import { mediaQueryManager } from '#lib/stores/media-query-manager.svelte.ts';
   import { getAssetMediaUrl } from '#lib/utils.ts';
   import { normalizeSearchString } from '#lib/utils/string-utils.ts';
-  import { type AlbumResponseDto } from '@immich/sdk';
-  import { Icon } from '@immich/ui';
+  import { type AlbumResponseDto } from '@Universal Photos/sdk';
+  import { Icon } from '@Universal Photos/ui';
   import { mdiCheckCircle } from '@mdi/js';
   import type { Attachment } from 'svelte/attachments';
   import AlbumListItemDetails from './AlbumListItemDetails.svelte';

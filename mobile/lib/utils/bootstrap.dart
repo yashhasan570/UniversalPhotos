@@ -1,15 +1,15 @@
 import 'package:background_downloader/background_downloader.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/data/data_controller.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/services/log.service.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/infrastructure/repositories/log.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/network.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/services/api.service.dart';
+import 'package:universal_photos/constants/constants.dart';
+import 'package:universal_photos/data/data_controller.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/domain/services/log.service.dart';
+import 'package:universal_photos/domain/services/store.service.dart';
+import 'package:universal_photos/entities/store.entity.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/infrastructure/repositories/log.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/network.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos/services/api.service.dart';
 import 'package:logging/logging.dart';
 import 'package:photo_manager/photo_manager.dart';
 

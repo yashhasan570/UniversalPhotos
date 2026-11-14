@@ -5,8 +5,8 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getAllSharedLinksQuery } from '#lib/queries/shared-link.query.ts';
   import { Route } from '#lib/route.ts';
-  import { SharedLinkType } from '@immich/sdk';
-  import { Container } from '@immich/ui';
+  import { SharedLinkType } from '@Universal Photos/sdk';
+  import { Container } from '@Universal Photos/ui';
   import { type Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
@@ -66,7 +66,7 @@
   <Container center size="medium">
     {#if sharedLinks.length === 0}
       <div
-        class="flex place-content-center place-items-center rounded-lg bg-gray-100 p-12 dark:bg-immich-dark-gray dark:text-immich-gray"
+        class="flex place-content-center place-items-center rounded-lg bg-gray-100 p-12 dark:bg-Universal Photos-dark-gray dark:text-Universal Photos-gray"
       >
         <p>{$t('you_dont_have_any_shared_links')}</p>
       </div>

@@ -1,13 +1,13 @@
 import 'package:flutter/widgets.dart';
 
-class ImmichColorOverride extends InheritedWidget {
-  const ImmichColorOverride({super.key, required this.color, required super.child});
+class UniversalPhotosColorOverride extends InheritedWidget {
+  const UniversalPhotosColorOverride({super.key, required this.color, required super.child});
 
   final Color? color;
 
   static Color? maybeOf(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<ImmichColorOverride>()?.color;
+      context.dependOnInheritedWidgetOfExactType<UniversalPhotosColorOverride>()?.color;
 
   @override
-  bool updateShouldNotify(ImmichColorOverride oldWidget) => color != oldWidget.color;
+  bool updateShouldNotify(UniversalPhotosColorOverride oldWidget) => color != oldWidget.color;
 }

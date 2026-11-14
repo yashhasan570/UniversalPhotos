@@ -1,4 +1,4 @@
-import { shortcuts } from '@immich/ui';
+import { shortcuts } from '@universalphotos/ui';
 import { tick } from 'svelte';
 
 interface Options {

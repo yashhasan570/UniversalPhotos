@@ -7,7 +7,7 @@ import {
   scanLibrary,
   updateLibrary,
   type LibraryResponseDto,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 const findOrFail = (libraries: LibraryResponseDto[], id: string) => {

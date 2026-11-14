@@ -6,7 +6,7 @@ import { init } from '#lib/utils/client.ts';
 import { convertBCP47 } from '#lib/utils/i18n.ts';
 import { maintenanceCreateUrl, maintenanceReturnUrl, maintenanceShouldRedirect } from '#lib/utils/maintenance.ts';
 import { configureYucca } from '@futo-org/backups-orchestrator-ui';
-import { commandPaletteManager } from '@immich/ui';
+import { commandPaletteManager } from '@universalphotos/ui';
 import { get } from 'svelte/store';
 import { goto } from '$app/navigation';
 import type { LayoutLoad } from './$types';
@@ -35,7 +35,7 @@ export const load = (async ({ fetch, url }) => {
   return {
     error,
     meta: {
-      title: 'Immich',
+      title: 'UniversalPhotos',
     },
   };
 }) satisfies LayoutLoad;

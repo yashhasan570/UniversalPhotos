@@ -1,14 +1,14 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/activities/activity.model.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/current_album.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/models/activities/activity.model.dart';
+import 'package:universal_photos/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos/providers/infrastructure/current_album.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
 
 class LikeActivityActionButton extends ConsumerWidget {
   const LikeActivityActionButton({super.key, this.iconOnly = false, this.menuItem = false});

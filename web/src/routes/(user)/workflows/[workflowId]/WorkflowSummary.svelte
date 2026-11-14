@@ -1,8 +1,8 @@
 <script lang="ts">
   import { pluginManager } from '#lib/managers/plugin-manager.svelte.ts';
   import { getTriggerName } from '#lib/utils/workflow.ts';
-  import type { WorkflowStepDto, WorkflowTrigger } from '@immich/sdk';
-  import { Icon, IconButton, Text, shortcut } from '@immich/ui';
+  import type { WorkflowStepDto, WorkflowTrigger } from '@Universal Photos/sdk';
+  import { Icon, IconButton, Text, shortcut } from '@Universal Photos/ui';
   import { mdiCheck, mdiClose, mdiContentCopy, mdiViewDashboardOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { fly } from 'svelte/transition';

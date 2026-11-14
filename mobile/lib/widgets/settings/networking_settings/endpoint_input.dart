@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/auth/auxilary_endpoint.model.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/widgets/settings/networking_settings/networking_settings.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/models/auth/auxilary_endpoint.model.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/widgets/settings/networking_settings/networking_settings.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class EndpointInput extends StatefulHookConsumerWidget {
   const EndpointInput({
@@ -113,12 +113,12 @@ class EndpointInputState extends ConsumerState<EndpointInput> {
           status: auxCheckStatus,
           enabled: widget.enabled,
         ),
-        subtitle: ImmichURLInput(
+        subtitle: UniversalPhotosURLInput(
           enabled: widget.enabled,
           autovalidateMode: .onUserInteraction,
           validator: validateUrl,
           keyboardAction: .next,
-          hintText: 'http(s)://immich.domain.com',
+          hintText: 'http(s)://universalphotos.domain.com',
           controller: controller,
           focusNode: focusNode,
         ),

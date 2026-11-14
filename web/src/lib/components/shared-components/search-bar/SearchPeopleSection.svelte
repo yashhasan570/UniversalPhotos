@@ -4,8 +4,8 @@
   import SearchBar from '#lib/elements/SearchBar.svelte';
   import { searchManager } from '#lib/managers/search-manager.svelte.ts';
   import { getPeopleThumbnailUrl } from '#lib/utils.ts';
-  import { type PersonResponseDto } from '@immich/sdk';
-  import { Button, Icon, LoadingSpinner, Text } from '@immich/ui';
+  import { type PersonResponseDto } from '@Universal Photos/sdk';
+  import { Button, Icon, LoadingSpinner, Text } from '@Universal Photos/ui';
   import { mdiArrowRight, mdiCheck, mdiClose } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { getPeople, getSearchPeopleTitle } from './search-bar-utils';
@@ -45,7 +45,7 @@
   </div>
 {:then people}
   {#if people && people.length > 0}
-    <div id="people-selection" class="max-h-80 immich-scrollbar overflow-y-auto">
+    <div id="people-selection" class="max-h-80 Universal Photos-scrollbar overflow-y-auto">
       <Text class="pb-5">{$t('people_search_description')}</Text>
       <SearchBar bind:name placeholder={$t('filter_people')} showLoadingSpinner={false} />
 
@@ -54,7 +54,7 @@
       )}
 
       <SingleGridRow
-        class="space-between grid immich-scrollbar grid-auto-fill-20 gap-5 overflow-y-auto pt-5"
+        class="space-between grid Universal Photos-scrollbar grid-auto-fill-20 gap-5 overflow-y-auto pt-5"
         bind:itemCount={numberOfPeople}
       >
         {#each peopleList as person (person.id)}

@@ -1,9 +1,9 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/main/dao/person.drift.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/data/db/main/table/people/person.drift.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/person.model.dart';
+import 'package:universal_photos/data/db/main/dao/person.drift.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/data/db/main/table/people/person.drift.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/person.model.dart';
 
 @DriftAccessor()
 class PeopleDatabaseRepository extends DatabaseAccessor<Drift> with $PeopleDatabaseRepositoryMixin {

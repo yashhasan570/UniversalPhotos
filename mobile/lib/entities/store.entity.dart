@@ -1,4 +1,4 @@
-import 'package:immich_mobile/domain/services/store.service.dart';
+import 'package:universal_photos/domain/services/store.service.dart';
 
 // ignore: non_constant_identifier_names
 final Store = StoreService.I;

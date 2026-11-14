@@ -58,7 +58,7 @@ class BackgroundWorker(context: Context, params: WorkerParameters) :
   private var foregroundFuture: ListenableFuture<Void>? = null
 
   companion object {
-    private const val NOTIFICATION_CHANNEL_ID = "immich::background_worker::notif"
+    private const val NOTIFICATION_CHANNEL_ID = "universalphotos::background_worker::notif"
     private const val NOTIFICATION_ID = 100
     private val activeWorker = AtomicReference<BackgroundWorker?>(null)
   }
@@ -111,7 +111,7 @@ class BackgroundWorker(context: Context, params: WorkerParameters) :
         engine!!.dartExecutor.executeDartEntrypoint(
           DartExecutor.DartEntrypoint(
             loader.findAppBundlePath(),
-            "package:immich_mobile/domain/services/background_worker.service.dart",
+            "package:universal_photos/domain/services/background_worker.service.dart",
             "backgroundSyncNativeEntrypoint"
           )
         )

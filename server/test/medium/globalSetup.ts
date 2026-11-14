@@ -8,7 +8,7 @@ import { getKyselyConfig } from 'src/utils/database.js';
 
 const globalSetup = async () => {
   const templateName = 'mich';
-  const postgresContainer = await new GenericContainer('ghcr.io/immich-app/postgres:14-vectorchord0.4.3')
+  const postgresContainer = await new GenericContainer('/postgres:14-vectorchord0.4.3')
     .withExposedPorts(5432)
     .withEnvironment({
       POSTGRES_PASSWORD: 'postgres',
@@ -38,7 +38,7 @@ const globalSetup = async () => {
   const postgresPort = postgresContainer.getMappedPort(5432);
   const postgresUrl = `postgres://postgres:postgres@localhost:${postgresPort}/${templateName}`;
 
-  process.env.IMMICH_TEST_POSTGRES_URL = postgresUrl;
+  process.env.UNIVERSALPHOTOS_TEST_POSTGRES_URL = postgresUrl;
 
   const db = new Kysely<DB>(getKyselyConfig({ connectionType: 'url', url: postgresUrl }));
 

@@ -2,7 +2,7 @@ import { QueryParameter } from '#lib/constants.ts';
 import type { PeopleFilter } from '#lib/types.ts';
 import { authenticate } from '#lib/utils/auth.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { getAllPeople } from '@immich/sdk';
+import { getAllPeople } from '@universalphotos/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ url }) => {

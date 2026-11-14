@@ -8,8 +8,8 @@
   import { Route } from '#lib/route.ts';
   import { oauth } from '#lib/utils.ts';
   import { getServerErrorMessage, handleError } from '#lib/utils/handle-error.ts';
-  import { login, type LoginResponseDto } from '@immich/sdk';
-  import { Alert, Button, Field, Input, PasswordInput, Stack } from '@immich/ui';
+  import { login, type LoginResponseDto } from '@Universal Photos/sdk';
+  import { Alert, Button, Field, Input, PasswordInput, Stack } from '@Universal Photos/ui';
   import { mdiShieldKeyOutline } from '@mdi/js';
   import { browserSupportsWebAuthn } from '@simplewebauthn/browser';
   import { createMutation } from '@tanstack/svelte-query';

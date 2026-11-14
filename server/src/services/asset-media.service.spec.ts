@@ -14,7 +14,7 @@ import { AuthRequest } from 'src/middleware/auth.guard.js';
 import { AssetMediaService } from 'src/services/asset-media.service.js';
 import type { UploadBody } from 'src/types.js';
 import { ASSET_CHECKSUM_CONSTRAINT } from 'src/utils/database.js';
-import { ImmichFileResponse } from 'src/utils/file.js';
+import { UniversalPhotosFileResponse } from 'src/utils/file.js';
 import { AssetFileFactory } from 'test/factories/asset-file.factory.js';
 import { AssetFactory } from 'test/factories/asset.factory.js';
 import { AuthFactory } from 'test/factories/auth.factory.js';
@@ -553,7 +553,7 @@ describe(AssetMediaService.name, () => {
       mocks.asset.getForOriginal.mockResolvedValue(asset);
 
       await expect(sut.downloadOriginal(authStub.admin, asset.id, {})).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.originalPath,
           fileName: asset.originalFileName,
           contentType: 'image/jpeg',
@@ -573,7 +573,7 @@ describe(AssetMediaService.name, () => {
       mocks.asset.getForOriginal.mockResolvedValue({ ...editedAsset, editedPath: editedAsset.files[3].path });
 
       await expect(sut.downloadOriginal(AuthFactory.create(), editedAsset.id, {})).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: editedAsset.files[3].path,
           fileName: editedAsset.originalFileName,
           contentType: 'image/jpeg',
@@ -593,7 +593,7 @@ describe(AssetMediaService.name, () => {
       mocks.asset.getForOriginal.mockResolvedValue({ ...editedAsset, editedPath: editedAsset.files[3].path });
 
       await expect(sut.downloadOriginal(AuthFactory.create(), editedAsset.id, { edited: true })).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: editedAsset.files[3].path,
           fileName: editedAsset.originalFileName,
           contentType: 'image/jpeg',
@@ -612,7 +612,7 @@ describe(AssetMediaService.name, () => {
       await expect(
         sut.downloadOriginal(AuthFactory.from().sharedLink().build(), editedAsset.id, { edited: false }),
       ).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: fullsizeEdited.path,
           fileName: editedAsset.originalFileName,
           contentType: 'image/jpeg',
@@ -632,7 +632,7 @@ describe(AssetMediaService.name, () => {
       mocks.asset.getForOriginal.mockResolvedValue(editedAsset);
 
       await expect(sut.downloadOriginal(AuthFactory.create(), editedAsset.id, { edited: false })).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: editedAsset.originalPath,
           fileName: editedAsset.originalFileName,
           contentType: 'image/jpeg',
@@ -657,7 +657,7 @@ describe(AssetMediaService.name, () => {
       mocks.asset.getForThumbnail.mockResolvedValue({ ...asset, path: asset.files[0].path });
 
       await expect(sut.viewThumbnail(authStub.admin, asset.id, { size: AssetMediaSize.THUMBNAIL })).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.files[0].path,
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'image/jpeg',
@@ -671,7 +671,7 @@ describe(AssetMediaService.name, () => {
       mocks.access.asset.checkOwnerAccess.mockResolvedValue(new Set([asset.id]));
       mocks.asset.getForThumbnail.mockResolvedValue({ ...asset, path: asset.files[0].path });
       await expect(sut.viewThumbnail(authStub.admin, asset.id, { size: AssetMediaSize.PREVIEW })).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.files[0].path,
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'image/jpeg',
@@ -687,7 +687,7 @@ describe(AssetMediaService.name, () => {
       mocks.access.asset.checkOwnerAccess.mockResolvedValue(new Set([asset.id]));
       mocks.asset.getForThumbnail.mockResolvedValue({ ...asset, path: asset.files[0].path });
       await expect(sut.viewThumbnail(authStub.admin, asset.id, { size: AssetMediaSize.THUMBNAIL })).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.files[0].path,
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'application/octet-stream',
@@ -702,7 +702,7 @@ describe(AssetMediaService.name, () => {
       mocks.access.asset.checkOwnerAccess.mockResolvedValue(new Set([asset.id]));
       mocks.asset.getForThumbnail.mockResolvedValue({ ...asset, path: asset.files[0].path });
       await expect(sut.viewThumbnail(authStub.admin, asset.id, { size: AssetMediaSize.THUMBNAIL })).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.files[0].path,
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'image/jpeg',
@@ -719,7 +719,7 @@ describe(AssetMediaService.name, () => {
       await expect(
         sut.viewThumbnail(authStub.admin, asset.id, { size: AssetMediaSize.THUMBNAIL, edited: true }),
       ).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.files[0].path,
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'image/jpeg',
@@ -736,7 +736,7 @@ describe(AssetMediaService.name, () => {
       await expect(
         sut.viewThumbnail(authStub.admin, asset.id, { size: AssetMediaSize.THUMBNAIL, edited: false }),
       ).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.files[0].path,
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'image/jpeg',
@@ -756,7 +756,7 @@ describe(AssetMediaService.name, () => {
           edited: true,
         }),
       ).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.files[0].path,
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'image/jpeg',
@@ -775,7 +775,7 @@ describe(AssetMediaService.name, () => {
       const auth = AuthFactory.from().sharedLink({ showExif: false }).build();
 
       await expect(sut.viewThumbnail(auth, asset.id, { size: AssetMediaSize.PREVIEW })).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.files[0].path,
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'image/jpeg',
@@ -812,7 +812,7 @@ describe(AssetMediaService.name, () => {
       });
 
       await expect(sut.playbackVideo(authStub.admin, asset.id)).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: '/path/to/encoded/video.mp4',
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'video/mp4',
@@ -829,7 +829,7 @@ describe(AssetMediaService.name, () => {
       });
 
       await expect(sut.playbackVideo(authStub.admin, asset.id)).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: asset.originalPath,
           cacheControl: CacheControl.PrivateWithCache,
           contentType: 'application/octet-stream',

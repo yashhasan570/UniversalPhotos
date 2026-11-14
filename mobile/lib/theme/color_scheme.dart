@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/constants/colors.dart';
-import 'package:immich_mobile/theme/theme_data.dart';
+import 'package:universal_photos/constants/colors.dart';
+import 'package:universal_photos/theme/theme_data.dart';
 
-final Map<ImmichColorPreset, ImmichTheme> _themePresets = {
-  ImmichColorPreset.indigo: ImmichTheme(
+final Map<UniversalPhotosColorPreset, UniversalPhotosTheme> _themePresets = {
+  UniversalPhotosColorPreset.indigo: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(
-      seedColor: immichBrandColorLight,
-    ).copyWith(primary: immichBrandColorLight, onSurface: const Color.fromARGB(255, 34, 31, 32)),
+      seedColor: universalphotosBrandColorLight,
+    ).copyWith(primary: universalphotosBrandColorLight, onSurface: const Color.fromARGB(255, 34, 31, 32)),
     dark: ColorScheme.fromSeed(
-      seedColor: immichBrandColorDark,
+      seedColor: universalphotosBrandColorDark,
       brightness: Brightness.dark,
-    ).copyWith(primary: immichBrandColorDark),
+    ).copyWith(primary: universalphotosBrandColorDark),
   ),
-  ImmichColorPreset.deepPurple: ImmichTheme(
+  UniversalPhotosColorPreset.deepPurple: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFF6F43C0)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFD3BBFF), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.pink: ImmichTheme(
+  UniversalPhotosColorPreset.pink: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFFED79B5)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFED79B5), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.red: ImmichTheme(
+  UniversalPhotosColorPreset.red: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFFC51C16)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFD3302F), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.orange: ImmichTheme(
+  UniversalPhotosColorPreset.orange: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(
       seedColor: const Color(0xffff5b01),
       dynamicSchemeVariant: DynamicSchemeVariant.fidelity,
@@ -35,23 +35,23 @@ final Map<ImmichColorPreset, ImmichTheme> _themePresets = {
       dynamicSchemeVariant: DynamicSchemeVariant.fidelity,
     ),
   ),
-  ImmichColorPreset.yellow: ImmichTheme(
+  UniversalPhotosColorPreset.yellow: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFFFFB400)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFFFB400), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.lime: ImmichTheme(
+  UniversalPhotosColorPreset.lime: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFFCDDC39)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFFCDDC39), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.green: ImmichTheme(
+  UniversalPhotosColorPreset.green: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFF18C249)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFF18C249), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.cyan: ImmichTheme(
+  UniversalPhotosColorPreset.cyan: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFF00BCD4)),
     dark: ColorScheme.fromSeed(seedColor: const Color(0xFF00BCD4), brightness: Brightness.dark),
   ),
-  ImmichColorPreset.slateGray: ImmichTheme(
+  UniversalPhotosColorPreset.slateGray: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFF696969), dynamicSchemeVariant: DynamicSchemeVariant.neutral),
     dark: ColorScheme.fromSeed(
       seedColor: const Color(0xff696969),
@@ -61,6 +61,6 @@ final Map<ImmichColorPreset, ImmichTheme> _themePresets = {
   ),
 };
 
-extension ImmichColorModeExtension on ImmichColorPreset {
-  ImmichTheme get themeOfPreset => _themePresets[this]!;
+extension UniversalPhotosColorModeExtension on UniversalPhotosColorPreset {
+  UniversalPhotosTheme get themeOfPreset => _themePresets[this]!;
 }

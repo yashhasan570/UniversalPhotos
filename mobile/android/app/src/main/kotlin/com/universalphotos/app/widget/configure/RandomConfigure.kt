@@ -25,7 +25,7 @@ import androidx.glance.appwidget.state.getAppWidgetState
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.state.PreferencesGlanceStateDefinition
 import com.universalphotos.app.widget.ImageDownloadWorker
-import com.universalphotos.app.widget.ImmichAPI
+import com.universalphotos.app.widget.UniversalPhotosAPI
 import com.universalphotos.app.widget.model.*
 import kotlinx.coroutines.launch
 import java.io.FileNotFoundException
@@ -71,14 +71,14 @@ fun RandomConfiguration(context: Context, appWidgetId: Int, glanceId: GlanceId, 
 
   LaunchedEffect(Unit) {
     // get albums from server
-    val serverCfg = ImmichAPI.getServerConfig(context)
+    val serverCfg = UniversalPhotosAPI.getServerConfig(context)
 
     if (serverCfg == null) {
       state = WidgetConfigState.LOG_IN
       return@LaunchedEffect
     }
 
-    val api = ImmichAPI(serverCfg)
+    val api = UniversalPhotosAPI(serverCfg)
 
     val currentState = getAppWidgetState(context, PreferencesGlanceStateDefinition, glanceId)
     val currentAlbumId = currentState[kSelectedAlbum] ?: "NONE"
@@ -144,7 +144,7 @@ fun RandomConfiguration(context: Context, appWidgetId: Int, glanceId: GlanceId, 
       Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
         when (state) {
           WidgetConfigState.LOADING -> CircularProgressIndicator(modifier = Modifier.size(48.dp))
-          WidgetConfigState.LOG_IN -> Text("You must log in inside the Immich App to configure this widget.")
+          WidgetConfigState.LOG_IN -> Text("You must log in inside the UniversalPhotos App to configure this widget.")
           else -> {
             Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
               Text("View a random image from your library or a specific album.", style = MaterialTheme.typography.bodyMedium)

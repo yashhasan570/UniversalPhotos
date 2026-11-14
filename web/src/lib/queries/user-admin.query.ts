@@ -12,7 +12,7 @@ import {
   searchUsersAdmin,
   updateUserAdmin,
   type UserAdminResponseDto,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 const findOrFail = (users: UserAdminResponseDto[], id: string) => {

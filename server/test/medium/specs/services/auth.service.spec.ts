@@ -49,7 +49,7 @@ describe(AuthService.name, () => {
     it(`should sign up the admin`, async () => {
       const { sut, ctx } = setup();
       ctx.getMock(EventRepository).emit.mockResolvedValue();
-      const dto = { name: 'Admin', email: 'admin@immich.cloud', password: 'password' };
+      const dto = { name: 'Admin', email: 'admin@', password: 'password' };
 
       await expect(sut.adminSignUp(dto)).resolves.toEqual(
         expect.objectContaining({

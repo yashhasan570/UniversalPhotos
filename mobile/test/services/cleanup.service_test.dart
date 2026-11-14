@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/services/cleanup.service.dart';
+import 'package:universal_photos/extensions/platform_extensions.dart';
+import 'package:universal_photos/services/cleanup.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../infrastructure/repository.mock.dart';

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { userPreferencesManager, type MemoriesPreferences } from '#lib/managers/user-preferences-manager.svelte.ts';
-  import { Field, FormModal, Stack, Switch } from '@immich/ui';
+  import { Field, FormModal, Stack, Switch } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {

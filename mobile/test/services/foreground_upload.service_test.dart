@@ -4,14 +4,14 @@ import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:drift/native.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
-import 'package:immich_mobile/repositories/upload.repository.dart';
-import 'package:immich_mobile/services/foreground_upload.service.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/domain/services/store.service.dart';
+import 'package:universal_photos/entities/store.entity.dart';
+import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos/repositories/upload.repository.dart';
+import 'package:universal_photos/services/foreground_upload.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../api.mocks.dart';
@@ -41,7 +41,7 @@ void main() {
     await StoreService.init(storeRepository: StoreRepository(db));
     await SettingsRepository.ensureInitialized(db);
 
-    await Store.put(StoreKey.serverEndpoint, 'http://demo.immich.app');
+    await Store.put(StoreKey.serverEndpoint, 'http://demo.');
     await Store.put(StoreKey.deviceId, 'device-id');
 
     registerFallbackValue(File('file'));

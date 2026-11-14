@@ -9,7 +9,7 @@ import { expect } from 'vitest';
 import Page from './+page.svelte';
 import { load } from './+page.ts';
 
-const credentials = { email: 'admin@immich.cloud', password: 'password' };
+const credentials = { email: 'admin@', password: 'password' };
 
 const submitLogin = async (app: App) => {
   await app.auth.input('email').fill(credentials.email);

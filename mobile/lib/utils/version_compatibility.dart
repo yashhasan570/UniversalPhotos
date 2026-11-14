@@ -1,4 +1,4 @@
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:universal_photos/utils/semver.dart';
 
 String? getVersionCompatibilityMessage({required SemVer serverVersion, required SemVer appVersion}) {
   // Add latest compat info up top

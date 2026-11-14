@@ -284,7 +284,7 @@ describe(NotificationService.name, () => {
       await expect(sut.handleUserSignup({ id: '' })).resolves.toBe(JobStatus.Success);
       expect(mocks.job.queue).toHaveBeenCalledWith({
         name: JobName.SendMail,
-        data: expect.objectContaining({ subject: 'Welcome to Immich' }),
+        data: expect.objectContaining({ subject: 'Welcome to UniversalPhotos' }),
       });
     });
   });
@@ -570,22 +570,22 @@ describe(NotificationService.name, () => {
 
     it('should send mail successfully', async () => {
       mocks.systemMetadata.get.mockResolvedValue({
-        notifications: { smtp: { enabled: true, from: 'test@immich.app' } },
+        notifications: { smtp: { enabled: true, from: 'test@' } },
       });
       mocks.email.sendEmail.mockResolvedValue({ messageId: '', response: '' });
 
       await expect(sut.handleSendEmail({ html: '', subject: '', text: '', to: '' })).resolves.toBe(JobStatus.Success);
-      expect(mocks.email.sendEmail).toHaveBeenCalledWith(expect.objectContaining({ replyTo: 'test@immich.app' }));
+      expect(mocks.email.sendEmail).toHaveBeenCalledWith(expect.objectContaining({ replyTo: 'test@' }));
     });
 
     it('should send mail with replyTo successfully', async () => {
       mocks.systemMetadata.get.mockResolvedValue({
-        notifications: { smtp: { enabled: true, from: 'test@immich.app', replyTo: 'demo@immich.app' } },
+        notifications: { smtp: { enabled: true, from: 'test@', replyTo: 'demo@' } },
       });
       mocks.email.sendEmail.mockResolvedValue({ messageId: '', response: '' });
 
       await expect(sut.handleSendEmail({ html: '', subject: '', text: '', to: '' })).resolves.toBe(JobStatus.Success);
-      expect(mocks.email.sendEmail).toHaveBeenCalledWith(expect.objectContaining({ replyTo: 'demo@immich.app' }));
+      expect(mocks.email.sendEmail).toHaveBeenCalledWith(expect.objectContaining({ replyTo: 'demo@' }));
     });
   });
 });

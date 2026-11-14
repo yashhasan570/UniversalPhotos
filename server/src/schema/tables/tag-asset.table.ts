@@ -1,4 +1,4 @@
-import { ForeignKeyColumn, Index, Table } from '@immich/sql-tools';
+import { ForeignKeyColumn, Index, Table } from '@universalphotos/sql-tools';
 import { AssetTable } from 'src/schema/tables/asset.table.js';
 import { TagTable } from 'src/schema/tables/tag.table.js';
 

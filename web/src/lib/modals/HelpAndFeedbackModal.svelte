@@ -1,8 +1,8 @@
 <script lang="ts">
   import FormatMessage from '#lib/elements/FormatMessage.svelte';
   import { ExternalRoute } from '#lib/route.ts';
-  import { type ServerAboutResponseDto } from '@immich/sdk';
-  import { Heading, Icon, Link, Modal, ModalBody, Stack, Text } from '@immich/ui';
+  import { type ServerAboutResponseDto } from '@Universal Photos/sdk';
+  import { Heading, Icon, Link, Modal, ModalBody, Stack, Text } from '@Universal Photos/ui';
   import { mdiBugOutline, mdiFaceAgent, mdiGit, mdiGithub, mdiInformationOutline } from '@mdi/js';
   import { siDiscord, type SimpleIcon } from 'simple-icons';
   import { t } from 'svelte-i18n';
@@ -43,21 +43,21 @@
       </Stack>
     {/if}
 
-    <Heading size="tiny">{$t('official_immich_resources')}</Heading>
+    <Heading size="tiny">{$t('official_Universal Photos_resources')}</Heading>
     <Text>
       <FormatMessage key="support_ensure_latest">
         {#snippet children({ message })}
-          <Link href="https://github.com/immich-app/immich/releases">{message}</Link>
+          <Link href="https://github.com/yashhasan570/UniversalPhotos/releases">{message}</Link>
         {/snippet}
       </FormatMessage>
     </Text>
 
     <Stack class="mt-5">
       {@render link(ExternalRoute.docs(), mdiInformationOutline, $t('documentation'))}
-      {@render link('https://github.com/immich-app/immich/', mdiGithub, $t('source'))}
-      {@render link('https://discord.immich.app', siDiscord, $t('discord'))}
+      {@render link('https://github.com/yashhasan570/UniversalPhotos/', mdiGithub, $t('source'))}
+      {@render link('https://discord.', siDiscord, $t('discord'))}
       {@render link(
-        'https://github.com/immich-app/immich/issues/new/choose',
+        'https://github.com/yashhasan570/UniversalPhotos/issues/new/choose',
         mdiBugOutline,
         $t('bugs_and_feature_requests'),
       )}

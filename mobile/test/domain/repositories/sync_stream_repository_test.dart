@@ -1,15 +1,15 @@
 import 'package:drift/drift.dart' as drift;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/data/db/main/table/local/album.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/album.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/asset.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/exif.drift.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/sync_stream.repository.dart';
-import 'package:immich_mobile/utils/datetime_helpers.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/data/db/main/table/local/album.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/album.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/asset.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/exif.drift.dart';
+import 'package:universal_photos/domain/models/album/album.model.dart';
+import 'package:universal_photos/domain/models/album/local_album.model.dart';
+import 'package:universal_photos/infrastructure/repositories/sync_stream.repository.dart';
+import 'package:universal_photos/utils/datetime_helpers.dart';
 import 'package:openapi/api.dart';
 
 SyncUserV1 _createUser({String id = 'user-1'}) {

@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/infrastructure/repositories/sync_migration.repository.drift.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/infrastructure/repositories/sync_migration.repository.drift.dart';
 
 @DriftAccessor()
 class SyncMigrationRepository extends DatabaseAccessor<Drift> with $SyncMigrationRepositoryMixin {

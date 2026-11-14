@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowTrigger } from '@universalphotos/plugin-sdk';
 import z from 'zod';
 import { asIntegerEnum } from 'src/utils/helpers.js';
 
@@ -13,29 +13,29 @@ export enum AuthChallengeType {
   PasskeyAuthentication = 'PasskeyAuthentication',
 }
 
-export enum ImmichCookie {
-  AccessToken = 'immich_access_token',
-  MaintenanceToken = 'immich_maintenance_token',
-  AuthType = 'immich_auth_type',
-  IsAuthenticated = 'immich_is_authenticated',
-  SharedLinkToken = 'immich_shared_link_token',
-  OAuthState = 'immich_oauth_state',
-  OAuthCodeVerifier = 'immich_oauth_code_verifier',
+export enum UniversalPhotosCookie {
+  AccessToken = 'universalphotos_access_token',
+  MaintenanceToken = 'universalphotos_maintenance_token',
+  AuthType = 'universalphotos_auth_type',
+  IsAuthenticated = 'universalphotos_is_authenticated',
+  SharedLinkToken = 'universalphotos_shared_link_token',
+  OAuthState = 'universalphotos_oauth_state',
+  OAuthCodeVerifier = 'universalphotos_oauth_code_verifier',
 }
 
-export enum ImmichHeader {
+export enum UniversalPhotosHeader {
   ApiKey = 'x-api-key',
-  UserToken = 'x-immich-user-token',
-  SessionToken = 'x-immich-session-token',
-  SharedLinkKey = 'x-immich-share-key',
-  SharedLinkSlug = 'x-immich-share-slug',
-  Checksum = 'x-immich-checksum',
+  UserToken = 'x-universalphotos-user-token',
+  SessionToken = 'x-universalphotos-session-token',
+  SharedLinkKey = 'x-universalphotos-share-key',
+  SharedLinkSlug = 'x-universalphotos-share-slug',
+  Checksum = 'x-universalphotos-checksum',
   CorrelationId = 'X-Correlation-ID',
-  HlsInitSegment = 'x-immich-hls-msn',
-  HlsPosition = 'x-immich-hls-pos',
+  HlsInitSegment = 'x-universalphotos-hls-msn',
+  HlsPosition = 'x-universalphotos-hls-pos',
 }
 
-export enum ImmichQuery {
+export enum UniversalPhotosQuery {
   SharedLinkKey = 'key',
   SharedLinkSlug = 'slug',
   ApiKey = 'apiKey',
@@ -639,11 +639,11 @@ export enum LogFormat {
 export const LogFormatSchema = z.enum(LogFormat).describe('Log format').meta({ id: 'LogFormat' });
 
 export enum ApiCustomExtension {
-  Permission = 'x-immich-permission',
-  AdminOnly = 'x-immich-admin-only',
-  History = 'x-immich-history',
-  State = 'x-immich-state',
-  Required = 'x-immich-required',
+  Permission = 'x-universalphotos-permission',
+  AdminOnly = 'x-universalphotos-admin-only',
+  History = 'x-universalphotos-history',
+  State = 'x-universalphotos-state',
+  Required = 'x-universalphotos-required',
 }
 
 export enum MetadataKey {
@@ -665,24 +665,24 @@ export enum CacheControl {
   None = 'none',
 }
 
-export enum ImmichEnvironment {
+export enum UniversalPhotosEnvironment {
   Development = 'development',
   Testing = 'testing',
   Production = 'production',
 }
 
-export const ImmichEnvironmentSchema = z
-  .enum(ImmichEnvironment)
-  .describe('Immich environment')
-  .meta({ id: 'ImmichEnvironment' });
+export const UniversalPhotosEnvironmentSchema = z
+  .enum(UniversalPhotosEnvironment)
+  .describe('UniversalPhotos environment')
+  .meta({ id: 'UniversalPhotosEnvironment' });
 
-export enum ImmichWorker {
+export enum UniversalPhotosWorker {
   Api = 'api',
   Maintenance = 'maintenance',
   Microservices = 'microservices',
 }
 
-export enum ImmichTelemetry {
+export enum UniversalPhotosTelemetry {
   Host = 'host',
   Api = 'api',
   Io = 'io',

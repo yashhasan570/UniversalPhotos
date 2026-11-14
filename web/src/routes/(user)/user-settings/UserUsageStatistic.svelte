@@ -11,8 +11,8 @@
     getMyCalendarHeatmap,
     type AlbumStatisticsResponseDto,
     type AssetStatsResponseDto,
-  } from '@immich/sdk';
-  import { Heading, Table, TableBody, TableCell, TableHeader, TableHeading, TableRow } from '@immich/ui';
+  } from '@Universal Photos/sdk';
+  import { Heading, Table, TableBody, TableCell, TableHeader, TableHeading, TableRow } from '@Universal Photos/ui';
   import { createQuery } from '@tanstack/svelte-query';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';

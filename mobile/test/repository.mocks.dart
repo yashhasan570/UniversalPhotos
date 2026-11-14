@@ -1,11 +1,11 @@
-import 'package:immich_mobile/data/server/tag.dart';
-import 'package:immich_mobile/infrastructure/repositories/remote_exif.repository.dart';
-import 'package:immich_mobile/repositories/asset_api.repository.dart';
-import 'package:immich_mobile/repositories/asset_media.repository.dart';
-import 'package:immich_mobile/repositories/auth.repository.dart';
-import 'package:immich_mobile/repositories/auth_api.repository.dart';
-import 'package:immich_mobile/repositories/download.repository.dart';
-import 'package:immich_mobile/repositories/permission.repository.dart';
+import 'package:universal_photos/data/server/tag.dart';
+import 'package:universal_photos/infrastructure/repositories/remote_exif.repository.dart';
+import 'package:universal_photos/repositories/asset_api.repository.dart';
+import 'package:universal_photos/repositories/asset_media.repository.dart';
+import 'package:universal_photos/repositories/auth.repository.dart';
+import 'package:universal_photos/repositories/auth_api.repository.dart';
+import 'package:universal_photos/repositories/download.repository.dart';
+import 'package:universal_photos/repositories/permission.repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockAssetApiRepository extends Mock implements AssetApiRepository {}

@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:immich_mobile/domain/services/user.service.dart';
-import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
+import 'package:universal_photos/domain/services/user.service.dart';
+import 'package:universal_photos/providers/infrastructure/user.provider.dart';
+import 'package:universal_photos/utils/debug_print.dart';
 
 part 'upload_profile_image.provider.freezed.dart';
 

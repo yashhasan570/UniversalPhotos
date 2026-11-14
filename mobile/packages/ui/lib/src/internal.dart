@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/color_override.dart';
-import 'package:immich_ui/src/translation.dart';
+import 'package:universalphotos_ui/src/color_override.dart';
+import 'package:universalphotos_ui/src/translation.dart';
 
 extension TranslationHelper on BuildContext {
-  ImmichTranslations get translations => ImmichTranslationProvider.of(this);
+  UniversalPhotosTranslations get translations => UniversalPhotosTranslationProvider.of(this);
 }
 
 extension ColorHelper on BuildContext {
-  Color? get colorOverride => ImmichColorOverride.maybeOf(this);
+  Color? get colorOverride => UniversalPhotosColorOverride.maybeOf(this);
 }

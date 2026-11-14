@@ -12,7 +12,7 @@ import {
   AudioCodec,
   Colorspace,
   ImageFormat,
-  ImmichWorker,
+  UniversalPhotosWorker,
   JobName,
   JobStatus,
   QueueName,
@@ -61,7 +61,7 @@ type ThumbnailAsset = NonNullable<Awaited<ReturnType<AssetJobRepository['getForG
 export class MediaService extends BaseService {
   videoInterfaces: VideoInterfaces = { dri: [], mali: false };
 
-  @OnEvent({ name: 'AppBootstrap', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', workers: [UniversalPhotosWorker.Microservices] })
   async onBootstrap() {
     this.videoInterfaces = await this.storageCore.getVideoInterfaces();
   }
@@ -244,7 +244,7 @@ export class MediaService extends BaseService {
     const colorspace = this.isSRGB(exifInfo) ? Colorspace.Srgb : image.colorspace;
     const decodeOptions: DecodeToBufferOptions = {
       colorspace,
-      processInvalidImages: process.env.IMMICH_PROCESS_INVALID_IMAGES === 'true',
+      processInvalidImages: process.env.UNIVERSALPHOTOS_PROCESS_INVALID_IMAGES === 'true',
       size: targetSize,
       orientation: exifInfo.orientation ? Number(exifInfo.orientation) : undefined,
     };
@@ -423,7 +423,7 @@ export class MediaService extends BaseService {
 
     const decoded = await this.mediaRepository.decodeImage(inputImage, {
       colorspace: image.colorspace,
-      processInvalidImages: process.env.IMMICH_PROCESS_INVALID_IMAGES === 'true',
+      processInvalidImages: process.env.UNIVERSALPHOTOS_PROCESS_INVALID_IMAGES === 'true',
       // if this is an extracted image, it may not have orientation metadata
       orientation: Buffer.isBuffer(inputImage) && exifOrientation ? Number(exifOrientation) : undefined,
     });
@@ -528,7 +528,7 @@ export class MediaService extends BaseService {
     await this.mediaRepository.transcode(asset.originalPath, previewFile.path, previewOptions);
     await this.mediaRepository.transcode(asset.originalPath, thumbnailFile.path, thumbnailOptions);
 
-    const processInvalidImages = process.env.IMMICH_PROCESS_INVALID_IMAGES === 'true';
+    const processInvalidImages = process.env.UNIVERSALPHOTOS_PROCESS_INVALID_IMAGES === 'true';
     const preview = await this.mediaRepository.decodeImage(previewFile.path, {
       colorspace: image.colorspace,
       processInvalidImages,

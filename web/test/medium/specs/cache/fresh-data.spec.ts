@@ -120,11 +120,11 @@ test('user administration shows users created elsewhere', async ({ page, data, a
 
   await app.navbar.logoLink.click();
   await expect(page).toHaveURL(Route.photos());
-  data.addUsers({ email: 'added@immich.cloud' });
+  data.addUsers({ email: 'added@' });
   const requests = api.searchUsersAdmin.calls.length;
   await page.goBack();
 
-  await expect(page.getByText('added@immich.cloud')).toBeVisible();
+  await expect(page.getByText('added@')).toBeVisible();
   expect(api.searchUsersAdmin.calls.length).toBeGreaterThan(requests);
 });
 

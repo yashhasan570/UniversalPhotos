@@ -1,9 +1,9 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/main/table/local/asset.drift.dart';
-import 'package:immich_mobile/data/db/util/asset_mixin.dart';
-import 'package:immich_mobile/data/db/util/datetime_clamp_type.dart';
-import 'package:immich_mobile/data/db/util/defaults_mixin.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/data/db/main/table/local/asset.drift.dart';
+import 'package:universal_photos/data/db/util/asset_mixin.dart';
+import 'package:universal_photos/data/db/util/datetime_clamp_type.dart';
+import 'package:universal_photos/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
 
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_local_asset_checksum ON local_asset_entity (checksum)')
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_local_asset_cloud_id ON local_asset_entity (i_cloud_id)')

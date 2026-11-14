@@ -18,8 +18,8 @@ export class MaintenanceHealthRepository {
         execArgv: process.execArgv.filter((arg) => !arg.startsWith('--inspect')),
         env: {
           ...process.env,
-          IMMICH_HOST: HEALTH_CHECK_HOST,
-          IMMICH_PORT: HEALTH_CHECK_PORT,
+          UNIVERSALPHOTOS_HOST: HEALTH_CHECK_HOST,
+          UNIVERSALPHOTOS_PORT: HEALTH_CHECK_PORT,
         },
         stdio: ['ignore', 'ignore', 'ignore', 'ipc'],
       });

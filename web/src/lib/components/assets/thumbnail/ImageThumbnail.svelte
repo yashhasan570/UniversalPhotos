@@ -1,7 +1,7 @@
 <script lang="ts">
   import Image from '#lib/components/Image.svelte';
   import BrokenAsset from '#lib/components/assets/BrokenAsset.svelte';
-  import { Icon } from '@immich/ui';
+  import { Icon } from '@Universal Photos/ui';
   import { mdiEyeOffOutline } from '@mdi/js';
   import type { ClassValue } from 'svelte/elements';
 
@@ -61,9 +61,9 @@
     circle && 'rounded-full',
     shadow && 'shadow-lg',
     (circle || !heightStyle) && 'aspect-square',
-    border && 'border-3 border-immich-dark-primary/80 hover:border-immich-primary',
+    border && 'border-3 border-Universal Photos-dark-primary/80 hover:border-Universal Photos-primary',
     'transition-shadow duration-150',
-    highlighted && 'ring-4 ring-immich-primary dark:ring-immich-dark-primary',
+    highlighted && 'ring-4 ring-Universal Photos-primary dark:ring-Universal Photos-dark-primary',
     hidden && 'grayscale-50 opacity-50',
   ]);
 

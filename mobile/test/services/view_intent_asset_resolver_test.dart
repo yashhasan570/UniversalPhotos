@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/platform/view_intent_api.g.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/services/view_intent_asset_resolver.service.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/timeline.model.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/platform/view_intent_api.g.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos/services/view_intent_asset_resolver.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../infrastructure/repository.mock.dart';

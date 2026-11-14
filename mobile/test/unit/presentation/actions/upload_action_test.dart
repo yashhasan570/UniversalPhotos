@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/upload.action.dart';
-import 'package:immich_mobile/providers/backup/asset_upload_progress.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/toast.provider.dart';
-import 'package:immich_mobile/services/foreground_upload.service.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/upload.action.dart';
+import 'package:universal_photos/providers/backup/asset_upload_progress.provider.dart';
+import 'package:universal_photos/providers/infrastructure/toast.provider.dart';
+import 'package:universal_photos/services/foreground_upload.service.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../service.mocks.dart';
@@ -78,7 +78,7 @@ void main() {
       answerUploadWith(succeeded: {asset.id});
 
       await pumpUpload(tester, {asset});
-      await tester.tap(find.byType(ImmichIconButton));
+      await tester.tap(find.byType(UniversalPhotosIconButton));
       await settleUpload(tester);
 
       final uploaded =
@@ -98,7 +98,7 @@ void main() {
       answerUploadWith(succeeded: {notBackedUp.id});
 
       await pumpUpload(tester, {notBackedUp, LocalAssetFactory.create(remoteId: 'already-there')});
-      await tester.tap(find.byType(ImmichIconButton));
+      await tester.tap(find.byType(UniversalPhotosIconButton));
       await settleUpload(tester);
 
       final uploaded =
@@ -118,7 +118,7 @@ void main() {
       answerUploadWith(failed: {asset.id});
 
       await pumpUpload(tester, {asset});
-      await tester.tap(find.byType(ImmichIconButton));
+      await tester.tap(find.byType(UniversalPhotosIconButton));
       await settleUpload(tester);
 
       final message = verify(() => context.service.toast.error(captureAny())).captured.single as String;
@@ -138,7 +138,7 @@ void main() {
       });
 
       await pumpUpload(tester, {asset});
-      await tester.tap(find.byType(ImmichIconButton));
+      await tester.tap(find.byType(UniversalPhotosIconButton));
       await settleUpload(tester);
 
       verifyNever(() => context.service.toast.error(any()));
@@ -150,7 +150,7 @@ void main() {
       answerUploadWith(succeeded: {asset.id}, until: uploading);
 
       await pumpUpload(tester, {asset}, showProgress: true);
-      await tester.tap(find.byType(ImmichIconButton));
+      await tester.tap(find.byType(UniversalPhotosIconButton));
       await tester.pump();
 
       expect(find.text(StaticTranslations.instance.uploading), findsOneWidget);
@@ -166,7 +166,7 @@ void main() {
       answerUploadWith(succeeded: {asset.id});
 
       await pumpUpload(tester, {asset});
-      await tester.tap(find.byType(ImmichIconButton));
+      await tester.tap(find.byType(UniversalPhotosIconButton));
       await tester.pump();
 
       expect(find.text(StaticTranslations.instance.uploading), findsNothing);
@@ -176,13 +176,13 @@ void main() {
     testWidgets('is hidden for a remote asset, which has nothing to upload', (tester) async {
       await pumpUpload(tester, {RemoteAssetFactory.create()});
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('is hidden when every local asset is already backed up', (tester) async {
       await pumpUpload(tester, {LocalAssetFactory.create(remoteId: 'already-there')});
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
   });
 

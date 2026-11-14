@@ -36,15 +36,15 @@ const String kWidgetCustomHeaders = "widget_custom_headers";
 // these are used to force a widget refresh
 // (iOSName, androidFQDN)
 const List<(String, String)> kWidgetNames = [
-  ('com.immich.widget.random', 'app.alextran.immich.widget.RandomReceiver'),
-  ('com.immich.widget.memory', 'app.alextran.immich.widget.MemoryReceiver'),
+  ('com.widget.random', 'app.alextran.widget.RandomReceiver'),
+  ('com.widget.memory', 'app.alextran.widget.MemoryReceiver'),
 ];
 
 const int kMinMonthsToEnableScrubberSnap = 12;
 
-const String kImmichAppStoreLink = "https://apps.apple.com/app/immich/id1613945652";
-const String kImmichPlayStoreLink = "https://play.google.com/store/apps/details?id=app.alextran.immich";
-const String kImmichLatestRelease = "https://github.com/immich-app/immich/releases/latest";
+const String kUniversalPhotosAppStoreLink = "https://apps.apple.com/app/universalphotos/id1613945652";
+const String kUniversalPhotosPlayStoreLink = "https://play.google.com/store/apps/details?id=app.alextran";
+const String kUniversalPhotosLatestRelease = "https://github.com/yashhasan570/UniversalPhotos/releases/latest";
 
 const int kPhotoTabIndex = 0;
 const int kSearchTabIndex = 1;

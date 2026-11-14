@@ -178,22 +178,22 @@ RUN echo "hard core 0" >> /etc/security/limits.conf && \
 
 COPY --from=builder /opt/venv /opt/venv
 COPY scripts/healthcheck.py .
-COPY immich_ml immich_ml
+COPY universal_photos_ml universal_photos_ml
 
 ARG BUILD_ID
 ARG BUILD_IMAGE
 ARG BUILD_SOURCE_REF
 ARG BUILD_SOURCE_COMMIT
 
-ENV IMMICH_BUILD=${BUILD_ID}
-ENV IMMICH_BUILD_URL=https://github.com/immich-app/immich/actions/runs/${BUILD_ID}
-ENV IMMICH_BUILD_IMAGE=${BUILD_IMAGE}
-ENV IMMICH_BUILD_IMAGE_URL=https://github.com/immich-app/immich/pkgs/container/immich-machine-learning
-ENV IMMICH_REPOSITORY=immich-app/immich
-ENV IMMICH_REPOSITORY_URL=https://github.com/immich-app/immich
-ENV IMMICH_SOURCE_REF=${BUILD_SOURCE_REF}
-ENV IMMICH_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
-ENV IMMICH_SOURCE_URL=https://github.com/immich-app/immich/commit/${BUILD_SOURCE_COMMIT}
+ENV UNIVERSALPHOTOS_BUILD=${BUILD_ID}
+ENV UNIVERSALPHOTOS_BUILD_URL=https://github.com/yashhasan570/UniversalPhotos/actions/runs/${BUILD_ID}
+ENV UNIVERSALPHOTOS_BUILD_IMAGE=${BUILD_IMAGE}
+ENV UNIVERSALPHOTOS_BUILD_IMAGE_URL=https://github.com/yashhasan570/UniversalPhotos/pkgs/container/universalphotos-machine-learning
+ENV UNIVERSALPHOTOS_REPOSITORY=universalphotos-app/universalphotos
+ENV UNIVERSALPHOTOS_REPOSITORY_URL=https://github.com/yashhasan570/UniversalPhotos
+ENV UNIVERSALPHOTOS_SOURCE_REF=${BUILD_SOURCE_REF}
+ENV UNIVERSALPHOTOS_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
+ENV UNIVERSALPHOTOS_SOURCE_URL=https://github.com/yashhasan570/UniversalPhotos/commit/${BUILD_SOURCE_COMMIT}
 
 # store huggingface in /cache subfolder to enable rootless deployment with a single volume
 ENV HF_HOME=/cache/hf-cache
@@ -203,6 +203,6 @@ ENV CUDA_CACHE_PATH=/cache/jit/cuda \
     NEO_CACHE_DIR=/cache/jit/neo
 
 ENTRYPOINT ["tini", "--"]
-CMD ["python", "-m", "immich_ml"]
+CMD ["python", "-m", "universal_photos_ml"]
 
 HEALTHCHECK CMD python3 healthcheck.py

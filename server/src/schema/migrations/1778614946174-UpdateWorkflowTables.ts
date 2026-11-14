@@ -48,7 +48,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   "description" character varying,
   "createdAt" timestamp with time zone NOT NULL DEFAULT now(),
   "updatedAt" timestamp with time zone NOT NULL DEFAULT now(),
-  "updateId" uuid NOT NULL DEFAULT immich_uuid_v7(),
+  "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
   "enabled" boolean NOT NULL DEFAULT true,
   CONSTRAINT "workflow_ownerId_fkey" FOREIGN KEY ("ownerId") REFERENCES "user" ("id") ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT "workflow_pkey" PRIMARY KEY ("id")

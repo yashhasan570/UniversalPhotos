@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { ImmichProduct } from '#lib/constants.ts';
+  import { Universal PhotosProduct } from '#lib/constants.ts';
   import { getLicenseLink as getProductLink } from '#lib/utils/license-utils.ts';
-  import { Button, Icon } from '@immich/ui';
+  import { Button, Icon } from '@Universal Photos/ui';
   import { mdiAccount, mdiCheckCircleOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 </script>
@@ -15,12 +15,12 @@
     <p class="mt-1 text-lg font-semibold">{$t('purchase_individual_title')}</p>
   </div>
 
-  <div class="mt-4 dark:text-immich-gray">
+  <div class="mt-4 dark:text-Universal Photos-gray">
     <p class="text-6xl font-bold">$25</p>
     <p>{$t('purchase_per_user')}</p>
   </div>
 
-  <div class="flex h-50 flex-col justify-between dark:text-immich-gray">
+  <div class="flex h-50 flex-col justify-between dark:text-Universal Photos-gray">
     <div class="mt-6 flex flex-col gap-1">
       <div class="grid grid-cols-[36px_auto]">
         <Icon icon={mdiCheckCircleOutline} size="24" class="self-center text-green-500" />
@@ -38,6 +38,6 @@
       </div>
     </div>
 
-    <Button shape="round" href={getProductLink(ImmichProduct.Client)} fullWidth>{$t('purchase_button_select')}</Button>
+    <Button shape="round" href={getProductLink(Universal PhotosProduct.Client)} fullWidth>{$t('purchase_button_select')}</Button>
   </div>
 </div>

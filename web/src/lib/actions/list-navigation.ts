@@ -1,4 +1,4 @@
-import { shortcuts } from '@immich/ui';
+import { shortcuts } from '@universalphotos/ui';
 
 /**
 Enables keyboard navigation (up and down arrows) for a list of elements.

@@ -4,8 +4,8 @@
   import AssetUpdateDescriptionConfirmModal from '#lib/modals/AssetUpdateDescriptionConfirmModal.svelte';
   import { getOwnedAssetsWithWarning } from '#lib/utils/asset-utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { updateAssets } from '@immich/sdk';
-  import { modalManager } from '@immich/ui';
+  import { updateAssets } from '@Universal Photos/sdk';
+  import { modalManager } from '@Universal Photos/ui';
   import { mdiText } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import MenuOption from '../../shared-components/context-menu/MenuOption.svelte';

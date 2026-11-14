@@ -7,7 +7,7 @@ import {
   startAuthentication,
   startRegistration,
   updatePasskey,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import {
   startAuthentication as startBrowserAuthentication,
   startRegistration as startBrowserRegistration,

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/presentation/widgets/people/partner_user_avatar.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/utils/error_handler.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.dart';
+import 'package:universal_photos/presentation/widgets/people/partner_user_avatar.widget.dart';
+import 'package:universal_photos/providers/infrastructure/user.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/utils/error_handler.dart';
+import 'package:universal_photos/widgets/common/confirm_dialog.dart';
 
 class PartnerAddAction extends ActionBuilder {
   const PartnerAddAction();

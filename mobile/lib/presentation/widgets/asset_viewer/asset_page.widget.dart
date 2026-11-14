@@ -5,27 +5,27 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart' show Drag, kTouchSlop;
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/events.model.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/domain/utils/event_stream.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/scroll_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_details.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_stack.provider.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_stack.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/ocr_overlay.widget.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/video_viewer.widget.dart';
-import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/progressive_image.widget.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumbnail.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/asset_viewer/is_motion_video_playing.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/view_intent/view_intent_file_path.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
-import 'package:immich_mobile/widgets/photo_view/photo_view.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/events.model.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/domain/utils/event_stream.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/scroll_extensions.dart';
+import 'package:universal_photos/presentation/widgets/asset_viewer/asset_details.widget.dart';
+import 'package:universal_photos/presentation/widgets/asset_viewer/asset_stack.provider.dart';
+import 'package:universal_photos/presentation/widgets/asset_viewer/asset_stack.widget.dart';
+import 'package:universal_photos/presentation/widgets/asset_viewer/ocr_overlay.widget.dart';
+import 'package:universal_photos/presentation/widgets/asset_viewer/video_viewer.widget.dart';
+import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos/presentation/widgets/images/progressive_image.widget.dart';
+import 'package:universal_photos/presentation/widgets/images/thumbnail.widget.dart';
+import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos/providers/asset_viewer/is_motion_video_playing.provider.dart';
+import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos/providers/view_intent/view_intent_file_path.provider.dart';
+import 'package:universal_photos/widgets/common/universalphotos_loading_indicator.dart';
+import 'package:universal_photos/widgets/photo_view/photo_view.dart';
 
 enum _DragIntent { none, scroll, dismiss }
 
@@ -375,7 +375,7 @@ class _AssetPageState extends ConsumerState<AssetPage> {
           index: widget.index,
           imageProvider: provider,
           heroAttributes: heroAttributes,
-          loadingBuilder: (context, progress, index) => const Center(child: ImmichLoadingIndicator()),
+          loadingBuilder: (context, progress, index) => const Center(child: UniversalPhotosLoadingIndicator()),
           gaplessPlayback: true,
           filterQuality: FilterQuality.high,
           tightMode: true,
@@ -447,7 +447,7 @@ class _AssetPageState extends ConsumerState<AssetPage> {
 
     final asset = _asset;
     if (asset == null) {
-      return const Center(child: ImmichLoadingIndicator());
+      return const Center(child: UniversalPhotosLoadingIndicator());
     }
 
     BaseAsset displayAsset = asset;

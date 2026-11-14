@@ -56,7 +56,7 @@ describe(MaintenanceService.name, () => {
 
   describe('integrityCheck', () => {
     it('generate integrity report', async () => {
-      mocks.storage.readdir.mockResolvedValue(['.immich', 'file1', 'file2']);
+      mocks.storage.readdir.mockResolvedValue(['', 'file1', 'file2']);
       mocks.storage.readFile.mockResolvedValue(undefined as never);
       mocks.storage.overwriteFile.mockRejectedValue(undefined as never);
 
@@ -176,7 +176,7 @@ describe(MaintenanceService.name, () => {
         }),
       ).resolves.toEqual(
         expect.stringMatching(
-          /^https:\/\/my.immich.app\/maintenance\?token=[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*$/,
+          /^https:\/\/my.\/maintenance\?token=[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*\.[A-Za-z0-9-_]*$/,
         ),
       );
 

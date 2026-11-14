@@ -1,11 +1,11 @@
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/domain/services/store.service.dart';
+import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos/utils/image_url_builder.dart';
 
 void main() {
   const endpoint = 'http://localhost:3000';

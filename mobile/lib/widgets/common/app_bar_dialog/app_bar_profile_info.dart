@@ -3,16 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/backup/backup_server.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:immich_mobile/providers/upload_profile_image.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_loading_indicator.dart';
-import 'package:immich_mobile/widgets/common/user_circle_avatar.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/theme_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/providers/backup/backup_server.provider.dart';
+import 'package:universal_photos/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:universal_photos/providers/upload_profile_image.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/widgets/common/universalphotos_loading_indicator.dart';
+import 'package:universal_photos/widgets/common/user_circle_avatar.dart';
 
 class AppBarProfileInfoBox extends HookConsumerWidget {
   const AppBarProfileInfoBox({super.key});
@@ -28,7 +28,7 @@ class AppBarProfileInfoBox extends HookConsumerWidget {
       if (user == null) {
         return const CircleAvatar(
           radius: 20,
-          backgroundImage: AssetImage('assets/immich-logo.png'),
+          backgroundImage: AssetImage('assets/universalphotos-logo.png'),
           backgroundColor: Colors.transparent,
         );
       }
@@ -36,7 +36,7 @@ class AppBarProfileInfoBox extends HookConsumerWidget {
       final userImage = UserCircleAvatar(size: 44, user: user, hasBorder: true);
 
       if (uploadProfileImageStatus == UploadProfileStatus.loading) {
-        return const SizedBox(height: 40, width: 40, child: ImmichLoadingIndicator(borderRadius: 20));
+        return const SizedBox(height: 40, width: 40, child: UniversalPhotosLoadingIndicator(borderRadius: 20));
       }
 
       return userImage;

@@ -3,7 +3,7 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getServerConfigQuery } from '#lib/queries/server-info.query.ts';
   import { OnboardingRole } from '#lib/types.ts';
-  import { Logo } from '@immich/ui';
+  import { Logo } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   const query = createPreloadedQuery(getServerConfigQuery);

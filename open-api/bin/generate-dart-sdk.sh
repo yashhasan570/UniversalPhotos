@@ -13,12 +13,12 @@ patch --no-backup-if-mismatch -u "$TEMPLATE_DIR/serialization/native/native_clas
 
 rm -rf ../mobile/generated/openapi
 
-openapi-generator-cli generate -g dart -i ./immich-openapi-specs.json -o ../mobile/generated/openapi -t "$TEMPLATE_DIR" --additional-properties=useOptional=true
+openapi-generator-cli generate -g dart -i ./universalphotos-openapi-specs.json -o ../mobile/generated/openapi -t "$TEMPLATE_DIR" --additional-properties=useOptional=true
 
 # Post generate patches
 patch --no-backup-if-mismatch -u ../mobile/generated/openapi/lib/api_client.dart <./patch/api_client.dart.patch
 patch --no-backup-if-mismatch -u ../mobile/generated/openapi/lib/api.dart <./patch/api.dart.patch
-patch --no-backup-if-mismatch -u ../mobile/generated/openapi/pubspec.yaml <./patch/pubspec_immich_mobile.yaml.patch
+patch --no-backup-if-mismatch -u ../mobile/generated/openapi/pubspec.yaml <./patch/pubspec_universal_photos.yaml.patch
 patch --no-backup-if-mismatch -u ../mobile/generated/openapi/lib/model/asset_edit_action_item_dto.dart <./patch/asset_edit_action_item_dto.dart.patch
 patch --no-backup-if-mismatch -u ../mobile/generated/openapi/lib/model/asset_edit_action_item_response_dto.dart <./patch/asset_edit_action_item_response_dto.dart.patch
 patch --no-backup-if-mismatch -u ../mobile/generated/openapi/lib/model/passkey_authentication_finish_dto.dart <./patch/passkey_authentication_finish_dto.dart.patch

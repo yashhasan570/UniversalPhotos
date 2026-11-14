@@ -16,7 +16,7 @@ import {
   SetMaintenanceModeDto,
 } from 'src/dtos/maintenance.dto.js';
 import { ServerConfigDto, ServerPingResponse, ServerVersionResponseDto } from 'src/dtos/server.dto.js';
-import { DatabaseLock, ImmichCookie, MaintenanceAction, SystemMetadataKey } from 'src/enum.js';
+import { DatabaseLock, UniversalPhotosCookie, MaintenanceAction, SystemMetadataKey } from 'src/enum.js';
 import { MaintenanceHealthRepository } from 'src/maintenance/maintenance-health.repository.js';
 import { MaintenanceWebsocketRepository } from 'src/maintenance/maintenance-websocket.repository.js';
 import { AppRepository } from 'src/repositories/app.repository.js';
@@ -86,7 +86,7 @@ export class MaintenanceWorkerService {
     await this.logSecret();
 
     this.moduleRef.get(YuccaService, { strict: false }).setDatabaseHooks({
-      tagName: 'yucca.v1.immichBackupFileName',
+      tagName: '',
       dump: (signal) => this.databaseBackupService.createDatabaseBackup('', signal),
       cleanup: () => this.databaseBackupService.cleanupDatabaseBackups(),
       restore: (fileName) => this.databaseBackupService.restoreDatabaseBackup(basename(fileName)),
@@ -210,16 +210,16 @@ export class MaintenanceWorkerService {
     const url = await createMaintenanceLoginUrl(
       baseUrl,
       {
-        username: 'immich-admin',
+        username: 'universalphotos-admin',
       },
       this.secret,
     );
 
-    this.logger.log(`\n\n🚧 Immich is in maintenance mode, you can log in using the following URL:\n${url}\n`);
+    this.logger.log(`\n\n🚧 UniversalPhotos is in maintenance mode, you can log in using the following URL:\n${url}\n`);
   }
 
   async authenticate(headers: IncomingHttpHeaders): Promise<MaintenanceAuthDto> {
-    const jwtToken = parseCookie(headers.cookie || '')[ImmichCookie.MaintenanceToken];
+    const jwtToken = parseCookie(headers.cookie || '')[UniversalPhotosCookie.MaintenanceToken];
     return this.login(jwtToken);
   }
 
@@ -372,7 +372,7 @@ export class MaintenanceWorkerService {
     });
 
     const futoBackups = this.moduleRef.get(YuccaService, { strict: false });
-    const { jobId, task, immichBackupFileName } = await futoBackups.restoreSnapshotInplace(repositoryId, snapshotId);
+    const { jobId, task, universalphotosBackupFileName } = await futoBackups.restoreSnapshotInplace(repositoryId, snapshotId);
 
     this.setStatus({
       active: true,
@@ -382,13 +382,13 @@ export class MaintenanceWorkerService {
 
     await task;
 
-    if (!immichBackupFileName) {
+    if (!universalphotosBackupFileName) {
       return this.setAction({
         action: MaintenanceAction.SelectDatabaseRestore,
       });
     }
 
-    const backupFileName = basename(immichBackupFileName);
+    const backupFileName = basename(universalphotosBackupFileName);
     await this.restoreBackup(backupFileName);
   }
 

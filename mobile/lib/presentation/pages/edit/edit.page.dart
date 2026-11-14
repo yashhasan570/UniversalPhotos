@@ -6,16 +6,16 @@ import 'package:crop_image/crop_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/aspect_ratios.dart';
-import 'package:immich_mobile/domain/models/asset_edit.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/pages/edit/editor.provider.dart';
-import 'package:immich_mobile/providers/theme.provider.dart';
-import 'package:immich_mobile/theme/theme_data.dart';
-import 'package:immich_mobile/utils/editor.utils.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/constants/aspect_ratios.dart';
+import 'package:universal_photos/domain/models/asset_edit.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/pages/edit/editor.provider.dart';
+import 'package:universal_photos/providers/theme.provider.dart';
+import 'package:universal_photos/theme/theme_data.dart';
+import 'package:universal_photos/utils/editor.utils.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:openapi/api.dart' show MirrorAxis, MirrorParameters, RotateParameters;
 
 @RoutePage()
@@ -64,14 +64,14 @@ class _EditImagePageState extends ConsumerState<EditImagePage> with TickerProvid
         return;
       }
 
-      ImmichToast.show(context: context, msg: context.t.success, toastType: ToastType.success);
+      UniversalPhotosToast.show(context: context, msg: context.t.success, toastType: ToastType.success);
       Navigator.of(context).pop();
     } catch (e) {
       if (!mounted) {
         return;
       }
 
-      ImmichToast.show(context: context, msg: context.t.error_title, toastType: ToastType.error);
+      UniversalPhotosToast.show(context: context, msg: context.t.error_title, toastType: ToastType.error);
     } finally {
       ref.read(editorStateProvider.notifier).setIsEditing(false);
     }
@@ -113,12 +113,12 @@ class _EditImagePageState extends ConsumerState<EditImagePage> with TickerProvid
         }
       },
       child: Theme(
-        data: getThemeData(colorScheme: ref.watch(immichThemeProvider).dark, locale: context.locale),
+        data: getThemeData(colorScheme: ref.watch(universalphotosThemeProvider).dark, locale: context.locale),
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.black,
             title: Text(context.t.edit),
-            leading: ImmichCloseButton(onPressed: () => Navigator.of(context).maybePop()),
+            leading: UniversalPhotosCloseButton(onPressed: () => Navigator.of(context).maybePop()),
             actions: [_SaveEditsButton(onSave: _saveEditedImage)],
           ),
           backgroundColor: Colors.black,
@@ -135,7 +135,7 @@ class _EditImagePageState extends ConsumerState<EditImagePage> with TickerProvid
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: ref.watch(immichThemeProvider).dark.surface,
+                      color: ref.watch(universalphotosThemeProvider).dark.surface,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
@@ -262,36 +262,36 @@ class _TransformControls extends ConsumerWidget {
             children: [
               Row(
                 children: [
-                  ImmichIconButton(
+                  UniversalPhotosIconButton(
                     icon: Icons.rotate_left,
-                    variant: ImmichVariant.ghost,
-                    color: ImmichColor.secondary,
+                    variant: UniversalPhotosVariant.ghost,
+                    color: UniversalPhotosColor.secondary,
                     onPressed: editorNotifier.rotateCCW,
                   ),
                   const SizedBox(width: 8),
-                  ImmichIconButton(
+                  UniversalPhotosIconButton(
                     icon: Icons.rotate_right,
-                    variant: ImmichVariant.ghost,
-                    color: ImmichColor.secondary,
+                    variant: UniversalPhotosVariant.ghost,
+                    color: UniversalPhotosColor.secondary,
                     onPressed: editorNotifier.rotateCW,
                   ),
                 ],
               ),
               Row(
                 children: [
-                  ImmichIconButton(
+                  UniversalPhotosIconButton(
                     icon: Icons.flip,
-                    variant: ImmichVariant.ghost,
-                    color: ImmichColor.secondary,
+                    variant: UniversalPhotosVariant.ghost,
+                    color: UniversalPhotosColor.secondary,
                     onPressed: editorNotifier.flipHorizontally,
                   ),
                   const SizedBox(width: 8),
                   Transform.rotate(
                     angle: pi / 2,
-                    child: ImmichIconButton(
+                    child: UniversalPhotosIconButton(
                       icon: Icons.flip,
-                      variant: ImmichVariant.ghost,
-                      color: ImmichColor.secondary,
+                      variant: UniversalPhotosVariant.ghost,
+                      color: UniversalPhotosColor.secondary,
                       onPressed: editorNotifier.flipVertically,
                     ),
                   ),
@@ -322,10 +322,10 @@ class _SaveEditsButton extends ConsumerWidget {
             padding: EdgeInsets.all(8.0),
             child: SizedBox(width: 28, height: 28, child: CircularProgressIndicator(strokeWidth: 2.5)),
           )
-        : ImmichIconButton(
+        : UniversalPhotosIconButton(
             icon: Icons.done_rounded,
-            color: ImmichColor.primary,
-            variant: ImmichVariant.ghost,
+            color: UniversalPhotosColor.primary,
+            variant: UniversalPhotosVariant.ghost,
             disabled: !hasUnsavedEdits,
             onPressed: onSave,
           );
@@ -340,10 +340,10 @@ class _ResetEditsButton extends ConsumerWidget {
     final editorState = ref.watch(editorStateProvider);
     final editorNotifier = ref.watch(editorStateProvider.notifier);
 
-    return ImmichTextButton(
+    return UniversalPhotosTextButton(
       labelText: context.t.reset,
       onPressed: editorNotifier.resetEdits,
-      variant: ImmichVariant.ghost,
+      variant: UniversalPhotosVariant.ghost,
       expanded: false,
       disabled: !editorState.hasEdits || editorState.isApplyingEdits,
     );

@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/server/activity.dart';
-import 'package:immich_mobile/data/server/errors.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/models/activities/activity.model.dart';
+import 'package:universal_photos/data/server/activity.dart';
+import 'package:universal_photos/data/server/errors.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/models/activities/activity.model.dart';
 import 'package:mocktail/mocktail.dart';
 
 class _MockActivityApi extends Mock implements ActivityApiRepository {}

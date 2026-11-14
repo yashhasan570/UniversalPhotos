@@ -10,7 +10,7 @@ import {
   locale,
   type AlbumViewSettings,
 } from '#lib/stores/preferences.store.ts';
-import type { AlbumResponseDto } from '@immich/sdk';
+import type { AlbumResponseDto } from '@universalphotos/sdk';
 import { orderBy } from 'lodash-es';
 import { get } from 'svelte/store';
 import { goto } from '$app/navigation';

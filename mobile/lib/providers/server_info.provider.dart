@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/models/server_info/server_config.model.dart';
-import 'package:immich_mobile/models/server_info/server_disk_info.model.dart';
-import 'package:immich_mobile/models/server_info/server_features.model.dart';
-import 'package:immich_mobile/models/server_info/server_info.model.dart';
-import 'package:immich_mobile/models/server_info/server_version.model.dart';
-import 'package:immich_mobile/services/server_info.service.dart';
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/models/server_info/server_config.model.dart';
+import 'package:universal_photos/models/server_info/server_disk_info.model.dart';
+import 'package:universal_photos/models/server_info/server_features.model.dart';
+import 'package:universal_photos/models/server_info/server_info.model.dart';
+import 'package:universal_photos/models/server_info/server_version.model.dart';
+import 'package:universal_photos/services/server_info.service.dart';
+import 'package:universal_photos/utils/semver.dart';
 import 'package:logging/logging.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -22,8 +22,8 @@ class ServerInfoNotifier extends StateNotifier<ServerInfo> {
             trashDays: 30,
             oauthButtonText: '',
             externalDomain: '',
-            mapLightStyleUrl: 'https://tiles.immich.cloud/v1/style/light.json',
-            mapDarkStyleUrl: 'https://tiles.immich.cloud/v1/style/dark.json',
+            mapLightStyleUrl: 'https://tiles./v1/style/light.json',
+            mapDarkStyleUrl: 'https://tiles./v1/style/dark.json',
           ),
           serverDiskInfo: ServerDiskInfo(diskAvailable: "0", diskSize: "0", diskUse: "0", diskUsagePercentage: 0),
           versionStatus: VersionStatus.upToDate,

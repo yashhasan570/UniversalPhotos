@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_ui/src/components/email_input.dart';
-import 'package:immich_ui/src/components/password_input.dart';
+import 'package:universalphotos_ui/src/components/email_input.dart';
+import 'package:universalphotos_ui/src/components/password_input.dart';
 
 import 'test_utils.dart';
 
 void main() {
   EditableText editable(WidgetTester tester) => tester.widget<EditableText>(find.byType(EditableText));
 
-  testWidgets('ImmichEmailInput disables smart punctuation', (tester) async {
-    await tester.pumpTestWidget(const ImmichEmailInput());
+  testWidgets('UniversalPhotosEmailInput disables smart punctuation', (tester) async {
+    await tester.pumpTestWidget(const UniversalPhotosEmailInput());
 
     expect(editable(tester).smartDashesType, SmartDashesType.disabled);
     expect(editable(tester).smartQuotesType, SmartQuotesType.disabled);
   });
 
-  testWidgets('ImmichPasswordInput disables smart punctuation', (tester) async {
-    await tester.pumpTestWidget(const ImmichPasswordInput());
+  testWidgets('UniversalPhotosPasswordInput disables smart punctuation', (tester) async {
+    await tester.pumpTestWidget(const UniversalPhotosPasswordInput());
 
     expect(editable(tester).obscureText, isTrue);
     expect(editable(tester).smartDashesType, SmartDashesType.disabled);

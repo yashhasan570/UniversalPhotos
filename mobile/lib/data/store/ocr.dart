@@ -1,7 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store/util/cache.dart';
-import 'package:immich_mobile/domain/models/ocr.model.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/data/store/util/cache.dart';
+import 'package:universal_photos/domain/models/ocr.model.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
 
 /// Text recognized within an asset
 ///

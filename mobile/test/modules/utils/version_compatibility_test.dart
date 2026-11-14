@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/semver.dart';
-import 'package:immich_mobile/utils/version_compatibility.dart';
+import 'package:universal_photos/utils/semver.dart';
+import 'package:universal_photos/utils/version_compatibility.dart';
 
 void main() {
   group('app major version behind server', () {

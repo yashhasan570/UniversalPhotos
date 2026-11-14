@@ -17,7 +17,7 @@ const buildDir = 'build';
 const inlineTags = ['script', 'style'];
 
 const cspManifest = (): Plugin => ({
-  name: 'immich:csp-manifest',
+  name: 'universalphotos:csp-manifest',
   apply: 'build',
   buildApp: {
     order: 'post',
@@ -53,7 +53,7 @@ const cspManifest = (): Plugin => ({
 const notFoundGetLine = /^404 (GET|HEAD) /;
 
 const testing = (): Plugin => ({
-  name: 'immich:test',
+  name: 'universalphotos:test',
   apply: () => !!process.env.VITEST,
   configureServer: (server) => {
     const { logger } = server.config;
@@ -71,7 +71,7 @@ const testing = (): Plugin => ({
 const isUnmockedMediaOrDownload = (message: string) => notFoundGetLine.test(stripVTControlCharacters(message));
 
 const upstream = {
-  target: process.env.IMMICH_SERVER_URL || 'http://immich-server:2283/',
+  target: process.env.UNIVERSALPHOTOS_SERVER_URL || 'http://universalphotos-server:2283/',
   secure: true,
   changeOrigin: true,
   logLevel: 'info',
@@ -80,14 +80,14 @@ const upstream = {
 
 const proxy: Record<string, string | ProxyOptions> = {
   '/api': upstream,
-  '/.well-known/immich': upstream,
+  '/.well-known/universalphotos': upstream,
   '/.well-known/webauthn': upstream,
   '/custom.css': upstream,
 };
 
 dotenv.config({ quiet: true });
-process.env.PUBLIC_IMMICH_BUY_HOST = process.env.PUBLIC_IMMICH_BUY_HOST || 'https://buy.immich.app';
-process.env.PUBLIC_IMMICH_PAY_HOST = process.env.PUBLIC_IMMICH_PAY_HOST || 'https://pay.futo.org';
+process.env.PUBLIC_UNIVERSALPHOTOS_BUY_HOST = process.env.PUBLIC_UNIVERSALPHOTOS_BUY_HOST || 'https://buy.';
+process.env.PUBLIC_UNIVERSALPHOTOS_PAY_HOST = process.env.PUBLIC_UNIVERSALPHOTOS_PAY_HOST || 'https://pay.futo.org';
 
 export default defineConfig({
   build: {
@@ -98,7 +98,7 @@ export default defineConfig({
       'xmlhttprequest-ssl': './node_modules/engine.io-client/lib/xmlhttprequest.js',
     },
   },
-  // '@immich/ui': path.resolve(import.meta.dirname, '../../ui/packages/ui'),
+  // '@universalphotos/ui': path.resolve(import.meta.dirname, '../../ui/packages/ui'),
   server: {
     // connect to a remote backend during web-only development
     proxy: process.env.VITEST ? {} : proxy,
@@ -112,12 +112,12 @@ export default defineConfig({
     tailwindcss(),
     sveltekit({
       compilerOptions: {},
-      // TODO pending `@immich/ui` to enable it
+      // TODO pending `@universalphotos/ui` to enable it
       // runes: true,
       preprocess: vitePreprocess(),
 
       version: {
-        name: process.env.IMMICH_BUILD || process.env.npm_package_version || 'local',
+        name: process.env.UNIVERSALPHOTOS_BUILD || process.env.npm_package_version || 'local',
       },
       paths: { relative: false },
       adapter: adapter({ fallback: 'index.html', precompress: true }),

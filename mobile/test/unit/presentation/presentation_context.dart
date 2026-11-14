@@ -5,31 +5,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/locales.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/data/server/tag.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/generated/codegen_loader.g.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
-import 'package:immich_mobile/providers/routes.provider.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/repositories/asset_media.repository.dart';
-import 'package:immich_mobile/repositories/permission.repository.dart';
-import 'package:immich_mobile/services/cleanup.service.dart';
-import 'package:immich_mobile/services/gcast.service.dart';
-import 'package:immich_mobile/services/server_info.service.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/constants/locales.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/data/server/tag.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/domain/services/store.service.dart';
+import 'package:universal_photos/generated/codegen_loader.g.dart';
+import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos/presentation/actions/action.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos/providers/infrastructure/asset.provider.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/providers/infrastructure/user.provider.dart';
+import 'package:universal_photos/providers/routes.provider.dart';
+import 'package:universal_photos/providers/timeline/multiselect.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/repositories/asset_media.repository.dart';
+import 'package:universal_photos/repositories/permission.repository.dart';
+import 'package:universal_photos/services/cleanup.service.dart';
+import 'package:universal_photos/services/gcast.service.dart';
+import 'package:universal_photos/services/server_info.service.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../infrastructure/repository.mock.dart';
@@ -160,7 +160,7 @@ extension PumpPresentationWidget on WidgetTester {
     List<Override> overrides = const [],
   }) async {
     await pumpTestWidget(context, ActionIconButton(action: action), overrides: overrides);
-    await tap(find.byType(ImmichIconButton));
+    await tap(find.byType(UniversalPhotosIconButton));
     await pump();
   }
 

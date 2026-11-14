@@ -6,7 +6,7 @@
   import { Route } from '#lib/route.ts';
   import { oauth } from '#lib/utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { Button, LoadingSpinner, toastManager } from '@immich/ui';
+  import { Button, LoadingSpinner, toastManager } from '@Universal Photos/ui';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';

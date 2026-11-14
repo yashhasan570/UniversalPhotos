@@ -5,8 +5,8 @@
   import { Route } from '#lib/route.ts';
   import { getAlbumActions } from '#lib/services/album.service.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
-  import { AlbumUserRole, type AlbumResponseDto } from '@immich/sdk';
-  import { Icon, menuManager } from '@immich/ui';
+  import { AlbumUserRole, type AlbumResponseDto } from '@Universal Photos/sdk';
+  import { Icon, menuManager } from '@Universal Photos/ui';
   import { mdiShareVariantOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
@@ -42,7 +42,7 @@
 </Portal>
 
 <tr
-  class="flex w-full place-items-center border-3 border-transparent p-2 text-center odd:bg-subtle/80 even:bg-subtle/20 hover:cursor-pointer hover:border-immich-primary/75 md:px-5 md:py-2 odd:dark:bg-immich-dark-gray/75 even:dark:bg-immich-dark-gray/50 dark:hover:border-immich-dark-primary/75"
+  class="flex w-full place-items-center border-3 border-transparent p-2 text-center odd:bg-subtle/80 even:bg-subtle/20 hover:cursor-pointer hover:border-Universal Photos-primary/75 md:px-5 md:py-2 odd:dark:bg-Universal Photos-dark-gray/75 even:dark:bg-Universal Photos-dark-gray/50 dark:hover:border-Universal Photos-dark-primary/75"
   onclick={() => goto(Route.viewAlbum(album))}
   {oncontextmenu}
 >

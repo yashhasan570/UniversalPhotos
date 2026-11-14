@@ -10,7 +10,7 @@ import {
   type AssetResponseDto,
   type TimeBucketAssetResponseDto,
   type TimeBucketsResponseDto,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { Settings } from 'luxon';
 import { tick } from 'svelte';
 import { afterEach, beforeEach, describe, expect, vi } from 'vitest';

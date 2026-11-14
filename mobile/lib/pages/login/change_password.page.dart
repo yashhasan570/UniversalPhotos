@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/widgets/forms/change_password_form.dart';
+import 'package:universal_photos/widgets/forms/change_password_form.dart';
 
 @RoutePage()
 class ChangePasswordPage extends StatelessWidget {

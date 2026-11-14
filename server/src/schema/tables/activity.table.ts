@@ -10,7 +10,7 @@ import {
   Timestamp,
   UpdateDateColumn,
   type Generated,
-} from '@immich/sql-tools';
+} from '@universalphotos/sql-tools';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { AlbumAssetTable } from 'src/schema/tables/album-asset.table.js';
 import { AlbumTable } from 'src/schema/tables/album.table.js';

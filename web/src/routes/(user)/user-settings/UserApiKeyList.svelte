@@ -5,7 +5,7 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getApiKeyActions, getApiKeysActions } from '#lib/services/api-key.service.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
-  import { Button, Table, TableBody, TableCell, TableHeader, TableHeading, TableRow, Text } from '@immich/ui';
+  import { Button, Table, TableBody, TableCell, TableHeader, TableHeading, TableRow, Text } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
 

@@ -1,5 +1,5 @@
 import { asMutation, queryClient } from '#lib/queries/client.ts';
-import { getNotifications, updateNotification, updateNotifications } from '@immich/sdk';
+import { getNotifications, updateNotification, updateNotifications } from '@universalphotos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 export const getNotificationsQuery = () =>

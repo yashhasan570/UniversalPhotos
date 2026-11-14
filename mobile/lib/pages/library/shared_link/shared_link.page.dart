@@ -4,11 +4,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/shared_link/shared_link.model.dart';
-import 'package:immich_mobile/providers/shared_link.provider.dart';
-import 'package:immich_mobile/widgets/shared_link/shared_link_item.dart';
+import 'package:universal_photos/extensions/asyncvalue_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/models/shared_link/shared_link.model.dart';
+import 'package:universal_photos/providers/shared_link.provider.dart';
+import 'package:universal_photos/widgets/shared_link/shared_link_item.dart';
 
 @RoutePage()
 class SharedLinkPage extends HookConsumerWidget {

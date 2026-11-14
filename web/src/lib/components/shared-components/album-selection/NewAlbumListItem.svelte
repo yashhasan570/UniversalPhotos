@@ -1,6 +1,6 @@
 <script lang="ts">
   import { SCROLL_PROPERTIES } from '#lib/components/shared-components/album-selection/album-selection-utils.ts';
-  import { Icon } from '@immich/ui';
+  import { Icon } from '@Universal Photos/ui';
   import { mdiPlus } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import type { Attachment } from 'svelte/attachments';

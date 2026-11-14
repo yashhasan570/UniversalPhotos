@@ -1,7 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/server/api_repository.dart';
-import 'package:immich_mobile/domain/models/tag.model.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
+import 'package:universal_photos/data/server/api_repository.dart';
+import 'package:universal_photos/domain/models/tag.model.dart';
+import 'package:universal_photos/providers/api.provider.dart';
 import 'package:openapi/api.dart';
 
 final tagApiRepositoryProvider = Provider((ref) => TagApiRepository(ref.watch(apiServiceProvider).tagsApi));

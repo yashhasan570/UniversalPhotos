@@ -5,8 +5,8 @@
     getAdminConfigQuery,
     updateAdminConfigMutation,
   } from '#lib/queries/config-admin.query.ts';
-  import type { AdminConfigDto } from '@immich/sdk';
-  import { Button, toastManager } from '@immich/ui';
+  import type { AdminConfigDto } from '@Universal Photos/sdk';
+  import { Button, toastManager } from '@Universal Photos/ui';
   import { createMutation } from '@tanstack/svelte-query';
   import { cloneDeep, isEqual, pick } from 'lodash-es';
   import { t } from 'svelte-i18n';

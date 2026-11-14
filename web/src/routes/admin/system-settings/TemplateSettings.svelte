@@ -5,8 +5,8 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getAdminConfigQuery } from '#lib/queries/config-admin.query.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { getNotificationTemplateAdmin, type AdminConfigDto, type AdminConfigTemplateEmailsDto } from '@immich/sdk';
-  import { Button, Icon, LoadingSpinner, modalManager } from '@immich/ui';
+  import { getNotificationTemplateAdmin, type AdminConfigDto, type AdminConfigTemplateEmailsDto } from '@Universal Photos/sdk';
+  import { Button, Icon, LoadingSpinner, modalManager } from '@Universal Photos/ui';
   import { mdiEyeOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
@@ -72,7 +72,7 @@
         subtitle={$t('admin.template_settings_description')}
       >
         <div class="ms-4 mt-4 flex flex-col gap-4">
-          <p class="text-sm dark:text-immich-dark-fg">
+          <p class="text-sm dark:text-Universal Photos-dark-fg">
             <FormatMessage key="admin.template_email_if_empty">
               {$t('admin.template_email_if_empty')}
             </FormatMessage>

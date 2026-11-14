@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Quiet mode suppresses informational output (enabled for immich-admin)
+# Quiet mode suppresses informational output (enabled for universalphotos-admin)
 QUIET=false
-if [ "$1" = "immich-admin" ]; then
+if [ "$1" = "universalphotos-admin" ]; then
   QUIET=true
 fi
 
@@ -13,7 +13,7 @@ log_message() {
   fi
 }
 
-log_message "Initializing Immich $IMMICH_SOURCE_REF"
+log_message "Initializing UniversalPhotos $UNIVERSALPHOTOS_SOURCE_REF"
 
 lib_path="/usr/lib/$(arch)-linux-gnu/libmimalloc.so.3"
 if [ -f "$lib_path" ]; then
@@ -58,7 +58,7 @@ if [ -f "${SERVER_HOME}/dist/main.js" ]; then
   fi
 else
   echo "Error: ${SERVER_HOME}/dist/main.js not found"
-  if [ "$IMMICH_ENV" = "development" ]; then
+  if [ "$UNIVERSALPHOTOS_ENV" = "development" ]; then
     echo "You may need to build the server first."
   fi
   exit 1

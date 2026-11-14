@@ -1,11 +1,11 @@
 import { Kysely, sql } from 'kysely';
 
 export async function up(db: Kysely<any>): Promise<void> { 
-  await sql`CREATE TABLE "memory_assets_audit" ("id" uuid NOT NULL DEFAULT immich_uuid_v7(), "memoryId" uuid NOT NULL, "assetId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp());`.execute(db);
-  await sql`CREATE TABLE "memories_audit" ("id" uuid NOT NULL DEFAULT immich_uuid_v7(), "memoryId" uuid NOT NULL, "userId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp());`.execute(db);
+  await sql`CREATE TABLE "memory_assets_audit" ("id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(), "memoryId" uuid NOT NULL, "assetId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp());`.execute(db);
+  await sql`CREATE TABLE "memories_audit" ("id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(), "memoryId" uuid NOT NULL, "userId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp());`.execute(db);
   await sql`ALTER TABLE "memories_assets_assets" ADD "createdAt" timestamp with time zone NOT NULL DEFAULT now();`.execute(db);
   await sql`ALTER TABLE "memories_assets_assets" ADD "updatedAt" timestamp with time zone NOT NULL DEFAULT now();`.execute(db);
-  await sql`ALTER TABLE "memories_assets_assets" ADD "updateId" uuid NOT NULL DEFAULT immich_uuid_v7();`.execute(db);
+  await sql`ALTER TABLE "memories_assets_assets" ADD "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7();`.execute(db);
   await sql`ALTER TABLE "memory_assets_audit" ADD CONSTRAINT "PK_35ef16910228f980e0766dcc59b" PRIMARY KEY ("id");`.execute(db);
   await sql`ALTER TABLE "memories_audit" ADD CONSTRAINT "PK_19de798c033a710dcfa5c72f81b" PRIMARY KEY ("id");`.execute(db);
   await sql`ALTER TABLE "memory_assets_audit" ADD CONSTRAINT "FK_225a204afcb0bd6de015080fb03" FOREIGN KEY ("memoryId") REFERENCES "memories" ("id") ON UPDATE CASCADE ON DELETE CASCADE;`.execute(db);

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Label, Link, Text } from '@immich/ui';
+  import { Label, Link, Text } from '@Universal Photos/ui';
 
   type Props = {
     id: string;

@@ -1,4 +1,4 @@
-import type { IntegrityReport } from '@immich/sdk';
+import type { IntegrityReport } from '@universalphotos/sdk';
 import { page, userEvent } from 'vitest/browser';
 
 export const createApp = () => {
@@ -25,7 +25,7 @@ export const createApp = () => {
       root: sidebar,
       links: sidebar.getByRole('link'),
       purchaseInfo: {
-        buyButton: sidebar.getByRole('button', { name: 'purchase_button_buy_immich' }),
+        buyButton: sidebar.getByRole('button', { name: 'purchase_button_buy_universalphotos' }),
         panel: purchasePanel,
         neverShowAgainButton: purchasePanel.getByRole('button', { name: 'purchase_button_never_show_again' }),
         remindMeButton: purchasePanel.getByRole('button', { name: 'purchase_button_reminder' }),

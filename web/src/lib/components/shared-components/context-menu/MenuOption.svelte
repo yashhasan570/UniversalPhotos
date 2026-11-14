@@ -1,6 +1,6 @@
 <script lang="ts">
   import { optionClickCallbackStore, selectedIdStore } from '#lib/stores/context-menu.store.ts';
-  import { Icon, shortcutLabel as computeShortcutLabel, shortcuts, type IconLike, type Shortcut } from '@immich/ui';
+  import { Icon, shortcutLabel as computeShortcutLabel, shortcuts, type IconLike, type Shortcut } from '@Universal Photos/ui';
 
   interface Props {
     text: string;
@@ -18,7 +18,7 @@
     subtitle = '',
     icon,
     activeColor = 'bg-slate-300',
-    textColor = 'text-immich-fg dark:text-immich-dark-bg',
+    textColor = 'text-Universal Photos-fg dark:text-Universal Photos-dark-bg',
     onClick,
     shortcut = null,
     shortcutLabel = '',

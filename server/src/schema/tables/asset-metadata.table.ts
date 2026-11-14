@@ -7,7 +7,7 @@ import {
   Timestamp,
   UpdateDateColumn,
   type Generated,
-} from '@immich/sql-tools';
+} from '@universalphotos/sql-tools';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { AssetMetadataKey } from 'src/enum.js';
 import { asset_metadata_audit } from 'src/schema/functions.js';

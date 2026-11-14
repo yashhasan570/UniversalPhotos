@@ -29,8 +29,8 @@ import {
   type AlbumResponseDto,
   type AssetJobsDto,
   type AssetResponseDto,
-} from '@immich/sdk';
-import { modalManager, toastManager, type ActionItem } from '@immich/ui';
+} from '@universalphotos/sdk';
+import { modalManager, toastManager, type ActionItem } from '@universalphotos/ui';
 import {
   mdiAccountCircleOutline,
   mdiAlertOutline,

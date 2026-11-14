@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/providers/app_settings.provider.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
+import 'package:universal_photos/providers/app_settings.provider.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/services/app_settings.service.dart';
 
 class ReadOnlyModeNotifier extends Notifier<bool> {
   late AppSettingsService _appSettingService;

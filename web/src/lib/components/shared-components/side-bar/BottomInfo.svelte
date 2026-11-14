@@ -3,7 +3,7 @@
   import { featureFlagsManager } from '#lib/managers/feature-flags-manager.svelte.ts';
   import { Route } from '#lib/route.ts';
   import { hideBackupsReminder } from '#lib/stores/preferences.store.ts';
-  import { ImmichBackupsSidebarItem } from '@futo-org/backups-orchestrator-ui';
+  import { Universal PhotosBackupsSidebarItem } from '@futo-org/backups-orchestrator-ui';
   import ServerStatus from './ServerStatus.svelte';
   import StorageSpace from './StorageSpace.svelte';
 </script>
@@ -12,7 +12,7 @@
   <StorageSpace />
 
   {#if authManager.user.isAdmin && featureFlagsManager.value.backups && !$hideBackupsReminder}
-    <ImmichBackupsSidebarItem href={Route.backups()} />
+    <Universal PhotosBackupsSidebarItem href={Route.backups()} />
   {/if}
 </div>
 

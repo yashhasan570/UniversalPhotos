@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/services/device_permission.service.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/services/device_permission.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';

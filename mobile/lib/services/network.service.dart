@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/repositories/network.repository.dart';
-import 'package:immich_mobile/repositories/permission.repository.dart';
+import 'package:universal_photos/repositories/network.repository.dart';
+import 'package:universal_photos/repositories/permission.repository.dart';
 
 final networkServiceProvider = Provider((ref) {
   return NetworkService(ref.watch(networkRepositoryProvider), ref.watch(permissionRepositoryProvider));

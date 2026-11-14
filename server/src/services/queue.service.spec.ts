@@ -1,6 +1,6 @@
 import { BadRequestException } from '@nestjs/common';
 import { SystemConfig, defaults } from 'src/dtos/config.dto.js';
-import { ImmichWorker, JobName, QueueCommand, QueueName } from 'src/enum.js';
+import { UniversalPhotosWorker, JobName, QueueCommand, QueueName } from 'src/enum.js';
 import { QueueService } from 'src/services/queue.service.js';
 import { factory } from 'test/small.factory.js';
 import { ServiceMocks, newTestService } from 'test/utils.js';
@@ -12,7 +12,7 @@ describe(QueueService.name, () => {
   beforeEach(() => {
     ({ sut, mocks } = newTestService(QueueService));
 
-    mocks.config.getWorker.mockReturnValue(ImmichWorker.Microservices);
+    mocks.config.getWorker.mockReturnValue(UniversalPhotosWorker.Microservices);
   });
 
   it('should work', () => {

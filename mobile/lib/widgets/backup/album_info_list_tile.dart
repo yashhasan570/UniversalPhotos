@@ -4,13 +4,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/providers/backup/backup_album.provider.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:universal_photos/domain/models/album/local_album.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/theme_extensions.dart';
+import 'package:universal_photos/providers/backup/backup_album.provider.dart';
+import 'package:universal_photos/providers/haptic_feedback.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
 
 class AlbumInfoListTile extends HookConsumerWidget {
   final LocalAlbum album;
@@ -59,7 +59,7 @@ class AlbumInfoListTile extends HookConsumerWidget {
           unawaited(ref.read(backupAlbumProvider.notifier).deselectAlbum(album));
         } else {
           if (album.id == 'isAll' || album.name == 'Recents') {
-            ImmichToast.show(
+            UniversalPhotosToast.show(
               context: context,
               msg: 'Cannot exclude album contains all assets',
               toastType: ToastType.error,

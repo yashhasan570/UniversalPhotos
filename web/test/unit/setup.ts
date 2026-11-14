@@ -14,12 +14,12 @@ vi.mock('$app/navigation', () => import('#test/unit/mocks/app-navigation.ts'));
 vi.mock('$app/state', () => import('#test/unit/mocks/app-state.svelte.ts'));
 
 vi.mock('$app/env/public', () => ({
-  PUBLIC_IMMICH_BUY_HOST: 'https://buy.immich.app',
-  PUBLIC_IMMICH_PAY_HOST: 'https://pay.futo.org',
+  PUBLIC_UNIVERSALPHOTOS_BUY_HOST: 'https://buy.',
+  PUBLIC_UNIVERSALPHOTOS_PAY_HOST: 'https://pay.futo.org',
 }));
 
 vi.mock('$env/dynamic/public', () => ({
   env: {
-    PUBLIC_IMMICH_HOSTNAME: '',
+    PUBLIC_UNIVERSALPHOTOS_HOSTNAME: '',
   },
 }));

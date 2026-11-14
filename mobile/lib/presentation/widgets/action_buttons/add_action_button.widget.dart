@@ -2,23 +2,23 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/archive.action.dart';
-import 'package:immich_mobile/presentation/actions/lock.action.dart';
-import 'package:immich_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:immich_mobile/presentation/widgets/album/album_selector.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/models/album/album.model.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/archive.action.dart';
+import 'package:universal_photos/presentation/actions/lock.action.dart';
+import 'package:universal_photos/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:universal_photos/presentation/widgets/album/album_selector.widget.dart';
+import 'package:universal_photos/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos/providers/infrastructure/action.provider.dart';
+import 'package:universal_photos/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 enum AddToMenuItem { album }
 
@@ -75,7 +75,7 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
   void _openAlbumSelector() {
     final currentAsset = ref.read(assetViewerProvider).currentAsset;
     if (currentAsset == null) {
-      ImmichToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
+      UniversalPhotosToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
       return;
     }
 
@@ -108,7 +108,7 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
     final latest = ref.read(assetViewerProvider).currentAsset;
 
     if (latest == null) {
-      ImmichToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
+      UniversalPhotosToast.show(context: context, msg: "Cannot load asset information.", toastType: ToastType.error);
       return;
     }
 
@@ -119,13 +119,13 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
     }
 
     if (!result.success) {
-      ImmichToast.show(context: context, msg: context.t.scaffold_body_error_occurred, toastType: ToastType.error);
+      UniversalPhotosToast.show(context: context, msg: context.t.scaffold_body_error_occurred, toastType: ToastType.error);
       return;
     }
 
     // Only report the failure when nothing was added; if some succeeded we show "added".
     if (result.count > 0) {
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         msg: context.t.add_to_album_bottom_sheet_added(album: album.name),
       );
@@ -133,13 +133,13 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
       // Refresh the "Appears in" list on the asset's info panel.
       ref.invalidate(albumsContainingAssetProvider(latest.remoteId!));
     } else if (result.failedCount > 0) {
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         msg: context.t.assets_cannot_be_added_to_album_count(count: result.failedCount),
         toastType: ToastType.error,
       );
     } else {
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         msg: context.t.add_to_album_bottom_sheet_already_exists(album: album.name),
       );
@@ -160,7 +160,7 @@ class _AddActionButtonState extends ConsumerState<AddActionButton> {
 
     final themeData = widget.originalTheme ?? context.themeData;
 
-    return ImmichMenu(
+    return UniversalPhotosMenu(
       consumeOutsideTap: true,
       style: MenuStyle(
         backgroundColor: WidgetStatePropertyAll(themeData.scaffoldBackgroundColor),

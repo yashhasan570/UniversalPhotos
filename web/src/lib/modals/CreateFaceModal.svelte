@@ -4,8 +4,8 @@
   import { createFaceMutation } from '#lib/queries/face.query.ts';
   import { delay } from '#lib/utils/asset-utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { createPerson } from '@immich/sdk';
-  import { Field, FormModal, Input, LoadingSpinner, Text } from '@immich/ui';
+  import { createPerson } from '@Universal Photos/sdk';
+  import { Field, FormModal, Input, LoadingSpinner, Text } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {

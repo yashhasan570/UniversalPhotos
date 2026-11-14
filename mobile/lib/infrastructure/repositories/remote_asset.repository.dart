@@ -1,17 +1,17 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/data/db/main/table/asset/edit.dart';
-import 'package:immich_mobile/data/db/main/table/remote/asset.dart';
-import 'package:immich_mobile/data/db/main/table/remote/asset.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/exif.dart';
-import 'package:immich_mobile/data/db/main/table/remote/exif.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/stack.drift.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/asset_edit.model.dart';
-import 'package:immich_mobile/domain/models/exif.model.dart';
-import 'package:immich_mobile/domain/models/stack.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/remote_asset.repository.drift.dart';
-import 'package:immich_mobile/utils/option.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/data/db/main/table/asset/edit.dart';
+import 'package:universal_photos/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos/data/db/main/table/remote/asset.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/exif.dart';
+import 'package:universal_photos/data/db/main/table/remote/exif.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/stack.drift.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/asset_edit.model.dart';
+import 'package:universal_photos/domain/models/exif.model.dart';
+import 'package:universal_photos/domain/models/stack.model.dart';
+import 'package:universal_photos/infrastructure/repositories/remote_asset.repository.drift.dart';
+import 'package:universal_photos/utils/option.dart';
 
 @DriftAccessor()
 class RemoteAssetRepository extends DatabaseAccessor<Drift> with $RemoteAssetRepositoryMixin {

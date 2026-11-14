@@ -2,8 +2,8 @@
   import AlbumCover from '#lib/components/album-page/AlbumCover.svelte';
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { getShortDateRange } from '#lib/utils/date-time.ts';
-  import { type AlbumResponseDto } from '@immich/sdk';
-  import { ContextMenuButton, type MenuItems } from '@immich/ui';
+  import { type AlbumResponseDto } from '@Universal Photos/sdk';
+  import { ContextMenuButton, type MenuItems } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {
@@ -59,12 +59,12 @@
     </p>
 
     {#if showDateRange && album.startDate && album.endDate}
-      <p class="flex text-sm capitalize dark:text-immich-dark-fg">
+      <p class="flex text-sm capitalize dark:text-Universal Photos-dark-fg">
         {getShortDateRange(album.startDate, album.endDate)}
       </p>
     {/if}
 
-    <span class="flex gap-2 text-sm dark:text-immich-dark-fg" data-testid="album-details">
+    <span class="flex gap-2 text-sm dark:text-Universal Photos-dark-fg" data-testid="album-details">
       {#if showItemCount}
         <p>
           {$t('items_count', { values: { count: album.assetCount } })}

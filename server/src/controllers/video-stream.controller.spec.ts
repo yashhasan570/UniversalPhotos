@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { VideoStreamController } from 'src/controllers/video-stream.controller.js';
-import { ImmichHeader } from 'src/enum.js';
+import { UniversalPhotosHeader } from 'src/enum.js';
 import { HlsService } from 'src/services/hls.service.js';
 import { factory } from 'test/small.factory.js';
 import { ControllerContext, controllerSetup, mockBaseService } from 'test/utils.js';
@@ -23,11 +23,11 @@ describe(VideoStreamController.name, () => {
     const url = `/assets/${factory.uuid()}/video/stream/${factory.uuid()}/0/playlist.m3u8`;
 
     it('should reject a non-numeric position header', async () => {
-      const { status, body } = await request(ctx.getHttpServer()).get(url).set(ImmichHeader.HlsPosition, 'abc');
+      const { status, body } = await request(ctx.getHttpServer()).get(url).set(UniversalPhotosHeader.HlsPosition, 'abc');
       expect(status).toBe(400);
       expect(body).toEqual(
         factory.responses.validationError([
-          { path: [ImmichHeader.HlsPosition], message: 'Invalid input: expected number, received NaN' },
+          { path: [UniversalPhotosHeader.HlsPosition], message: 'Invalid input: expected number, received NaN' },
         ]),
       );
       expect(service.getMediaPlaylist).not.toHaveBeenCalled();
@@ -35,7 +35,7 @@ describe(VideoStreamController.name, () => {
 
     it('should pass the position header to the service as a number', async () => {
       service.getMediaPlaylist.mockResolvedValue('#EXTM3U');
-      const { status } = await request(ctx.getHttpServer()).get(url).set(ImmichHeader.HlsPosition, '12.5');
+      const { status } = await request(ctx.getHttpServer()).get(url).set(UniversalPhotosHeader.HlsPosition, '12.5');
       expect(status).toBe(200);
       expect(service.getMediaPlaylist).toHaveBeenCalledWith(undefined, expect.any(String), expect.any(String), 0, 12.5);
     });

@@ -26,7 +26,7 @@ describe('registerSchemas', () => {
   const Status = z.enum(['active', 'disabled']).meta({ id: 'Status' });
   class CreateItemDto extends createZodDto(z.object({ status: Status })) {}
   class SearchItemDto extends createZodDto(z.object({ name: z.string().optional() }).meta({ id: 'SearchItemDto' })) {}
-  class ItemResponseDto extends createZodDto(z.object({ status: Status.meta({ 'x-immich-state': 'Deprecated' }) })) {}
+  class ItemResponseDto extends createZodDto(z.object({ status: Status.meta({ 'x-universalphotos-state': 'Deprecated' }) })) {}
   class ItemHeaderDto extends createZodDto(z.object({ 'x-position': z.coerce.number().optional() })) {}
 
   @Controller('items')
@@ -89,7 +89,7 @@ describe('registerSchemas', () => {
       schema: { $ref: '#/components/schemas/ItemResponseDto' },
       components: {
         ItemResponseDto: {
-          properties: { status: { $ref: '#/components/schemas/Status', 'x-immich-state': 'Deprecated' } },
+          properties: { status: { $ref: '#/components/schemas/Status', 'x-universalphotos-state': 'Deprecated' } },
         },
       },
     });

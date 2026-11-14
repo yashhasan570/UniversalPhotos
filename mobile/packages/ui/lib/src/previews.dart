@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
-import 'package:immich_ui/src/theme.dart';
+import 'package:universalphotos_ui/src/theme.dart';
 
 const ColorScheme _lightColorScheme = ColorScheme.light(
   primary: Color(0xFF4250AF),
@@ -34,8 +34,8 @@ const ColorScheme _darkColorScheme = ColorScheme.dark(
   outlineVariant: Color(0xFF43464F),
 );
 
-final class _ImmichPreviewThemeData extends PreviewThemeData {
-  const _ImmichPreviewThemeData();
+final class _UniversalPhotosPreviewThemeData extends PreviewThemeData {
+  const _UniversalPhotosPreviewThemeData();
 
   @override
   Widget apply(BuildContext context, Widget child) => Theme(
@@ -46,11 +46,11 @@ final class _ImmichPreviewThemeData extends PreviewThemeData {
   );
 }
 
-PreviewThemeData immichPreviewTheme() => const _ImmichPreviewThemeData();
+PreviewThemeData universalphotosPreviewTheme() => const _UniversalPhotosPreviewThemeData();
 
-Widget immichPreviewWrapper(Widget child) {
+Widget universalphotosPreviewWrapper(Widget child) {
   return Builder(
-    builder: (context) => ImmichThemeProvider(
+    builder: (context) => UniversalPhotosThemeProvider(
       colorScheme: Theme.of(context).colorScheme,
       child: Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
@@ -63,7 +63,7 @@ Widget immichPreviewWrapper(Widget child) {
   );
 }
 
-final class ImmichPreview extends Preview {
-  const ImmichPreview({super.name, super.group, super.size, super.textScaleFactor})
-    : super(theme: immichPreviewTheme, wrapper: immichPreviewWrapper);
+final class UniversalPhotosPreview extends Preview {
+  const UniversalPhotosPreview({super.name, super.group, super.size, super.textScaleFactor})
+    : super(theme: universalphotosPreviewTheme, wrapper: universalphotosPreviewWrapper);
 }

@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/remove_from_album.action.dart';
-import 'package:immich_mobile/presentation/actions/set_album_cover.action.dart';
-import 'package:immich_mobile/providers/infrastructure/toast.provider.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/remove_from_album.action.dart';
+import 'package:universal_photos/presentation/actions/set_album_cover.action.dart';
+import 'package:universal_photos/providers/infrastructure/toast.provider.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../service.mocks.dart';
@@ -73,7 +73,7 @@ void main() {
         overrides: context.selected({LocalAssetFactory.create()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
   });
 
@@ -109,7 +109,7 @@ void main() {
         overrides: context.selected({RemoteAssetFactory.create(), RemoteAssetFactory.create()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('is hidden for a local-only asset', (tester) async {
@@ -121,7 +121,7 @@ void main() {
         overrides: context.selected({LocalAssetFactory.create()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
   });
 }

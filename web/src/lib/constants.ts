@@ -253,9 +253,9 @@ export interface Lang {
 
 export const defaultLang: Lang = { name: 'English', code: 'en', loader: () => import('#i18n/en.json') };
 
-export enum ImmichProduct {
-  Client = 'immich-client',
-  Server = 'immich-server',
+export enum UniversalPhotosProduct {
+  Client = 'universalphotos-client',
+  Server = 'universalphotos-server',
 }
 
 export enum SettingInputFieldType {

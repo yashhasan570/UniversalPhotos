@@ -5,22 +5,22 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/datetime_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/folder/recursive_folder.model.dart';
-import 'package:immich_mobile/models/folder/root_folder.model.dart';
-import 'package:immich_mobile/pages/common/large_leading_tile.dart';
-import 'package:immich_mobile/presentation/widgets/asset_viewer/asset_viewer.page.dart';
-import 'package:immich_mobile/presentation/widgets/images/thumbnail_tile.widget.dart';
-import 'package:immich_mobile/providers/folder.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/bytes_units.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/datetime_extensions.dart';
+import 'package:universal_photos/extensions/theme_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/models/folder/recursive_folder.model.dart';
+import 'package:universal_photos/models/folder/root_folder.model.dart';
+import 'package:universal_photos/pages/common/large_leading_tile.dart';
+import 'package:universal_photos/presentation/widgets/asset_viewer/asset_viewer.page.dart';
+import 'package:universal_photos/presentation/widgets/images/thumbnail_tile.widget.dart';
+import 'package:universal_photos/providers/folder.provider.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/utils/bytes_units.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
 import 'package:intl/intl.dart';
 
 RecursiveFolder? _findFolderInStructure(RootFolder rootFolder, RecursiveFolder targetFolder) {
@@ -98,7 +98,7 @@ class FolderPage extends HookConsumerWidget {
         },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stack) {
-          ImmichToast.show(context: context, msg: context.t.failed_to_load_folder, toastType: ToastType.error);
+          UniversalPhotosToast.show(context: context, msg: context.t.failed_to_load_folder, toastType: ToastType.error);
           return Center(child: Text(context.t.failed_to_load_folder));
         },
       ),
@@ -212,7 +212,7 @@ class FolderContent extends HookConsumerWidget {
             },
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (error, stack) {
-              ImmichToast.show(context: context, msg: context.t.failed_to_load_assets, toastType: ToastType.error);
+              UniversalPhotosToast.show(context: context, msg: context.t.failed_to_load_assets, toastType: ToastType.error);
               return Center(child: Text(context.t.failed_to_load_assets));
             },
           ),

@@ -1,7 +1,7 @@
-import { registerFunction } from '@immich/sql-tools';
+import { registerFunction } from '@universalphotos/sql-tools';
 
-export const immich_uuid_v7 = registerFunction({
-  name: 'immich_uuid_v7',
+export const universalphotos_uuid_v7 = registerFunction({
+  name: 'universalphotos_uuid_v7',
   arguments: ['p_timestamp timestamp with time zone default clock_timestamp()'],
   returnType: 'uuid',
   language: 'SQL',
@@ -28,7 +28,7 @@ export const album_user_after_insert = registerFunction({
   language: 'PLPGSQL',
   body: `
     BEGIN
-      UPDATE album SET "updatedAt" = clock_timestamp(), "updateId" = immich_uuid_v7(clock_timestamp())
+      UPDATE album SET "updatedAt" = clock_timestamp(), "updateId" = universalphotos_uuid_v7(clock_timestamp())
       WHERE "id" IN (SELECT "albumId" FROM inserted_rows)
         AND NOT EXISTS (SELECT FROM inserted_rows WHERE role = 'owner');
       RETURN NULL;
@@ -44,7 +44,7 @@ export const updated_at = registerFunction({
         clock_timestamp TIMESTAMP := clock_timestamp();
     BEGIN
         new."updatedAt" = clock_timestamp;
-        new."updateId" = immich_uuid_v7(clock_timestamp);
+        new."updateId" = universalphotos_uuid_v7(clock_timestamp);
         return new;
     END;`,
 });

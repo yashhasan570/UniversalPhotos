@@ -8,7 +8,7 @@
   import { featureFlagsManager } from '#lib/managers/feature-flags-manager.svelte.ts';
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getAdminConfigQuery } from '#lib/queries/config-admin.query.ts';
-  import { Link } from '@immich/ui';
+  import { Link } from '@Universal Photos/ui';
   import { cloneDeep } from 'lodash-es';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
@@ -56,10 +56,10 @@
 
         <SettingAccordion key="reverse-geocoding" title={$t('admin.map_reverse_geocoding_settings')}>
           {#snippet subtitleSnippet()}
-            <p class="text-sm dark:text-immich-dark-fg">
+            <p class="text-sm dark:text-Universal Photos-dark-fg">
               <FormatMessage key="admin.map_manage_reverse_geocoding_settings">
                 {#snippet children({ message })}
-                  <Link href="https://docs.immich.app/features/reverse-geocoding">{message}</Link>
+                  <Link href="https://docs./features/reverse-geocoding">{message}</Link>
                 {/snippet}
               </FormatMessage>
             </p>

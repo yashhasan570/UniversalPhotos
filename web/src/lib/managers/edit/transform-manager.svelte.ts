@@ -3,7 +3,7 @@ import { getAssetMediaUrl } from '#lib/utils.ts';
 import { getDimensions } from '#lib/utils/asset-utils.ts';
 import { normalizeTransformEdits } from '#lib/utils/editor.ts';
 import { handleError } from '#lib/utils/handle-error.ts';
-import { AssetEditAction, AssetMediaSize, MirrorAxis, type AssetResponseDto, type CropParameters } from '@immich/sdk';
+import { AssetEditAction, AssetMediaSize, MirrorAxis, type AssetResponseDto, type CropParameters } from '@universalphotos/sdk';
 import { clamp } from 'lodash-es';
 import { tick } from 'svelte';
 

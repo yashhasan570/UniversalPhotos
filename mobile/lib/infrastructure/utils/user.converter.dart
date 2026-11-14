@@ -1,4 +1,4 @@
-import 'package:immich_mobile/domain/models/user.model.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
 import 'package:openapi/api.dart';
 
 // TODO: Move to repository once all classes are refactored

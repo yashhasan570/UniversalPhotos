@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { MemoryType } from '@immich/sdk';
-  import { Icon, type CarouselImageItem } from '@immich/ui';
+  import { MemoryType } from '@Universal Photos/sdk';
+  import { Icon, type CarouselImageItem } from '@Universal Photos/ui';
   import { mdiCakeVariant, mdiHeart } from '@mdi/js';
   import BirthdayConfetti from './BirthdayConfetti.svelte';
 

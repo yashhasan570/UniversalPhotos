@@ -3,7 +3,7 @@ package com.universalphotos.app.widget.model
 import android.graphics.Bitmap
 import androidx.datastore.preferences.core.*
 
-// MARK: Immich Entities
+// MARK: UniversalPhotos Entities
 
 enum class AssetType {
   IMAGE, VIDEO, AUDIO, OTHER
@@ -80,5 +80,5 @@ fun imageFilename(id: String): String {
 }
 
 fun assetDeeplink(asset: Asset): String {
-  return "immich://asset?id=${asset.id}"
+  return "universalphotos://asset?id=${asset.id}"
 }

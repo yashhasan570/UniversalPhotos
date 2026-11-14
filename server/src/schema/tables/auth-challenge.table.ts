@@ -6,7 +6,7 @@ import {
   Table,
   type Generated,
   type Timestamp,
-} from '@immich/sql-tools';
+} from '@universalphotos/sql-tools';
 import { AuthChallengeType } from 'src/enum.js';
 import { UserTable } from 'src/schema/tables/user.table.js';
 

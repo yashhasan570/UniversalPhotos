@@ -3,11 +3,11 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/ocr.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/widgets/photo_view/photo_view.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/ocr.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/widgets/photo_view/photo_view.dart';
 
 class OcrOverlay extends ConsumerStatefulWidget {
   final BaseAsset asset;
@@ -136,7 +136,7 @@ class _OcrBoxes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Use the actual decoded image size from PhotoView's scaleBoundaries when
-    // available. The image provider may serve a downscaled preview (e.g. Immich
+    // available. The image provider may serve a downscaled preview (e.g. UniversalPhotos
     // serves a ~1440px preview for large originals), so the decoded dimensions
     // can differ significantly from the stored asset dimensions. Using the wrong
     // size would scale every coordinate by the ratio between the two resolutions.

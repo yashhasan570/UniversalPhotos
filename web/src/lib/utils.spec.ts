@@ -2,7 +2,7 @@ import en from '#i18n/en.json';
 import { getAssetUrl, memoryLaneTitle, semverToName } from '#lib/utils.ts';
 import { validThumbhash } from '#test/common/factories.ts';
 import { factory } from '#test/unit/factories.ts';
-import { AssetTypeEnum, MemoryType, type MemoryResponseDto } from '@immich/sdk';
+import { AssetTypeEnum, MemoryType, type MemoryResponseDto } from '@universalphotos/sdk';
 import { addMessages, init } from 'svelte-i18n';
 import { get } from 'svelte/store';
 

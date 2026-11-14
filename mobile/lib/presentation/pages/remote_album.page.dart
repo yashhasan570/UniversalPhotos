@@ -4,24 +4,24 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/server_capability.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/widgets/album/pending_uploads_banner.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/remote_album_bottom_sheet.widget.dart';
-import 'package:immich_mobile/presentation/widgets/remote_album/album_option.widget.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/current_album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/remote_album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/common/remote_album_sliver_app_bar.dart';
+import 'package:universal_photos/domain/models/album/album.model.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/server_capability.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/widgets/album/pending_uploads_banner.widget.dart';
+import 'package:universal_photos/presentation/widgets/bottom_sheet/remote_album_bottom_sheet.widget.dart';
+import 'package:universal_photos/presentation/widgets/remote_album/album_option.widget.dart';
+import 'package:universal_photos/presentation/widgets/timeline/timeline.widget.dart';
+import 'package:universal_photos/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos/providers/infrastructure/current_album.provider.dart';
+import 'package:universal_photos/providers/infrastructure/remote_album.provider.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos/providers/server_info.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universal_photos/widgets/common/remote_album_sliver_app_bar.dart';
 
 @RoutePage()
 class RemoteAlbumPage extends ConsumerStatefulWidget {
@@ -62,7 +62,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
     }
 
     if (added > 0) {
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         msg: context.t.assets_added_to_album_count(count: added),
         toastType: ToastType.success,
@@ -88,7 +88,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
         return;
       }
 
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         msg: context.t.users_added_to_album_count(count: newUsers.length),
         toastType: ToastType.success,
@@ -98,7 +98,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
         return;
       }
 
-      ImmichToast.show(context: context, msg: "Failed to add users to album: $e", toastType: ToastType.error);
+      UniversalPhotosToast.show(context: context, msg: "Failed to add users to album: $e", toastType: ToastType.error);
     }
   }
 
@@ -145,7 +145,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
           return;
         }
 
-        ImmichToast.show(context: context, msg: context.t.album_deleted, toastType: ToastType.success);
+        UniversalPhotosToast.show(context: context, msg: context.t.album_deleted, toastType: ToastType.success);
 
         unawaited(context.pushRoute(const AlbumsRoute()));
       } catch (e) {
@@ -153,7 +153,7 @@ class _RemoteAlbumPageState extends ConsumerState<RemoteAlbumPage> {
           return;
         }
 
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.album_viewer_appbar_share_err_delete,
           toastType: ToastType.error,
@@ -296,7 +296,7 @@ class _EditAlbumDialogState extends ConsumerState<_EditAlbumDialog> {
         return;
       }
 
-      ImmichToast.show(context: context, msg: context.t.errors.unable_to_update_album_info, toastType: ToastType.error);
+      UniversalPhotosToast.show(context: context, msg: context.t.errors.unable_to_update_album_info, toastType: ToastType.error);
     }
   }
 

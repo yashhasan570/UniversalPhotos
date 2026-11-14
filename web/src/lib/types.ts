@@ -1,6 +1,6 @@
 import { MediaType } from '#lib/constants.ts';
-import type { QueueResponseDto } from '@immich/sdk';
-import type { ActionItem } from '@immich/ui';
+import type { QueueResponseDto } from '@universalphotos/sdk';
+import type { ActionItem } from '@universalphotos/ui';
 import type { DateTime } from 'luxon';
 import type { SvelteSet } from 'svelte/reactivity';
 

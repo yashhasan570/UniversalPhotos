@@ -4,7 +4,7 @@
   import { createLibraryMutation } from '#lib/queries/library.query.ts';
   import { searchUsersAdminQuery } from '#lib/queries/user-admin.query.ts';
   import { Route } from '#lib/route.ts';
-  import { Field, FormModal, HelperText, Select } from '@immich/ui';
+  import { Field, FormModal, HelperText, Select } from '@Universal Photos/ui';
   import { mdiFolderSync } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';

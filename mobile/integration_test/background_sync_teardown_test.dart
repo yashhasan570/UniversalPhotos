@@ -2,19 +2,19 @@ import 'dart:async';
 
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/data/db/main/table/user/user.drift.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/utils/background_sync.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/main.dart' as app;
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/utils/bootstrap.dart';
-import 'package:immich_mobile/wm_executor.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/data/db/main/table/user/user.drift.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/domain/utils/background_sync.dart';
+import 'package:universal_photos/entities/store.entity.dart';
+import 'package:universal_photos/main.dart' as app;
+import 'package:universal_photos/services/api.service.dart';
+import 'package:universal_photos/utils/bootstrap.dart';
+import 'package:universal_photos/wm_executor.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:openapi/api.dart';
 
-import 'test_utils/fake_immich_server.dart';
+import 'test_utils/fake_universalphotos_server.dart';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +22,7 @@ void main() {
   binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
   late Drift drift;
-  late FakeImmichServer server;
+  late FakeUniversalPhotosServer server;
 
   setUpAll(() async {
     await app.initApp();
@@ -32,7 +32,7 @@ void main() {
 
   setUp(() async {
     await workerManagerPatch.init(dynamicSpawning: true);
-    server = await FakeImmichServer.start();
+    server = await FakeUniversalPhotosServer.start();
     await ApiService().resolveAndSetEndpoint(server.endpoint);
     await drift.delete(drift.userEntity).go();
     await Store.delete(StoreKey.syncMigrationStatus);

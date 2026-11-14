@@ -15,8 +15,8 @@
     type IntegrityReportSummaryResponseDto,
     type JobCreateDto,
     type QueuesResponseLegacyDto,
-  } from '@immich/sdk';
-  import { Button, Container, HStack, Text } from '@immich/ui';
+  } from '@Universal Photos/sdk';
+  import { Button, Container, HStack, Text } from '@Universal Photos/ui';
   import { mdiRefresh } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t, type Translations } from 'svelte-i18n';

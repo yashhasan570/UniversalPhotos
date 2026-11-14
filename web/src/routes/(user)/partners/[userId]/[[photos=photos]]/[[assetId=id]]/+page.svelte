@@ -6,8 +6,8 @@
   import { assetMultiSelectManager } from '#lib/managers/asset-multi-select-manager.svelte.ts';
   import { Route } from '#lib/route.ts';
   import { getAssetBulkActions } from '#lib/services/asset.service.ts';
-  import { AssetVisibility } from '@immich/sdk';
-  import { ActionButton, CommandPaletteDefaultProvider } from '@immich/ui';
+  import { AssetVisibility } from '@Universal Photos/sdk';
+  import { ActionButton, CommandPaletteDefaultProvider } from '@Universal Photos/ui';
   import { mdiArrowLeft } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
@@ -51,7 +51,7 @@
 {:else}
   <ControlAppBar backIcon={mdiArrowLeft} onClose={() => goto(Route.sharing())}>
     {#snippet leading()}
-      <p class="whitespace-nowrap text-immich-fg dark:text-immich-dark-fg">
+      <p class="whitespace-nowrap text-Universal Photos-fg dark:text-Universal Photos-dark-fg">
         {$t('partner_list_user_photos', { values: { user: data.partner.name } })}
       </p>
     {/snippet}

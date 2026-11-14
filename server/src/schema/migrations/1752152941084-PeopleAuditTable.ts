@@ -13,7 +13,7 @@ export async function up(db: Kysely<any>): Promise<void> {
     END
   $$;`.execute(db);
   await sql`CREATE TABLE "person_audit" (
-  "id" uuid NOT NULL DEFAULT immich_uuid_v7(),
+  "id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
   "personId" uuid NOT NULL,
   "ownerId" uuid NOT NULL,
   "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(),

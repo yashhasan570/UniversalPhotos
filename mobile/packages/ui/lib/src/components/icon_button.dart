@@ -1,19 +1,19 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/immich_ui.dart';
-import 'package:immich_ui/src/internal.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universalphotos_ui/src/internal.dart';
 
-class ImmichIconButton extends StatefulWidget {
+class UniversalPhotosIconButton extends StatefulWidget {
   final IconData icon;
   final FutureOr<void> Function() onPressed;
   final FutureOr<void> Function()? onLongPress;
-  final ImmichVariant variant;
-  final ImmichColor color;
+  final UniversalPhotosVariant variant;
+  final UniversalPhotosColor color;
   final bool disabled;
   final bool? loading;
 
-  const ImmichIconButton({
+  const UniversalPhotosIconButton({
     super.key,
     required this.icon,
     required this.onPressed,
@@ -25,10 +25,10 @@ class ImmichIconButton extends StatefulWidget {
   });
 
   @override
-  State<ImmichIconButton> createState() => _ImmichIconButtonState();
+  State<UniversalPhotosIconButton> createState() => _UniversalPhotosIconButtonState();
 }
 
-class _ImmichIconButtonState extends State<ImmichIconButton> {
+class _UniversalPhotosIconButtonState extends State<UniversalPhotosIconButton> {
   bool _running = false;
   bool get _isLoading => widget.loading ?? _running;
   bool get _isDisabled => widget.disabled || _isLoading;
@@ -81,8 +81,8 @@ class _ImmichIconButtonState extends State<ImmichIconButton> {
     return IconButton(
       icon: _isLoading
           ? const SizedBox.square(
-              dimension: ImmichIconSize.sm,
-              child: CircularProgressIndicator(strokeWidth: ImmichBorderWidth.md),
+              dimension: UniversalPhotosIconSize.sm,
+              child: CircularProgressIndicator(strokeWidth: UniversalPhotosBorderWidth.md),
             )
           : Icon(widget.icon),
       onPressed: _onPressed,

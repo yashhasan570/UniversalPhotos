@@ -3,7 +3,7 @@ import { BulkIdErrorReason } from 'src/dtos/asset-ids.response.dto.js';
 import { PeopleUsersUpsertType, PersonUserRole, mapFaces, mapPerson } from 'src/dtos/person.dto.js';
 import { AssetFileType, CacheControl, JobName, JobStatus, SourceType, SystemMetadataKey } from 'src/enum.js';
 import { PersonService } from 'src/services/person.service.js';
-import { ImmichFileResponse } from 'src/utils/file.js';
+import { UniversalPhotosFileResponse } from 'src/utils/file.js';
 import { AssetFaceFactory } from 'test/factories/asset-face.factory.js';
 import { AssetFactory } from 'test/factories/asset.factory.js';
 import { AuthFactory } from 'test/factories/auth.factory.js';
@@ -212,7 +212,7 @@ describe(PersonService.name, () => {
       });
       mocks.access.person.checkAccess.mockResolvedValue(new Set(ids));
       await expect(sut.getThumbnail(auth, person.personGroupId)).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: person.thumbnailPath,
           contentType: 'image/jpeg',
           cacheControl: CacheControl.PrivateWithoutCache,
@@ -232,7 +232,7 @@ describe(PersonService.name, () => {
       });
       mocks.access.person.checkAccess.mockResolvedValue(new Set(ids));
       await expect(sut.getThumbnail(auth, person.personGroupId)).resolves.toEqual(
-        new ImmichFileResponse({
+        new UniversalPhotosFileResponse({
           path: person.thumbnailPath,
           contentType: 'image/jpeg',
           cacheControl: CacheControl.PrivateWithoutCache,

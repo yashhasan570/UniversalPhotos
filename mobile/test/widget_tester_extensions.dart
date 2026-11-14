@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/locales.dart';
-import 'package:immich_mobile/generated/codegen_loader.g.dart';
-import 'package:immich_mobile/utils/fallback_localizations.dart';
+import 'package:universal_photos/constants/locales.dart';
+import 'package:universal_photos/generated/codegen_loader.g.dart';
+import 'package:universal_photos/utils/fallback_localizations.dart';
 
 extension PumpConsumerWidget on WidgetTester {
   /// Wraps the provided [widget] with a localized Material app such that it

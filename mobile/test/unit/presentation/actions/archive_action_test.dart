@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/archive.action.dart';
-import 'package:immich_mobile/providers/routes.provider.dart';
-import 'package:immich_mobile/utils/option.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/archive.action.dart';
+import 'package:universal_photos/providers/routes.provider.dart';
+import 'package:universal_photos/utils/option.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../service.mocks.dart';
@@ -79,7 +79,7 @@ void main() {
       await pumpArchive(tester, {owned()});
       await tester.pumpAndSettle();
 
-      expect(find.byType(ImmichIconButton), findsNothing, reason: 'an empty selection hides the action');
+      expect(find.byType(UniversalPhotosIconButton), findsNothing, reason: 'an empty selection hides the action');
     });
 
     testWidgets('is hidden for locked assets, which belong to neither direction', (tester) async {
@@ -89,7 +89,7 @@ void main() {
         overrides: context.selected({owned(visibility: .locked)}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('offers an undo that puts the archived assets back on the timeline', (tester) async {
@@ -124,7 +124,7 @@ void main() {
         ],
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('is hidden when none of the selected assets are owned', (tester) async {
@@ -134,7 +134,7 @@ void main() {
         overrides: context.selected({RemoteAssetFactory.create()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
   });
 }

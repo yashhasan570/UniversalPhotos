@@ -5,18 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/shared_link/shared_link.model.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/shared_link.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
-import 'package:immich_mobile/utils/image_url_builder.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/search/thumbnail_with_info.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/models/shared_link/shared_link.model.dart';
+import 'package:universal_photos/providers/server_info.provider.dart';
+import 'package:universal_photos/providers/shared_link.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/utils/debug_print.dart';
+import 'package:universal_photos/utils/image_url_builder.dart';
+import 'package:universal_photos/utils/url_helper.dart';
+import 'package:universal_photos/widgets/common/confirm_dialog.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universal_photos/widgets/search/thumbnail_with_info.dart';
 
 class SharedLinkItem extends ConsumerWidget {
   final SharedLink sharedLink;
@@ -76,7 +76,7 @@ class SharedLinkItem extends ConsumerWidget {
       final shareUrl = buildSharedLinkUrl(baseUrl: serverUrl, slug: sharedLink.slug, key: sharedLink.key);
 
       if (shareUrl == null) {
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           gravity: ToastGravity.BOTTOM,
           toastType: ToastType.error,

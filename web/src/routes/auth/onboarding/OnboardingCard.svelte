@@ -1,6 +1,6 @@
 <script lang="ts">
   import { languageManager } from '#lib/managers/language-manager.svelte.ts';
-  import { Button, Icon } from '@immich/ui';
+  import { Button, Icon } from '@Universal Photos/ui';
   import { mdiArrowLeft, mdiArrowRight, mdiCheck } from '@mdi/js';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -31,7 +31,7 @@
 
 <div
   id="onboarding-card"
-  class="flex w-full max-w-4xl flex-col gap-4 rounded-3xl border-2 border-gray-500 bg-gray-50 p-8 text-black dark:border-gray-700 dark:bg-immich-dark-gray dark:text-immich-dark-fg"
+  class="flex w-full max-w-4xl flex-col gap-4 rounded-3xl border-2 border-gray-500 bg-gray-50 p-8 text-black dark:border-gray-700 dark:bg-Universal Photos-dark-gray dark:text-Universal Photos-dark-fg"
   in:fade={{ duration: 250 }}
 >
   {#if title || icon}

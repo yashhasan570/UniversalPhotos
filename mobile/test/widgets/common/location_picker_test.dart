@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/widgets/common/location_picker.dart';
+import 'package:universal_photos/widgets/common/location_picker.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 import '../../widget_tester_extensions.dart';

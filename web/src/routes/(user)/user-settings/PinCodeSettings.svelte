@@ -1,7 +1,7 @@
 <script lang="ts">
   import OnEvents from '#lib/components/OnEvents.svelte';
   import PinCodeCreateForm from '#lib/components/user-settings-page/PinCodeCreateForm.svelte';
-  import { getAuthStatus } from '@immich/sdk';
+  import { getAuthStatus } from '@Universal Photos/sdk';
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import PinCodeChangeForm from './PinCodeChangeForm.svelte';

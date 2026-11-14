@@ -13,7 +13,7 @@ export async function up(db: Kysely<any>): Promise<void> {
     END
   $$;`.execute(db);
   await sql`CREATE TABLE "asset_metadata_audit" (
-  "id" uuid NOT NULL DEFAULT immich_uuid_v7(),
+  "id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
   "assetId" uuid NOT NULL,
   "key" character varying NOT NULL,
   "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(),
@@ -26,7 +26,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   "assetId" uuid NOT NULL,
   "key" character varying NOT NULL,
   "value" jsonb NOT NULL,
-  "updateId" uuid NOT NULL DEFAULT immich_uuid_v7(),
+  "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
   "updatedAt" timestamp with time zone NOT NULL DEFAULT now(),
   CONSTRAINT "asset_metadata_assetId_fkey" FOREIGN KEY ("assetId") REFERENCES "asset" ("id") ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT "asset_metadata_pkey" PRIMARY KEY ("assetId", "key")

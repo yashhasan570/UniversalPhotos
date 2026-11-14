@@ -1,10 +1,10 @@
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/data/db/main/table/app/settings.drift.dart';
-import 'package:immich_mobile/domain/models/config/app_config.dart';
-import 'package:immich_mobile/domain/models/settings_key.dart';
-import 'package:immich_mobile/infrastructure/repositories/cached_key_value_repository.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/data/db/main/table/app/settings.drift.dart';
+import 'package:universal_photos/domain/models/config/app_config.dart';
+import 'package:universal_photos/domain/models/settings_key.dart';
+import 'package:universal_photos/infrastructure/repositories/cached_key_value_repository.dart';
 
 class SettingsRepository extends CachedKeyValueRepository<SettingsKey, AppConfig> {
   final Drift _db;

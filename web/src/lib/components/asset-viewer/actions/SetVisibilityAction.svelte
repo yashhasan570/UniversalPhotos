@@ -3,8 +3,8 @@
   import { AssetAction } from '#lib/constants.ts';
   import type { TimelineAsset } from '#lib/managers/timeline-manager/types.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { AssetVisibility, updateAssets } from '@immich/sdk';
-  import { modalManager } from '@immich/ui';
+  import { AssetVisibility, updateAssets } from '@Universal Photos/sdk';
+  import { modalManager } from '@Universal Photos/ui';
   import { mdiLockOpenVariantOutline, mdiLockOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import type { OnAction, PreAction } from './action';

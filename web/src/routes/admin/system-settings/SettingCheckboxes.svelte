@@ -1,5 +1,5 @@
 <script lang="ts" generics="T extends string | number">
-  import { Checkbox, Label } from '@immich/ui';
+  import { Checkbox, Label } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import { quintOut } from 'svelte/easing';
   import { fly } from 'svelte/transition';
@@ -48,7 +48,7 @@
   </div>
 
   {#if desc}
-    <p class="pb-2 text-sm immich-form-label" id="{name}-desc">
+    <p class="pb-2 text-sm Universal Photos-form-label" id="{name}-desc">
       {desc}
     </p>
   {/if}

@@ -4,7 +4,7 @@ import { executeMutation } from '#lib/queries/client.ts';
 import { deleteTagMutation } from '#lib/queries/tag.query.ts';
 import { Route } from '#lib/route.ts';
 import type { TreeNode } from '#lib/utils/tree-utils.ts';
-import { modalManager, type ActionItem } from '@immich/ui';
+import { modalManager, type ActionItem } from '@universalphotos/ui';
 import { mdiPencil, mdiPlus, mdiTrashCanOutline } from '@mdi/js';
 import { type MessageFormatter } from 'svelte-i18n';
 import { goto } from '$app/navigation';

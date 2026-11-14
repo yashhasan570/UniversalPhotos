@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/archive.action.dart';
-import 'package:immich_mobile/presentation/actions/asset_debug.action.dart';
-import 'package:immich_mobile/presentation/actions/delete.action.dart';
-import 'package:immich_mobile/presentation/actions/download.action.dart';
-import 'package:immich_mobile/presentation/actions/edit_datetime.action.dart';
-import 'package:immich_mobile/presentation/actions/edit_location.action.dart';
-import 'package:immich_mobile/presentation/actions/favorite.action.dart';
-import 'package:immich_mobile/presentation/actions/lock.action.dart';
-import 'package:immich_mobile/presentation/actions/share.action.dart';
-import 'package:immich_mobile/presentation/actions/share_link.action.dart';
-import 'package:immich_mobile/presentation/actions/stack.action.dart';
-import 'package:immich_mobile/presentation/widgets/album/album_selector.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/timeline/multiselect.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:universal_photos/domain/models/album/album.model.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/archive.action.dart';
+import 'package:universal_photos/presentation/actions/asset_debug.action.dart';
+import 'package:universal_photos/presentation/actions/delete.action.dart';
+import 'package:universal_photos/presentation/actions/download.action.dart';
+import 'package:universal_photos/presentation/actions/edit_datetime.action.dart';
+import 'package:universal_photos/presentation/actions/edit_location.action.dart';
+import 'package:universal_photos/presentation/actions/favorite.action.dart';
+import 'package:universal_photos/presentation/actions/lock.action.dart';
+import 'package:universal_photos/presentation/actions/share.action.dart';
+import 'package:universal_photos/presentation/actions/share_link.action.dart';
+import 'package:universal_photos/presentation/actions/stack.action.dart';
+import 'package:universal_photos/presentation/widgets/album/album_selector.widget.dart';
+import 'package:universal_photos/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:universal_photos/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos/providers/timeline/multiselect.provider.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
 
 class FavoriteBottomSheet extends ConsumerWidget {
   const FavoriteBottomSheet({super.key});
@@ -43,23 +43,23 @@ class FavoriteBottomSheet extends ConsumerWidget {
       }
 
       if (selectedAssets.length != remoteAssets.length) {
-        ImmichToast.show(context: context, msg: context.t.add_to_album_bottom_sheet_some_local_assets);
+        UniversalPhotosToast.show(context: context, msg: context.t.add_to_album_bottom_sheet_some_local_assets);
       }
 
       // Only report the failure when nothing was added; if some succeeded we show "added".
       if (result.added > 0) {
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.add_to_album_bottom_sheet_added(album: album.name),
         );
       } else if (result.failed > 0) {
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.assets_cannot_be_added_to_album_count(count: result.failed),
           toastType: ToastType.error,
         );
       } else {
-        ImmichToast.show(
+        UniversalPhotosToast.show(
           context: context,
           msg: context.t.add_to_album_bottom_sheet_already_exists(album: album.name),
         );

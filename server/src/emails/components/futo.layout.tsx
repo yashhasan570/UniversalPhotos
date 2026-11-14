@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Body, Container, Font, Head, Hr, Html, Img, Link, Preview, Section, Tailwind, Text } from 'react-email';
 // @ts-expect-error
 import tailwindPresetEmail from 'tailwindcss-preset-email';
-import { ImmichFooter } from 'src/emails/components/footer.template.js';
+import { UniversalPhotosFooter } from 'src/emails/components/footer.template.js';
 
 interface FutoLayoutProps {
   children: React.ReactNode;
@@ -18,7 +18,7 @@ export const FutoLayout = ({ children, preview }: FutoLayoutProps) => (
           extend: {
             colors: {
               // Light Theme
-              'immich-primary': '#4250AF',
+              'universalphotos-primary': '#4250AF',
               'futo-primary': '#000000',
               'futo-bg': '#F4F4f4',
               'futo-gray': '#F6F6F4',
@@ -50,9 +50,9 @@ export const FutoLayout = ({ children, preview }: FutoLayoutProps) => (
           <Section className="my-6 p-12 border border-red-400 rounded-[50px] bg-gray-50">
             <Section className="flex justify-center mb-12">
               <Img
-                src="https://immich.app/img/immich-logo-inline-light.png"
+                src="https:///img/universalphotos-logo-inline-light.png"
                 className="h-12 antialiased rounded-none"
-                alt="Immich"
+                alt="UniversalPhotos"
               />
             </Section>
 
@@ -67,7 +67,7 @@ export const FutoLayout = ({ children, preview }: FutoLayoutProps) => (
 
           <Hr className="my-2 text-futo-gray" />
 
-          <ImmichFooter />
+          <UniversalPhotosFooter />
         </Container>
       </Body>
     </Tailwind>

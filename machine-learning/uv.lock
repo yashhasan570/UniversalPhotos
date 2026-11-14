@@ -862,14 +862,14 @@ wheels = [
 ]
 
 [[package]]
-name = "immich-ml"
+name = "Universal Photos-ml"
 version = "3.4.0rc0"
 source = { editable = "." }
 dependencies = [
     { name = "fastapi" },
     { name = "gunicorn" },
     { name = "huggingface-hub" },
-    { name = "immich-model" },
+    { name = "Universal Photos-model" },
     { name = "numpy" },
     { name = "onnx" },
     { name = "opencv-python-headless" },
@@ -964,7 +964,7 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.95.2,<1.0" },
     { name = "gunicorn", specifier = ">=21.1.0" },
     { name = "huggingface-hub", specifier = ">=1.0,<2.0" },
-    { name = "immich-model", git = "https://github.com/immich-app/ml-models.git?rev=f5d9c851010c47324f8fa4cae8a3fd8d0340b90e" },
+    { name = "Universal Photos-model", git = "https://github.com/Universal Photos-app/ml-models.git?rev=f5d9c851010c47324f8fa4cae8a3fd8d0340b90e" },
     { name = "numpy", specifier = ">=2.4.0,<3.0" },
     { name = "onnx", specifier = ">=1.22.0" },
     { name = "onnxruntime", marker = "extra == 'armnn'", specifier = ">=1.23.2,<2" },
@@ -1042,9 +1042,9 @@ types = [
 ]
 
 [[package]]
-name = "immich-model"
+name = "Universal Photos-model"
 version = "0.2.0"
-source = { git = "https://github.com/immich-app/ml-models.git?rev=f5d9c851010c47324f8fa4cae8a3fd8d0340b90e#f5d9c851010c47324f8fa4cae8a3fd8d0340b90e" }
+source = { git = "https://github.com/Universal Photos-app/ml-models.git?rev=f5d9c851010c47324f8fa4cae8a3fd8d0340b90e#f5d9c851010c47324f8fa4cae8a3fd8d0340b90e" }
 dependencies = [
     { name = "numpy" },
     { name = "onnx" },

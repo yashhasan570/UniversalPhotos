@@ -19,7 +19,7 @@
     type AlbumGroup,
   } from '#lib/utils/album-utils.ts';
   import { normalizeSearchString } from '#lib/utils/string-utils.ts';
-  import { type AlbumResponseDto } from '@immich/sdk';
+  import { type AlbumResponseDto } from '@Universal Photos/sdk';
   import { groupBy } from 'lodash-es';
   import { onMount, type Snippet } from 'svelte';
   import { t } from 'svelte-i18n';

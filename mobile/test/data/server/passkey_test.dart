@@ -3,18 +3,18 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:immich_mobile/data/server/passkey.dart';
-import 'package:immich_mobile/domain/models/passkey.model.dart';
+import 'package:universal_photos/data/server/passkey.dart';
+import 'package:universal_photos/domain/models/passkey.model.dart';
 import 'package:openapi/api.dart';
 
 void main() {
   test('startRegistration decodes the Map<String, Object?> answer through the generated client', () async {
     const options = {
       'challenge': 'challenge',
-      'rp': {'name': 'Immich', 'id': 'my.immich.app'},
+      'rp': {'name': 'UniversalPhotos', 'id': 'my.'},
       'timeout': 60000,
     };
-    final apiClient = ApiClient(basePath: 'https://demo.immich.app/api')
+    final apiClient = ApiClient(basePath: 'https://demo./api')
       ..client = MockClient((_) async => http.Response(jsonEncode(options), 200));
     final sut = PasskeyApiRepository(PasskeysApi(apiClient), ConfigPublicApi(apiClient));
 
@@ -36,11 +36,11 @@ void main() {
       'name': 'user',
       'profileImagePath': '',
       'shouldChangePassword': false,
-      'userEmail': 'user@immich.app',
+      'userEmail': 'user@',
       'userId': 'user-id',
     };
     Object? body;
-    final apiClient = ApiClient(basePath: 'https://demo.immich.app/api')
+    final apiClient = ApiClient(basePath: 'https://demo./api')
       ..client = MockClient((request) async {
         body = jsonDecode(request.body);
         return http.Response(jsonEncode(login), 201);
@@ -68,7 +68,7 @@ void main() {
         'usedAt': null,
       },
     ];
-    final apiClient = ApiClient(basePath: 'https://demo.immich.app/api')
+    final apiClient = ApiClient(basePath: 'https://demo./api')
       ..client = MockClient((_) async => http.Response(jsonEncode(passkeys), 200));
     final sut = PasskeyApiRepository(PasskeysApi(apiClient), ConfigPublicApi(apiClient));
 
@@ -85,7 +85,7 @@ void main() {
 
   test('update sends the new name, and null to clear it', () async {
     final bodies = <Object?>[];
-    final apiClient = ApiClient(basePath: 'https://demo.immich.app/api')
+    final apiClient = ApiClient(basePath: 'https://demo./api')
       ..client = MockClient((request) async {
         bodies.add(jsonDecode(request.body));
         return http.Response(
@@ -112,7 +112,7 @@ void main() {
 
   test('delete accepts the empty answer of the server', () async {
     late http.Request sent;
-    final apiClient = ApiClient(basePath: 'https://demo.immich.app/api')
+    final apiClient = ApiClient(basePath: 'https://demo./api')
       ..client = MockClient((request) async {
         sent = request;
         return http.Response('', 204);

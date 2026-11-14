@@ -17,7 +17,7 @@ export class Mock {
   async setup({ page, baseURL }: { page?: Page; baseURL?: string } = {}) {
     const onDownload = (download: Download) => this.api.recordDownload(new URL(download.url()));
     if (baseURL) {
-      await this.context.addCookies([{ name: 'immich_is_authenticated', value: 'true', url: baseURL }]);
+      await this.context.addCookies([{ name: 'universalphotos_is_authenticated', value: 'true', url: baseURL }]);
     }
     await this.api.setup();
     if (page) {

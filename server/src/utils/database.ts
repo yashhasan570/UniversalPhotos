@@ -1,4 +1,4 @@
-import { DatabaseConnectionParams, createPostgres } from '@immich/sql-tools';
+import { DatabaseConnectionParams, createPostgres } from '@universalphotos/sql-tools';
 import {
   AliasedRawBuilder,
   DeduplicateJoinsPlugin,

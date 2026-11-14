@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/archive.action.dart';
-import 'package:immich_mobile/presentation/actions/asset_debug.action.dart';
-import 'package:immich_mobile/presentation/actions/delete.action.dart';
-import 'package:immich_mobile/presentation/actions/download.action.dart';
-import 'package:immich_mobile/presentation/actions/edit_datetime.action.dart';
-import 'package:immich_mobile/presentation/actions/edit_location.action.dart';
-import 'package:immich_mobile/presentation/actions/favorite.action.dart';
-import 'package:immich_mobile/presentation/actions/lock.action.dart';
-import 'package:immich_mobile/presentation/actions/share.action.dart';
-import 'package:immich_mobile/presentation/actions/share_link.action.dart';
-import 'package:immich_mobile/presentation/actions/stack.action.dart';
-import 'package:immich_mobile/presentation/actions/tag.action.dart';
-import 'package:immich_mobile/presentation/actions/upload.action.dart';
-import 'package:immich_mobile/presentation/widgets/album/album_selector.widget.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/action.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/models/album/album.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/archive.action.dart';
+import 'package:universal_photos/presentation/actions/asset_debug.action.dart';
+import 'package:universal_photos/presentation/actions/delete.action.dart';
+import 'package:universal_photos/presentation/actions/download.action.dart';
+import 'package:universal_photos/presentation/actions/edit_datetime.action.dart';
+import 'package:universal_photos/presentation/actions/edit_location.action.dart';
+import 'package:universal_photos/presentation/actions/favorite.action.dart';
+import 'package:universal_photos/presentation/actions/lock.action.dart';
+import 'package:universal_photos/presentation/actions/share.action.dart';
+import 'package:universal_photos/presentation/actions/share_link.action.dart';
+import 'package:universal_photos/presentation/actions/stack.action.dart';
+import 'package:universal_photos/presentation/actions/tag.action.dart';
+import 'package:universal_photos/presentation/actions/upload.action.dart';
+import 'package:universal_photos/presentation/widgets/album/album_selector.widget.dart';
+import 'package:universal_photos/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:universal_photos/providers/infrastructure/action.provider.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
 
 class GeneralBottomSheet extends ConsumerStatefulWidget {
   final double? minChildSize;
@@ -54,10 +54,10 @@ class _GeneralBottomSheetState extends ConsumerState<GeneralBottomSheet> {
       }
 
       if (!result.success) {
-        ImmichToast.show(context: context, msg: context.t.scaffold_body_error_occurred, toastType: ToastType.error);
+        UniversalPhotosToast.show(context: context, msg: context.t.scaffold_body_error_occurred, toastType: ToastType.error);
         return;
       }
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         msg: result.count == 0
             ? context.t.add_to_album_bottom_sheet_already_exists(album: album.name)

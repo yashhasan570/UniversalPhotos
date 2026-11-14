@@ -3,7 +3,7 @@ import { AssetFileResponseDto, AssetFileSearchDto, mapAssetFile } from 'src/dtos
 import { AuthDto } from 'src/dtos/auth.dto.js';
 import { AssetFileType, CacheControl, JobName, Permission } from 'src/enum.js';
 import { BaseService } from 'src/services/base.service.js';
-import { ImmichFileResponse, getFileNameWithoutExtension, getFilenameExtension } from 'src/utils/file.js';
+import { UniversalPhotosFileResponse, getFileNameWithoutExtension, getFilenameExtension } from 'src/utils/file.js';
 import { mimeTypes } from 'src/utils/mime-types.js';
 import { findOrFail } from 'src/utils/misc.js';
 
@@ -25,7 +25,7 @@ export class AssetFileService extends BaseService {
     await this.requireAccess({ auth, permission: Permission.AssetFileDownload, ids: [id] });
     const file = await findOrFail(() => this.assetFileRepository.get(id), 'Asset file');
 
-    return new ImmichFileResponse({
+    return new UniversalPhotosFileResponse({
       path: file.path,
       fileName: getFileNameWithoutExtension(file.path) + getFilenameExtension(file.path),
       contentType: mimeTypes.lookup(file.path),

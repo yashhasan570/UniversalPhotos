@@ -1,7 +1,7 @@
 <script lang="ts">
   import { executeMutation, queryClient } from '#lib/queries/client.ts';
   import { bulkTagAssetsMutation, getAllTagsQuery, upsertTagsMutation } from '#lib/queries/tag.query.ts';
-  import { FormModal, toastManager } from '@immich/ui';
+  import { FormModal, toastManager } from '@Universal Photos/ui';
   import { mdiTag } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';

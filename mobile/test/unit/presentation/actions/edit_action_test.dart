@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/models/server_info/server_version.model.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/edit_asset.action.dart';
-import 'package:immich_mobile/presentation/actions/edit_datetime.action.dart';
-import 'package:immich_mobile/presentation/actions/edit_location.action.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/utils/option.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/models/server_info/server_version.model.dart';
+import 'package:universal_photos/presentation/actions/action.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/edit_asset.action.dart';
+import 'package:universal_photos/presentation/actions/edit_datetime.action.dart';
+import 'package:universal_photos/presentation/actions/edit_location.action.dart';
+import 'package:universal_photos/providers/server_info.provider.dart';
+import 'package:universal_photos/utils/option.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -76,38 +76,38 @@ void main() {
     testWidgets('offers to edit a single owned editable asset', (tester) async {
       await pumpEditAsset(tester, {owned()});
 
-      expect(find.byType(ImmichIconButton), findsOneWidget);
+      expect(find.byType(UniversalPhotosIconButton), findsOneWidget);
     });
 
     testWidgets('is hidden when the server predates edit sync', (tester) async {
       await pumpEditAsset(tester, {owned()}, version: const ServerVersion(major: 2, minor: 5, patch: 9));
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('is hidden for more than one asset', (tester) async {
       await pumpEditAsset(tester, {owned(), owned()});
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('is hidden for an asset owned by someone else', (tester) async {
       await pumpEditAsset(tester, {RemoteAssetFactory.create()});
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('is hidden for a non-editable asset', (tester) async {
       await pumpEditAsset(tester, {owned(type: .video)});
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('reads the edits and exif for the asset it is about to open', (tester) async {
       final asset = owned();
 
       await pumpEditAsset(tester, {asset});
-      await tester.tap(find.byType(ImmichIconButton));
+      await tester.tap(find.byType(UniversalPhotosIconButton));
       await tester.pump();
 
       verify(() => context.repository.remoteAsset.repo.getAssetEdits(asset.id)).called(1);
@@ -119,13 +119,13 @@ void main() {
     testWidgets('offers to edit an owned remote asset', (tester) async {
       await pumpAction(tester, const EditLocationAction(source: .timeline), {owned()});
 
-      expect(find.byType(ImmichIconButton), findsOneWidget);
+      expect(find.byType(UniversalPhotosIconButton), findsOneWidget);
     });
 
     testWidgets('is hidden without any owned remote asset', (tester) async {
       await pumpAction(tester, const EditLocationAction(source: .timeline), {RemoteAssetFactory.create()});
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('saves the location against every owned asset and toasts the count', (tester) async {
@@ -148,13 +148,13 @@ void main() {
     testWidgets('offers to edit an owned remote asset', (tester) async {
       await pumpAction(tester, const EditDateTimeAction(source: .timeline), {owned()});
 
-      expect(find.byType(ImmichIconButton), findsOneWidget);
+      expect(find.byType(UniversalPhotosIconButton), findsOneWidget);
     });
 
     testWidgets('is hidden without any owned remote asset', (tester) async {
       await pumpAction(tester, const EditDateTimeAction(source: .timeline), {RemoteAssetFactory.create()});
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('saves the date against every owned asset and toasts the count', (tester) async {

@@ -4,8 +4,8 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { AssetOrder, PersonUpdateStrategy, updateMyPreferences } from '@immich/sdk';
-  import { Button, Field, NumberInput, Select, Switch, toastManager } from '@immich/ui';
+  import { AssetOrder, PersonUpdateStrategy, updateMyPreferences } from '@Universal Photos/sdk';
+  import { Button, Field, NumberInput, Select, Switch, toastManager } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
 

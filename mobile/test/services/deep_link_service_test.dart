@@ -1,18 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/album/album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/memory.model.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/services/asset.service.dart';
-import 'package:immich_mobile/domain/services/memory.service.dart';
-import 'package:immich_mobile/domain/services/remote_album.service.dart';
-import 'package:immich_mobile/domain/services/timeline.service.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/deep_link.service.dart';
+import 'package:universal_photos/domain/models/album/album.model.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/memory.model.dart';
+import 'package:universal_photos/domain/models/timeline.model.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/domain/services/asset.service.dart';
+import 'package:universal_photos/domain/services/memory.service.dart';
+import 'package:universal_photos/domain/services/remote_album.service.dart';
+import 'package:universal_photos/domain/services/timeline.service.dart';
+import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/services/deep_link.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockTimelineFactory extends Mock implements TimelineFactory {}
@@ -73,7 +73,7 @@ final _memory = Memory(
 
 final _user = UserDto(
   id: _userId,
-  email: 'test@immich.app',
+  email: 'test@',
   name: 'Test User',
   profileChangedAt: DateTime(2026, 6, 12),
 );
@@ -121,7 +121,7 @@ void main() {
 
   PlatformDeepLink link(String path) {
     final deepLink = MockPlatformDeepLink();
-    when(() => deepLink.uri).thenReturn(Uri.parse('https://my.immich.app$path'));
+    when(() => deepLink.uri).thenReturn(Uri.parse('https://my.$path'));
     return deepLink;
   }
 
@@ -129,7 +129,7 @@ void main() {
     when(() => assetService.getRemoteAsset(_assetId)).thenAnswer((_) async => _asset);
     when(() => remoteAlbumService.get(_albumId)).thenAnswer((_) async => _album);
 
-    final route = await sut.handleMyImmichApp(link('/albums/$_albumId/photos/$_assetId'), ref);
+    final route = await sut.handleMyUniversalPhotosApp(link('/albums/$_albumId/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args! as AssetViewerRouteArgs).currentAlbum, _album);
@@ -139,7 +139,7 @@ void main() {
     when(() => assetService.getRemoteAsset(_assetId)).thenAnswer((_) async => _asset);
     when(() => remoteAlbumService.get(_albumId)).thenAnswer((_) async => null);
 
-    final route = await sut.handleMyImmichApp(link('/albums/$_albumId/photos/$_assetId'), ref);
+    final route = await sut.handleMyUniversalPhotosApp(link('/albums/$_albumId/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args! as AssetViewerRouteArgs).currentAlbum, isNull);
@@ -148,7 +148,7 @@ void main() {
   test('plain photo link has no album', () async {
     when(() => assetService.getRemoteAsset(_assetId)).thenAnswer((_) async => _asset);
 
-    final route = await sut.handleMyImmichApp(link('/photos/$_assetId'), ref);
+    final route = await sut.handleMyUniversalPhotosApp(link('/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args! as AssetViewerRouteArgs).currentAlbum, isNull);
@@ -158,7 +158,7 @@ void main() {
   test('memory scheme link without an id opens the memory lane', () async {
     when(() => memoryService.getMemoryLane(_userId)).thenAnswer((_) async => [_memory]);
     final deepLink = MockPlatformDeepLink();
-    when(() => deepLink.uri).thenReturn(Uri.parse('immich://memory'));
+    when(() => deepLink.uri).thenReturn(Uri.parse('universalphotos://memory'));
 
     final route = await sut.handleScheme(deepLink, ref);
 
@@ -171,7 +171,7 @@ void main() {
   test('memory scheme link with an id opens only the specified memory', () async {
     when(() => memoryService.get(_memoryId)).thenAnswer((_) async => _memory);
     final deepLink = MockPlatformDeepLink();
-    when(() => deepLink.uri).thenReturn(Uri.parse('immich://memory?id=$_memoryId'));
+    when(() => deepLink.uri).thenReturn(Uri.parse('universalphotos://memory?id=$_memoryId'));
 
     final route = await sut.handleScheme(deepLink, ref);
 
@@ -186,7 +186,7 @@ void main() {
       () => assetService.getRemoteAsset(_assetId),
     ).thenAnswer((_) async => _asset.copyWith(visibility: AssetVisibility.locked));
 
-    final route = await sut.handleMyImmichApp(link('/photos/$_assetId'), ref);
+    final route = await sut.handleMyUniversalPhotosApp(link('/photos/$_assetId'), ref);
 
     expect(route, isNull);
   });
@@ -196,7 +196,7 @@ void main() {
       () => assetService.getRemoteAsset(_assetId),
     ).thenAnswer((_) async => _asset.copyWith(deletedAt: DateTime(2026, 6, 13)));
 
-    final route = await sut.handleMyImmichApp(link('/photos/$_assetId'), ref);
+    final route = await sut.handleMyUniversalPhotosApp(link('/photos/$_assetId'), ref);
 
     expect(route, isA<AssetViewerRoute>());
     expect((route!.args! as AssetViewerRouteArgs).timelineService.origin, TimelineOrigin.trash);

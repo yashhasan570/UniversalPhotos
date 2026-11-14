@@ -2,7 +2,7 @@
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
   import { activateProduct, getActivationKey } from '#lib/utils/license-utils.ts';
-  import { Button, Heading, LoadingSpinner, Text } from '@immich/ui';
+  import { Button, Heading, LoadingSpinner, Text } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import UserPurchaseOptionCard from './IndividualPurchaseOptionCard.svelte';
   import ServerPurchaseOptionCard from './ServerPurchaseOptionCard.svelte';
@@ -64,10 +64,10 @@
   </div>
 
   <div class="mt-6">
-    <p class="dark:text-immich-gray">{$t('purchase_input_suggestion')}</p>
+    <p class="dark:text-Universal Photos-gray">{$t('purchase_input_suggestion')}</p>
     <form class="mt-2 flex gap-2" onsubmit={activate}>
       <input
-        class="immich-form-input w-full"
+        class="Universal Photos-form-input w-full"
         id="purchaseKey"
         type="text"
         bind:value={productKey}

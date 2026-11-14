@@ -29,8 +29,8 @@
   import { openFileUploadDialog } from '#lib/utils/file-uploader.ts';
   import { getAltText } from '#lib/utils/thumbnail-util.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import { AssetVisibility } from '@immich/sdk';
-  import { ActionButton, CommandPaletteDefaultProvider, ImageCarousel } from '@immich/ui';
+  import { AssetVisibility } from '@Universal Photos/sdk';
+  import { ActionButton, CommandPaletteDefaultProvider, ImageCarousel } from '@Universal Photos/ui';
   import { mdiDotsVertical } from '@mdi/js';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';

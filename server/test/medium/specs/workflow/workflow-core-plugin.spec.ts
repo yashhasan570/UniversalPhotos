@@ -1,4 +1,4 @@
-import { WorkflowStepConfig, WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowStepConfig, WorkflowTrigger } from '@universalphotos/plugin-sdk';
 import { Kysely } from 'kysely';
 import { readFileSync } from 'node:fs';
 import { PluginManifestDto } from 'src/dtos/plugin-manifest.dto.js';
@@ -143,7 +143,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetArchive' }],
+        steps: [{ method: 'universalphotos-plugin-core#assetArchive' }],
       });
 
       await expect(
@@ -166,7 +166,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetArchive', config: { inverse: true } }],
+        steps: [{ method: 'universalphotos-plugin-core#assetArchive', config: { inverse: true } }],
       });
 
       await expect(
@@ -191,7 +191,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetLock' }],
+        steps: [{ method: 'universalphotos-plugin-core#assetLock' }],
       });
 
       await expect(
@@ -214,7 +214,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetLock', config: { inverse: true } }],
+        steps: [{ method: 'universalphotos-plugin-core#assetLock', config: { inverse: true } }],
       });
 
       await expect(
@@ -239,7 +239,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetFavorite' }],
+        steps: [{ method: 'universalphotos-plugin-core#assetFavorite' }],
       });
 
       await expect(
@@ -260,7 +260,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetFavorite', config: { inverse: true } }],
+        steps: [{ method: 'universalphotos-plugin-core#assetFavorite', config: { inverse: true } }],
       });
 
       await expect(
@@ -283,7 +283,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [], albumName: 'Screenshots' } }],
+        steps: [{ method: 'universalphotos-plugin-core#assetAddToAlbums', config: { albumIds: [], albumName: 'Screenshots' } }],
       });
 
       await expect(
@@ -315,7 +315,7 @@ describe('core plugin', () => {
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
-          { method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [album.id], albumName: 'Screenshots' } },
+          { method: 'universalphotos-plugin-core#assetAddToAlbums', config: { albumIds: [album.id], albumName: 'Screenshots' } },
         ],
       });
 
@@ -342,7 +342,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [album.id] } }],
+        steps: [{ method: 'universalphotos-plugin-core#assetAddToAlbums', config: { albumIds: [album.id] } }],
       });
 
       await expect(
@@ -367,7 +367,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [album1.id, album2.id] } }],
+        steps: [{ method: 'universalphotos-plugin-core#assetAddToAlbums', config: { albumIds: [album1.id, album2.id] } }],
       });
 
       await expect(
@@ -391,7 +391,7 @@ describe('core plugin', () => {
       const workflow = await createWorkflow({
         ownerId: user1.id,
         trigger: WorkflowTrigger.AssetCreate,
-        steps: [{ method: 'immich-plugin-core#assetAddToAlbums', config: { albumIds: [album.id] } }],
+        steps: [{ method: 'universalphotos-plugin-core#assetAddToAlbums', config: { albumIds: [album.id] } }],
       });
 
       await expect(
@@ -417,11 +417,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetMetadataExtraction,
         steps: [
           {
-            method: 'immich-plugin-core#assetLocationFilter',
+            method: 'universalphotos-plugin-core#assetLocationFilter',
             config: { coordinate: { latitude: 49.28882167994929, longitude: -123.1111530988137, radius: 2 } },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -446,11 +446,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetMetadataExtraction,
         steps: [
           {
-            method: 'immich-plugin-core#assetLocationFilter',
+            method: 'universalphotos-plugin-core#assetLocationFilter',
             config: { coordinate: { latitude: 49.28882167994929, longitude: -123.1111530988137, radius: 10 } },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -475,11 +475,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetMetadataExtraction,
         steps: [
           {
-            method: 'immich-plugin-core#assetLocationFilter',
+            method: 'universalphotos-plugin-core#assetLocationFilter',
             config: { region: { city: 'Vancouver' } },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -508,11 +508,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetFileFilter',
+            method: 'universalphotos-plugin-core#assetFileFilter',
             config: { matchType: 'contains', pattern: 'File' },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -547,11 +547,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetFileFilter',
+            method: 'universalphotos-plugin-core#assetFileFilter',
             config: { matchType: 'regex', pattern: '.+png' },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -586,11 +586,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetFileFilter',
+            method: 'universalphotos-plugin-core#assetFileFilter',
             config: { matchType: 'contains', pattern: 'folder', usePath: true },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -624,11 +624,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetTypeFilter',
+            method: 'universalphotos-plugin-core#assetTypeFilter',
             config: { allowedTypes: ['VIDEO'] },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -656,11 +656,11 @@ describe('core plugin', () => {
           trigger: WorkflowTrigger.AssetMetadataExtraction,
           steps: [
             {
-              method: 'immich-plugin-core#assetExifFilter',
+              method: 'universalphotos-plugin-core#assetExifFilter',
               config: { property: 'orientation', matchType: 'missing' },
             },
             {
-              method: 'immich-plugin-core#assetFavorite',
+              method: 'universalphotos-plugin-core#assetFavorite',
             },
           ],
         });
@@ -685,11 +685,11 @@ describe('core plugin', () => {
           trigger: WorkflowTrigger.AssetMetadataExtraction,
           steps: [
             {
-              method: 'immich-plugin-core#assetExifFilter',
+              method: 'universalphotos-plugin-core#assetExifFilter',
               config: { property: 'orientation', matchType: 'missing' },
             },
             {
-              method: 'immich-plugin-core#assetFavorite',
+              method: 'universalphotos-plugin-core#assetFavorite',
             },
           ],
         });
@@ -716,11 +716,11 @@ describe('core plugin', () => {
           trigger: WorkflowTrigger.AssetMetadataExtraction,
           steps: [
             {
-              method: 'immich-plugin-core#assetExifFilter',
+              method: 'universalphotos-plugin-core#assetExifFilter',
               config: { property: 'orientation', matchType: 'present' },
             },
             {
-              method: 'immich-plugin-core#assetFavorite',
+              method: 'universalphotos-plugin-core#assetFavorite',
             },
           ],
         });
@@ -745,11 +745,11 @@ describe('core plugin', () => {
           trigger: WorkflowTrigger.AssetMetadataExtraction,
           steps: [
             {
-              method: 'immich-plugin-core#assetExifFilter',
+              method: 'universalphotos-plugin-core#assetExifFilter',
               config: { property: 'orientation', matchType: 'present' },
             },
             {
-              method: 'immich-plugin-core#assetFavorite',
+              method: 'universalphotos-plugin-core#assetFavorite',
             },
           ],
         });
@@ -780,7 +780,7 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetDateFilter',
+            method: 'universalphotos-plugin-core#assetDateFilter',
             config: {
               startDate: { day: 1, month: 4, year: 2000 },
               endDate: { day: 7, month: 4, year: 2000 },
@@ -788,7 +788,7 @@ describe('core plugin', () => {
             },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -829,7 +829,7 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetDateFilter',
+            method: 'universalphotos-plugin-core#assetDateFilter',
             config: {
               startDate: { day: 12, month: 12, year: 2000 },
               endDate: { day: 30, month: 3, year: 2001 },
@@ -837,7 +837,7 @@ describe('core plugin', () => {
             },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -880,11 +880,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetOcrExtraction,
         steps: [
           {
-            method: 'immich-plugin-core#assetOcrFilter',
+            method: 'universalphotos-plugin-core#assetOcrFilter',
             config: { matchType: 'contains', matchScope: 'box', pattern: 'Test', minScore: 0 },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -924,11 +924,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetOcrFilter',
+            method: 'universalphotos-plugin-core#assetOcrFilter',
             config: { matchType: 'regex', matchScope: 'full', pattern: 'Test.+Match', minScore: 0 },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -965,11 +965,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetOcrExtraction,
         steps: [
           {
-            method: 'immich-plugin-core#assetOcrFilter',
+            method: 'universalphotos-plugin-core#assetOcrFilter',
             config: { matchType: 'contains', matchScope: 'box', pattern: 'test', minScore: 0.8 },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -1005,11 +1005,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetTagFilter',
+            method: 'universalphotos-plugin-core#assetTagFilter',
             config: { matching: 'any', tags: [tag.id, newUuid()] },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -1034,11 +1034,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetTagFilter',
+            method: 'universalphotos-plugin-core#assetTagFilter',
             config: { matching: 'any', tags: [tag.id, newUuid()] },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -1064,11 +1064,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetTagFilter',
+            method: 'universalphotos-plugin-core#assetTagFilter',
             config: { matching: 'all', tags: [tag.id] },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -1093,11 +1093,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetTagFilter',
+            method: 'universalphotos-plugin-core#assetTagFilter',
             config: { matching: 'all', tags: [tag.id, newUuid()] },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -1123,11 +1123,11 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#assetTagFilter',
+            method: 'universalphotos-plugin-core#assetTagFilter',
             config: { matching: 'none', tags: [newUuid()] },
           },
           {
-            method: 'immich-plugin-core#assetFavorite',
+            method: 'universalphotos-plugin-core#assetFavorite',
           },
         ],
       });
@@ -1156,7 +1156,7 @@ describe('core plugin', () => {
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
           {
-            method: 'immich-plugin-core#webhook',
+            method: 'universalphotos-plugin-core#webhook',
             config: { url: 'http://localhost', method: 'POST' },
           },
         ],
@@ -1187,8 +1187,8 @@ describe('core plugin', () => {
         ownerId: user.id,
         trigger: WorkflowTrigger.AssetCreate,
         steps: [
-          { method: 'immich-plugin-core#assetFavorite' },
-          { method: 'immich-plugin-core#assetFileFilter', config: { matchType: 'contains', pattern: 'screenshot' } },
+          { method: 'universalphotos-plugin-core#assetFavorite' },
+          { method: 'universalphotos-plugin-core#assetFileFilter', config: { matchType: 'contains', pattern: 'screenshot' } },
         ],
       });
       const steps = await db

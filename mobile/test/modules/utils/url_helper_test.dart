@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
+import 'package:universal_photos/utils/url_helper.dart';
 
 void main() {
   group('punycodeEncodeUrl', () {
@@ -87,7 +87,7 @@ void main() {
     });
 
     test('should accept a bare host', () {
-      expect(normalizeAndValidateServerUrl('demo.immich.app'), isTrue);
+      expect(normalizeAndValidateServerUrl('demo.'), isTrue);
     });
 
     test('should accept a bare host with a port', () {
@@ -95,15 +95,15 @@ void main() {
     });
 
     test('should accept an http URL', () {
-      expect(normalizeAndValidateServerUrl('http://demo.immich.app'), isTrue);
+      expect(normalizeAndValidateServerUrl('http://demo.'), isTrue);
     });
 
     test('should accept an https URL', () {
-      expect(normalizeAndValidateServerUrl('https://demo.immich.app:2283/api'), isTrue);
+      expect(normalizeAndValidateServerUrl('https://demo.:2283/api'), isTrue);
     });
 
     test('should reject a non-http scheme', () {
-      expect(normalizeAndValidateServerUrl('ftp://demo.immich.app'), isFalse);
+      expect(normalizeAndValidateServerUrl('ftp://demo.'), isFalse);
     });
 
     test('should reject scheme only input', () {

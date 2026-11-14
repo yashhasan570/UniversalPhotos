@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:immich_mobile/constants/enums.dart';
+import 'package:universal_photos/constants/enums.dart';
 
 part 'share_config.freezed.dart';
 

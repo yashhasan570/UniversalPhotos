@@ -18,7 +18,7 @@ class NativeSyncApiImpl30(context: Context) : NativeSyncApiImplBase(context), Na
   private val prefs = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
 
   companion object {
-    const val SHARED_PREF_NAME = "Immich::MediaManager"
+    const val SHARED_PREF_NAME = "UniversalPhotos::MediaManager"
     const val SHARED_PREF_MEDIA_STORE_VERSION_KEY = "MediaStore::getVersion"
     const val SHARED_PREF_MEDIA_STORE_GEN_KEY = "MediaStore::getGeneration"
   }

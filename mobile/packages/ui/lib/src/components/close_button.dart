@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/icon_button.dart';
-import 'package:immich_ui/src/types.dart';
+import 'package:universalphotos_ui/src/components/icon_button.dart';
+import 'package:universalphotos_ui/src/types.dart';
 
-class ImmichCloseButton extends StatelessWidget {
+class UniversalPhotosCloseButton extends StatelessWidget {
   final VoidCallback? onPressed;
-  final ImmichVariant variant;
-  final ImmichColor color;
+  final UniversalPhotosVariant variant;
+  final UniversalPhotosColor color;
 
-  const ImmichCloseButton({
+  const UniversalPhotosCloseButton({
     super.key,
     this.onPressed,
-    this.color = ImmichColor.primary,
-    this.variant = ImmichVariant.ghost,
+    this.color = UniversalPhotosColor.primary,
+    this.variant = UniversalPhotosVariant.ghost,
   });
 
   @override
-  Widget build(BuildContext context) => ImmichIconButton(
+  Widget build(BuildContext context) => UniversalPhotosIconButton(
     icon: Icons.close,
     color: color,
     variant: variant,

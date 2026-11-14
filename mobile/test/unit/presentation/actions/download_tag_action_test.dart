@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/tag.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/download.action.dart';
-import 'package:immich_mobile/presentation/actions/tag.action.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/toast.provider.dart';
-import 'package:immich_mobile/repositories/download.repository.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/tag.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/download.action.dart';
+import 'package:universal_photos/presentation/actions/tag.action.dart';
+import 'package:universal_photos/providers/background_sync.provider.dart';
+import 'package:universal_photos/providers/infrastructure/toast.provider.dart';
+import 'package:universal_photos/repositories/download.repository.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:mocktail/mocktail.dart';
 import '../../../repository.mocks.dart';
 import '../../factories/local_asset_factory.dart';
@@ -75,7 +75,7 @@ void main() {
         overrides: context.selected({LocalAssetFactory.create()}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
   });
 
@@ -105,13 +105,13 @@ void main() {
     testWidgets('offers tagging for an owned asset', (tester) async {
       await pumpTag(tester, {owned()});
 
-      expect(find.byType(ImmichIconButton), findsOneWidget);
+      expect(find.byType(UniversalPhotosIconButton), findsOneWidget);
     });
 
     testWidgets('is hidden without any owned asset', (tester) async {
       await pumpTag(tester, {RemoteAssetFactory.create()});
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
 
     testWidgets('applies the picked tags and reports the count', (tester) async {
@@ -189,7 +189,7 @@ void main() {
         overrides: untagOverrides(selection),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
       verifyNever(() => tagApi.untagAssets(any(), any()));
     });
   });

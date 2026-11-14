@@ -1,6 +1,6 @@
 <script lang="ts">
   import { SettingInputFieldType } from '#lib/constants.ts';
-  import { PasswordInput } from '@immich/ui';
+  import { PasswordInput } from '@Universal Photos/ui';
   import { onMount, tick, type Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
   import { quintOut } from 'svelte/easing';
@@ -102,7 +102,7 @@
   </div>
 
   {#if description}
-    <p class="pb-2 text-sm immich-form-label" id="{label}-desc">
+    <p class="pb-2 text-sm Universal Photos-form-label" id="{label}-desc">
       {description}
     </p>
   {:else if descriptionSnippet}
@@ -116,7 +116,7 @@
       {#if inputType === SettingInputFieldType.COLOR}
         <input
           bind:this={input}
-          class="me-1 immich-form-input w-full rounded-none pb-2"
+          class="me-1 Universal Photos-form-input w-full rounded-none pb-2"
           aria-describedby={description ? `${label}-desc` : undefined}
           aria-labelledby="{label}-label"
           id={label}
@@ -135,7 +135,7 @@
 
       <input
         bind:this={input}
-        class="immich-form-input w-full min-w-[50px] pb-2"
+        class="Universal Photos-form-input w-full min-w-[50px] pb-2"
         class:color-picker={inputType === SettingInputFieldType.COLOR}
         aria-describedby={description ? `${label}-desc` : undefined}
         aria-labelledby="{label}-label"

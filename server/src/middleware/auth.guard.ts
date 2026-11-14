@@ -10,7 +10,7 @@ import { Reflector } from '@nestjs/core';
 import { ApiBearerAuth, ApiCookieAuth, ApiExtension, ApiOkResponse, ApiQuery, ApiSecurity } from '@nestjs/swagger';
 import { Request } from 'express';
 import { AuthDto } from 'src/dtos/auth.dto.js';
-import { ApiCustomExtension, ImmichQuery, MetadataKey, Permission } from 'src/enum.js';
+import { ApiCustomExtension, UniversalPhotosQuery, MetadataKey, Permission } from 'src/enum.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
 import { AuthService, LoginDetails } from 'src/services/auth.service.js';
 import { getUserAgentDetails } from 'src/utils/request.js';
@@ -48,8 +48,8 @@ export const Authenticated = (options: AuthenticatedOptions = {}): ReturnType<ty
 
   if ((options as SharedLinkRoute)?.sharedLink) {
     decorators.push(
-      ApiQuery({ name: ImmichQuery.SharedLinkKey, type: String, required: false }),
-      ApiQuery({ name: ImmichQuery.SharedLinkSlug, type: String, required: false }),
+      ApiQuery({ name: UniversalPhotosQuery.SharedLinkKey, type: String, required: false }),
+      ApiQuery({ name: UniversalPhotosQuery.SharedLinkSlug, type: String, required: false }),
     );
   }
 

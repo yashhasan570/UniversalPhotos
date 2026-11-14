@@ -12,7 +12,7 @@ import { join } from 'node:path';
 import { commandsAndQuestions } from 'src/commands/index.js';
 import { IWorker } from 'src/constants.js';
 import { controllers } from 'src/controllers/index.js';
-import { ImmichEnvironment, ImmichWorker } from 'src/enum.js';
+import { UniversalPhotosEnvironment, UniversalPhotosWorker } from 'src/enum.js';
 import { MaintenanceAuthGuard } from 'src/maintenance/maintenance-auth.guard.js';
 import { MaintenanceHealthRepository } from 'src/maintenance/maintenance-health.repository.js';
 import { MaintenanceWebsocketRepository } from 'src/maintenance/maintenance-websocket.repository.js';
@@ -60,7 +60,7 @@ const apiMiddleware = [FileUploadInterceptor, ...commonMiddleware, { provide: AP
 const configRepository = new ConfigRepository();
 const { bull, cls, database, environment, otel, storage } = configRepository.getEnv();
 
-const isFutoBackupsDevelopmentMode = environment !== ImmichEnvironment.Production;
+const isFutoBackupsDevelopmentMode = environment !== UniversalPhotosEnvironment.Production;
 const futoBackupsStatePath = getBackupsStatePath(storage.mediaLocation);
 const futoBackupsCachePath = join(detectMediaLocation(storage.mediaLocation, existsSync), 'restic-cache');
 
@@ -80,7 +80,7 @@ configureUserAgent();
 
 export class BaseModule implements OnModuleInit, OnModuleDestroy {
   constructor(
-    @Inject(IWorker) private worker: ImmichWorker,
+    @Inject(IWorker) private worker: UniversalPhotosWorker,
     logger: LoggingRepository,
     private authService: AuthService,
     private eventRepository: EventRepository,
@@ -139,7 +139,7 @@ export class BaseModule implements OnModuleInit, OnModuleDestroy {
     }),
   ],
   controllers: [...controllers],
-  providers: [...common, ...apiMiddleware, { provide: IWorker, useValue: ImmichWorker.Api }],
+  providers: [...common, ...apiMiddleware, { provide: IWorker, useValue: UniversalPhotosWorker.Api }],
   exports: [AuthService, WebsocketRepository],
 })
 export class ApiModule extends BaseModule {
@@ -158,7 +158,7 @@ export class ApiModule extends BaseModule {
         dialect: getKyselyConfig(database.config).dialect,
         statePath: futoBackupsStatePath,
         cachePath: futoBackupsCachePath,
-        externalBaseUrl: 'https://my.immich.app',
+        externalBaseUrl: 'https://my.',
         requireWsAuth: true,
         requireLock: true,
         developmentMode: isFutoBackupsDevelopmentMode,
@@ -185,7 +185,7 @@ export class ApiModule extends BaseModule {
     MaintenanceWorkerService,
     ...commonMiddleware,
     { provide: APP_GUARD, useClass: MaintenanceAuthGuard },
-    { provide: IWorker, useValue: ImmichWorker.Maintenance },
+    { provide: IWorker, useValue: UniversalPhotosWorker.Maintenance },
   ],
   exports: [MaintenanceWorkerService, MaintenanceWebsocketRepository],
 })
@@ -195,7 +195,7 @@ export class MaintenanceModule {
   }
 
   constructor(
-    @Inject(IWorker) private worker: ImmichWorker,
+    @Inject(IWorker) private worker: UniversalPhotosWorker,
     logger: LoggingRepository,
     private maintenanceWorkerService: MaintenanceWorkerService,
   ) {
@@ -209,7 +209,7 @@ export class MaintenanceModule {
 
 @Module({
   imports: [...bullImports, ...commonImports],
-  providers: [...common, { provide: IWorker, useValue: ImmichWorker.Microservices }, SchedulerRegistry],
+  providers: [...common, { provide: IWorker, useValue: UniversalPhotosWorker.Microservices }, SchedulerRegistry],
 })
 export class MicroservicesModule extends BaseModule {}
 
@@ -217,7 +217,7 @@ export class MicroservicesModule extends BaseModule {}
   imports: [...bullImports, ...commonImports],
   providers: [...common, ...commandsAndQuestions, SchedulerRegistry],
 })
-export class ImmichAdminModule implements OnModuleDestroy {
+export class UniversalPhotosAdminModule implements OnModuleDestroy {
   constructor(private service: CliService) {}
 
   async onModuleDestroy() {

@@ -6,8 +6,8 @@
   import { deleteAssets as deleteAssetsUtil, type OnUndoDelete } from '#lib/utils/actions.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import { deleteAssets, type AssetResponseDto } from '@immich/sdk';
-  import { IconButton, modalManager, shortcuts, toastManager } from '@immich/ui';
+  import { deleteAssets, type AssetResponseDto } from '@Universal Photos/sdk';
+  import { IconButton, modalManager, shortcuts, toastManager } from '@Universal Photos/ui';
   import { mdiDeleteForeverOutline, mdiDeleteOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import type { OnAction, PreAction } from './action';

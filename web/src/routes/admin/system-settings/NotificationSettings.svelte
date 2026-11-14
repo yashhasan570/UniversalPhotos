@@ -9,8 +9,8 @@
   import { createPreloadedQuery, executeMutation } from '#lib/queries/client.ts';
   import { getAdminConfigQuery, updateAdminConfigMutation } from '#lib/queries/config-admin.query.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { sendTestEmailAdmin } from '@immich/sdk';
-  import { Button, toastManager } from '@immich/ui';
+  import { sendTestEmailAdmin } from '@Universal Photos/sdk';
+  import { Button, toastManager } from '@Universal Photos/ui';
   import { cloneDeep } from 'lodash-es';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';

@@ -9,7 +9,7 @@ import {
   Unique,
   UpdateDateColumn,
   type Generated,
-} from '@immich/sql-tools';
+} from '@universalphotos/sql-tools';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { AssetEditAction, type AssetEditParameters } from 'src/dtos/editing.dto.js';
 import { asset_edit_audit, asset_edit_delete, asset_edit_insert } from 'src/schema/functions.js';

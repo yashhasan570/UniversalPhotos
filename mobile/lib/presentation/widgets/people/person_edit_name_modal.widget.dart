@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store.dart';
-import 'package:immich_mobile/domain/models/person.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos/domain/models/person.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/utils/debug_print.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
 
 class PersonNameEditForm extends ConsumerStatefulWidget {
   final Person person;
@@ -39,7 +39,7 @@ class _PersonNameEditFormState extends ConsumerState<PersonNameEditForm> {
         return;
       }
 
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         msg: context.t.scaffold_body_error_occurred,
         gravity: ToastGravity.BOTTOM,

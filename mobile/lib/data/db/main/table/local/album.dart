@@ -1,9 +1,9 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/main/table/local/album.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/album.dart';
-import 'package:immich_mobile/data/db/util/datetime_clamp_type.dart';
-import 'package:immich_mobile/data/db/util/defaults_mixin.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos/data/db/main/table/local/album.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/album.dart';
+import 'package:universal_photos/data/db/util/datetime_clamp_type.dart';
+import 'package:universal_photos/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos/domain/models/album/local_album.model.dart';
 
 class LocalAlbumEntity extends Table with DriftDefaultsMixin {
   const LocalAlbumEntity();

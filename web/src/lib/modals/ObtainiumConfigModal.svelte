@@ -1,8 +1,8 @@
 <script lang="ts">
   import { createApiKeyMutation } from '#lib/queries/api-key.query.ts';
   import { executeMutation } from '#lib/queries/client.ts';
-  import { Permission } from '@immich/sdk';
-  import { Button, Field, Input, Modal, ModalBody, Select, Text, obtainiumBadge } from '@immich/ui';
+  import { Permission } from '@Universal Photos/sdk';
+  import { Button, Field, Input, Modal, ModalBody, Select, Text, obtainiumBadge } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   let inputUrl = $state(location.origin);
@@ -60,7 +60,7 @@
         <div class="flex place-content-center place-items-center">
           <a
             href={obtainiumLink}
-            class="text-sm immich-form-label underline"
+            class="text-sm Universal Photos-form-label underline"
             target="_blank"
             rel="noreferrer"
             id="obtainium-link"

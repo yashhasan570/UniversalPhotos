@@ -3,8 +3,8 @@
   import { AssetAction } from '#lib/constants.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import { restoreAssets, type AssetResponseDto } from '@immich/sdk';
-  import { toastManager } from '@immich/ui';
+  import { restoreAssets, type AssetResponseDto } from '@Universal Photos/sdk';
+  import { toastManager } from '@Universal Photos/ui';
   import { mdiHistory } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import type { OnAction } from './action';

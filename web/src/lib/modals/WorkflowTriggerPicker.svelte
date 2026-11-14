@@ -1,8 +1,8 @@
 <script lang="ts">
   import { pluginManager } from '#lib/managers/plugin-manager.svelte.ts';
   import { getTriggerDescription, getTriggerName } from '#lib/utils/workflow.ts';
-  import { WorkflowTrigger } from '@immich/sdk';
-  import { FormModal, ListButton, Text } from '@immich/ui';
+  import { WorkflowTrigger } from '@Universal Photos/sdk';
+  import { FormModal, ListButton, Text } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {

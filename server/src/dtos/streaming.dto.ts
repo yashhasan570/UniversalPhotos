@@ -1,5 +1,5 @@
 import z from 'zod';
-import { ImmichHeader } from 'src/enum.js';
+import { UniversalPhotosHeader } from 'src/enum.js';
 import { createZodDto } from 'src/zod.js';
 
 const HlsSessionParamSchema = z.object({
@@ -28,7 +28,7 @@ export class HlsSegmentParamDto extends createZodDto(HlsSegmentParamSchema) {}
 
 const HlsSegmentHeaderSchema = z.object({
   // Lets the client hint at which segment will be loaded after init.mp4.
-  [ImmichHeader.HlsInitSegment]: z.coerce.number().int().min(0).optional(),
+  [UniversalPhotosHeader.HlsInitSegment]: z.coerce.number().int().min(0).optional(),
 });
 
 export class HlsSegmentHeaderDto extends createZodDto(HlsSegmentHeaderSchema) {}
@@ -36,7 +36,7 @@ export class HlsSegmentHeaderDto extends createZodDto(HlsSegmentHeaderSchema) {}
 const HlsPlaylistHeaderSchema = z.object({
   // Lets the client hint at which segment will be loaded after the playlist.
   // A position rather than a segment index since indices aren't comparable across variants.
-  [ImmichHeader.HlsPosition]: z.coerce.number().min(0).optional(),
+  [UniversalPhotosHeader.HlsPosition]: z.coerce.number().min(0).optional(),
 });
 
 export class HlsPlaylistHeaderDto extends createZodDto(HlsPlaylistHeaderSchema) {}

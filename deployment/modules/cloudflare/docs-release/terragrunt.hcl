@@ -15,6 +15,6 @@ remote_state {
 
   config = {
     conn_str = get_env("TF_STATE_POSTGRES_CONN_STR")
-    schema_name = "prod_cloudflare_immich_app_docs_release"
+    schema_name = "prod_cloudflare_Universal Photos_app_docs_release"
   }
 }

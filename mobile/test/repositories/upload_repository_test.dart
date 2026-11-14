@@ -7,12 +7,12 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
-import 'package:immich_mobile/repositories/upload.repository.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/domain/services/store.service.dart';
+import 'package:universal_photos/entities/store.entity.dart';
+import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos/repositories/upload.repository.dart';
 import 'package:logging/logging.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -36,7 +36,7 @@ void main() {
     FileDownloader(persistentStorage: _NoStorage());
     final db = Drift(DatabaseConnection(NativeDatabase.memory(), closeStreamsSynchronously: true));
     await StoreService.init(storeRepository: StoreRepository(db));
-    await Store.put(StoreKey.serverEndpoint, 'http://demo.immich.app/api');
+    await Store.put(StoreKey.serverEndpoint, 'http://demo./api');
     registerFallbackValue(_FakeBaseRequest());
     file = File('${Directory.systemTemp.createTempSync().path}/photo.jpg')..writeAsStringSync('bytes');
   });

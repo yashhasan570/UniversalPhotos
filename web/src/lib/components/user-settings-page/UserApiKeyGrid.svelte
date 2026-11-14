@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Permission } from '@immich/sdk';
-  import { Checkbox, Label } from '@immich/ui';
+  import { Permission } from '@Universal Photos/sdk';
+  import { Checkbox, Label } from '@Universal Photos/ui';
 
   interface Props {
     title: string;

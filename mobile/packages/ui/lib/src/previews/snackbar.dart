@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/constants.dart';
-import 'package:immich_ui/src/previews.dart';
-import 'package:immich_ui/src/snackbar.dart';
+import 'package:universalphotos_ui/src/constants.dart';
+import 'package:universalphotos_ui/src/previews.dart';
+import 'package:universalphotos_ui/src/snackbar.dart';
 
-@ImmichPreview(group: 'Snackbar', name: 'Types')
+@UniversalPhotosPreview(group: 'Snackbar', name: 'Types')
 Widget previewSnackbarTypes() => const _SnackbarDemo();
 
 class _SnackbarDemo extends StatelessWidget {
@@ -17,8 +17,8 @@ class _SnackbarDemo extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: Center(
           child: Wrap(
-            spacing: ImmichSpacing.md,
-            runSpacing: ImmichSpacing.md,
+            spacing: UniversalPhotosSpacing.md,
+            runSpacing: UniversalPhotosSpacing.md,
             children: [
               ElevatedButton(onPressed: () => snackbar.info('Info message'), child: const Text('Info')),
               ElevatedButton(onPressed: () => snackbar.success('Saved'), child: const Text('Success')),

@@ -9,7 +9,7 @@ import { serverVersion } from 'src/constants.js';
 import { StorageCore } from 'src/cores/storage.core.js';
 import { OnEvent, OnJob } from 'src/decorators.js';
 import { DatabaseBackupListResponseDto } from 'src/dtos/database-backup.dto.js';
-import { CacheControl, DatabaseLock, ImmichWorker, JobName, JobStatus, QueueName, StorageFolder } from 'src/enum.js';
+import { CacheControl, DatabaseLock, UniversalPhotosWorker, JobName, JobStatus, QueueName, StorageFolder } from 'src/enum.js';
 import { MaintenanceHealthRepository } from 'src/maintenance/maintenance-health.repository.js';
 import { ConfigRepository } from 'src/repositories/config.repository.js';
 import { CronRepository } from 'src/repositories/cron.repository.js';
@@ -29,7 +29,7 @@ import {
   isValidDatabaseBackupName,
   isValidDatabaseRoutineBackupName,
 } from 'src/utils/database-backups.js';
-import { ImmichFileResponse } from 'src/utils/file.js';
+import { UniversalPhotosFileResponse } from 'src/utils/file.js';
 import { handlePromiseError } from 'src/utils/misc.js';
 
 @Injectable()
@@ -54,7 +54,7 @@ export class DatabaseBackupService {
 
   private backupLock = false;
 
-  @OnEvent({ name: 'ConfigInit', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'ConfigInit', workers: [UniversalPhotosWorker.Microservices] })
   async onConfigInit({
     newConfig: {
       backup: { database },
@@ -232,7 +232,7 @@ export class DatabaseBackupService {
 
     this.logger.log(`Database Backup Starting. Database Version: ${databaseMajorVersion}`);
 
-    const filename = `${filenamePrefix}immich-db-backup-${DateTime.now().toFormat("yyyyLLdd'T'HHmmss")}-v${serverVersion.toString()}-pg${databaseVersion.split(' ', 1)[0]}.sql.gz`;
+    const filename = `${filenamePrefix}universalphotos-db-backup-${DateTime.now().toFormat("yyyyLLdd'T'HHmmss")}-v${serverVersion.toString()}-pg${databaseVersion.split(' ', 1)[0]}.sql.gz`;
     const backupFilePath = path.join(StorageCore.getBaseFolder(StorageFolder.Backups), filename);
     const temporaryFilePath = `${backupFilePath}.tmp`;
 
@@ -289,7 +289,7 @@ export class DatabaseBackupService {
     await this.storageRepository.createOrOverwriteFile(filePath, file.buffer);
   }
 
-  downloadBackup(fileName: string): ImmichFileResponse {
+  downloadBackup(fileName: string): UniversalPhotosFileResponse {
     if (!isValidDatabaseBackupName(fileName)) {
       throw new BadRequestException('Invalid backup name!');
     }

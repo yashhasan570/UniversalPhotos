@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/presentation/widgets/remote_album/album_option.widget.dart';
+import 'package:universal_photos/presentation/widgets/remote_album/album_option.widget.dart';
 
 import '../../../widget_tester_extensions.dart';
 

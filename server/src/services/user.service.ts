@@ -17,7 +17,7 @@ import { UserTable } from 'src/schema/tables/user.table.js';
 import { BaseService } from 'src/services/base.service.js';
 import { getCalendarHeatmap } from 'src/services/shared/user-methods.js';
 import type { JobOf, UserMetadataItem } from 'src/types.js';
-import { ImmichFileResponse } from 'src/utils/file.js';
+import { UniversalPhotosFileResponse } from 'src/utils/file.js';
 import { mimeTypes } from 'src/utils/mime-types.js';
 import { findOrFail } from 'src/utils/misc.js';
 import { getPreferences, getPreferencesPartial, mergePreferences } from 'src/utils/preferences.js';
@@ -135,14 +135,14 @@ export class UserService extends BaseService {
     await this.jobRepository.queue({ name: JobName.FileDelete, data: { files: [user.profileImagePath] } });
   }
 
-  async getProfileImage(id: string): Promise<ImmichFileResponse> {
+  async getProfileImage(id: string): Promise<UniversalPhotosFileResponse> {
     const user = await this.userRepository.get(id, {});
     if (!user || !user.profileImagePath) {
       this.logger.debug('User or profile image not found');
       throw new NotFoundException();
     }
 
-    return new ImmichFileResponse({
+    return new UniversalPhotosFileResponse({
       path: user.profileImagePath,
       contentType: mimeTypes.lookup(user.profileImagePath),
       cacheControl: CacheControl.None,

@@ -32,7 +32,7 @@ import {
   getAssetInfo,
   getTimeBuckets,
   type AssetResponseDto,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { clamp, isEqual } from 'lodash-es';
 import { SvelteDate, SvelteSet } from 'svelte/reactivity';
 import { isMismatched, updateObject } from './internal/utils.svelte';

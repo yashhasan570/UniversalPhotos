@@ -11,7 +11,7 @@ import com.universalphotos.app.background.BackgroundWorkerLockApi
 import com.universalphotos.app.connectivity.ConnectivityApi
 import com.universalphotos.app.connectivity.ConnectivityApiImpl
 import com.universalphotos.app.core.HttpClientManager
-import com.universalphotos.app.core.ImmichPlugin
+import com.universalphotos.app.core.UniversalPhotosPlugin
 import com.universalphotos.app.core.NetworkApiPlugin
 import me.albemala.native_video_player.NativeVideoPlayerPlugin
 import com.universalphotos.app.images.LocalImageApi
@@ -72,10 +72,10 @@ class MainActivity : FlutterFragmentActivity() {
 
     fun cancelPlugins(flutterEngine: FlutterEngine) {
       val nativeApi =
-        flutterEngine.plugins.get(NativeSyncApiImpl26::class.java) as ImmichPlugin?
-          ?: flutterEngine.plugins.get(NativeSyncApiImpl30::class.java) as ImmichPlugin?
+        flutterEngine.plugins.get(NativeSyncApiImpl26::class.java) as UniversalPhotosPlugin?
+          ?: flutterEngine.plugins.get(NativeSyncApiImpl30::class.java) as UniversalPhotosPlugin?
       nativeApi?.detachFromEngine()
-      val permissionApi = flutterEngine.plugins.get(PermissionApiImpl::class.java) as ImmichPlugin?
+      val permissionApi = flutterEngine.plugins.get(PermissionApiImpl::class.java) as UniversalPhotosPlugin?
       permissionApi?.detachFromEngine()
     }
   }

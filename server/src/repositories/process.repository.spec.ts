@@ -33,7 +33,7 @@ describe(ProcessRepository.name, () => {
     });
 
     it('should not find a missing executable', async () => {
-      await expect(sut.isCommandAvailable('immich-missing-command')).resolves.toBe(false);
+      await expect(sut.isCommandAvailable('universalphotos-missing-command')).resolves.toBe(false);
     });
   });
 

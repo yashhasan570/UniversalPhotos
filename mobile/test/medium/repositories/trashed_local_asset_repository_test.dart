@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/trashed_local_asset.repository.dart';
+import 'package:universal_photos/domain/models/album/local_album.model.dart';
+import 'package:universal_photos/infrastructure/repositories/trashed_local_asset.repository.dart';
 
 import '../repository_context.dart';
 

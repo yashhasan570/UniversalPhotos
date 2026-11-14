@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getAssetPlaybackUrl, getAssetUrl } from '#lib/utils.ts';
-  import type { AssetResponseDto } from '@immich/sdk';
-  import { LoadingSpinner } from '@immich/ui';
+  import type { AssetResponseDto } from '@Universal Photos/sdk';
+  import { LoadingSpinner } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HeaderButtonActionItem } from '#lib/types.ts';
-  import { Button, type Variants } from '@immich/ui';
+  import { Button, type Variants } from '@Universal Photos/ui';
 
   type Props = {
     action: HeaderButtonActionItem;

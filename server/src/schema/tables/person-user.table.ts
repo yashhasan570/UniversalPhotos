@@ -10,7 +10,7 @@ import {
   Timestamp,
   UpdateDateColumn,
   type Generated,
-} from '@immich/sql-tools';
+} from '@universalphotos/sql-tools';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { PersonUserRole } from 'src/dtos/person.dto.js';
 import { person_user_role_enum } from 'src/schema/enums.js';

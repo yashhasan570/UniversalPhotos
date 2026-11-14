@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/widgets/common/confirm_dialog.dart';
 
 class DismissibleActivity extends StatelessWidget {
   final String activityId;

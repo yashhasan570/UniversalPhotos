@@ -83,7 +83,7 @@ describe(MetadataService.name, () => {
 
   describe('sidecar metadata extraction', () => {
     it('should persist metadata read from a discovered XMP sidecar', async () => {
-      await using tempDir = await mkdtempDisposable(join(tmpdir(), 'immich-sidecar-'));
+      await using tempDir = await mkdtempDisposable(join(tmpdir(), 'universalphotos-sidecar-'));
       const { sut, ctx } = setup(undefined, { realStorage: true });
       const originalPath = join(tempDir.path, 'photo.png');
       await writeFile(originalPath, newRandomImage());

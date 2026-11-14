@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
-import 'package:immich_mobile/presentation/widgets/images/progressive_image.widget.dart';
+import 'package:universal_photos/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
+import 'package:universal_photos/presentation/widgets/images/progressive_image.widget.dart';
 
 class _ProgressiveProvider extends ImageProvider<_ProgressiveProvider> {
   const _ProgressiveProvider(this.frames);
@@ -20,7 +20,7 @@ class _ProgressiveProvider extends ImageProvider<_ProgressiveProvider> {
 }
 
 void main() {
-  // Issue https://github.com/immich-app/immich/issues/29727: [Image] stops iterating through [ImageProvider] while Android's "Remove animations" is enabled
+  // Issue https://github.com/yashhasan570/UniversalPhotos/issues/29727: [Image] stops iterating through [ImageProvider] while Android's "Remove animations" is enabled
   // This caused us to get stuck rendering a low quality image
   for (final disableAnimations in [false, true]) {
     final state = disableAnimations ? 'disabled' : 'enabled';

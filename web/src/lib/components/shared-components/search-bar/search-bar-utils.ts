@@ -1,6 +1,6 @@
 import { MediaType } from '#lib/constants.ts';
 import { handleError } from '#lib/utils/handle-error.ts';
-import { getAllPeople, type PersonResponseDto, type TagResponseDto } from '@immich/sdk';
+import { getAllPeople, type PersonResponseDto, type TagResponseDto } from '@universalphotos/sdk';
 import { DateTime } from 'luxon';
 import { t } from 'svelte-i18n';
 import type { SvelteSet } from 'svelte/reactivity';

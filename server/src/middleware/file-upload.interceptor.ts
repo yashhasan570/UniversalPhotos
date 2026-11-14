@@ -14,7 +14,7 @@ import { AuthRequest } from 'src/middleware/auth.guard.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
 import { StorageRepository } from 'src/repositories/storage.repository.js';
 import { AssetMediaService } from 'src/services/asset-media.service.js';
-import type { ImmichFile, UploadFile, UploadFiles } from 'src/types.js';
+import type { UniversalPhotosFile, UploadFile, UploadFiles } from 'src/types.js';
 import { asUploadRequest, mapToUploadFile } from 'src/utils/asset.util.js';
 
 export function getFile(files: UploadFiles, property: 'assetData' | 'sidecarData') {
@@ -29,7 +29,7 @@ export function getFiles(files: UploadFiles) {
   };
 }
 
-type ImmichMulterFile = Express.Multer.File & { uuid: string };
+type UniversalPhotosMulterFile = Express.Multer.File & { uuid: string };
 
 interface Callback<T> {
   (error: Error): void;
@@ -94,7 +94,7 @@ export class FileUploadInterceptor implements NestInterceptor {
     }
   }
 
-  private handleFile(request: AuthRequest, file: Express.Multer.File, callback: Callback<Partial<ImmichFile>>) {
+  private handleFile(request: AuthRequest, file: Express.Multer.File, callback: Callback<Partial<UniversalPhotosFile>>) {
     request.on('error', (error) => {
       if ('code' in error && error.code === 'ECONNRESET') {
         this.logger.debug('Upload was cancelled');
@@ -105,7 +105,7 @@ export class FileUploadInterceptor implements NestInterceptor {
     });
 
     try {
-      (file as ImmichMulterFile).uuid = randomUUID();
+      (file as UniversalPhotosMulterFile).uuid = randomUUID();
 
       const uploadRequest = asUploadRequest(request, file);
 

@@ -1,5 +1,5 @@
 import { PlacesGroupBy, placesViewSettings, type PlacesViewSettings } from '#lib/stores/preferences.store.ts';
-import { type AssetResponseDto } from '@immich/sdk';
+import { type AssetResponseDto } from '@universalphotos/sdk';
 import { get } from 'svelte/store';
 
 /**

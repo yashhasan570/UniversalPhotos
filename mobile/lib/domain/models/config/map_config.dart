@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:immich_mobile/utils/option.dart';
+import 'package:universal_photos/utils/option.dart';
 
 part 'map_config.freezed.dart';
 

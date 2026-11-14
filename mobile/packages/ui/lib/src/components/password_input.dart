@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/text_input.dart';
-import 'package:immich_ui/src/internal.dart';
+import 'package:universalphotos_ui/src/components/text_input.dart';
+import 'package:universalphotos_ui/src/internal.dart';
 
-class ImmichPasswordInput extends StatefulWidget {
+class UniversalPhotosPasswordInput extends StatefulWidget {
   final String? label;
   final String? hintText;
   final TextEditingController? controller;
@@ -11,7 +11,7 @@ class ImmichPasswordInput extends StatefulWidget {
   final void Function(String value)? onSubmit;
   final TextInputAction? keyboardAction;
 
-  const ImmichPasswordInput({
+  const UniversalPhotosPasswordInput({
     super.key,
     this.controller,
     this.focusNode,
@@ -23,10 +23,10 @@ class ImmichPasswordInput extends StatefulWidget {
   });
 
   @override
-  State createState() => _ImmichPasswordInputState();
+  State createState() => _UniversalPhotosPasswordInputState();
 }
 
-class _ImmichPasswordInputState extends State<ImmichPasswordInput> {
+class _UniversalPhotosPasswordInputState extends State<UniversalPhotosPasswordInput> {
   bool _visible = false;
 
   void _toggleVisibility() {
@@ -37,7 +37,7 @@ class _ImmichPasswordInputState extends State<ImmichPasswordInput> {
 
   @override
   Widget build(BuildContext context) {
-    return ImmichTextInput(
+    return UniversalPhotosTextInput(
       key: widget.key,
       label: widget.label ?? context.translations.password,
       hintText: widget.hintText,

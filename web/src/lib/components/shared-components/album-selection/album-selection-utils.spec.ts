@@ -5,7 +5,7 @@ import {
 } from '#lib/components/shared-components/album-selection/album-selection-utils.ts';
 import { AlbumSortBy, SortOrder } from '#lib/stores/preferences.store.ts';
 import { factory } from '#test/unit/factories.ts';
-import type { AlbumResponseDto } from '@immich/sdk';
+import type { AlbumResponseDto } from '@universalphotos/sdk';
 
 // Some helper functions to make tests below more readable
 const createNewAlbumRow = (selected: boolean) => ({

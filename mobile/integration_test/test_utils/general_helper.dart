@@ -3,26 +3,26 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/store.dart';
+import 'package:universal_photos/data/store.dart';
 // ignore: library_prefixes
-import 'package:immich_mobile/entities/store.entity.dart' as dbStore;
-import 'package:immich_mobile/main.dart' as app;
-import 'package:immich_mobile/utils/bootstrap.dart';
+import 'package:universal_photos/entities/store.entity.dart' as dbStore;
+import 'package:universal_photos/main.dart' as app;
+import 'package:universal_photos/utils/bootstrap.dart';
 import 'package:integration_test/integration_test.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 
 import 'login_helper.dart';
 
-class ImmichTestHelper {
+class UniversalPhotosTestHelper {
   final WidgetTester tester;
 
-  ImmichTestHelper(this.tester);
+  UniversalPhotosTestHelper(this.tester);
 
-  ImmichTestLoginHelper? _loginHelper;
+  UniversalPhotosTestLoginHelper? _loginHelper;
 
-  ImmichTestLoginHelper get loginHelper {
-    _loginHelper ??= ImmichTestLoginHelper(tester);
+  UniversalPhotosTestLoginHelper get loginHelper {
+    _loginHelper ??= UniversalPhotosTestLoginHelper(tester);
     return _loginHelper!;
   }
 
@@ -54,10 +54,10 @@ class ImmichTestHelper {
 }
 
 @isTest
-void immichWidgetTest(String description, Future<void> Function(WidgetTester, ImmichTestHelper) test) {
+void universalphotosWidgetTest(String description, Future<void> Function(WidgetTester, UniversalPhotosTestHelper) test) {
   testWidgets(description, (widgetTester) async {
-    await ImmichTestHelper.loadApp(widgetTester);
-    await test(widgetTester, ImmichTestHelper(widgetTester));
+    await UniversalPhotosTestHelper.loadApp(widgetTester);
+    await test(widgetTester, UniversalPhotosTestHelper(widgetTester));
   }, semanticsEnabled: false);
 }
 

@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { factory } from '#test/common/factories.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { UserStatus } from '@immich/sdk';
+import { UserStatus } from '@universalphotos/sdk';
 
 test.describe('user administration', () => {
   test('lists users and creates a new one', async ({ page, data, api, app }) => {
@@ -12,22 +12,22 @@ test.describe('user administration', () => {
 
     await app.admin.users.createUserButton.click();
     await expect(page).toHaveURL(Route.newUser());
-    await form.emailInput.fill('user@immich.cloud');
+    await form.emailInput.fill('user@');
     await form.passwordInput.fill('password');
     await form.confirmPasswordInput.fill('password');
-    await form.nameInput.fill('Immich User');
+    await form.nameInput.fill('UniversalPhotos User');
     await form.createButton.click();
 
     await page.waitForURL(/\/admin\/users\/[0-9a-f-]+$/);
-    await expect(page.getByText('user@immich.cloud')).toBeVisible();
+    await expect(page.getByText('user@')).toBeVisible();
     expect(api.createUserAdmin).toHaveBeenCalledWith({
-      body: expect.objectContaining({ email: 'user@immich.cloud', name: 'Immich User', password: 'password' }),
+      body: expect.objectContaining({ email: 'user@', name: 'UniversalPhotos User', password: 'password' }),
     });
   });
 
   test('promotes a user to admin and revokes it again', async ({ page, data, api, app }) => {
     const { form } = app.admin.users;
-    const user = factory.user({ name: 'Admin 2', email: 'admin2@immich.cloud', isAdmin: false });
+    const user = factory.user({ name: 'Admin 2', email: 'admin2@', isAdmin: false });
     data.addUsers(user);
 
     await page.goto(Route.editUser(user));
@@ -56,7 +56,7 @@ test.describe('user administration', () => {
   test('a deleted user only offers restore', async ({ page, data, app }) => {
     const user = factory.user({
       name: 'Gone User',
-      email: 'gone@immich.cloud',
+      email: 'gone@',
       isAdmin: false,
       deletedAt: '2026-10-01T00:00:00.000Z',
       status: UserStatus.Deleted,
@@ -73,7 +73,7 @@ test.describe('user administration', () => {
   });
 
   test('resets a user password', async ({ page, data, api, app }) => {
-    const user = factory.user({ name: 'Reset User', email: 'reset@immich.cloud', isAdmin: false });
+    const user = factory.user({ name: 'Reset User', email: 'reset@', isAdmin: false });
     data.addUsers(user);
     await page.goto(Route.viewUser(user));
 
@@ -93,7 +93,7 @@ test.describe('user administration', () => {
   });
 
   test('resets a user pin code', async ({ page, data, api, app }) => {
-    const user = factory.user({ name: 'Reset User', email: 'reset@immich.cloud', isAdmin: false });
+    const user = factory.user({ name: 'Reset User', email: 'reset@', isAdmin: false });
     data.addUsers(user);
     await page.goto(Route.viewUser(user));
 

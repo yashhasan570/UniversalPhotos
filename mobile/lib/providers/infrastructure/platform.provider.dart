@@ -1,14 +1,14 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/services/background_worker.service.dart';
-import 'package:immich_mobile/platform/background_worker_api.g.dart';
-import 'package:immich_mobile/platform/background_worker_lock_api.g.dart';
-import 'package:immich_mobile/platform/connectivity_api.g.dart';
-import 'package:immich_mobile/platform/local_image_api.g.dart';
-import 'package:immich_mobile/platform/native_sync_api.g.dart';
-import 'package:immich_mobile/platform/network_api.g.dart';
-import 'package:immich_mobile/platform/passkey_api.g.dart';
-import 'package:immich_mobile/platform/permission_api.g.dart';
-import 'package:immich_mobile/platform/remote_image_api.g.dart';
+import 'package:universal_photos/domain/services/background_worker.service.dart';
+import 'package:universal_photos/platform/background_worker_api.g.dart';
+import 'package:universal_photos/platform/background_worker_lock_api.g.dart';
+import 'package:universal_photos/platform/connectivity_api.g.dart';
+import 'package:universal_photos/platform/local_image_api.g.dart';
+import 'package:universal_photos/platform/native_sync_api.g.dart';
+import 'package:universal_photos/platform/network_api.g.dart';
+import 'package:universal_photos/platform/passkey_api.g.dart';
+import 'package:universal_photos/platform/permission_api.g.dart';
+import 'package:universal_photos/platform/remote_image_api.g.dart';
 
 final backgroundWorkerFgServiceProvider = Provider((_) => BackgroundWorkerFgService(BackgroundWorkerFgHostApi()));
 

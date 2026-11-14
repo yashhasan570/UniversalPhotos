@@ -4,7 +4,7 @@ use jni::objects::{JByteBuffer, JClass, JObject};
 use jni::sys::{jint, jlong, jobject};
 
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_immich_NativeBuffer_allocate<'caller>(
+pub extern "system" fn Java_app_alextran_Universal Photos_NativeBuffer_allocate<'caller>(
     _env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     size: jint,
@@ -14,7 +14,7 @@ pub extern "system" fn Java_app_alextran_immich_NativeBuffer_allocate<'caller>(
 }
 
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_immich_NativeBuffer_free<'caller>(
+pub extern "system" fn Java_app_alextran_Universal Photos_NativeBuffer_free<'caller>(
     _env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     address: jlong,
@@ -24,7 +24,7 @@ pub extern "system" fn Java_app_alextran_immich_NativeBuffer_free<'caller>(
 }
 
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_immich_NativeBuffer_realloc<'caller>(
+pub extern "system" fn Java_app_alextran_Universal Photos_NativeBuffer_realloc<'caller>(
     _env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     address: jlong,
@@ -35,7 +35,7 @@ pub extern "system" fn Java_app_alextran_immich_NativeBuffer_realloc<'caller>(
 }
 
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_immich_NativeBuffer_wrap<'caller>(
+pub extern "system" fn Java_app_alextran_Universal Photos_NativeBuffer_wrap<'caller>(
     env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     address: jlong,
@@ -48,7 +48,7 @@ pub extern "system" fn Java_app_alextran_immich_NativeBuffer_wrap<'caller>(
 }
 
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_immich_NativeBuffer_copy<'caller>(
+pub extern "system" fn Java_app_alextran_Universal Photos_NativeBuffer_copy<'caller>(
     mut env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     buffer: JByteBuffer<'caller>,
@@ -70,7 +70,7 @@ pub extern "system" fn Java_app_alextran_immich_NativeBuffer_copy<'caller>(
 }
 
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_immich_NativeBuffer_createGlobalRef<'caller>(
+pub extern "system" fn Java_app_alextran_Universal Photos_NativeBuffer_createGlobalRef<'caller>(
     mut env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     obj: JObject<'caller>,

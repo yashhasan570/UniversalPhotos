@@ -656,8 +656,8 @@ export const defaults = Object.freeze<SystemConfig>({
     level: LogLevel.Log,
   },
   machineLearning: {
-    enabled: process.env.IMMICH_MACHINE_LEARNING_ENABLED !== 'false',
-    urls: [process.env.IMMICH_MACHINE_LEARNING_URL || 'http://immich-machine-learning:3003'],
+    enabled: process.env.UNIVERSALPHOTOS_MACHINE_LEARNING_ENABLED !== 'false',
+    urls: [process.env.UNIVERSALPHOTOS_MACHINE_LEARNING_URL || 'http://universalphotos-machine-learning:3003'],
     availabilityChecks: {
       enabled: true,
       timeout: 2000,
@@ -688,8 +688,8 @@ export const defaults = Object.freeze<SystemConfig>({
   },
   map: {
     enabled: true,
-    lightStyle: 'https://tiles.immich.cloud/v1/style/light.json',
-    darkStyle: 'https://tiles.immich.cloud/v1/style/dark.json',
+    lightStyle: 'https://tiles./v1/style/light.json',
+    darkStyle: 'https://tiles./v1/style/dark.json',
   },
   reverseGeocoding: {
     enabled: true,
@@ -717,8 +717,8 @@ export const defaults = Object.freeze<SystemConfig>({
     signingAlgorithm: 'RS256',
     profileSigningAlgorithm: 'none',
     storageLabelClaim: 'preferred_username',
-    storageQuotaClaim: 'immich_quota',
-    roleClaim: 'immich_role',
+    storageQuotaClaim: 'universalphotos_quota',
+    roleClaim: 'universalphotos_role',
     tokenEndpointAuthMethod: OAuthTokenEndpointAuthMethod.ClientSecretPost,
     timeout: 30_000,
     allowInsecureRequests: false,

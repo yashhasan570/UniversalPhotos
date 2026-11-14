@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:immich_mobile/models/albums/album_search.model.dart';
-import 'package:immich_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:universal_photos/models/albums/album_search.model.dart';
+import 'package:universal_photos/providers/album/album_sort_by_options.provider.dart';
 
 part 'album_filter.utils.freezed.dart';
 

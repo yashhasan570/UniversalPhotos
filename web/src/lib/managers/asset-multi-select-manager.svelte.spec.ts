@@ -1,7 +1,7 @@
 import { AssetMultiSelectManager } from '#lib/managers/asset-multi-select-manager.svelte.ts';
 import { authManager } from '#lib/managers/auth-manager.svelte.ts';
 import { factory } from '#test/unit/factories.ts';
-import { AssetVisibility } from '@immich/sdk';
+import { AssetVisibility } from '@universalphotos/sdk';
 
 describe('AssetMultiSelectManager', () => {
   let sut: AssetMultiSelectManager;

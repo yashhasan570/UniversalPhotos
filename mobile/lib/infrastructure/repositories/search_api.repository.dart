@@ -1,7 +1,7 @@
-import 'package:immich_mobile/data/server/api_repository.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart' hide AssetVisibility;
-import 'package:immich_mobile/models/search/search_filter.model.dart';
-import 'package:immich_mobile/utils/option.dart';
+import 'package:universal_photos/data/server/api_repository.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart' hide AssetVisibility;
+import 'package:universal_photos/models/search/search_filter.model.dart';
+import 'package:universal_photos/utils/option.dart';
 import 'package:openapi/api.dart' hide SearchFilter;
 
 class SearchApiRepository extends ApiRepository {

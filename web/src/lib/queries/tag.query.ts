@@ -8,7 +8,7 @@ import {
   updateTag,
   upsertTags,
   type TagResponseDto,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 const findOrFail = (tags: TagResponseDto[], id: string) => {

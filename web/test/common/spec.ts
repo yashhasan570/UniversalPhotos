@@ -1,4 +1,4 @@
-import openApiSpec from '../../../open-api/immich-openapi-specs.json' with { type: 'json' };
+import openApiSpec from '../../../open-api/universalphotos-openapi-specs.json' with { type: 'json' };
 
 type ParameterType = 'string' | 'boolean' | 'number' | 'integer' | 'array';
 

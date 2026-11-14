@@ -11,8 +11,8 @@
         "'self'",
         "blob:",
         "https://pay.futo.org",
-        "https://static.immich.cloud",
-        "https://tiles.immich.cloud"
+        "https://static.",
+        "https://tiles."
       ],
       "worker-src": ["'self'", "blob:"],
       "frame-src": ["'none'"],

@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart';
-import 'package:immich_ui/src/components/text_input.dart';
+import 'package:universalphotos_ui/src/components/text_input.dart';
 
-/// An ImmichTextInput customized for receiving email addresses
-class ImmichEmailInput extends ImmichTextInput {
-  const ImmichEmailInput({
+/// An UniversalPhotosTextInput customized for receiving email addresses
+class UniversalPhotosEmailInput extends UniversalPhotosTextInput {
+  const UniversalPhotosEmailInput({
     super.key,
     super.controller,
     super.focusNode,

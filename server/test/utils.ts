@@ -1,5 +1,5 @@
 /* eslint-disable unicorn/no-this-outside-of-class */
-import { DatabaseConnectionParams, createPostgres } from '@immich/sql-tools';
+import { DatabaseConnectionParams, createPostgres } from '@universalphotos/sql-tools';
 import { CallHandler, ExecutionContext, Provider } from '@nestjs/common';
 import { APP_FILTER, APP_GUARD, APP_PIPE } from '@nestjs/core';
 import { transformException } from '@nestjs/platform-express/multer/multer/multer.utils';
@@ -502,12 +502,12 @@ const templateName = 'mich';
 const withDatabase = (url: string, name: string) => url.replace(`/${templateName}`, () => `/${name}`);
 
 export const getKyselyDB = async (suffix?: string): Promise<Kysely<DB>> => {
-  const testUrl = process.env.IMMICH_TEST_POSTGRES_URL!;
+  const testUrl = process.env.UNIVERSALPHOTOS_TEST_POSTGRES_URL!;
   const connection = { connectionType: 'url', url: withDatabase(testUrl, 'postgres') } as DatabaseConnectionParams;
   const sql = createPostgres({ maxConnections: 1, connection });
 
   const randomSuffix = Math.random().toString(36).slice(2, 7);
-  const dbName = `immich_${suffix ?? randomSuffix}`;
+  const dbName = `universalphotos_${suffix ?? randomSuffix}`;
   await sql.unsafe(`CREATE DATABASE ${dbName} WITH TEMPLATE ${templateName} OWNER postgres;`);
 
   return new Kysely<DB>(getKyselyConfig({ connectionType: 'url', url: withDatabase(testUrl, dbName) }));

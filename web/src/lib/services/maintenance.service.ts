@@ -1,7 +1,7 @@
 import { handleError } from '#lib/utils/handle-error.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { MaintenanceAction, setMaintenanceMode, type SetMaintenanceModeDto } from '@immich/sdk';
-import type { ActionItem } from '@immich/ui';
+import { MaintenanceAction, setMaintenanceMode, type SetMaintenanceModeDto } from '@universalphotos/sdk';
+import type { ActionItem } from '@universalphotos/ui';
 import { mdiProgressWrench } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';
 

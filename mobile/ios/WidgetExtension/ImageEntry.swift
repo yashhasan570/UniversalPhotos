@@ -16,7 +16,7 @@ struct ImageEntry: TimelineEntry {
   }
 
   static func build(
-    api: ImmichAPI,
+    api: UniversalPhotosAPI,
     asset: Asset,
     dateOffset: Int,
     subtitle: String? = nil,
@@ -45,7 +45,7 @@ struct ImageEntry: TimelineEntry {
 
   func cache(for key: String) throws {
     if let containerURL = FileManager.default.containerURL(
-      forSecurityApplicationGroupIdentifier: IMMICH_SHARE_GROUP
+      forSecurityApplicationGroupIdentifier: UNIVERSALPHOTOS_SHARE_GROUP
     ) {
       let imageURL = containerURL.appendingPathComponent("\(key)_image.png")
       let metadataURL = containerURL.appendingPathComponent(
@@ -65,7 +65,7 @@ struct ImageEntry: TimelineEntry {
     -> ImageEntry?
   {
     if let containerURL = FileManager.default.containerURL(
-      forSecurityApplicationGroupIdentifier: IMMICH_SHARE_GROUP
+      forSecurityApplicationGroupIdentifier: UNIVERSALPHOTOS_SHARE_GROUP
     ) {
       let imageURL = containerURL.appendingPathComponent("\(key)_image.png")
       let metadataURL = containerURL.appendingPathComponent(
@@ -129,7 +129,7 @@ extension ImageEntry.Metadata {
 }
 
 func generateRandomEntries(
-  api: ImmichAPI,
+  api: UniversalPhotosAPI,
   now: Date,
   count: Int,
   filter: SearchFilter = Album.NONE.filter,

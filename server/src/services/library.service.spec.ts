@@ -4,7 +4,7 @@ import { vitest } from 'vitest';
 import { JOBS_LIBRARY_PAGINATION_SIZE } from 'src/constants.js';
 import { SystemConfig, defaults } from 'src/dtos/config.dto.js';
 import { mapLibrary } from 'src/dtos/library.dto.js';
-import { AssetType, CronJob, ImmichWorker, JobName, JobStatus } from 'src/enum.js';
+import { AssetType, CronJob, UniversalPhotosWorker, JobName, JobStatus } from 'src/enum.js';
 import { LibraryService } from 'src/services/library.service.js';
 import type { ILibraryBulkIdsJob, ILibraryFileJob } from 'src/types.js';
 import { AssetFactory } from 'test/factories/asset.factory.js';
@@ -28,7 +28,7 @@ describe(LibraryService.name, () => {
     ({ sut, mocks } = newTestService(LibraryService));
 
     mocks.database.tryLock.mockResolvedValue(true);
-    mocks.config.getWorker.mockReturnValue(ImmichWorker.Microservices);
+    mocks.config.getWorker.mockReturnValue(UniversalPhotosWorker.Microservices);
   });
 
   it('should work', () => {
@@ -1302,7 +1302,7 @@ describe(LibraryService.name, () => {
       });
     });
 
-    it('should detect when import path is in immich media folder', async () => {
+    it('should detect when import path is in universalphotos media folder', async () => {
       const importPaths = ['/data/thumbs', `${process.cwd()}/xyz`, '/data/library'];
       const library = factory.library({ importPaths });
 

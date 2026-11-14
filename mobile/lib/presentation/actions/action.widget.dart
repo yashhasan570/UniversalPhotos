@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/presentation/actions/action.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 abstract class ActionWidget extends ConsumerWidget {
   final ActionBuilder action;
@@ -25,7 +25,7 @@ class ActionColumnButton extends ActionWidget {
   const ActionColumnButton({super.key, required super.action});
 
   @override
-  Widget builder(BuildContext context, WidgetRef ref, ActionItem action) => ImmichColumnButton(
+  Widget builder(BuildContext context, WidgetRef ref, ActionItem action) => UniversalPhotosColumnButton(
     icon: action.icon,
     label: action.label,
     onPressed: action.onAction,
@@ -34,12 +34,12 @@ class ActionColumnButton extends ActionWidget {
 }
 
 class ActionIconButton extends ActionWidget {
-  final ImmichVariant variant;
+  final UniversalPhotosVariant variant;
 
   const ActionIconButton({super.key, required super.action, this.variant = .ghost});
 
   @override
-  Widget builder(BuildContext context, WidgetRef ref, ActionItem action) => ImmichIconButton(
+  Widget builder(BuildContext context, WidgetRef ref, ActionItem action) => UniversalPhotosIconButton(
     icon: action.icon,
     onPressed: action.onAction,
     onLongPress: action.onSecondaryAction,
@@ -48,12 +48,12 @@ class ActionIconButton extends ActionWidget {
 }
 
 class ActionButton extends ActionWidget {
-  final ImmichVariant variant;
+  final UniversalPhotosVariant variant;
 
   const ActionButton({super.key, required super.action, this.variant = .ghost});
 
   @override
-  Widget builder(BuildContext context, WidgetRef ref, ActionItem action) => ImmichTextButton(
+  Widget builder(BuildContext context, WidgetRef ref, ActionItem action) => UniversalPhotosTextButton(
     labelText: action.label,
     icon: action.icon,
     onPressed: action.onAction,
@@ -67,5 +67,5 @@ class ActionMenuItem extends ActionWidget {
 
   @override
   Widget builder(BuildContext context, WidgetRef ref, ActionItem action) =>
-      ImmichMenuItem(icon: action.icon, label: action.label, onPressed: action.onAction);
+      UniversalPhotosMenuItem(icon: action.icon, label: action.label, onPressed: action.onAction);
 }

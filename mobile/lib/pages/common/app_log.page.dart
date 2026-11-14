@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:immich_mobile/domain/models/log.model.dart';
-import 'package:immich_mobile/domain/services/log.service.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/datetime_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/immich_logger.service.dart';
+import 'package:universal_photos/domain/models/log.model.dart';
+import 'package:universal_photos/domain/services/log.service.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/datetime_extensions.dart';
+import 'package:universal_photos/extensions/theme_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/services/universalphotos_logger.service.dart';
 import 'package:intl/intl.dart';
 
 @RoutePage()
@@ -19,9 +19,9 @@ class AppLogPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final immichLogger = LogService.I;
+    final universalphotosLogger = LogService.I;
     final shouldReload = useState(false);
-    final logMessages = useFuture(useMemoized(() => immichLogger.getMessages(), [shouldReload.value]));
+    final logMessages = useFuture(useMemoized(() => universalphotosLogger.getMessages(), [shouldReload.value]));
 
     Widget colorStatusIndicator(Color color) {
       return Column(
@@ -64,7 +64,7 @@ class AppLogPage extends HookWidget {
               size: 20.0,
             ),
             onPressed: () {
-              unawaited(immichLogger.clearLogs());
+              unawaited(universalphotosLogger.clearLogs());
               shouldReload.value = !shouldReload.value;
             },
           ),
@@ -73,7 +73,7 @@ class AppLogPage extends HookWidget {
               return IconButton(
                 icon: Icon(Icons.share_rounded, color: context.primaryColor, semanticLabel: "Share logs", size: 20.0),
                 onPressed: () {
-                  unawaited(ImmichLogger.shareLogs(iconContext));
+                  unawaited(UniversalPhotosLogger.shareLogs(iconContext));
                 },
               );
             },

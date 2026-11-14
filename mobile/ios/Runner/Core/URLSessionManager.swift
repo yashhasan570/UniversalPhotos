@@ -1,9 +1,9 @@
 import Foundation
 import native_video_player
 
-let CLIENT_CERT_LABEL = "app.alextran.immich.client_identity"
-let HEADERS_KEY = "immich.request_headers"
-let SERVER_URLS_KEY = "immich.server_urls"
+let CLIENT_CERT_LABEL = "app.alextran.client_identity"
+let HEADERS_KEY = "universalphotos.request_headers"
+let SERVER_URLS_KEY = "universalphotos.server_urls"
 let APP_GROUP = Bundle.main.object(forInfoDictionaryKey: "AppGroupId") as! String
 let COOKIE_EXPIRY_DAYS: TimeInterval = 400
 
@@ -12,9 +12,9 @@ enum AuthCookie: CaseIterable {
 
   var name: String {
     switch self {
-    case .accessToken: return "immich_access_token"
-    case .isAuthenticated: return "immich_is_authenticated"
-    case .authType: return "immich_auth_type"
+    case .accessToken: return "universalphotos_access_token"
+    case .isAuthenticated: return "universalphotos_is_authenticated"
+    case .authType: return "universalphotos_auth_type"
     }
   }
 
@@ -53,7 +53,7 @@ class URLSessionManager: NSObject {
   )
   static let userAgent: String = {
     let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "unknown"
-    return "immich-ios/\(version)"
+    return "universalphotos-ios/\(version)"
   }()
   static let cookieStorage = HTTPCookieStorage.sharedCookieStorage(forGroupContainerIdentifier: APP_GROUP)
   private static var serverUrls: [String] = []
@@ -172,7 +172,7 @@ class URLSessionManager: NSObject {
   static func patchBackgroundDownloader() {
     // Swizzle URLSessionConfiguration.background(withIdentifier:) to inject shared config
     let originalSel = NSSelectorFromString("backgroundSessionConfigurationWithIdentifier:")
-    let swizzledSel = #selector(URLSessionConfiguration.immich_background(withIdentifier:))
+    let swizzledSel = #selector(URLSessionConfiguration_background(withIdentifier:))
     if let original = class_getClassMethod(URLSessionConfiguration.self, originalSel),
        let swizzled = class_getClassMethod(URLSessionConfiguration.self, swizzledSel) {
       method_exchangeImplementations(original, swizzled)
@@ -202,9 +202,9 @@ class URLSessionManager: NSObject {
 }
 
 private extension URLSessionConfiguration {
-  @objc dynamic class func immich_background(withIdentifier id: String) -> URLSessionConfiguration {
+  @objc dynamic class func universalphotos_background(withIdentifier id: String) -> URLSessionConfiguration {
     // After swizzle, this calls the original implementation
-    let config = immich_background(withIdentifier: id)
+    let config = universalphotos_background(withIdentifier: id)
     config.httpCookieStorage = URLSessionManager.cookieStorage
     config.httpAdditionalHeaders = ["User-Agent": URLSessionManager.userAgent]
     return config

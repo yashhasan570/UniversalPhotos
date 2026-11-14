@@ -3,10 +3,10 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: immich_api
+  - job_name: universalphotos_api
     static_configs:
-      - targets: ['immich-server:8081']
+      - targets: ['universalphotos-server:8081']
 
-  - job_name: immich_microservices
+  - job_name: universalphotos_microservices
     static_configs:
-      - targets: ['immich-server:8082']
+      - targets: ['universalphotos-server:8082']

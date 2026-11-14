@@ -1,5 +1,5 @@
 import { test } from '#test/unit/fixtures.ts';
-import { getAlbumInfo } from '@immich/sdk';
+import { getAlbumInfo } from '@universalphotos/sdk';
 import { describe, expect } from 'vitest';
 import { handleError } from './hooks.client.ts';
 

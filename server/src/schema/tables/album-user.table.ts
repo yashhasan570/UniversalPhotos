@@ -9,7 +9,7 @@ import {
   Timestamp,
   UpdateDateColumn,
   type Generated,
-} from '@immich/sql-tools';
+} from '@universalphotos/sql-tools';
 import { CreateIdColumn, UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { AlbumUserRole } from 'src/enum.js';
 import { album_user_role_enum } from 'src/schema/enums.js';

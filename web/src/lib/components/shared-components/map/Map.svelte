@@ -16,8 +16,8 @@
   import { getPublicConfigQuery } from '#lib/queries/config-public.query.ts';
   import { mapSettings } from '#lib/stores/preferences.store.ts';
   import { getAssetMediaUrl, handlePromiseError } from '#lib/utils.ts';
-  import { getMapMarkers, type MapMarkerResponseDto } from '@immich/sdk';
-  import { Alert, Container, Icon, Text, Theme, modalManager, themeManager } from '@immich/ui';
+  import { getMapMarkers, type MapMarkerResponseDto } from '@Universal Photos/sdk';
+  import { Alert, Container, Icon, Text, Theme, modalManager, themeManager } from '@Universal Photos/ui';
   import { mdiCog, mdiImageMultiple, mdiMap, mdiMapMarker } from '@mdi/js';
   import type { Feature, GeoJsonProperties, Geometry, Point } from 'geojson';
   import { isEqual, omit } from 'lodash-es';
@@ -449,7 +449,7 @@
         >
           {#snippet children({ feature })}
             <div
-              class="flex size-10 items-center justify-center rounded-full bg-immich-primary font-mono font-bold text-white opacity-90 shadow-lg transition-all duration-200 hover:bg-immich-dark-primary hover:text-immich-dark-bg"
+              class="flex size-10 items-center justify-center rounded-full bg-Universal Photos-primary font-mono font-bold text-white opacity-90 shadow-lg transition-all duration-200 hover:bg-Universal Photos-dark-primary hover:text-Universal Photos-dark-bg"
             >
               {feature.properties?.point_count?.toLocaleString()}
             </div>
@@ -470,7 +470,7 @@
             {:else}
               <img
                 src={getAssetMediaUrl({ id: feature.properties?.id })}
-                class="size-15 rounded-full border-2 border-immich-primary bg-immich-primary object-cover shadow-lg transition-all duration-200 hover:scale-150 hover:border-immich-dark-primary"
+                class="size-15 rounded-full border-2 border-Universal Photos-primary bg-Universal Photos-primary object-cover shadow-lg transition-all duration-200 hover:scale-150 hover:border-Universal Photos-dark-primary"
                 alt={feature.properties?.city && feature.properties.country
                   ? $t('map_marker_for_image', {
                       values: { city: feature.properties.city, country: feature.properties.country },

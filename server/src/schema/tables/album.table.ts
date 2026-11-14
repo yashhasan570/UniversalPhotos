@@ -8,7 +8,7 @@ import {
   Timestamp,
   UpdateDateColumn,
   type Generated,
-} from '@immich/sql-tools';
+} from '@universalphotos/sql-tools';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { AssetOrder } from 'src/enum.js';
 import { AssetTable } from 'src/schema/tables/asset.table.js';

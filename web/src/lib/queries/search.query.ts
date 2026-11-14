@@ -1,4 +1,4 @@
-import { getAssetsByCity, getExploreData, getSearchSuggestions, searchPerson, searchPlaces } from '@immich/sdk';
+import { getAssetsByCity, getExploreData, getSearchSuggestions, searchPerson, searchPlaces } from '@universalphotos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 type SearchSuggestionsParams = Parameters<typeof getSearchSuggestions>[0];

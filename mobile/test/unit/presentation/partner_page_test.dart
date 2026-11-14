@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/pages/library/partner/partner.page.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/partner.action.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/pages/library/partner/partner.page.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/partner.action.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 import '../factories/partner_user_factory.dart';
 import '../factories/user_factory.dart';
@@ -22,7 +22,7 @@ void main() {
       await tester.pumpTestWidget(context, const PartnerSharedByList(partners: []));
 
       expect(find.byType(ListView), findsNothing);
-      expect(find.descendant(of: find.byType(ActionButton), matching: find.byType(ImmichTextButton)), findsOneWidget);
+      expect(find.descendant(of: find.byType(ActionButton), matching: find.byType(UniversalPhotosTextButton)), findsOneWidget);
     });
 
     testWidgets('renders a tile per partner with name and email', (tester) async {
@@ -41,7 +41,7 @@ void main() {
       final partner2 = PartnerFactory.create();
       await tester.pumpTestWidget(context, PartnerSharedByList(partners: [partner1, partner2]));
       expect(
-        find.descendant(of: find.byType(ActionIconButton), matching: find.byType(ImmichIconButton)),
+        find.descendant(of: find.byType(ActionIconButton), matching: find.byType(UniversalPhotosIconButton)),
         findsNWidgets(2),
       );
     });

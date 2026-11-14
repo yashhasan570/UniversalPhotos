@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/constants.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/auth/biometric_status.model.dart';
-import 'package:immich_mobile/services/local_auth.service.dart';
-import 'package:immich_mobile/services/secure_storage.service.dart';
+import 'package:universal_photos/constants/constants.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/models/auth/biometric_status.model.dart';
+import 'package:universal_photos/services/local_auth.service.dart';
+import 'package:universal_photos/services/secure_storage.service.dart';
 import 'package:logging/logging.dart';
 
 final localAuthProvider = StateNotifierProvider<LocalAuthNotifier, BiometricStatus>((ref) {

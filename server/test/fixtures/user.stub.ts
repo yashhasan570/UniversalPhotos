@@ -27,7 +27,7 @@ export const userStub = {
     status: UserStatus.Active,
     clusterGroupId: 'cluster-group-id',
     profileChangedAt: new Date('2021-01-01'),
-    name: 'immich_name',
+    name: 'universalphotos_name',
     storageLabel: null,
     oauthId: null,
     shouldChangePassword: false,

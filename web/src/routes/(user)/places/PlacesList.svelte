@@ -2,8 +2,8 @@
   import { PlacesGroupBy, type PlacesViewSettings } from '#lib/stores/preferences.store.ts';
   import { type PlacesGroup } from '#lib/utils/places-utils.ts';
   import { normalizeSearchString } from '#lib/utils/string-utils.ts';
-  import { type AssetResponseDto } from '@immich/sdk';
-  import { Icon } from '@immich/ui';
+  import { type AssetResponseDto } from '@Universal Photos/sdk';
+  import { Icon } from '@Universal Photos/ui';
   import { mdiMapMarkerOff } from '@mdi/js';
   import { groupBy } from 'lodash-es';
   import { t } from 'svelte-i18n';

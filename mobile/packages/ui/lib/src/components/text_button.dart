@@ -1,19 +1,19 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
-class ImmichTextButton extends StatefulWidget {
+class UniversalPhotosTextButton extends StatefulWidget {
   final String labelText;
   final IconData? icon;
   final FutureOr<void> Function() onPressed;
   final FutureOr<void> Function()? onLongPress;
-  final ImmichVariant variant;
+  final UniversalPhotosVariant variant;
   final bool expanded;
   final bool disabled;
   final bool? loading;
 
-  const ImmichTextButton({
+  const UniversalPhotosTextButton({
     super.key,
     required this.labelText,
     this.icon,
@@ -27,10 +27,10 @@ class ImmichTextButton extends StatefulWidget {
   });
 
   @override
-  State<ImmichTextButton> createState() => _ImmichTextButtonState();
+  State<UniversalPhotosTextButton> createState() => _UniversalPhotosTextButtonState();
 }
 
-class _ImmichTextButtonState extends State<ImmichTextButton> {
+class _UniversalPhotosTextButtonState extends State<UniversalPhotosTextButton> {
   bool _running = false;
   bool get _isLoading => widget.loading ?? _running;
   bool get _isDisabled => widget.disabled || _isLoading;
@@ -59,8 +59,8 @@ class _ImmichTextButtonState extends State<ImmichTextButton> {
   Widget build(BuildContext context) {
     final Widget? icon = _isLoading
         ? const SizedBox.square(
-            dimension: ImmichIconSize.md,
-            child: CircularProgressIndicator(strokeWidth: ImmichBorderWidth.lg),
+            dimension: UniversalPhotosIconSize.md,
+            child: CircularProgressIndicator(strokeWidth: UniversalPhotosBorderWidth.lg),
           )
         : widget.icon != null
         ? Icon(widget.icon, fontWeight: .w600)
@@ -68,19 +68,19 @@ class _ImmichTextButtonState extends State<ImmichTextButton> {
 
     final label = Text(
       widget.labelText,
-      style: const .new(fontSize: ImmichTextSize.body, fontWeight: .bold),
+      style: const .new(fontSize: UniversalPhotosTextSize.body, fontWeight: .bold),
     );
-    final style = ElevatedButton.styleFrom(padding: const .symmetric(vertical: ImmichSpacing.md));
+    final style = ElevatedButton.styleFrom(padding: const .symmetric(vertical: UniversalPhotosSpacing.md));
 
     final button = switch (widget.variant) {
-      ImmichVariant.filled => ElevatedButton.icon(
+      UniversalPhotosVariant.filled => ElevatedButton.icon(
         style: style,
         onPressed: _onPressed,
         onLongPress: _onLongPress,
         icon: icon,
         label: label,
       ),
-      ImmichVariant.ghost => TextButton.icon(
+      UniversalPhotosVariant.ghost => TextButton.icon(
         style: style,
         onPressed: _onPressed,
         onLongPress: _onLongPress,

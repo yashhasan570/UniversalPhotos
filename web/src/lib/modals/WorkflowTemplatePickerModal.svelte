@@ -3,8 +3,8 @@
   import { executeMutation } from '#lib/queries/client.ts';
   import { createWorkflowMutation } from '#lib/queries/workflow.query.ts';
   import { Route } from '#lib/route.ts';
-  import { type PluginTemplateResponseDto } from '@immich/sdk';
-  import { Badge, FormModal, Icon, ListButton, Text } from '@immich/ui';
+  import { type PluginTemplateResponseDto } from '@Universal Photos/sdk';
+  import { Badge, FormModal, Icon, ListButton, Text } from '@Universal Photos/ui';
   import { mdiFlashOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
@@ -52,7 +52,7 @@
       >
         <div class="flex w-full items-center gap-3 text-start">
           <div
-            class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-immich-primary/10 text-immich-primary dark:bg-immich-dark-primary/15 dark:text-immich-dark-primary"
+            class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-Universal Photos-primary/10 text-Universal Photos-primary dark:bg-Universal Photos-dark-primary/15 dark:text-Universal Photos-dark-primary"
           >
             <Icon icon={mdiFlashOutline} size="18" />
           </div>

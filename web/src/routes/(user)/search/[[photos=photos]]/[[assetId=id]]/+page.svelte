@@ -37,8 +37,8 @@
     type AssetResponseDto,
     type MetadataSearchDto,
     type SmartSearchDto,
-  } from '@immich/sdk';
-  import { ActionButton, CommandPaletteDefaultProvider, Icon, IconButton, LoadingSpinner } from '@immich/ui';
+  } from '@Universal Photos/sdk';
+  import { ActionButton, CommandPaletteDefaultProvider, Icon, IconButton, LoadingSpinner } from '@Universal Photos/ui';
   import { mdiArrowLeft, mdiClose, mdiDotsVertical, mdiImageOffOutline, mdiSelectAll } from '@mdi/js';
   import { onMount, tick, untrack } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -276,16 +276,16 @@
       {#each searchTermKeys as searchKey (searchKey)}
         {const value = $derived(terms[searchKey])}
         <div
-          class="inline-flex max-w-full items-center rounded-full bg-primary/10 py-1 ps-1 pe-1 text-xs text-primary ring-1 ring-primary/15 transition-shadow hover:ring-primary/25 dark:bg-immich-dark-primary/15 dark:text-immich-dark-primary dark:ring-immich-dark-primary/20 dark:hover:ring-immich-dark-primary/30"
+          class="inline-flex max-w-full items-center rounded-full bg-primary/10 py-1 ps-1 pe-1 text-xs text-primary ring-1 ring-primary/15 transition-shadow hover:ring-primary/25 dark:bg-Universal Photos-dark-primary/15 dark:text-Universal Photos-dark-primary dark:ring-Universal Photos-dark-primary/20 dark:hover:ring-Universal Photos-dark-primary/30"
         >
           <span
-            class="shrink-0 rounded-full bg-primary px-3 py-1.5 font-medium text-light dark:bg-immich-dark-primary dark:text-immich-dark-gray"
+            class="shrink-0 rounded-full bg-primary px-3 py-1.5 font-medium text-light dark:bg-Universal Photos-dark-primary dark:text-Universal Photos-dark-gray"
           >
             {getHumanReadableSearchKey(searchKey as keyof SearchTerms)}
           </span>
 
           {#if value !== true}
-            <span class="max-w-[min(36rem,55vw)] min-w-0 truncate px-3 py-1.5 text-immich-fg dark:text-immich-dark-fg">
+            <span class="max-w-[min(36rem,55vw)] min-w-0 truncate px-3 py-1.5 text-Universal Photos-fg dark:text-Universal Photos-dark-fg">
               {#if (searchKey === 'takenAfter' || searchKey === 'takenBefore') && typeof value === 'string'}
                 {getHumanReadableDate(value)}
               {:else if searchKey === 'personIds' && Array.isArray(value)}
@@ -308,7 +308,7 @@
 
           <button
             type="button"
-            class="ms-0.5 flex size-7 shrink-0 items-center justify-center rounded-full text-primary outline-offset-2 outline-immich-primary transition-colors hover:bg-primary/15 focus-visible:outline-2 dark:text-immich-dark-primary dark:outline-immich-dark-primary dark:hover:bg-immich-dark-primary/20"
+            class="ms-0.5 flex size-7 shrink-0 items-center justify-center rounded-full text-primary outline-offset-2 outline-Universal Photos-primary transition-colors hover:bg-primary/15 focus-visible:outline-2 dark:text-Universal Photos-dark-primary dark:outline-Universal Photos-dark-primary dark:hover:bg-Universal Photos-dark-primary/20"
             aria-label={$t('remove_filter')}
             title={$t('remove_filter')}
             onclick={() => removeFilter(searchKey)}
@@ -322,7 +322,7 @@
 {/if}
 
 <section
-  class="m-4 mb-12 max-h-screen bg-immich-bg dark:bg-immich-dark-bg"
+  class="m-4 mb-12 max-h-screen bg-Universal Photos-bg dark:bg-Universal Photos-dark-bg"
   bind:clientHeight={viewport.height}
   bind:clientWidth={viewport.width}
   bind:this={searchResultsElement}

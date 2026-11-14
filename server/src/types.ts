@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowTrigger } from '@universalphotos/plugin-sdk';
 import { ShallowDehydrateObject } from 'kysely';
 import { Mocked } from 'vitest';
 import { VECTOR_EXTENSIONS } from 'src/constants.js';
@@ -465,7 +465,7 @@ export interface ExtensionVersion {
   installedVersion: string | null;
 }
 
-export interface ImmichFile extends Express.Multer.File {
+export interface UniversalPhotosFile extends Express.Multer.File {
   uuid: string;
   /** sha1 hash of file */
   checksum: Buffer;
@@ -492,8 +492,8 @@ export type UploadRequest = {
 };
 
 export interface UploadFiles {
-  assetData: ImmichFile[];
-  sidecarData: ImmichFile[];
+  assetData: UniversalPhotosFile[];
+  sidecarData: UniversalPhotosFile[];
 }
 
 export interface IBulkAsset {

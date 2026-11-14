@@ -1,5 +1,5 @@
 import { test } from '#test/unit/fixtures.ts';
-import { IntegrityReport, MaintenanceAction, ManualJobName } from '@immich/sdk';
+import { IntegrityReport, MaintenanceAction, ManualJobName } from '@universalphotos/sdk';
 import { DateTime } from 'luxon';
 import { expect } from 'vitest';
 import { page } from 'vitest/browser';
@@ -10,7 +10,7 @@ test('shows the backup time relative to the backup timezone', async ({ data, ren
   vi.useFakeTimers({ toFake: ['Date'] });
   vi.setSystemTime(new Date('2026-03-24T12:00:00Z'));
   data.backups.backups.push({
-    filename: 'immich-db-backup-20260324T110000-v1.2.3-snapshot.sql.gz',
+    filename: 'universalphotos-db-backup-20260324T110000-v1.2.3-snapshot.sql.gz',
     filesize: 1024,
     timezone: 'Asia/Tokyo',
   });
@@ -46,7 +46,7 @@ test('checks a single integrity report type', async ({ render, settle, api, app 
 });
 
 test('restores a database backup', async ({ data, render, settle, api, app }) => {
-  const filename = 'immich-db-backup-20260324T110000-v1.2.3-snapshot.sql.gz';
+  const filename = 'universalphotos-db-backup-20260324T110000-v1.2.3-snapshot.sql.gz';
   data.backups.backups.push({ filename, filesize: 1024, timezone: 'UTC' });
   await render(Page, load);
   await app.admin.maintenance.restoreBackupButton.click();
@@ -67,7 +67,7 @@ test('restores a database backup', async ({ data, render, settle, api, app }) =>
 });
 
 test('deletes a database backup', async ({ data, render, settle, api, app }) => {
-  const filename = 'immich-db-backup-20260324T110000-v1.2.3-snapshot.sql.gz';
+  const filename = 'universalphotos-db-backup-20260324T110000-v1.2.3-snapshot.sql.gz';
   data.backups.backups.push({ filename, filesize: 1024, timezone: 'UTC' });
   await render(Page, load);
   await app.admin.maintenance.restoreBackupButton.click();

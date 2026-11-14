@@ -15,7 +15,7 @@ import { snakeCase, startCase } from 'lodash-es';
 import { MetricService } from 'nestjs-otel';
 import { copyMetadataFromFunctionToFunction } from 'nestjs-otel/lib/opentelemetry.utils.js';
 import { excludePaths, serverVersion } from 'src/constants.js';
-import { ImmichTelemetry, MetadataKey } from 'src/enum.js';
+import { UniversalPhotosTelemetry, MetadataKey } from 'src/enum.js';
 import { ConfigRepository } from 'src/repositories/config.repository.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
 
@@ -65,14 +65,14 @@ export const bootstrapTelemetry = (port: number) => {
 
   instance = new NodeSDK({
     resource: resourceFromAttributes({
-      [ATTR_SERVICE_NAME]: `immich`,
+      [ATTR_SERVICE_NAME]: `universalphotos`,
       [ATTR_SERVICE_VERSION]: serverVersion.toString(),
     }),
     metricReaders: [new PrometheusExporter({ port, host: '0.0.0.0' })],
     contextManager: new AsyncLocalStorageContextManager(),
     instrumentations: [
       new HttpInstrumentation({
-        enabled: telemetry.metrics.has(ImmichTelemetry.Api),
+        enabled: telemetry.metrics.has(UniversalPhotosTelemetry.Api),
         ignoreIncomingRequestHook: (request) => excludePaths.some((item) => request.url?.startsWith(item)),
       }),
       new IORedisInstrumentation(),
@@ -119,16 +119,16 @@ export class TelemetryRepository {
     const { telemetry } = this.configRepository.getEnv();
     const { metrics } = telemetry;
 
-    this.api = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(ImmichTelemetry.Api) });
-    this.host = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(ImmichTelemetry.Host) });
-    this.jobs = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(ImmichTelemetry.Job) });
-    this.repo = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(ImmichTelemetry.Repo) });
+    this.api = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(UniversalPhotosTelemetry.Api) });
+    this.host = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(UniversalPhotosTelemetry.Host) });
+    this.jobs = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(UniversalPhotosTelemetry.Job) });
+    this.repo = new MetricGroupRepository(metricService).configure({ enabled: metrics.has(UniversalPhotosTelemetry.Repo) });
   }
 
   setup({ repositories }: { repositories: (new (...args: any[]) => unknown)[] }) {
     const { telemetry } = this.configRepository.getEnv();
     const { metrics } = telemetry;
-    if (!metrics.has(ImmichTelemetry.Repo)) {
+    if (!metrics.has(UniversalPhotosTelemetry.Repo)) {
       return;
     }
 
@@ -159,7 +159,7 @@ export class TelemetryRepository {
       const metricName = `${snakeCase(className).replaceAll(/_(?=(repository)|(controller)|(provider)|(service)|(module))/g, '.')}.${propertyName}.duration`;
 
       const histogram = this.metricService.getHistogram(metricName, {
-        prefix: 'immich',
+        prefix: 'universalphotos',
         description: `The elapsed time in ${unit} for the ${startCase(className)} to ${propertyName.toLowerCase()}`,
         unit,
         valueType: ValueType.DOUBLE,

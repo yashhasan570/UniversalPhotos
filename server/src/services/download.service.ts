@@ -9,7 +9,7 @@ import {
   DownloadResponseDto,
 } from 'src/dtos/download.dto.js';
 import { Permission } from 'src/enum.js';
-import { ImmichReadStream } from 'src/repositories/storage.repository.js';
+import { UniversalPhotosReadStream } from 'src/repositories/storage.repository.js';
 import { BaseService } from 'src/services/base.service.js';
 import { HumanReadableSize } from 'src/utils/bytes.js';
 import { getFileNameWithoutExtension, getFilenameExtension } from 'src/utils/file.js';
@@ -87,7 +87,7 @@ export class DownloadService extends BaseService {
     return { totalSize, archives };
   }
 
-  async downloadArchive(auth: AuthDto, dto: DownloadArchiveDto): Promise<ImmichReadStream> {
+  async downloadArchive(auth: AuthDto, dto: DownloadArchiveDto): Promise<UniversalPhotosReadStream> {
     await this.requireAccess({ auth, permission: Permission.AssetDownload, ids: dto.assetIds });
 
     const edited = isEditedOnly(auth, dto.edited);

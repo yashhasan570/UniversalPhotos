@@ -51,7 +51,7 @@ packageExtensions:
     dependencies:
       node-addon-api: '*'
       node-gyp: '*'
-  '@immich/ui':
+  '@universalphotos/ui':
     dependencies:
       tailwindcss: '>=4.1'
   tailwind-variants:
@@ -70,7 +70,7 @@ injectWorkspacePackages: true
 shamefullyHoist: false
 verifyDepsBeforeRun: install
 minimumReleaseAgeExclude:
-  - '@immich/ui'
-  - '@immich/sql-tools@0.7.0'
+  - '@universalphotos/ui'
+  - '@universalphotos/sql-tools@0.7.0'
   - '@nestjs/cli@12.0.1'
   - '@futo-org/*'

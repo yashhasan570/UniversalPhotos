@@ -3,8 +3,8 @@ import { queryClient } from '#lib/queries/client.ts';
 import { getPublicConfigQuery } from '#lib/queries/config-public.query.ts';
 import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { getAdminConfig, getAdminConfigDefaults, updateAdminConfig, type AdminConfigDto } from '@immich/sdk';
-import { toastManager } from '@immich/ui';
+import { getAdminConfig, getAdminConfigDefaults, updateAdminConfig, type AdminConfigDto } from '@universalphotos/sdk';
+import { toastManager } from '@universalphotos/ui';
 import { mutationOptions, queryOptions } from '@tanstack/svelte-query';
 import { isEqual } from 'lodash-es';
 

@@ -13,19 +13,19 @@ extension Image {
   }
 }
 
-struct ImmichWidgetView: View {
+struct UniversalPhotosWidgetView: View {
   var entry: ImageEntry
 
   var body: some View {
     if let image = entry.image {
-      ImmichWidgetContentView(
+      UniversalPhotosWidgetContentView(
         image: image,
         subtitle: entry.metadata.subtitle,
         deepLink: entry.metadata.deepLink,
         forceFullColor: entry.metadata.forceFullColor
       )
     } else {
-      ImmichWidgetLoadingView(
+      UniversalPhotosWidgetLoadingView(
         message: entry.metadata.error?.errorDescription,
         forceFullColor: entry.metadata.forceFullColor
       )
@@ -33,7 +33,7 @@ struct ImmichWidgetView: View {
   }
 }
 
-private struct ImmichWidgetLoadingView: View {
+private struct UniversalPhotosWidgetLoadingView: View {
   let message: String?
   let forceFullColor: Bool
 
@@ -55,7 +55,7 @@ private struct ImmichWidgetLoadingView: View {
   }
 }
 
-private struct ImmichWidgetContentView: View {
+private struct UniversalPhotosWidgetContentView: View {
   let image: UIImage
   let subtitle: String?
   let deepLink: URL?
@@ -90,7 +90,7 @@ private struct ImmichWidgetContentView: View {
   "Medium",
   as: .systemMedium,
   widget: {
-    ImmichRandomWidget()
+    UniversalPhotosRandomWidget()
   },
   timeline: {
     let date = Date()
@@ -108,7 +108,7 @@ private struct ImmichWidgetContentView: View {
   "Medium No Data",
   as: .systemMedium,
   widget: {
-    ImmichRandomWidget()
+    UniversalPhotosRandomWidget()
   },
   timeline: {
     let date = Date()
@@ -123,7 +123,7 @@ private struct ImmichWidgetContentView: View {
   "Medium No Data Error",
   as: .systemMedium,
   widget: {
-    ImmichRandomWidget()
+    UniversalPhotosRandomWidget()
   },
   timeline: {
     let date = Date()
@@ -139,7 +139,7 @@ private struct ImmichWidgetContentView: View {
   "Small",
   as: .systemSmall,
   widget: {
-    ImmichRandomWidget()
+    UniversalPhotosRandomWidget()
   },
   timeline: {
     let date = Date()
@@ -157,7 +157,7 @@ private struct ImmichWidgetContentView: View {
   "Small No Data Error",
   as: .systemSmall,
   widget: {
-    ImmichRandomWidget()
+    UniversalPhotosRandomWidget()
   },
   timeline: {
     let date = Date()
@@ -173,7 +173,7 @@ private struct ImmichWidgetContentView: View {
   "Large",
   as: .systemLarge,
   widget: {
-    ImmichRandomWidget()
+    UniversalPhotosRandomWidget()
   },
   timeline: {
     let date = Date()

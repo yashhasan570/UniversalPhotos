@@ -6,8 +6,8 @@
   import { faceManager } from '#lib/stores/face.svelte.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
   import { getPeopleThumbnailUrl } from '#lib/utils.ts';
-  import { type AssetResponseDto } from '@immich/sdk';
-  import { IconButton, Text } from '@immich/ui';
+  import { type AssetResponseDto } from '@Universal Photos/sdk';
+  import { IconButton, Text } from '@Universal Photos/ui';
   import { mdiEye, mdiEyeOff, mdiPencil, mdiPlus } from '@mdi/js';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
@@ -124,7 +124,7 @@
             widthStyle="100%"
             hidden={person.isHidden}
             highlighted={isHighlighted}
-            class="outline-offset-2 outline-immich-primary group-focus-visible:outline-2 dark:outline-immich-dark-primary"
+            class="outline-offset-2 outline-Universal Photos-primary group-focus-visible:outline-2 dark:outline-Universal Photos-dark-primary"
           />
           <p class="mt-1 truncate font-medium" title={person.name}>{person.name}</p>
           {#if person.birthDate && person.formattedAge}

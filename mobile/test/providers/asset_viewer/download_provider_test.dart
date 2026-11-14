@@ -1,9 +1,9 @@
 import 'package:background_downloader/background_downloader.dart';
 import 'package:fake_async/fake_async.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/models/download/livephotos_medatada.model.dart';
-import 'package:immich_mobile/providers/asset_viewer/download.provider.dart';
-import 'package:immich_mobile/services/download.service.dart';
+import 'package:universal_photos/models/download/livephotos_medatada.model.dart';
+import 'package:universal_photos/providers/asset_viewer/download.provider.dart';
+import 'package:universal_photos/services/download.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockDownloadService extends Mock implements DownloadService {}

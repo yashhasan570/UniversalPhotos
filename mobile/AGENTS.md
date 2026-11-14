@@ -7,7 +7,7 @@ Flutter app with Riverpod, Drift (SQLite), auto_route, pigeon and a Rust core in
 - Run `mise //mobile:checkout` after switching branches. All generated Dart is git-ignored; never edit it.
 - New code follows `lib/domain/` (models, services, utils; no dependency on presentation or infrastructure) → `lib/infrastructure/repositories/` → `lib/presentation/`, wired by providers in `lib/providers/`. New data access goes in `lib/data/` (`lib/data/db/main/` holds the Drift database, `dao/`, `query/`, `table/`; `lib/data/server/` the API base).
 - Top-level `lib/pages`, `lib/widgets`, `lib/services`, `lib/repositories`, `lib/entities` are legacy; do not add to them.
-- Shared design-system widgets live in `packages/ui/` (`immich_ui`), with a preview per component in `lib/src/previews/`.
+- Shared design-system widgets live in `packages/ui/` (`Universal Photos_ui`), with a preview per component in `lib/src/previews/`.
 
 ## Skills
 

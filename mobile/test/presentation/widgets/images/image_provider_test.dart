@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/platform/remote_image_api.g.dart';
-import 'package:immich_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:universal_photos/platform/remote_image_api.g.dart';
+import 'package:universal_photos/presentation/widgets/images/remote_image_provider.dart';
 
 void main() {
-  const api = 'dev.flutter.pigeon.immich_mobile.RemoteImageApi';
+  const api = 'dev.flutter.pigeon_mobile.RemoteImageApi';
   const requestImage = BasicMessageChannel<Object?>('$api.requestImage', RemoteImageApi.pigeonChannelCodec);
   const cancelRequest = BasicMessageChannel<Object?>('$api.cancelRequest', RemoteImageApi.pigeonChannelCodec);
 

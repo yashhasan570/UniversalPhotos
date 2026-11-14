@@ -16,7 +16,7 @@ test('registers the admin account', async ({ data, router, render, settle, api, 
   await router.goto(Route.register());
   await render(Page, load);
 
-  await app.auth.input('admin_email').fill('new-admin@immich.cloud');
+  await app.auth.input('admin_email').fill('new-admin@');
   await app.auth.input('admin_password').fill('password');
   await app.auth.input('confirm_admin_password').fill('password');
   await app.auth.input('name').fill('New Admin');
@@ -24,7 +24,7 @@ test('registers the admin account', async ({ data, router, render, settle, api, 
   await settle();
 
   expect(api.signUpAdmin).toHaveBeenCalledWith({
-    body: { email: 'new-admin@immich.cloud', password: 'password', name: 'New Admin' },
+    body: { email: 'new-admin@', password: 'password', name: 'New Admin' },
   });
   expect(queryClient.getQueryData(getServerConfigQuery().queryKey)).toMatchObject({ isInitialized: true });
   expect(router.url.pathname).toBe(Route.login());

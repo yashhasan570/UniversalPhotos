@@ -37,7 +37,7 @@
   {/snippet}
 
   <div class="xl:hidden">
-    <div class="h-14 w-fit py-2 dark:text-immich-dark-fg">
+    <div class="h-14 w-fit py-2 dark:text-Universal Photos-dark-fg">
       <GroupTab
         label={$t('show_albums')}
         filters={Object.keys(AlbumFilter)}

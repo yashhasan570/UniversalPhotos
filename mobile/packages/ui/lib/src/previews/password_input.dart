@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:immich_ui/src/components/password_input.dart';
-import 'package:immich_ui/src/previews.dart';
+import 'package:universalphotos_ui/src/components/password_input.dart';
+import 'package:universalphotos_ui/src/previews.dart';
 
-@ImmichPreview(group: 'PasswordInput', name: 'With Validator')
-Widget previewPasswordInput() => ImmichPasswordInput(
+@UniversalPhotosPreview(group: 'PasswordInput', name: 'With Validator')
+Widget previewPasswordInput() => UniversalPhotosPasswordInput(
       label: 'Password',
       hintText: 'Enter your password',
       validator: (value) {

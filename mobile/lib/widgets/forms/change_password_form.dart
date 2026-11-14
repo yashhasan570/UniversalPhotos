@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/providers/websocket.provider.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
 
 class ChangePasswordForm extends HookConsumerWidget {
   const ChangePasswordForm({super.key});
@@ -67,7 +67,7 @@ class ChangePasswordForm extends HookConsumerWidget {
                               );
 
                           if (!isSuccess && context.mounted) {
-                            ImmichToast.show(
+                            UniversalPhotosToast.show(
                               context: context,
                               msg: context.t.login_password_changed_error,
                               toastType: ToastType.error,
@@ -87,7 +87,7 @@ class ChangePasswordForm extends HookConsumerWidget {
 
                           ref.read(websocketProvider.notifier).disconnect();
                           AutoRouter.of(context).back();
-                          ImmichToast.show(
+                          UniversalPhotosToast.show(
                             context: context,
                             msg: context.t.login_password_changed_success,
                             toastType: ToastType.success,

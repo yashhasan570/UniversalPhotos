@@ -5,7 +5,7 @@
   import { createUserAdminMutation } from '#lib/queries/user-admin.query.ts';
   import { Route } from '#lib/route.ts';
   import { ByteUnit, convertToBytes } from '#lib/utils/byte-units.ts';
-  import { Field, FormModal, HelperText, Input, PasswordInput, Stack, Switch } from '@immich/ui';
+  import { Field, FormModal, HelperText, Input, PasswordInput, Stack, Switch } from '@Universal Photos/ui';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
@@ -63,7 +63,7 @@
 
 <FormModal title={$t('create_new_user')} size="small" disabled={!valid} submitText={$t('create')} {onClose} {onSubmit}>
   {#if success}
-    <p class="text-sm text-immich-primary">{$t('new_user_created')}</p>
+    <p class="text-sm text-Universal Photos-primary">{$t('new_user_created')}</p>
   {/if}
 
   <Stack gap={4}>

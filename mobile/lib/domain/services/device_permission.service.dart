@@ -1,6 +1,6 @@
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/repositories/permission.repository.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/extensions/platform_extensions.dart';
+import 'package:universal_photos/repositories/permission.repository.dart';
 
 typedef _Handler = Future<DevicePermissionStatus> Function(DevicePermission);
 

@@ -6,8 +6,8 @@
   import { Route } from '#lib/route.ts';
   import { sidebarStore } from '#lib/stores/sidebar.svelte.ts';
   import type { HeaderButtonActionItem } from '#lib/types.ts';
-  import { ImmichBackupsAdminNavButton } from '@futo-org/backups-orchestrator-ui';
-  import { AppShell, AppShellHeader, AppShellSidebar, MenuItemType, NavbarItem, type BreadcrumbItem } from '@immich/ui';
+  import { Universal PhotosBackupsAdminNavButton } from '@futo-org/backups-orchestrator-ui';
+  import { AppShell, AppShellHeader, AppShellSidebar, MenuItemType, NavbarItem, type BreadcrumbItem } from '@Universal Photos/ui';
   import { mdiAccountMultipleOutline, mdiBookshelf, mdiCog, mdiServer, mdiTrayFull, mdiWrench } from '@mdi/js';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -31,7 +31,7 @@
   >
     <div class="flex flex-col gap-1 pe-4 pt-8">
       {#if featureFlagsManager.value.backups}
-        <ImmichBackupsAdminNavButton href={Route.backups()} />
+        <Universal PhotosBackupsAdminNavButton href={Route.backups()} />
       {/if}
 
       <NavbarItem title={$t('users')} href={Route.users()} icon={mdiAccountMultipleOutline} />

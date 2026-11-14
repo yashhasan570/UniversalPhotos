@@ -1,11 +1,11 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/main/dao/user_metadata.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/data/db/main/table/user/auth_user.drift.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/domain/models/user_metadata.model.dart';
-import 'package:immich_mobile/infrastructure/mapper.dart';
-import 'package:immich_mobile/infrastructure/repositories/user.repository.drift.dart';
+import 'package:universal_photos/data/db/main/dao/user_metadata.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/data/db/main/table/user/auth_user.drift.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/domain/models/user_metadata.model.dart';
+import 'package:universal_photos/infrastructure/mapper.dart';
+import 'package:universal_photos/infrastructure/repositories/user.repository.drift.dart';
 
 @DriftAccessor()
 class UserRepository extends DatabaseAccessor<Drift> with $UserRepositoryMixin {

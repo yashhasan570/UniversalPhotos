@@ -1,18 +1,18 @@
 import { Mocked, vitest } from 'vitest';
-import { DatabaseExtension, ImmichEnvironment, ImmichWorker, LogFormat } from 'src/enum.js';
+import { DatabaseExtension, UniversalPhotosEnvironment, UniversalPhotosWorker, LogFormat } from 'src/enum.js';
 import { ConfigRepository, EnvData } from 'src/repositories/config.repository.js';
 import type { RepositoryInterface } from 'src/types.js';
 
 export const envData: EnvData = {
   port: 2283,
-  environment: ImmichEnvironment.Production,
+  environment: UniversalPhotosEnvironment.Production,
   logFormat: LogFormat.Console,
 
   buildMetadata: {},
   bull: {
     config: {
       connection: {},
-      prefix: 'immich_bull',
+      prefix: 'universalphotos_bull',
     },
     queues: [{ name: 'queue-1' }],
   },
@@ -24,7 +24,7 @@ export const envData: EnvData = {
   database: {
     config: {
       connectionType: 'parts',
-      database: 'immich',
+      database: 'universalphotos',
       host: 'database',
       port: 5432,
       username: 'postgres',
@@ -44,7 +44,7 @@ export const envData: EnvData = {
   },
 
   versionCheck: {
-    url: 'https://version.immich.cloud/version',
+    url: 'https://version./version',
   },
 
   network: {
@@ -77,7 +77,7 @@ export const envData: EnvData = {
       root: '/build/www',
       indexHtml: '/build/www/index.html',
     },
-    corePlugin: '/build/plugins/immich-plugin-core',
+    corePlugin: '/build/plugins/universalphotos-plugin-core',
   },
 
   setup: {
@@ -94,7 +94,7 @@ export const envData: EnvData = {
     metrics: new Set(),
   },
 
-  workers: [ImmichWorker.Api, ImmichWorker.Microservices],
+  workers: [UniversalPhotosWorker.Api, UniversalPhotosWorker.Microservices],
 
   plugins: {
     external: {
@@ -110,7 +110,7 @@ export const mockEnvData = (config: Partial<EnvData>) => ({ ...envData, ...confi
 export const newConfigRepositoryMock = (): Mocked<RepositoryInterface<ConfigRepository>> => {
   return {
     getEnv: vitest.fn().mockReturnValue(mockEnvData({})),
-    getWorker: vitest.fn().mockReturnValue(ImmichWorker.Api),
+    getWorker: vitest.fn().mockReturnValue(UniversalPhotosWorker.Api),
     isDev: vitest.fn().mockReturnValue(false),
     isProduction: vitest.fn().mockReturnValue(true),
   };

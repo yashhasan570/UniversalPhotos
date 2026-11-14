@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/widgets/forms/pin_input.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/widgets/forms/pin_input.dart';
 
 class PinVerificationForm extends HookConsumerWidget {
   final Function(String) onSuccess;

@@ -1,5 +1,5 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos/data/db/util/defaults_mixin.dart';
 
 class StoreEntity extends Table with DriftDefaultsMixin {
   IntColumn get id => integer()();

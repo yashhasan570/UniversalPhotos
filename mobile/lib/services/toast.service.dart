@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class ToastOption {
   final Duration? timeout;

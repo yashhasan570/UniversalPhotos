@@ -34,7 +34,7 @@
     Stack,
     Text,
     getByteUnitString,
-  } from '@immich/ui';
+  } from '@Universal Photos/ui';
   import {
     mdiAccountOutline,
     mdiCameraIris,

@@ -1,5 +1,5 @@
 /**
- * Immich
+ * UniversalPhotos
  * 3.4.0-rc.0
  * DO NOT MODIFY - This file has been generated using oazapfts.
  * See https://www.npmjs.com/package/oazapfts
@@ -1306,7 +1306,7 @@ export type TagResponseDto = {
 export type AssetResponseDto = {
     /** Base64 encoded SHA1 hash */
     checksum: string;
-    /** The UTC timestamp when the asset was originally uploaded to Immich. */
+    /** The UTC timestamp when the asset was originally uploaded to UniversalPhotos. */
     createdAt: string;
     /** Duplicate group ID */
     duplicateId?: string | null;
@@ -3227,7 +3227,7 @@ export type TimeBucketAssetResponseDto = {
     city?: (string | null)[];
     /** Array of country names extracted from EXIF GPS data */
     country?: (string | null)[];
-    /** Array of UTC timestamps when each asset was originally uploaded to Immich */
+    /** Array of UTC timestamps when each asset was originally uploaded to UniversalPhotos */
     createdAt: string[];
     /** Array of video/gif durations in milliseconds (null for static images) */
     duration: (number | null)[];
@@ -3656,7 +3656,7 @@ export type SyncAssetOcrV1 = {
 export type SyncAssetV1 = {
     /** Checksum */
     checksum: string;
-    /** Uploaded to Immich at */
+    /** Uploaded to UniversalPhotos at */
     createdAt: string | null;
     /** Deleted at */
     deletedAt: string | null;
@@ -3696,7 +3696,7 @@ export type SyncAssetV1 = {
 export type SyncAssetV2 = {
     /** Checksum */
     checksum: string;
-    /** Uploaded to Immich at */
+    /** Uploaded to UniversalPhotos at */
     createdAt: string | null;
     /** Deleted at */
     deletedAt: string | null;
@@ -4819,10 +4819,10 @@ export function deleteAssets({ assetBulkDeleteDto }: {
 /**
  * Upload asset
  */
-export function uploadAsset({ key, slug, xImmichChecksum, assetMediaCreateDto }: {
+export function uploadAsset({ key, slug, xUniversalPhotosChecksum, assetMediaCreateDto }: {
     key?: string;
     slug?: string;
-    xImmichChecksum?: string;
+    xUniversalPhotosChecksum?: string;
     assetMediaCreateDto: AssetMediaCreateDto;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchJson<{
@@ -4839,7 +4839,7 @@ export function uploadAsset({ key, slug, xImmichChecksum, assetMediaCreateDto }:
         method: "POST",
         body: assetMediaCreateDto,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-immich-checksum": xImmichChecksum
+            "x-universalphotos-checksum": xUniversalPhotosChecksum
         })
     })));
 }
@@ -5180,13 +5180,13 @@ export function endSession({ id, key, sessionId, slug }: {
 /**
  * Get HLS media playlist
  */
-export function getMediaPlaylist({ id, key, sessionId, slug, variantIndex, xImmichHlsPos }: {
+export function getMediaPlaylist({ id, key, sessionId, slug, variantIndex, xUniversalPhotosHlsPos }: {
     id: string;
     key?: string;
     sessionId: string;
     slug?: string;
     variantIndex: number;
-    xImmichHlsPos?: number;
+    xUniversalPhotosHlsPos?: number;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchBlob<{
         status: 200;
@@ -5197,21 +5197,21 @@ export function getMediaPlaylist({ id, key, sessionId, slug, variantIndex, xImmi
     }))}`, {
         ...opts,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-immich-hls-pos": xImmichHlsPos
+            "x-universalphotos-hls-pos": xUniversalPhotosHlsPos
         })
     }));
 }
 /**
  * Get HLS segment or init file
  */
-export function getSegment({ filename, id, key, sessionId, slug, variantIndex, xImmichHlsMsn }: {
+export function getSegment({ filename, id, key, sessionId, slug, variantIndex, xUniversalPhotosHlsMsn }: {
     filename: string;
     id: string;
     key?: string;
     sessionId: string;
     slug?: string;
     variantIndex: number;
-    xImmichHlsMsn?: number;
+    xUniversalPhotosHlsMsn?: number;
 }, opts?: Oazapfts.RequestOpts) {
     return oazapfts.ok(oazapfts.fetchBlob<{
         status: 200;
@@ -5222,7 +5222,7 @@ export function getSegment({ filename, id, key, sessionId, slug, variantIndex, x
     }))}`, {
         ...opts,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-immich-hls-msn": xImmichHlsMsn
+            "x-universalphotos-hls-msn": xUniversalPhotosHlsMsn
         })
     }));
 }

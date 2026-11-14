@@ -8,8 +8,8 @@
   import { locale } from '#lib/stores/preferences.store.ts';
   import { getAssetMediaUrl } from '#lib/utils.ts';
   import { isTenMinutesApart } from '#lib/utils/timesince.ts';
-  import { AssetTypeEnum, ReactionType, type ActivityResponseDto, type AlbumUserResponseDto } from '@immich/sdk';
-  import { ContextMenuButton, Icon, IconButton, LoadingSpinner, Textarea, shortcut } from '@immich/ui';
+  import { AssetTypeEnum, ReactionType, type ActivityResponseDto, type AlbumUserResponseDto } from '@Universal Photos/sdk';
+  import { ContextMenuButton, Icon, IconButton, LoadingSpinner, Textarea, shortcut } from '@Universal Photos/ui';
   import { mdiClose, mdiSend, mdiThumbUp, mdiTrashCanOutline } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import * as luxon from 'luxon';
@@ -135,7 +135,7 @@
 
 <div class="relative h-full overflow-y-hidden border-l border-subtle bg-subtle" bind:offsetHeight={innerHeight}>
   <div class="size-full">
-    <div class="flex h-fit w-full bg-subtle p-2 dark:text-immich-dark-fg" bind:clientHeight={activityHeight}>
+    <div class="flex h-fit w-full bg-subtle p-2 dark:text-Universal Photos-dark-fg" bind:clientHeight={activityHeight}>
       <div class="flex place-items-center gap-2">
         <IconButton
           shape="round"
@@ -146,13 +146,13 @@
           aria-label={$t('close')}
         />
 
-        <p class="text-lg text-immich-fg dark:text-immich-dark-fg">{$t('activity')}</p>
+        <p class="text-lg text-Universal Photos-fg dark:text-Universal Photos-dark-fg">{$t('activity')}</p>
       </div>
     </div>
     {#if innerHeight}
       <div
         bind:this={scrollContainer}
-        class="relative w-full immich-scrollbar overflow-y-auto px-2"
+        class="relative w-full Universal Photos-scrollbar overflow-y-auto px-2"
         style="height: {divHeight}px;padding-bottom: {chatHeight}px"
       >
         {#each activities as reaction, index (reaction.id)}
@@ -222,7 +222,7 @@
 
   <div class="absolute bottom-0 w-full">
     <div class="flex items-center justify-center p-2" bind:clientHeight={chatHeight}>
-      <div class="flex h-fit w-full gap-4 rounded-3xl bg-gray-200 p-2 text-immich-dark-gray">
+      <div class="flex h-fit w-full gap-4 rounded-3xl bg-gray-200 p-2 text-Universal Photos-dark-gray">
         <div>
           <UserAvatar user={authManager.user} size="md" noTitle />
         </div>

@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/timeline.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/app_settings.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/settings.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/timeline.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/app_settings.provider.dart';
+import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 
 class GroupSettings extends HookConsumerWidget {
   const GroupSettings({super.key});

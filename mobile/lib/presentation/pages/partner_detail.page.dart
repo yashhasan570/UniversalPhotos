@@ -1,16 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/presentation/widgets/bottom_sheet/partner_detail_bottom_sheet.widget.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/timeline.widget.dart';
-import 'package:immich_mobile/providers/infrastructure/timeline.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/user.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/utils/debug_print.dart';
-import 'package:immich_mobile/widgets/common/immich_toast.dart';
-import 'package:immich_mobile/widgets/common/mesmerizing_sliver_app_bar.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/presentation/widgets/bottom_sheet/partner_detail_bottom_sheet.widget.dart';
+import 'package:universal_photos/presentation/widgets/timeline/timeline.widget.dart';
+import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos/providers/infrastructure/user.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/utils/debug_print.dart';
+import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universal_photos/widgets/common/mesmerizing_sliver_app_bar.dart';
 
 @RoutePage()
 class PartnerDetailPage extends StatelessWidget {
@@ -76,7 +76,7 @@ class _InfoBoxState extends ConsumerState<_InfoBox> {
         return;
       }
 
-      ImmichToast.show(
+      UniversalPhotosToast.show(
         context: context,
         toastType: ToastType.error,
         durationInSecond: 1,

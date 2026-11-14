@@ -23,8 +23,8 @@
     getPerson,
     type PersonResponseDto,
     type UserResponseDto,
-  } from '@immich/sdk';
-  import { ActionButton, Button, Icon, IconButton, modalManager, shortcut } from '@immich/ui';
+  } from '@Universal Photos/sdk';
+  import { ActionButton, Button, Icon, IconButton, modalManager, shortcut } from '@Universal Photos/ui';
   import { mdiAccountOff, mdiEyeOutline, mdiTune } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -333,13 +333,13 @@
     <PeopleInfiniteScroll people={visiblePeople} hasNextPage={!!nextPage && !searchName} {loadNextPage}>
       {#snippet children({ person })}
         <div
-          class="rounded-xl border-2 border-transparent p-2 transition-all hover:border-immich-primary/50 hover:bg-gray-200 hover:shadow-sm hover:dark:border-immich-dark-primary/25 dark:hover:bg-immich-dark-primary/20"
+          class="rounded-xl border-2 border-transparent p-2 transition-all hover:border-Universal Photos-primary/50 hover:bg-gray-200 hover:shadow-sm hover:dark:border-Universal Photos-dark-primary/25 dark:hover:bg-Universal Photos-dark-primary/20"
         >
           <PeopleCard {person} onMergePeople={() => handleMergePeople(person)} />
 
           <input
             type="text"
-            class="mt-2 w-full rounded-2xl border-gray-100 bg-white py-2 text-center text-sm text-primary placeholder-gray-400 dark:border-gray-900 dark:bg-immich-dark-gray"
+            class="mt-2 w-full rounded-2xl border-gray-100 bg-white py-2 text-center text-sm text-primary placeholder-gray-400 dark:border-gray-900 dark:bg-Universal Photos-dark-gray"
             value={person.name}
             placeholder={$t('add_a_name')}
             {@attach shortcut({ shortcut: { key: 'Enter' }, onShortcut: (e) => e.currentTarget.blur() })}

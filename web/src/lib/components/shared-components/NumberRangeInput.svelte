@@ -41,7 +41,7 @@
 
 <input
   type="number"
-  class="immich-form-input w-full"
+  class="Universal Photos-form-input w-full"
   {id}
   {min}
   {max}

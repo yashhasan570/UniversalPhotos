@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/shared_link/shared_link.model.dart';
-import 'package:immich_mobile/providers/api.provider.dart';
-import 'package:immich_mobile/services/api.service.dart';
-import 'package:immich_mobile/utils/option.dart';
+import 'package:universal_photos/models/shared_link/shared_link.model.dart';
+import 'package:universal_photos/providers/api.provider.dart';
+import 'package:universal_photos/services/api.service.dart';
+import 'package:universal_photos/utils/option.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 

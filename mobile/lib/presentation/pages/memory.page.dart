@@ -6,16 +6,16 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/domain/models/memory.model.dart';
-import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/memory/memory_bottom_info.widget.dart';
-import 'package:immich_mobile/presentation/widgets/memory/memory_card.widget.dart';
-import 'package:immich_mobile/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:immich_mobile/providers/haptic_feedback.provider.dart';
-import 'package:immich_mobile/utils/system_ui.utils.dart';
-import 'package:immich_mobile/widgets/memories/memory_epilogue.dart';
-import 'package:immich_mobile/widgets/memories/memory_progress_indicator.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/domain/models/memory.model.dart';
+import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos/presentation/widgets/memory/memory_bottom_info.widget.dart';
+import 'package:universal_photos/presentation/widgets/memory/memory_card.widget.dart';
+import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos/providers/haptic_feedback.provider.dart';
+import 'package:universal_photos/utils/system_ui.utils.dart';
+import 'package:universal_photos/widgets/memories/memory_epilogue.dart';
+import 'package:universal_photos/widgets/memories/memory_progress_indicator.dart';
 
 /// Expects the current asset to be set via [assetViewerProvider] before navigating to this page
 @RoutePage()

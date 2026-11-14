@@ -2,11 +2,11 @@ package com.universalphotos.app.permission
 
 import android.content.Context
 import android.os.PowerManager
-import com.universalphotos.app.core.ImmichPlugin
+import com.universalphotos.app.core.UniversalPhotosPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 
-class PermissionApiImpl(context: Context) : ImmichPlugin(), PermissionApi, ActivityAware {
+class PermissionApiImpl(context: Context) : UniversalPhotosPlugin(), PermissionApi, ActivityAware {
   private val ctx: Context = context.applicationContext
   private val manageMediaPermissionDelegate = ManageMediaPermissionDelegate(context)
 

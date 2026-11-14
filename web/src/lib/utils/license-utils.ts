@@ -1,10 +1,10 @@
-import type { ImmichProduct } from '#lib/constants.ts';
+import type { UniversalPhotosProduct } from '#lib/constants.ts';
 import { authManager } from '#lib/managers/auth-manager.svelte.ts';
 import { queryClient, readPreloadedQuery } from '#lib/queries/client.ts';
 import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
 import { getAboutInfoQuery } from '#lib/queries/server-info.query.ts';
-import { setServerLicense, setUserLicense, type LicenseResponseDto } from '@immich/sdk';
-import { PUBLIC_IMMICH_BUY_HOST, PUBLIC_IMMICH_PAY_HOST } from '$app/env/public';
+import { setServerLicense, setUserLicense, type LicenseResponseDto } from '@universalphotos/sdk';
+import { PUBLIC_UNIVERSALPHOTOS_BUY_HOST, PUBLIC_UNIVERSALPHOTOS_PAY_HOST } from '$app/env/public';
 
 export const activateProduct = async (licenseKey: string, activationKey: string): Promise<LicenseResponseDto> => {
   // TODO is this needed?
@@ -24,15 +24,15 @@ export const activateProduct = async (licenseKey: string, activationKey: string)
 };
 
 export const getActivationKey = async (licenseKey: string): Promise<string> => {
-  const response = await fetch(new URL(`/api/v1/activate/${licenseKey}`, PUBLIC_IMMICH_PAY_HOST).href);
+  const response = await fetch(new URL(`/api/v1/activate/${licenseKey}`, PUBLIC_UNIVERSALPHOTOS_PAY_HOST).href);
   if (!response.ok) {
     throw new Error('Failed to fetch activation key');
   }
   return response.text();
 };
 
-export const getLicenseLink = (license: ImmichProduct) => {
-  const url = new URL('/', PUBLIC_IMMICH_BUY_HOST);
+export const getLicenseLink = (license: UniversalPhotosProduct) => {
+  const url = new URL('/', PUBLIC_UNIVERSALPHOTOS_BUY_HOST);
   url.searchParams.append('productId', license);
   url.searchParams.append(
     'instanceUrl',

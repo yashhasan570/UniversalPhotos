@@ -6,7 +6,7 @@ import { Asset } from 'src/database.js';
 import { EventConfig } from 'src/decorators.js';
 import { AuthDto } from 'src/dtos/auth.dto.js';
 import { SystemConfig } from 'src/dtos/config.dto.js';
-import { ImmichWorker, JobStatus, MetadataKey, QueueName, UserAvatarColor, UserStatus } from 'src/enum.js';
+import { UniversalPhotosWorker, JobStatus, MetadataKey, QueueName, UserAvatarColor, UserStatus } from 'src/enum.js';
 import { ConfigRepository } from 'src/repositories/config.repository.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
 import type { JobItem, JobSource, UploadFile } from 'src/types.js';
@@ -195,7 +195,7 @@ export class EventRepository {
           continue;
         }
 
-        const workers = event.workers ?? Object.values(ImmichWorker);
+        const workers = event.workers ?? Object.values(UniversalPhotosWorker);
         if (!workers.includes(worker)) {
           continue;
         }

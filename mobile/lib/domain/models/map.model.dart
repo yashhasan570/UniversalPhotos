@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:immich_mobile/domain/models/time_range.model.dart';
+import 'package:universal_photos/domain/models/time_range.model.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 part 'map.model.freezed.dart';

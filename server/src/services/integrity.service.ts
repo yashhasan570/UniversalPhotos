@@ -15,7 +15,7 @@ import {
   AssetStatus,
   CacheControl,
   DatabaseLock,
-  ImmichWorker,
+  UniversalPhotosWorker,
   IntegrityReport,
   JobName,
   JobStatus,
@@ -34,7 +34,7 @@ import type {
   IIntegrityPathWithReportJob,
   IIntegrityUntrackedFilesJob,
 } from 'src/types.js';
-import { ImmichFileResponse } from 'src/utils/file.js';
+import { UniversalPhotosFileResponse } from 'src/utils/file.js';
 import { batched, handlePromiseError } from 'src/utils/misc.js';
 
 /**
@@ -65,7 +65,7 @@ Can perform download or trash (asset)
 export class IntegrityService extends BaseService {
   private integrityLock = false;
 
-  @OnEvent({ name: 'ConfigInit', workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'ConfigInit', workers: [UniversalPhotosWorker.Microservices] })
   async onConfigInit({
     newConfig: {
       integrityChecks: { untrackedFiles, missingFiles, checksumFiles },
@@ -161,10 +161,10 @@ export class IntegrityService extends BaseService {
     return Readable.from(generator());
   }
 
-  async getIntegrityReportFile(id: string): Promise<ImmichFileResponse> {
+  async getIntegrityReportFile(id: string): Promise<UniversalPhotosFileResponse> {
     const { path } = await this.integrityRepository.getById(id);
 
-    return new ImmichFileResponse({
+    return new UniversalPhotosFileResponse({
       path,
       fileName: basename(path),
       contentType: 'application/octet-stream',

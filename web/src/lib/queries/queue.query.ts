@@ -8,7 +8,7 @@ import {
   runQueueCommandLegacy,
   updateQueue,
   type QueueResponseDto,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { mutationOptions, queryOptions, type MutationMeta } from '@tanstack/svelte-query';
 
 export const queuesQueryKey = ['queues'];

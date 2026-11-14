@@ -2,7 +2,7 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
   import { handleResetPinCode } from '#lib/services/user.service.ts';
-  import { BasicModal, Field, FormModal, HelperText, PasswordInput, Stack, type ModalSize } from '@immich/ui';
+  import { BasicModal, Field, FormModal, HelperText, PasswordInput, Stack, type ModalSize } from '@Universal Photos/ui';
   import { mdiLockReset } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

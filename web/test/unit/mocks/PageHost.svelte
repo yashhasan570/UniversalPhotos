@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { TooltipProvider } from '@immich/ui';
+  import { TooltipProvider } from '@Universal Photos/ui';
   import { QueryClientProvider, type QueryClient } from '@tanstack/svelte-query';
   import type { PageComponent } from './mock.ts';
 

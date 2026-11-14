@@ -4,28 +4,28 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/domain/models/server_capability.model.dart';
-import 'package:immich_mobile/domain/services/local_album.service.dart';
-import 'package:immich_mobile/domain/services/memory.service.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/providers/app_settings.provider.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/background_sync.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/album.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/storage.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/trash_sync.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/sync_status.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/services/app_settings.service.dart';
-import 'package:immich_mobile/widgets/settings/beta_sync_settings/entity_count_tile.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/server_capability.model.dart';
+import 'package:universal_photos/domain/services/local_album.service.dart';
+import 'package:universal_photos/domain/services/memory.service.dart';
+import 'package:universal_photos/entities/store.entity.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/platform_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/providers/app_settings.provider.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/providers/background_sync.provider.dart';
+import 'package:universal_photos/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos/providers/infrastructure/asset.provider.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/providers/infrastructure/storage.provider.dart';
+import 'package:universal_photos/providers/infrastructure/trash_sync.provider.dart';
+import 'package:universal_photos/providers/server_info.provider.dart';
+import 'package:universal_photos/providers/sync_status.provider.dart';
+import 'package:universal_photos/providers/websocket.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/services/app_settings.service.dart';
+import 'package:universal_photos/widgets/settings/beta_sync_settings/entity_count_tile.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
@@ -50,7 +50,7 @@ class _SyncStatusAndActionsState extends ConsumerState<SyncStatusAndActions> {
         // WAL Checkpoint to ensure all changes are written to the database
         await ref.read(driftProvider).customStatement("pragma wal_checkpoint(truncate)");
         final documentsDir = await getApplicationDocumentsDirectory();
-        final dbFile = File(path.join(documentsDir.path, 'immich.sqlite'));
+        final dbFile = File(path.join(documentsDir.path, 'universalphotos.sqlite'));
 
         // ignore: avoid_slow_async_io
         if (!await dbFile.exists()) {
@@ -63,7 +63,7 @@ class _SyncStatusAndActionsState extends ConsumerState<SyncStatusAndActions> {
         }
 
         final timestamp = DateTime.now().millisecondsSinceEpoch;
-        final exportFile = File(path.join(documentsDir.path, 'immich_export_$timestamp.sqlite'));
+        final exportFile = File(path.join(documentsDir.path, 'universalphotos_export_$timestamp.sqlite'));
 
         await dbFile.copy(exportFile.path);
 
@@ -74,7 +74,7 @@ class _SyncStatusAndActionsState extends ConsumerState<SyncStatusAndActions> {
         final size = MediaQuery.of(context).size;
         await Share.shareXFiles(
           [XFile(exportFile.path)],
-          text: 'Immich Database Export',
+          text: 'UniversalPhotos Database Export',
           sharePositionOrigin: Rect.fromPoints(Offset.zero, Offset(size.width / 3, size.height)),
         );
 

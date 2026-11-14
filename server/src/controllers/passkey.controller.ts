@@ -25,7 +25,7 @@ import {
   PasskeySearchDto,
   PasskeyUpdateDto,
 } from 'src/dtos/passkey.dto.js';
-import { ApiTag, AuthType, ImmichCookie, Permission } from 'src/enum.js';
+import { ApiTag, AuthType, UniversalPhotosCookie, Permission } from 'src/enum.js';
 import { Auth, Authenticated, GetLoginDetails } from 'src/middleware/auth.guard.js';
 import type { LoginDetails } from 'src/services/auth.service.js';
 import { PasskeyService } from 'src/services/passkey.service.js';
@@ -94,9 +94,9 @@ export class PasskeyController {
     return respondWithCookie(res, body, {
       isSecure: loginDetails.isSecure,
       values: [
-        { key: ImmichCookie.AccessToken, value: body.accessToken },
-        { key: ImmichCookie.AuthType, value: AuthType.Passkey },
-        { key: ImmichCookie.IsAuthenticated, value: 'true' },
+        { key: UniversalPhotosCookie.AccessToken, value: body.accessToken },
+        { key: UniversalPhotosCookie.AuthType, value: AuthType.Passkey },
+        { key: UniversalPhotosCookie.IsAuthenticated, value: 'true' },
       ],
     });
   }

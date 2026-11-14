@@ -11,7 +11,7 @@
   import { handlePromiseError } from '#lib/utils.ts';
   import { delay } from '#lib/utils/asset-utils.ts';
   import { navigate } from '#lib/utils/navigation.ts';
-  import { LoadingSpinner } from '@immich/ui';
+  import { LoadingSpinner } from '@Universal Photos/ui';
   import { onDestroy } from 'svelte';
   import { goto } from '$app/navigation';
   import type { PageData } from './$types';

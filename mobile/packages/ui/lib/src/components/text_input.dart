@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class ImmichTextInput extends StatefulWidget {
+class UniversalPhotosTextInput extends StatefulWidget {
   final String? label;
   final String? hintText;
   final TextEditingController? controller;
@@ -21,7 +21,7 @@ class ImmichTextInput extends StatefulWidget {
   final bool autofocus;
   final AutovalidateMode? autovalidateMode;
 
-  const ImmichTextInput({
+  const UniversalPhotosTextInput({
     super.key,
     this.controller,
     this.focusNode,
@@ -44,10 +44,10 @@ class ImmichTextInput extends StatefulWidget {
   });
 
   @override
-  State createState() => _ImmichTextInputState();
+  State createState() => _UniversalPhotosTextInputState();
 }
 
-class _ImmichTextInputState extends State<ImmichTextInput> {
+class _UniversalPhotosTextInputState extends State<UniversalPhotosTextInput> {
   late final FocusNode _focusNode;
 
   @override

@@ -15,7 +15,7 @@ import { UserRepository } from 'src/repositories/user.repository.js';
 import { DB } from 'src/schema/index.js';
 import { AssetMediaService } from 'src/services/asset-media.service.js';
 import { AssetService } from 'src/services/asset.service.js';
-import { ImmichFileResponse } from 'src/utils/file.js';
+import { UniversalPhotosFileResponse } from 'src/utils/file.js';
 import { mediumFactory, newMediumService } from 'test/medium.factory.js';
 import { factory } from 'test/small.factory.js';
 import { getKyselyDB } from 'test/utils.js';
@@ -287,8 +287,8 @@ describe(AssetService.name, () => {
       const auth = factory.auth({ user: { id: user.id } });
       const result = await sut.viewThumbnail(auth, asset.id, { size: AssetMediaSize.PREVIEW });
 
-      expect(result).toBeInstanceOf(ImmichFileResponse);
-      expect((result as ImmichFileResponse).path).toBe('/original/preview.jpg');
+      expect(result).toBeInstanceOf(UniversalPhotosFileResponse);
+      expect((result as UniversalPhotosFileResponse).path).toBe('/original/preview.jpg');
     });
 
     it('should return edited thumbnail when edited=true', async () => {
@@ -314,8 +314,8 @@ describe(AssetService.name, () => {
       const auth = factory.auth({ user: { id: user.id } });
       const result = await sut.viewThumbnail(auth, asset.id, { size: AssetMediaSize.PREVIEW, edited: true });
 
-      expect(result).toBeInstanceOf(ImmichFileResponse);
-      expect((result as ImmichFileResponse).path).toBe('/edited/preview.jpg');
+      expect(result).toBeInstanceOf(UniversalPhotosFileResponse);
+      expect((result as UniversalPhotosFileResponse).path).toBe('/edited/preview.jpg');
     });
 
     it('should return original thumbnail when edited=false', async () => {
@@ -341,8 +341,8 @@ describe(AssetService.name, () => {
       const auth = factory.auth({ user: { id: user.id } });
       const result = await sut.viewThumbnail(auth, asset.id, { size: AssetMediaSize.PREVIEW, edited: false });
 
-      expect(result).toBeInstanceOf(ImmichFileResponse);
-      expect((result as ImmichFileResponse).path).toBe('/original/preview.jpg');
+      expect(result).toBeInstanceOf(UniversalPhotosFileResponse);
+      expect((result as UniversalPhotosFileResponse).path).toBe('/original/preview.jpg');
     });
 
     it('should return original thumbnail when only original exists and edited=false', async () => {
@@ -362,8 +362,8 @@ describe(AssetService.name, () => {
       const auth = factory.auth({ user: { id: user.id } });
       const result = await sut.viewThumbnail(auth, asset.id, { size: AssetMediaSize.PREVIEW, edited: false });
 
-      expect(result).toBeInstanceOf(ImmichFileResponse);
-      expect((result as ImmichFileResponse).path).toBe('/original/preview.jpg');
+      expect(result).toBeInstanceOf(UniversalPhotosFileResponse);
+      expect((result as UniversalPhotosFileResponse).path).toBe('/original/preview.jpg');
     });
 
     it('should return original thumbnail when only original exists and edited=true', async () => {
@@ -383,8 +383,8 @@ describe(AssetService.name, () => {
       const auth = factory.auth({ user: { id: user.id } });
       const result = await sut.viewThumbnail(auth, asset.id, { size: AssetMediaSize.PREVIEW, edited: true });
 
-      expect(result).toBeInstanceOf(ImmichFileResponse);
-      expect((result as ImmichFileResponse).path).toBe('/original/preview.jpg');
+      expect(result).toBeInstanceOf(UniversalPhotosFileResponse);
+      expect((result as UniversalPhotosFileResponse).path).toBe('/original/preview.jpg');
     });
 
     it('should work with thumbnail size', async () => {
@@ -411,13 +411,13 @@ describe(AssetService.name, () => {
 
       // Test default (should get original)
       const resultDefault = await sut.viewThumbnail(auth, asset.id, { size: AssetMediaSize.THUMBNAIL });
-      expect(resultDefault).toBeInstanceOf(ImmichFileResponse);
-      expect((resultDefault as ImmichFileResponse).path).toBe('/original/thumbnail.jpg');
+      expect(resultDefault).toBeInstanceOf(UniversalPhotosFileResponse);
+      expect((resultDefault as UniversalPhotosFileResponse).path).toBe('/original/thumbnail.jpg');
 
       // Test edited=true (should get edited)
       const resultEdited = await sut.viewThumbnail(auth, asset.id, { size: AssetMediaSize.THUMBNAIL, edited: true });
-      expect(resultEdited).toBeInstanceOf(ImmichFileResponse);
-      expect((resultEdited as ImmichFileResponse).path).toBe('/edited/thumbnail.jpg');
+      expect(resultEdited).toBeInstanceOf(UniversalPhotosFileResponse);
+      expect((resultEdited as UniversalPhotosFileResponse).path).toBe('/edited/thumbnail.jpg');
     });
   });
 });

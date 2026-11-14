@@ -8,11 +8,11 @@ import pytest
 from fastapi.testclient import TestClient
 from PIL import Image
 
-from immich_ml.config import log
-from immich_ml.main import app
-from immich_ml.models.base import InferenceModel
-from immich_ml.schemas import Shape
-from immich_ml.sessions.ort import Device
+from universal_photos_ml.config import log
+from universal_photos_ml.main import app
+from universal_photos_ml.models.base import InferenceModel
+from universal_photos_ml.schemas import Shape
+from universal_photos_ml.sessions.ort import Device
 
 TEST_ASSETS = Path(__file__).parent.parent / "e2e/test-assets"
 
@@ -102,7 +102,7 @@ def providers(request: pytest.FixtureRequest) -> Iterator[mock.Mock]:
         raise ValueError("Missing marker 'providers'")
 
     providers = marker.args[0]
-    with mock.patch("immich_ml.sessions.ort.ort.get_available_providers") as mocked:
+    with mock.patch("universal_photos_ml.sessions.ort.ort.get_available_providers") as mocked:
         mocked.return_value = providers
         yield providers
 
@@ -110,16 +110,16 @@ def providers(request: pytest.FixtureRequest) -> Iterator[mock.Mock]:
 @pytest.fixture(autouse=True)
 def gpus() -> Iterator[None]:
     with (
-        mock.patch("immich_ml.sessions.ort._intel_gpu", return_value=Device("12.71.4-128eu", "26.22.38646.4")),
-        mock.patch("immich_ml.sessions.ort._amd_gpu", return_value=Device("gfx1100", "7.2.0")),
-        mock.patch("immich_ml.sessions.ort._nvidia_gpu", return_value=Device("sm89", "617.14 10601")),
+        mock.patch("universal_photos_ml.sessions.ort._intel_gpu", return_value=Device("12.71.4-128eu", "26.22.38646.4")),
+        mock.patch("universal_photos_ml.sessions.ort._amd_gpu", return_value=Device("gfx1100", "7.2.0")),
+        mock.patch("universal_photos_ml.sessions.ort._nvidia_gpu", return_value=Device("sm89", "617.14 10601")),
     ):
         yield
 
 
 @pytest.fixture(scope="function")
 def ort_pybind() -> Iterator[mock.Mock]:
-    with mock.patch("immich_ml.sessions.ort.ort.capi._pybind_state") as mocked:
+    with mock.patch("universal_photos_ml.sessions.ort.ort.capi._pybind_state") as mocked:
         yield mocked
 
 
@@ -136,8 +136,8 @@ def ov_device_ids(request: pytest.FixtureRequest, ort_pybind: mock.Mock) -> Iter
 def ort_session() -> Iterator[mock.Mock]:
     # a graph is opened as it is: preparing one takes a child process and real files
     with (
-        mock.patch("immich_ml.sessions.ort.ort.InferenceSession") as mocked,
-        mock.patch("immich_ml.sessions.ort.prepared", side_effect=lambda spec: spec.model_path),
+        mock.patch("universal_photos_ml.sessions.ort.ort.InferenceSession") as mocked,
+        mock.patch("universal_photos_ml.sessions.ort.prepared", side_effect=lambda spec: spec.model_path),
     ):
         yield mocked
 
@@ -166,14 +166,14 @@ def stub_session() -> Callable[..., mock.Mock]:
 
 @pytest.fixture(scope="function")
 def ann_session() -> Iterator[mock.Mock]:
-    with mock.patch("immich_ml.sessions.ann.Ann") as mocked:
+    with mock.patch("universal_photos_ml.sessions.ann.Ann") as mocked:
         mocked.return_value.input_shapes.__getitem__.return_value = [(1, 3, 112, 112)]  # armnn compiles one batch
         yield mocked
 
 
 @pytest.fixture(scope="function")
 def rknn_session() -> Iterator[mock.Mock]:
-    with mock.patch("immich_ml.sessions.rknn.RknnPoolExecutor") as mocked:
+    with mock.patch("universal_photos_ml.sessions.rknn.RknnPoolExecutor") as mocked:
         mocked.return_value.custom_string = ""  # an unstamped binary, i.e. one that wants normalized input
         compiled = SimpleNamespace(name="input", shape=(1, 224, 224, 3))  # the compiler reports NHWC either way
         mocked.return_value.inputs = [compiled, compiled]
@@ -182,7 +182,7 @@ def rknn_session() -> Iterator[mock.Mock]:
 
 @pytest.fixture(scope="function")
 def rmtree() -> Iterator[mock.Mock]:
-    with mock.patch("immich_ml.models.base.rmtree", autospec=True) as mocked:
+    with mock.patch("universal_photos_ml.models.base.rmtree", autospec=True) as mocked:
         mocked.avoids_symlink_attacks = True
         yield mocked
 
@@ -196,7 +196,7 @@ def path() -> Iterator[mock.Mock]:
     path.with_suffix.return_value = path
     path.return_value = path
 
-    with mock.patch("immich_ml.models.base.Path", return_value=path) as mocked:
+    with mock.patch("universal_photos_ml.models.base.Path", return_value=path) as mocked:
         yield mocked
 
 
@@ -222,7 +222,7 @@ def exception() -> Iterator[mock.Mock]:
 def snapshot_download() -> Iterator[mock.Mock]:
     # a download that leaves the model cached, as one that found the artifact does
     with (
-        mock.patch("immich_ml.models.base.snapshot_download") as mocked,
+        mock.patch("universal_photos_ml.models.base.snapshot_download") as mocked,
         mock.patch.object(InferenceModel, "cached", new_callable=mock.PropertyMock, side_effect=lambda: mocked.called),
     ):
         yield mocked

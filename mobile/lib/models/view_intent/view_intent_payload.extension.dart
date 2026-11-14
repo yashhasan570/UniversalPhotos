@@ -1,5 +1,5 @@
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/platform/view_intent_api.g.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/platform/view_intent_api.g.dart';
 import 'package:path/path.dart';
 
 extension ViewIntentPayloadX on ViewIntentPayload {

@@ -4,8 +4,8 @@
   import type { TimelineAsset } from '#lib/managers/timeline-manager/types.ts';
   import { getPreferredTimeZone, getTimezones, toIsoDate } from '#lib/modals/timezone-utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { updateAsset } from '@immich/sdk';
-  import { FormModal, Label } from '@immich/ui';
+  import { updateAsset } from '@Universal Photos/sdk';
+  import { FormModal, Label } from '@Universal Photos/ui';
   import { mdiCalendarEdit } from '@mdi/js';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
@@ -63,7 +63,7 @@
 >
   <Label for="datetime" class="mb-1 block">{$t('date_and_time')}</Label>
   <DateInput
-    class="mb-2 immich-form-input w-full"
+    class="mb-2 Universal Photos-form-input w-full"
     id="datetime"
     type="datetime-local"
     bind:value={() => selectedDate, updateSelectedDate}

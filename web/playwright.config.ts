@@ -31,7 +31,7 @@ export default defineConfig({
     url: baseURL,
     timeout: 60_000,
     reuseExistingServer: !ci,
-    env: { IMMICH_SERVER_URL: 'http://127.0.0.1:1' },
+    env: { UNIVERSALPHOTOS_SERVER_URL: 'http://127.0.0.1:1' },
     stdout: ci ? 'pipe' : 'ignore',
     stderr: 'pipe',
   },

@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_album.repository.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/domain/models/album/local_album.model.dart';
+import 'package:universal_photos/infrastructure/repositories/local_album.repository.dart';
 
 class MediumFactory {
   final Drift _db;

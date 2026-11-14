@@ -4,7 +4,7 @@
 
 <script lang="ts">
   import { getProfileImageUrl } from '#lib/utils.ts';
-  import { type UserAvatarColor } from '@immich/sdk';
+  import { type UserAvatarColor } from '@Universal Photos/sdk';
   import { t } from 'svelte-i18n';
 
   interface User {
@@ -72,7 +72,7 @@
   let title = $derived(label ?? `${user.name} (${user.email})`);
   let interactiveClass = $derived(
     interactive
-      ? 'border-2 border-immich-primary hover:border-immich-dark-primary dark:hover:border-immich-primary dark:border-immich-dark-primary transition-colors'
+      ? 'border-2 border-Universal Photos-primary hover:border-Universal Photos-dark-primary dark:hover:border-Universal Photos-primary dark:border-Universal Photos-dark-primary transition-colors'
       : '',
   );
 </script>

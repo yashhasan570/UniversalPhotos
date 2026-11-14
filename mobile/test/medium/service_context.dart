@@ -1,6 +1,6 @@
-import 'package:immich_mobile/domain/models/user.model.dart';
-import 'package:immich_mobile/infrastructure/repositories/partner.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/user.repository.dart';
+import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos/infrastructure/repositories/partner.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/user.repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../api.mocks.dart';

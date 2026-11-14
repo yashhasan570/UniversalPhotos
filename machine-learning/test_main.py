@@ -24,10 +24,10 @@ from PIL import Image
 from pytest import MonkeyPatch
 from pytest_mock import MockerFixture
 
-import immich_ml.sessions.prepare as prepare_module
-from immich_ml import allocator
-from immich_ml.config import MaxBatchSize, PreloadModelData, Settings, settings
-from immich_ml.main import (
+import universal_photos_ml.sessions.prepare as prepare_module
+from universal_photos_ml import allocator
+from universal_photos_ml.config import MaxBatchSize, PreloadModelData, Settings, settings
+from universal_photos_ml.main import (
     MODEL_FILE_ERRORS,
     PIPELINE_REQUEST,
     app,
@@ -38,17 +38,17 @@ from immich_ml.main import (
     preload_models,
     update_state,
 )
-from immich_ml.main import run_inference as run_request
-from immich_ml.models.base import InferenceEntry, InferenceModel
-from immich_ml.models.cache import ModelCache
-from immich_ml.models.clip.textual import MClipTextualEncoder, OpenClipTextualEncoder
-from immich_ml.models.clip.visual import OpenClipVisualEncoder
-from immich_ml.models.facial_recognition.detection import FaceDetector
-from immich_ml.models.facial_recognition.recognition import FaceRecognizer
-from immich_ml.models.ocr.ctc import logits, probabilities
-from immich_ml.models.ocr.detection import TextDetector
-from immich_ml.models.ocr.recognition import TextRecognizer
-from immich_ml.schemas import (
+from universal_photos_ml.main import run_inference as run_request
+from universal_photos_ml.models.base import InferenceEntry, InferenceModel
+from universal_photos_ml.models.cache import ModelCache
+from universal_photos_ml.models.clip.textual import MClipTextualEncoder, OpenClipTextualEncoder
+from universal_photos_ml.models.clip.visual import OpenClipVisualEncoder
+from universal_photos_ml.models.facial_recognition.detection import FaceDetector
+from universal_photos_ml.models.facial_recognition.recognition import FaceRecognizer
+from universal_photos_ml.models.ocr.ctc import logits, probabilities
+from universal_photos_ml.models.ocr.detection import TextDetector
+from universal_photos_ml.models.ocr.recognition import TextRecognizer
+from universal_photos_ml.schemas import (
     FaceDetectionOptions,
     FaceRecognitionOptions,
     ModelFormat,
@@ -61,12 +61,12 @@ from immich_ml.schemas import (
     TextualOptions,
     VisualOptions,
 )
-from immich_ml.sessions.ann import AnnSession
-from immich_ml.sessions.ort import Device, GraphSpec, OrtSession, flush_denormals, fresh, prepared
-from immich_ml.sessions.policy import ShapePolicy, batches, runs
-from immich_ml.sessions.rknn import RknnSession
-from immich_ml.sessions.rknn import model_path as rknn_model_path
-from immich_ml.sessions.rknn.rknnpool import RknnPoolExecutor
+from universal_photos_ml.sessions.ann import AnnSession
+from universal_photos_ml.sessions.ort import Device, GraphSpec, OrtSession, flush_denormals, fresh, prepared
+from universal_photos_ml.sessions.policy import ShapePolicy, batches, runs
+from universal_photos_ml.sessions.rknn import RknnSession
+from universal_photos_ml.sessions.rknn import model_path as rknn_model_path
+from universal_photos_ml.sessions.rknn.rknnpool import RknnPoolExecutor
 
 
 class TestBase:
@@ -101,7 +101,7 @@ class TestBase:
 
     def test_sets_default_model_format(self, mocker: MockerFixture) -> None:
         mocker.patch.object(settings, "ann", True)
-        mocker.patch("immich_ml.sessions.ann.loader.is_available", False)
+        mocker.patch("universal_photos_ml.sessions.ann.loader.is_available", False)
 
         encoder = OpenClipTextualEncoder("ViT-B-32__openai")
 
@@ -109,7 +109,7 @@ class TestBase:
 
     def test_sets_default_model_format_to_armnn_if_available(self, path: mock.Mock, mocker: MockerFixture) -> None:
         mocker.patch.object(settings, "ann", True)
-        mocker.patch("immich_ml.sessions.ann.loader.is_available", True)
+        mocker.patch("universal_photos_ml.sessions.ann.loader.is_available", True)
 
         encoder = OpenClipTextualEncoder("ViT-B-32__openai", cache_dir=path)
 
@@ -117,21 +117,21 @@ class TestBase:
 
     def test_sets_model_format_kwarg(self, mocker: MockerFixture) -> None:
         mocker.patch.object(settings, "ann", False)
-        mocker.patch("immich_ml.sessions.ann.loader.is_available", False)
+        mocker.patch("universal_photos_ml.sessions.ann.loader.is_available", False)
 
         encoder = OpenClipTextualEncoder("ViT-B-32__openai", model_format=ModelFormat.ARMNN)
 
         assert encoder.model_format == ModelFormat.ARMNN
 
     def test_hands_the_session_the_shapes_the_model_feeds(self, path: mock.Mock, mocker: MockerFixture) -> None:
-        session = mocker.patch("immich_ml.models.base.OrtSession")
+        session = mocker.patch("universal_photos_ml.models.base.OrtSession")
 
         FaceDetector("buffalo_l", cache_dir=path)._make_session()
 
         assert session.call_args.args[1].dims == (Shape(batch=1, height=640, width=640),)
 
     def test_opens_the_rknn_binary_compiled_for_the_requested_shapes(self, mocker: MockerFixture) -> None:
-        mocker.patch("immich_ml.sessions.rknn.model_prefix", Path("rknpu/rk3588"))
+        mocker.patch("universal_photos_ml.sessions.rknn.model_prefix", Path("rknpu/rk3588"))
 
         assert rknn_model_path(Path("/cache/detection"), "res1088") == Path(
             "/cache/detection/rknpu/rk3588/res1088/model.rknn"
@@ -145,7 +145,7 @@ class TestBase:
 
     def test_sets_default_model_format_to_rknn_if_available(self, mocker: MockerFixture) -> None:
         mocker.patch.object(settings, "rknn", True)
-        mocker.patch("immich_ml.sessions.rknn.is_available", True)
+        mocker.patch("universal_photos_ml.sessions.rknn.is_available", True)
 
         encoder = OpenClipTextualEncoder("ViT-B-32__openai")
 
@@ -220,7 +220,7 @@ class TestBase:
     def test_returns_memory_through_the_allocator_the_process_runs_on(
         self, mocker: MockerFixture, symbols: list[str], called: str
     ) -> None:
-        process = mocker.patch("immich_ml.allocator._process", mock.Mock(spec=symbols))
+        process = mocker.patch("universal_photos_ml.allocator._process", mock.Mock(spec=symbols))
 
         allocator.release()
 
@@ -231,7 +231,7 @@ class TestBase:
         encoder.download()
 
         snapshot_download.assert_called_once_with(
-            "immich-app/ViT-B-32__openai",
+            "universalphotos-app/ViT-B-32__openai",
             revision=settings.model_revision,
             cache_dir=encoder.cache_dir,
             local_dir=encoder.cache_dir,
@@ -253,7 +253,7 @@ class TestBase:
     def test_throws_exception_if_model_path_does_not_exist(
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
-        snapshot_download = mocker.patch("immich_ml.models.base.snapshot_download")  # which brings no such file
+        snapshot_download = mocker.patch("universal_photos_ml.models.base.snapshot_download")  # which brings no such file
         path.return_value.__truediv__.return_value.__truediv__.return_value.is_file.return_value = False
 
         encoder = OpenClipTextualEncoder("ViT-B-32__openai", cache_dir=path)
@@ -353,7 +353,7 @@ class TestOrtSessions:
     def test_leaves_a_dimension_free_when_the_model_feeds_several_sizes(
         self, ort_session: mock.Mock, mocker: MockerFixture
     ) -> None:
-        sess_options = mocker.patch("immich_ml.sessions.ort.ort.SessionOptions").return_value
+        sess_options = mocker.patch("universal_photos_ml.sessions.ort.ort.SessionOptions").return_value
         policy = ShapePolicy(dims=(Shape(batch=1, height=64, width=64), Shape(batch=1, height=64, width=128)))
 
         ort_sessions("PP-OCRv5_mobile", providers=["CPUExecutionProvider"], shape_policy=policy)
@@ -470,7 +470,7 @@ class TestOrtSessions:
     def test_pins_clip_on_openvino(
         self, ort_session: mock.Mock, ov_device_ids: list[str], mocker: MockerFixture
     ) -> None:
-        sess_options = mocker.patch("immich_ml.sessions.ort.ort.SessionOptions").return_value
+        sess_options = mocker.patch("universal_photos_ml.sessions.ort.ort.SessionOptions").return_value
         sess_options.inter_op_num_threads = 0
 
         # older Intel GPUs compute garbage for a free dim, and CLIP is the only model that would leave one
@@ -605,7 +605,7 @@ class TestOrtSessions:
     def test_sets_default_sess_options_sets_threads_if_non_cpu_and_set_threads(
         self, ort_session: mock.Mock, mocker: MockerFixture
     ) -> None:
-        mock_settings = mocker.patch("immich_ml.sessions.ort.settings", autospec=True)
+        mock_settings = mocker.patch("universal_photos_ml.sessions.ort.settings", autospec=True)
         mock_settings.model_inter_op_threads = 2
         mock_settings.model_intra_op_threads = 4
 
@@ -615,7 +615,7 @@ class TestOrtSessions:
         assert given_sess_options(ort_session).intra_op_num_threads == 4
 
     def test_uses_arena_if_enabled(self, ort_session: mock.Mock, mocker: MockerFixture) -> None:
-        mock_settings = mocker.patch("immich_ml.sessions.ort.settings", autospec=True)
+        mock_settings = mocker.patch("universal_photos_ml.sessions.ort.settings", autospec=True)
         mock_settings.model_inter_op_threads = 0
         mock_settings.model_intra_op_threads = 0
         mock_settings.model_arena = True
@@ -625,7 +625,7 @@ class TestOrtSessions:
         assert given_sess_options(ort_session).enable_cpu_mem_arena
 
     def test_does_not_use_arena_if_disabled(self, ort_session: mock.Mock, mocker: MockerFixture) -> None:
-        mock_settings = mocker.patch("immich_ml.sessions.ort.settings", autospec=True)
+        mock_settings = mocker.patch("universal_photos_ml.sessions.ort.settings", autospec=True)
         mock_settings.model_inter_op_threads = 0
         mock_settings.model_intra_op_threads = 0
         mock_settings.model_arena = False
@@ -675,7 +675,7 @@ class TestOrtSessions:
     def test_disables_the_fusion_that_is_slower_on_arm_whatever_the_os_calls_it(
         self, ort_session: mock.Mock, mocker: MockerFixture, machine: str, disabled: list[str]
     ) -> None:
-        mocker.patch("immich_ml.sessions.ort.platform.machine", return_value=machine)
+        mocker.patch("universal_photos_ml.sessions.ort.platform.machine", return_value=machine)
 
         ort_sessions("ViT-B-32__openai", providers=["CPUExecutionProvider"])
 
@@ -692,14 +692,14 @@ class TestOrtSessions:
     def test_disables_the_fusion_that_is_slower_on_cuda_and_coreml(
         self, ort_session: mock.Mock, mocker: MockerFixture, providers: list[str], disabled: list[str]
     ) -> None:
-        mocker.patch("immich_ml.sessions.ort.platform.machine", return_value="x86_64")
+        mocker.patch("universal_photos_ml.sessions.ort.platform.machine", return_value="x86_64")
 
         ort_sessions("ViT-B-32__openai", providers=providers)
 
         assert ort_session.call_args.kwargs["disabled_optimizers"] == disabled
 
     def test_opens_the_graph_that_was_prepared_for_it(self, ort_session: mock.Mock, mocker: MockerFixture) -> None:
-        mocker.patch("immich_ml.sessions.ort.prepared", return_value=Path("/cache/visual/cpu/free/model.onnx"))
+        mocker.patch("universal_photos_ml.sessions.ort.prepared", return_value=Path("/cache/visual/cpu/free/model.onnx"))
 
         ort_sessions("/cache/visual/model.onnx", providers=["CPUExecutionProvider"])
 
@@ -741,13 +741,13 @@ class TestPreparedGraphs:
             prepare_module.prepare(pickle.loads(kwargs["input"]))
             return SimpleNamespace(returncode=0)
 
-        child = mocker.patch("immich_ml.sessions.ort.subprocess.run", side_effect=stand_in)
+        child = mocker.patch("universal_photos_ml.sessions.ort.subprocess.run", side_effect=stand_in)
 
         assert prepared(spec()) == prepared(spec()) == tmp_path / "cpu" / platform.machine() / "model.onnx"
         child.assert_called_once()
-        assert child.call_args.args[0][1:] == ["-m", "immich_ml.sessions.prepare"]
+        assert child.call_args.args[0][1:] == ["-m", "universal_photos_ml.sessions.prepare"]
 
-        mocker.patch("immich_ml.sessions.ort.ort.__version__", "9.9.9")  # what it packed may not be read back the same
+        mocker.patch("universal_photos_ml.sessions.ort.ort.__version__", "9.9.9")  # what it packed may not be read back the same
         prepared(spec())
         assert child.call_count == 2
 
@@ -772,7 +772,7 @@ class TestPreparedGraphs:
         self, provider: str, reader: str, ov_device_ids: mock.Mock, mocker: MockerFixture
     ) -> None:
         mocker.patch(
-            f"immich_ml.sessions.ort.{reader}", side_effect=[Device("a", "1"), Device("a", "2"), Device("b", "1")]
+            f"universal_photos_ml.sessions.ort.{reader}", side_effect=[Device("a", "1"), Device("a", "2"), Device("b", "1")]
         )
         first, updated, other = [graph_spec(Path("/cache/model.onnx"), [provider]) for _ in range(3)]
 
@@ -783,7 +783,7 @@ class TestPreparedGraphs:
     def test_tells_an_unreadable_source_from_a_failed_preparation(
         self, tmp_path: Path, mocker: MockerFixture, returncode: int, error: type[Exception]
     ) -> None:
-        mocker.patch("immich_ml.sessions.ort.subprocess.run", return_value=SimpleNamespace(returncode=returncode))
+        mocker.patch("universal_photos_ml.sessions.ort.subprocess.run", return_value=SimpleNamespace(returncode=returncode))
 
         with pytest.raises(error):  # the first has the download cleared and fetched again
             prepared(graph_spec(linear_graph(tmp_path)))
@@ -792,7 +792,7 @@ class TestPreparedGraphs:
         tmp_path.joinpath("model.onnx").write_bytes(b"not a graph")
         request = pickle.dumps(graph_spec(tmp_path / "model.onnx"))
         mocker.patch(
-            "immich_ml.sessions.prepare.sys.stdin", SimpleNamespace(buffer=SimpleNamespace(read=lambda: request))
+            "universal_photos_ml.sessions.prepare.sys.stdin", SimpleNamespace(buffer=SimpleNamespace(read=lambda: request))
         )
 
         with pytest.raises(SystemExit) as left:
@@ -815,7 +815,7 @@ class TestPreparedGraphs:
         )
 
     def test_compiles_where_the_provider_keeps_the_result(self, tmp_path: Path, mocker: MockerFixture) -> None:
-        session = mocker.patch("immich_ml.sessions.ort.ort.InferenceSession")
+        session = mocker.patch("universal_photos_ml.sessions.ort.ort.InferenceSession")
         spec = graph_spec(linear_graph(tmp_path), ["CoreMLExecutionProvider", "CPUExecutionProvider"])
 
         prepare_module.prepare(spec)
@@ -829,7 +829,7 @@ class TestPreparedGraphs:
     def test_rewrites_only_the_exports_the_rewriter_was_written_for(
         self, tmp_path: Path, mocker: MockerFixture
     ) -> None:
-        apply = mocker.patch("immich_ml.sessions.prepare.apply_rewrites")
+        apply = mocker.patch("universal_photos_ml.sessions.prepare.apply_rewrites")
         apply.side_effect = lambda source, plan: source.with_name("model.rw-abc.onnx")
         spec = graph_spec(linear_graph(tmp_path), ["CUDAExecutionProvider"])
 
@@ -850,7 +850,7 @@ class TestPreparedGraphs:
         self, tmp_path: Path, mocker: MockerFixture, providers: list[str], revision: str, half: bool
     ) -> None:
         mocker.patch.object(settings, "model_revision", revision)
-        derive = mocker.patch("immich_ml.sessions.prepare.derive")
+        derive = mocker.patch("universal_photos_ml.sessions.prepare.derive")
         spec = graph_spec(tmp_path / "model.onnx", providers)
 
         narrowed = prepare_module.narrowed(spec)
@@ -958,8 +958,8 @@ class TestRknnSession:
     def test_creates_rknn_session(self, rknn_session: mock.Mock, info: mock.Mock, mocker: MockerFixture) -> None:
         model_path = mock.MagicMock(spec=Path)
         tpe = 1
-        mocker.patch("immich_ml.sessions.rknn.soc_name", "rk3566")
-        mocker.patch("immich_ml.sessions.rknn.is_available", True)
+        mocker.patch("universal_photos_ml.sessions.rknn.soc_name", "rk3566")
+        mocker.patch("universal_photos_ml.sessions.rknn.is_available", True)
         RknnSession(model_path)
 
         rknn_session.assert_called_once_with(model_path=model_path.as_posix(), tpes=tpe)
@@ -970,7 +970,7 @@ class TestRknnSession:
 
     def test_run_rknn(self, rknn_session: mock.Mock, mocker: MockerFixture) -> None:
         rknn_session.return_value.load.return_value = 123
-        mocker.patch("immich_ml.sessions.rknn.soc_name", "rk3566")
+        mocker.patch("universal_photos_ml.sessions.rknn.soc_name", "rk3566")
         session = RknnSession(Path("ViT-B-32__openai"))
         [input1, input2] = [np.random.rand(1, 3, 224, 224).astype(np.float32) for _ in range(2)]
         input_feed = {"input.1": input1, "input.2": input2}
@@ -986,7 +986,7 @@ class TestRknnSession:
     def test_uses_a_context_per_npu_core_unless_set(
         self, soc: str, threads: int | None, expected: int, rknn_session: mock.Mock, mocker: MockerFixture
     ) -> None:
-        mocker.patch("immich_ml.sessions.rknn.soc_name", soc)
+        mocker.patch("universal_photos_ml.sessions.rknn.soc_name", soc)
         mocker.patch.object(settings, "rknn_threads", threads)
 
         RknnSession(Path("ViT-B-32__openai"))
@@ -996,7 +996,7 @@ class TestRknnSession:
     def test_run_rknn_rejects_a_shape_the_binary_was_not_compiled_for(
         self, rknn_session: mock.Mock, mocker: MockerFixture
     ) -> None:
-        mocker.patch("immich_ml.sessions.rknn.soc_name", "rk3566")
+        mocker.patch("universal_photos_ml.sessions.rknn.soc_name", "rk3566")
         session = RknnSession(Path("ViT-B-32__openai"))
 
         # a wrong data_format label is not something librknnrt reports; it reinterprets the buffer
@@ -1101,13 +1101,13 @@ class TestRknnPool:
     @pytest.fixture
     def lib(self, mocker: MockerFixture) -> FakeRknn:
         fake = FakeRknn()
-        mocker.patch("immich_ml.sessions.rknn.rknnpool.lib", fake, create=True)
+        mocker.patch("universal_photos_ml.sessions.rknn.rknnpool.lib", fake, create=True)
         return fake
 
     @pytest.fixture
     def dynamic_lib(self, mocker: MockerFixture) -> FakeRknn:
         fake = FakeRknn(ranges=[(1, 48, 320, 3), (1, 48, 640, 3)])
-        mocker.patch("immich_ml.sessions.rknn.rknnpool.lib", fake, create=True)
+        mocker.patch("universal_photos_ml.sessions.rknn.rknnpool.lib", fake, create=True)
         return fake
 
     def test_duplicates_one_context_per_thread(self, lib: FakeRknn) -> None:
@@ -1348,7 +1348,7 @@ class TestCLIP:
         mocked.get_metadata.return_value = {}
         mocked.get_inputs.return_value = [SimpleNamespace(name="text")]
         mocked.run.return_value = [[self.embedding]]
-        mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True)
+        mocker.patch("universal_photos_ml.models.clip.textual.Tokenizer.from_file", autospec=True)
 
         clip_encoder = OpenClipTextualEncoder("ViT-B-32__openai", cache_dir="test_cache")
         embedding_str = clip_encoder.predict("test search query", options=TextualOptions())
@@ -1381,7 +1381,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "download")
         mocker.patch.object(OpenClipTextualEncoder, "model_cfg", clip_model_cfg)
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
-        mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True)
+        mocker.patch("universal_photos_ml.models.clip.textual.Tokenizer.from_file", autospec=True)
         session = mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
         session.for_shape.return_value = session
         session.get_metadata.return_value = {"embedding": "tok"}
@@ -1440,7 +1440,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         session = mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
         session.for_shape.return_value.get_metadata.return_value = {}  # no table left to the host
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("universal_photos_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -1467,7 +1467,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         session = mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
         session.for_shape.return_value.get_metadata.return_value = {}  # no table left to the host
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("universal_photos_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -1493,7 +1493,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         session = mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
         session.for_shape.return_value.get_metadata.return_value = {}  # no table left to the host
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("universal_photos_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -1514,7 +1514,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         session = mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
         session.for_shape.return_value.get_metadata.return_value = {}  # no table left to the host
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("universal_photos_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -1536,7 +1536,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         session = mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
         session.for_shape.return_value.get_metadata.return_value = {}  # no table left to the host
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("universal_photos_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -1558,7 +1558,7 @@ class TestCLIP:
         mocker.patch.object(OpenClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         session = mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
         session.for_shape.return_value.get_metadata.return_value = {}  # no table left to the host
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("universal_photos_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids)
 
@@ -1579,7 +1579,7 @@ class TestCLIP:
         mocker.patch.object(MClipTextualEncoder, "tokenizer_cfg", clip_tokenizer_cfg)
         session = mocker.patch.object(InferenceModel, "_make_session", autospec=True).return_value
         session.for_shape.return_value.get_metadata.return_value = {}  # no table left to the host
-        mock_tokenizer = mocker.patch("immich_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
+        mock_tokenizer = mocker.patch("universal_photos_ml.models.clip.textual.Tokenizer.from_file", autospec=True).return_value
         mock_ids = [randint(0, 50000) for _ in range(77)]
         mock_attention_mask = [randint(0, 1) for _ in range(77)]
         mock_tokenizer.encode.return_value = SimpleNamespace(ids=mock_ids, attention_mask=mock_attention_mask)
@@ -1873,8 +1873,8 @@ class TestFaceRecognition:
     def test_recognition_is_built_the_batches_it_asks_for(
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture, provider: str, shapes: tuple[Shape, ...]
     ) -> None:
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
-        mocker.patch("immich_ml.sessions.ort.ort.get_available_providers", return_value=[provider])
+        mocker.patch("universal_photos_ml.models.base.InferenceModel.download")
+        mocker.patch("universal_photos_ml.sessions.ort.ort.get_available_providers", return_value=[provider])
 
         face_recognizer = FaceRecognizer("buffalo_s", cache_dir=path)
         face_recognizer.load()
@@ -1890,7 +1890,7 @@ class TestFaceRecognition:
         mocker: MockerFixture,
         model_format: ModelFormat,
     ) -> None:
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
+        mocker.patch("universal_photos_ml.models.base.InferenceModel.download")
         mocker.patch.object(settings, "max_batch_size", MaxBatchSize(facial_recognition=8))  # which cannot raise it
         rknn_session.return_value.inputs = [SimpleNamespace(name="image", shape=(1, 112, 112, 3))]
 
@@ -2084,14 +2084,14 @@ class TestOcr:
     def test_set_rec_set_default_max_batch_size(
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
+        mocker.patch("universal_photos_ml.models.base.InferenceModel.download")
 
         text_recognizer = TextRecognizer("PP-OCRv5_mobile", cache_dir="test_cache")
 
         assert {shape.batch for shape in text_recognizer.shape_policy.dims} == {1, 6}
 
     def test_set_custom_max_batch_size(self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture) -> None:
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
+        mocker.patch("universal_photos_ml.models.base.InferenceModel.download")
         mocker.patch.object(settings, "max_batch_size", MaxBatchSize(ocr=4))
 
         text_recognizer = TextRecognizer("PP-OCRv5_mobile", cache_dir="test_cache")
@@ -2101,7 +2101,7 @@ class TestOcr:
     def test_ignore_other_custom_max_batch_size(
         self, ort_session: mock.Mock, path: mock.Mock, mocker: MockerFixture
     ) -> None:
-        mocker.patch("immich_ml.models.base.InferenceModel.download")
+        mocker.patch("universal_photos_ml.models.base.InferenceModel.download")
         mocker.patch.object(settings, "max_batch_size", MaxBatchSize(facial_recognition=3))
 
         text_recognizer = TextRecognizer("PP-OCRv5_mobile", cache_dir="test_cache")
@@ -2129,7 +2129,7 @@ class TestCache:
         model_cache = ModelCache()
         bare = model_cache.get(InferenceEntry(OpenClipTextualEncoder, "ViT-B-32__openai", TextualOptions()))
         prefixed = model_cache.get(
-            InferenceEntry(OpenClipTextualEncoder, "immich-app/ViT-B-32__openai", TextualOptions(language="en-US"))
+            InferenceEntry(OpenClipTextualEncoder, "universalphotos-app/ViT-B-32__openai", TextualOptions(language="en-US"))
         )
         assert bare is prefixed
 
@@ -2168,8 +2168,8 @@ class TestCache:
         model = stub_model()
         model.create.side_effect = lambda name, options: Loaded()
 
-        mocker.patch("immich_ml.models.cache.allocator.release", side_effect=lambda: events.append("released"))
-        loop = mocker.patch("immich_ml.models.cache.asyncio.get_running_loop").return_value
+        mocker.patch("universal_photos_ml.models.cache.allocator.release", side_effect=lambda: events.append("released"))
+        loop = mocker.patch("universal_photos_ml.models.cache.asyncio.get_running_loop").return_value
         model_cache = ModelCache()
 
         model_cache.get(InferenceEntry(model, "buffalo_l", FaceRecognitionOptions()), ttl=100)
@@ -2181,7 +2181,7 @@ class TestCache:
         assert not model_cache._models
 
     async def test_a_use_starts_the_ttl_over(self, mocker: MockerFixture) -> None:
-        loop = mocker.patch("immich_ml.models.cache.asyncio.get_running_loop").return_value
+        loop = mocker.patch("universal_photos_ml.models.cache.asyncio.get_running_loop").return_value
         model_cache, entry = ModelCache(), InferenceEntry(stub_model(), "buffalo_l", FaceRecognitionOptions())
 
         model_cache.get(entry, ttl=100)
@@ -2191,7 +2191,7 @@ class TestCache:
         assert loop.call_later.call_count == 2
 
     async def test_keeps_a_preloaded_model_whatever_ttl_a_request_names(self, mocker: MockerFixture) -> None:
-        loop = mocker.patch("immich_ml.models.cache.asyncio.get_running_loop").return_value
+        loop = mocker.patch("universal_photos_ml.models.cache.asyncio.get_running_loop").return_value
         model_cache, entry = ModelCache(), InferenceEntry(stub_model(), "buffalo_l", FaceRecognitionOptions())
 
         model_cache.get(entry)
@@ -2226,7 +2226,7 @@ class TestCache:
         assert settings.preload is not None
         assert settings.preload.clip.textual == "ViT-B-32__openai"
         assert settings.preload.clip.visual == "ViT-B-32__openai"
-        get = mocker.patch("immich_ml.main.model_cache.get")
+        get = mocker.patch("universal_photos_ml.main.model_cache.get")
 
         await preload_models(settings.preload)
 
@@ -2243,7 +2243,7 @@ class TestCache:
         assert settings.preload is not None
         assert settings.preload.facial_recognition.detection == "buffalo_s"
         assert settings.preload.facial_recognition.recognition == "buffalo_s"
-        get = mocker.patch("immich_ml.main.model_cache.get")
+        get = mocker.patch("universal_photos_ml.main.model_cache.get")
 
         await preload_models(settings.preload)
 
@@ -2260,7 +2260,7 @@ class TestCache:
         assert settings.preload is not None
         assert settings.preload.ocr.detection == "PP-OCRv5_mobile"
         assert settings.preload.ocr.recognition == "PP-OCRv5_mobile"
-        get = mocker.patch("immich_ml.main.model_cache.get")
+        get = mocker.patch("universal_photos_ml.main.model_cache.get")
 
         await preload_models(settings.preload)
 
@@ -2404,7 +2404,7 @@ async def test_feeds_a_model_the_output_of_the_one_it_depends_on(mocker: MockerF
     }
     models[FaceDetector].predict.return_value = "faces"
     models[FaceRecognizer].predict.return_value = "embeddings"
-    mocker.patch("immich_ml.main.model_cache.get", side_effect=lambda entry, ttl: models[entry.model])
+    mocker.patch("universal_photos_ml.main.model_cache.get", side_effect=lambda entry, ttl: models[entry.model])
     entries: list[InferenceEntry[Any]] = [  # the recognition first, so that only waiting on the detection feeds it
         InferenceEntry(FaceRecognizer, "buffalo_l", FaceRecognitionOptions()),
         InferenceEntry(FaceDetector, "buffalo_l", FaceDetectionOptions()),
@@ -2419,7 +2419,7 @@ async def test_feeds_a_model_the_output_of_the_one_it_depends_on(mocker: MockerF
 @pytest.mark.asyncio
 async def test_refuses_a_model_whose_input_the_request_does_not_ask_for(mocker: MockerFixture) -> None:
     recognition = mock.Mock(spec=InferenceModel, depends=[FaceDetector.identity], loaded=True)
-    mocker.patch("immich_ml.main.model_cache.get", return_value=recognition)
+    mocker.patch("universal_photos_ml.main.model_cache.get", return_value=recognition)
     entries: list[InferenceEntry[Any]] = [InferenceEntry(FaceRecognizer, "buffalo_l", FaceRecognitionOptions())]
 
     with pytest.raises(HTTPException) as refused:
@@ -2446,14 +2446,14 @@ async def test_waits_for_every_entry_before_failing_the_request(mocker: MockerFi
         OpenClipVisualEncoder: model(slow),
         TextDetector: model(mock.Mock(side_effect=RuntimeError("fails at once"))),
     }
-    mocker.patch("immich_ml.main.model_cache.get", side_effect=lambda entry, ttl: models[entry.model])
+    mocker.patch("universal_photos_ml.main.model_cache.get", side_effect=lambda entry, ttl: models[entry.model])
     entries: list[InferenceEntry[Any]] = [
         InferenceEntry(OpenClipVisualEncoder, "ViT-B-32__openai", VisualOptions()),
         InferenceEntry(TextDetector, "PP-OCRv5_mobile", TextDetectionOptions()),
     ]
 
     with ThreadPoolExecutor(2) as pool, pytest.raises(RuntimeError, match="fails at once"):
-        mocker.patch("immich_ml.main.thread_pool", pool)
+        mocker.patch("universal_photos_ml.main.thread_pool", pool)
         await run_request("text", entries)
 
     assert finished.is_set()  # or it would still be loading with no request counted as active
@@ -2463,8 +2463,8 @@ async def test_waits_for_every_entry_before_failing_the_request(mocker: MockerFi
 async def test_returns_what_a_preload_freed(mocker: MockerFixture) -> None:
     events: list[str] = []
     mocker.patch.object(settings, "preload", PreloadModelData())
-    mocker.patch("immich_ml.main.preload_models", side_effect=lambda _: events.append("preloaded"))
-    mocker.patch("immich_ml.main.allocator.release", side_effect=lambda: events.append("released"))
+    mocker.patch("universal_photos_ml.main.preload_models", side_effect=lambda _: events.append("preloaded"))
+    mocker.patch("universal_photos_ml.main.allocator.release", side_effect=lambda: events.append("released"))
 
     async with lifespan(app):
         assert events == ["preloaded", "released"]
@@ -2472,8 +2472,8 @@ async def test_returns_what_a_preload_freed(mocker: MockerFixture) -> None:
 
 @pytest.mark.asyncio
 async def test_returns_memory_once_requests_stop_unless_another_arrives(mocker: MockerFixture) -> None:
-    mocker.patch("immich_ml.main.release", None)
-    loop = mocker.patch("immich_ml.main.asyncio.get_running_loop").return_value
+    mocker.patch("universal_photos_ml.main.release", None)
+    loop = mocker.patch("universal_photos_ml.main.asyncio.get_running_loop").return_value
     first, second, third = update_state(), update_state(), update_state()
     await anext(first)
     await anext(second)
@@ -2490,7 +2490,7 @@ async def test_returns_memory_once_requests_stop_unless_another_arrives(mocker: 
 
 @pytest.mark.parametrize("size", [(0, 100), (100, 0), (0, 0)])
 def test_predict_rejects_empty_image(size: tuple[int, int], deployed_app: TestClient) -> None:
-    with mock.patch("immich_ml.main.decode_pil", return_value=Image.new("RGB", size)):
+    with mock.patch("universal_photos_ml.main.decode_pil", return_value=Image.new("RGB", size)):
         response = deployed_app.post(
             "http://localhost:3003/predict",
             data={"entries": json.dumps({"clip": {"visual": {"modelName": "ViT-B-32__openai"}}})},
@@ -2506,7 +2506,7 @@ def test_root_endpoint(deployed_app: TestClient) -> None:
 
     body = response.json()
     assert response.status_code == 200
-    assert body == {"message": "Immich ML"}
+    assert body == {"message": "UniversalPhotos ML"}
 
 
 def test_ping_endpoint(deployed_app: TestClient) -> None:

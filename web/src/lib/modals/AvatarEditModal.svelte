@@ -2,8 +2,8 @@
   import UserAvatar from '#lib/components/shared-components/UserAvatar.svelte';
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { UserAvatarColor, deleteProfileImage, updateMyUser } from '@immich/sdk';
-  import { Modal, ModalBody, toastManager } from '@immich/ui';
+  import { UserAvatarColor, deleteProfileImage, updateMyUser } from '@Universal Photos/sdk';
+  import { Modal, ModalBody, toastManager } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
 
   interface Props {

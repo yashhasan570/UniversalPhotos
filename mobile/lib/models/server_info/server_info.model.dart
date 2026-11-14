@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/server_info/server_config.model.dart';
-import 'package:immich_mobile/models/server_info/server_disk_info.model.dart';
-import 'package:immich_mobile/models/server_info/server_features.model.dart';
-import 'package:immich_mobile/models/server_info/server_version.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/models/server_info/server_config.model.dart';
+import 'package:universal_photos/models/server_info/server_disk_info.model.dart';
+import 'package:universal_photos/models/server_info/server_features.model.dart';
+import 'package:universal_photos/models/server_info/server_version.model.dart';
 
 part 'server_info.model.freezed.dart';
 

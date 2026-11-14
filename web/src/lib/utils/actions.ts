@@ -1,7 +1,7 @@
 import { TimelineManager } from '#lib/managers/timeline-manager/timeline-manager.svelte.ts';
 import type { TimelineAsset } from '#lib/managers/timeline-manager/types.ts';
-import { AssetVisibility, deleteAssets as deleteBulk, restoreAssets, type StackResponseDto } from '@immich/sdk';
-import { toastManager } from '@immich/ui';
+import { AssetVisibility, deleteAssets as deleteBulk, restoreAssets, type StackResponseDto } from '@universalphotos/sdk';
+import { toastManager } from '@universalphotos/ui';
 import { t } from 'svelte-i18n';
 import { get } from 'svelte/store';
 import { handleError } from './handle-error';

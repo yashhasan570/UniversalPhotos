@@ -22,8 +22,8 @@
   import { getStackBulkActions } from '#lib/services/stack.service.ts';
   import { type OnLink, type OnUnlink } from '#lib/utils/actions.ts';
   import { openFileUploadDialog } from '#lib/utils/file-uploader.ts';
-  import { AssetOrderBy, AssetVisibility } from '@immich/sdk';
-  import { ActionButton, CommandPaletteDefaultProvider } from '@immich/ui';
+  import { AssetOrderBy, AssetVisibility } from '@Universal Photos/sdk';
+  import { ActionButton, CommandPaletteDefaultProvider } from '@Universal Photos/ui';
   import { mdiDotsVertical } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';

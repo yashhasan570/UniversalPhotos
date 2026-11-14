@@ -1,6 +1,6 @@
 <script lang="ts">
   import { accordionManager } from '#lib/managers/accordion-manager.svelte.ts';
-  import { Icon } from '@immich/ui';
+  import { Icon } from '@Universal Photos/ui';
   import { onDestroy, type Snippet } from 'svelte';
   import { slide } from 'svelte/transition';
 
@@ -77,12 +77,12 @@
       </div>
 
       {#if subtitleSnippet}{@render subtitleSnippet()}{:else}
-        <p class="mt-1 text-sm dark:text-immich-dark-fg">{subtitle}</p>
+        <p class="mt-1 text-sm dark:text-Universal Photos-dark-fg">{subtitle}</p>
       {/if}
     </div>
 
     <div
-      class="immich-circle-icon-button flex place-content-center place-items-center rounded-full p-3 transition-all hover:bg-immich-primary/10 dark:text-immich-dark-fg hover:dark:bg-immich-dark-primary/20"
+      class="Universal Photos-circle-icon-button flex place-content-center place-items-center rounded-full p-3 transition-all hover:bg-Universal Photos-primary/10 dark:text-Universal Photos-dark-fg hover:dark:bg-Universal Photos-dark-primary/20"
     >
       <svg
         style="tran"

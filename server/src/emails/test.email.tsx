@@ -1,24 +1,24 @@
 import * as React from 'react';
 import { Link, Row, Text } from 'react-email';
-import ImmichLayout from 'src/emails/components/immich.layout.js';
+import UniversalPhotosLayout from 'src/emails/components/universalphotos.layout.js';
 import { TestEmailProps } from 'src/repositories/email.repository.js';
 
 export const TestEmail = ({ baseUrl, displayName }: TestEmailProps) => (
-  <ImmichLayout preview="This is a test email from Immich.">
+  <UniversalPhotosLayout preview="This is a test email from UniversalPhotos.">
     <Text className="m-0">
       Hey <strong>{displayName}</strong>!
     </Text>
 
-    <Text>This is a test email from your Immich Instance!</Text>
+    <Text>This is a test email from your UniversalPhotos Instance!</Text>
 
     <Row>
       <Link href={baseUrl}>{baseUrl}</Link>
     </Row>
-  </ImmichLayout>
+  </UniversalPhotosLayout>
 );
 
 TestEmail.PreviewProps = {
-  baseUrl: 'https://demo.immich.app',
+  baseUrl: 'https://demo.',
   displayName: 'Alan Turing',
 } as TestEmailProps;
 

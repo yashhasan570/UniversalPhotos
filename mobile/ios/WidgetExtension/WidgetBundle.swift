@@ -2,9 +2,9 @@ import SwiftUI
 import WidgetKit
 
 @main
-struct ImmichWidgetBundle: WidgetBundle {
+struct UniversalPhotosWidgetBundle: WidgetBundle {
   var body: some Widget {
-    ImmichRandomWidget()
-    ImmichMemoryWidget()
+    UniversalPhotosRandomWidget()
+    UniversalPhotosMemoryWidget()
   }
 }

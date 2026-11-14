@@ -11,7 +11,7 @@ import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
 import androidx.core.database.getStringOrNull
-import com.universalphotos.app.core.ImmichPlugin
+import com.universalphotos.app.core.UniversalPhotosPlugin
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.ImageHeaderParser
 import com.bumptech.glide.load.ImageHeaderParserUtils
@@ -42,7 +42,7 @@ sealed class AssetResult {
 private const val TAG = "NativeSyncApiImplBase"
 
 @SuppressLint("InlinedApi")
-open class NativeSyncApiImplBase(context: Context) : ImmichPlugin(), ActivityAware {
+open class NativeSyncApiImplBase(context: Context) : UniversalPhotosPlugin(), ActivityAware {
   private val ctx: Context = context.applicationContext
 
   private var hashTask: Job? = null

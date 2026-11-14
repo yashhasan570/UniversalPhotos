@@ -6,8 +6,8 @@
   import { handleError } from '#lib/utils/handle-error.ts';
   import { zoomImageToBase64 } from '#lib/utils/people-utils.ts';
   import { getPersonNameWithHiddenValue } from '#lib/utils/person.ts';
-  import { AssetTypeEnum, getAllPeople, type AssetFaceResponseDto, type PersonResponseDto } from '@immich/sdk';
-  import { IconButton, LoadingSpinner } from '@immich/ui';
+  import { AssetTypeEnum, getAllPeople, type AssetFaceResponseDto, type PersonResponseDto } from '@Universal Photos/sdk';
+  import { IconButton, LoadingSpinner } from '@Universal Photos/ui';
   import { mdiArrowLeftThin, mdiClose, mdiMagnify, mdiPlus } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -73,7 +73,7 @@
 
 <section
   transition:fly={{ x: 360, duration: 100, easing: linear }}
-  class="absolute top-0 h-full w-90 overflow-x-hidden bg-light p-2 dark:text-immich-dark-fg"
+  class="absolute top-0 h-full w-90 overflow-x-hidden bg-light p-2 dark:text-Universal Photos-dark-fg"
 >
   <div class="flex place-items-center justify-between gap-2">
     {#if !searchFaces}
@@ -86,7 +86,7 @@
           aria-label={$t('back')}
           onclick={onClose}
         />
-        <p class="flex text-lg text-immich-fg dark:text-immich-dark-fg">{$t('select_face')}</p>
+        <p class="flex text-lg text-Universal Photos-fg dark:text-Universal Photos-dark-fg">{$t('select_face')}</p>
       </div>
       <div class="flex justify-end gap-2">
         <IconButton
@@ -153,7 +153,7 @@
         <LoadingSpinner />
       </div>
     {:else}
-      <div class="mt-4 flex immich-scrollbar flex-wrap gap-2 overflow-y-auto">
+      <div class="mt-4 flex Universal Photos-scrollbar flex-wrap gap-2 overflow-y-auto">
         {#each showPeople as person (person.id)}
           {#if !editedFace.person || person.id !== editedFace.person.id}
             <div class="w-fit">

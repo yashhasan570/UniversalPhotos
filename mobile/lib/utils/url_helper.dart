@@ -1,5 +1,5 @@
-import 'package:immich_mobile/domain/models/store.model.dart';
-import 'package:immich_mobile/entities/store.entity.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
+import 'package:universal_photos/entities/store.entity.dart';
 import 'package:punycode/punycode.dart';
 
 /// Normalizes a server URL, guaranteeing that it has a schema and no trailing slashes

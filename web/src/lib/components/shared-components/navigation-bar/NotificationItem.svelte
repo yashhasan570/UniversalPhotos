@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { NotificationLevel, NotificationType, type NotificationDto } from '@immich/sdk';
-  import { IconButton, Stack, Text } from '@immich/ui';
+  import { NotificationLevel, NotificationType, type NotificationDto } from '@Universal Photos/sdk';
+  import { IconButton, Stack, Text } from '@Universal Photos/ui';
   import {
     mdiBackupRestore,
     mdiImageAlbum,
@@ -100,7 +100,7 @@
 </script>
 
 <button
-  class="min-h-20 w-full border-b border-gray-200 p-2 py-3 hover:bg-immich-primary/10 dark:border-immich-dark-gray dark:hover:bg-immich-dark-primary/10"
+  class="min-h-20 w-full border-b border-gray-200 p-2 py-3 hover:bg-Universal Photos-primary/10 dark:border-Universal Photos-dark-gray dark:hover:bg-Universal Photos-dark-primary/10"
   type="button"
   onclick={() => onclick(notification)}
   title={notification.createdAt}

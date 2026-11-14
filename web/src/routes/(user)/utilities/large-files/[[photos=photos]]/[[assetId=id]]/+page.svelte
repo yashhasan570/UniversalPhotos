@@ -7,7 +7,7 @@
   import { handlePromiseError } from '#lib/utils.ts';
   import { getNextAsset, getPreviousAsset, navigateToAsset } from '#lib/utils/asset-utils.ts';
   import { navigate } from '#lib/utils/navigation.ts';
-  import type { AssetResponseDto } from '@immich/sdk';
+  import type { AssetResponseDto } from '@Universal Photos/sdk';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
   import LargeAssetData from './LargeAssetData.svelte';

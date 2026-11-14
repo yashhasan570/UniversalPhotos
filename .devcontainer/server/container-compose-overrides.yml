@@ -1,32 +1,32 @@
 services:
-  immich-app-base:
+  universalphotos-app-base:
     image: busybox
-  immich-server:
+  universalphotos-server:
     extends:
-      service: immich-app-base
+      service: universalphotos-app-base
     profiles: !reset []
-    image: immich-server-dev:latest
+    image: universalphotos-server-dev:latest
     build:
       target: dev-container-server
     env_file: !reset []
-    hostname: immich-dev
+    hostname: universalphotos-dev
     environment:
-      - IMMICH_SERVER_URL=http://127.0.0.1:2283/
+      - UNIVERSALPHOTOS_SERVER_URL=http://127.0.0.1:2283/
     volumes:
       - ${UPLOAD_LOCATION:-upload-devcontainer-volume}${UPLOAD_LOCATION:+/photos}:/data
       - /etc/localtime:/etc/localtime:ro
       - build_cache:/buildcache
-      - ../packages/plugin-core:/build/plugins/immich-plugin-core
-  immich-web:
+      - ../packages/plugin-core:/build/plugins/universalphotos-plugin-core
+  universalphotos-web:
     env_file: !reset []
-  immich-machine-learning:
+  universalphotos-machine-learning:
     env_file: !reset []
   database:
     env_file: !reset []
     environment: !override
       POSTGRES_PASSWORD: ${DB_PASSWORD-postgres}
       POSTGRES_USER: ${DB_USERNAME-postgres}
-      POSTGRES_DB: ${DB_DATABASE_NAME-immich}
+      POSTGRES_DB: ${DB_DATABASE_NAME-universalphotos}
       POSTGRES_INITDB_ARGS: '--data-checksums'
       POSTGRES_HOST_AUTH_METHOD: md5
     volumes:

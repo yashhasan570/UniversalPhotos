@@ -3,7 +3,7 @@
   import SearchBar from '#lib/elements/SearchBar.svelte';
   import { getPeopleThumbnailUrl } from '#lib/utils.ts';
   import { normalizeSearchString } from '#lib/utils/string-utils.ts';
-  import { type PersonResponseDto } from '@immich/sdk';
+  import { type PersonResponseDto } from '@Universal Photos/sdk';
   import {
     ActionButton,
     Button,
@@ -14,7 +14,7 @@
     ModalFooter,
     Text,
     type ActionItem,
-  } from '@immich/ui';
+  } from '@Universal Photos/ui';
   import { mdiCheckAll, mdiCloseBoxMultipleOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 
@@ -72,7 +72,7 @@
           <SearchBar bind:name={searchName} placeholder={$t('search_people')} showLoadingSpinner={false} />
         </div>
 
-        <div class="flex min-h-0 grow immich-scrollbar flex-col gap-2 overflow-y-auto sm:max-h-120">
+        <div class="flex min-h-0 grow Universal Photos-scrollbar flex-col gap-2 overflow-y-auto sm:max-h-120">
           {#each namedPeople as person (person.id)}
             <ListButton onclick={() => selectPerson(person)} selected={selectedIds.has(person.id)}>
               <ImageThumbnail circle url={getPeopleThumbnailUrl(person)} altText={person.name} widthStyle="4rem" />

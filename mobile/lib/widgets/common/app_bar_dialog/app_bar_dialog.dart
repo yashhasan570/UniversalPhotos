@@ -4,27 +4,27 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/server_info/server_disk_info.model.dart';
-import 'package:immich_mobile/pages/common/settings.page.dart';
-import 'package:immich_mobile/providers/auth.provider.dart';
-import 'package:immich_mobile/providers/backup/backup_server.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:immich_mobile/providers/locale_provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/providers/websocket.provider.dart';
-import 'package:immich_mobile/routing/router.dart';
-import 'package:immich_mobile/utils/bytes_units.dart';
-import 'package:immich_mobile/widgets/common/app_bar_dialog/app_bar_profile_info.dart';
-import 'package:immich_mobile/widgets/common/app_bar_dialog/app_bar_server_info.dart';
-import 'package:immich_mobile/widgets/common/confirm_dialog.dart';
-import 'package:immich_mobile/widgets/common/immich_logo.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/models/server_info/server_disk_info.model.dart';
+import 'package:universal_photos/pages/common/settings.page.dart';
+import 'package:universal_photos/providers/auth.provider.dart';
+import 'package:universal_photos/providers/backup/backup_server.provider.dart';
+import 'package:universal_photos/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:universal_photos/providers/locale_provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/providers/websocket.provider.dart';
+import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos/utils/bytes_units.dart';
+import 'package:universal_photos/widgets/common/app_bar_dialog/app_bar_profile_info.dart';
+import 'package:universal_photos/widgets/common/app_bar_dialog/app_bar_server_info.dart';
+import 'package:universal_photos/widgets/common/confirm_dialog.dart';
+import 'package:universal_photos/widgets/common/universalphotos_logo.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ImmichAppBarDialog extends HookConsumerWidget {
-  const ImmichAppBarDialog({super.key});
+class UniversalPhotosAppBarDialog extends HookConsumerWidget {
+  const UniversalPhotosAppBarDialog({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -58,7 +58,7 @@ class ImmichAppBarDialog extends HookConsumerWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 4),
                 child: Image.asset(
-                  context.isDarkTheme ? 'assets/immich-text-dark.png' : 'assets/immich-text-light.png',
+                  context.isDarkTheme ? 'assets/universalphotos-text-dark.png' : 'assets/universalphotos-text-light.png',
                   height: 16,
                 ),
               ),
@@ -191,7 +191,7 @@ class ImmichAppBarDialog extends HookConsumerWidget {
             InkWell(
               onTap: () {
                 ContextHelper(context).pop();
-                unawaited(launchUrl(Uri.parse('https://docs.immich.app'), mode: LaunchMode.externalApplication));
+                unawaited(launchUrl(Uri.parse('https://docs.'), mode: LaunchMode.externalApplication));
               },
               child: Text(context.t.documentation, style: context.textTheme.bodySmall),
             ),
@@ -200,7 +200,7 @@ class ImmichAppBarDialog extends HookConsumerWidget {
               onTap: () {
                 ContextHelper(context).pop();
                 unawaited(
-                  launchUrl(Uri.parse('https://github.com/immich-app/immich'), mode: LaunchMode.externalApplication),
+                  launchUrl(Uri.parse('https://github.com/yashhasan570/UniversalPhotos'), mode: LaunchMode.externalApplication),
                 );
               },
               child: Text(context.t.profile_drawer_github, style: context.textTheme.bodySmall),
@@ -218,7 +218,7 @@ class ImmichAppBarDialog extends HookConsumerWidget {
                   context: context,
                   applicationIcon: const Padding(
                     padding: EdgeInsetsGeometry.symmetric(vertical: 10),
-                    child: ImmichLogo(size: 40),
+                    child: UniversalPhotosLogo(size: 40),
                   ),
                   applicationVersion: packageInfo.version,
                 );

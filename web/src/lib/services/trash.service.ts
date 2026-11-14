@@ -1,7 +1,7 @@
 import { handleError } from '#lib/utils/handle-error.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { emptyTrash, restoreTrash } from '@immich/sdk';
-import { modalManager, toastManager, type ActionItem } from '@immich/ui';
+import { emptyTrash, restoreTrash } from '@universalphotos/sdk';
+import { modalManager, toastManager, type ActionItem } from '@universalphotos/ui';
 import { mdiDeleteForeverOutline, mdiHistory } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';
 

@@ -2,7 +2,7 @@ import { MediaType, QueryType, validQueryTypes } from '#lib/constants.ts';
 import { Route } from '#lib/route.ts';
 import type { SearchFilter } from '#lib/types.ts';
 import { asLocalTimeISO, parseUtcDate } from '#lib/utils/date-time.ts';
-import { AssetTypeEnum, AssetVisibility, type MetadataSearchDto, type SmartSearchDto } from '@immich/sdk';
+import { AssetTypeEnum, AssetVisibility, type MetadataSearchDto, type SmartSearchDto } from '@universalphotos/sdk';
 import type { DateTime } from 'luxon';
 import { SvelteSet } from 'svelte/reactivity';
 import { goto } from '$app/navigation';

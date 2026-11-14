@@ -31,14 +31,14 @@ export interface WatchEvents {
 
 export type WatchOptions = Omit<ChokidarOptions, 'ignored'> & { ignored?: string[] };
 
-export interface ImmichReadStream {
+export interface UniversalPhotosReadStream {
   stream: Readable;
   type?: string;
   disposition?: string | string[];
   length?: number;
 }
 
-export interface ImmichZipStream extends ImmichReadStream {
+export interface UniversalPhotosZipStream extends UniversalPhotosReadStream {
   addFile: (inputPath: string, filename: string) => void;
   finalize: () => Promise<void>;
 }
@@ -99,7 +99,7 @@ export class StorageRepository {
     return fs.utimes(filepath, atime, mtime);
   }
 
-  createZipStream(): ImmichZipStream {
+  createZipStream(): UniversalPhotosZipStream {
     const archive = new ZipArchive({ store: true });
 
     const addFile = (input: string, filename: string) => {
@@ -123,7 +123,7 @@ export class StorageRepository {
     return createReadStream(filepath);
   }
 
-  async createReadStream(filepath: string, mimeType?: string | null): Promise<ImmichReadStream> {
+  async createReadStream(filepath: string, mimeType?: string | null): Promise<UniversalPhotosReadStream> {
     const { size } = await fs.stat(filepath);
     await fs.access(filepath, constants.R_OK);
     return {

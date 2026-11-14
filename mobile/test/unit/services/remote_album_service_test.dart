@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/services/remote_album.service.dart';
+import 'package:universal_photos/domain/services/remote_album.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../service.mocks.dart';

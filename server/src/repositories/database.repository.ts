@@ -1,4 +1,4 @@
-import { schemaDiff, schemaFromCode, schemaFromDatabase } from '@immich/sql-tools';
+import { schemaDiff, schemaFromCode, schemaFromDatabase } from '@universalphotos/sql-tools';
 import { Injectable } from '@nestjs/common';
 import AsyncLock from 'async-lock';
 import { Kysely, sql } from 'kysely';
@@ -22,7 +22,7 @@ import { GenerateSql } from 'src/decorators.js';
 import { DatabaseExtension, DatabaseLock, VectorIndex } from 'src/enum.js';
 import { ConfigRepository } from 'src/repositories/config.repository.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
-import { immich_uuid_v7 } from 'src/schema/functions.js';
+import { universalphotos_uuid_v7 } from 'src/schema/functions.js';
 // eslint-disable-next-line import-x/no-duplicates
 import 'src/schema/index.js'; // make sure all schema definitions are imported for schemaFromCode
 
@@ -223,7 +223,7 @@ export class DatabaseRepository {
     }>`SELECT column_name as "columnName" FROM information_schema.columns WHERE table_name = ${table}`.execute(this.db);
     if (rows.length === 0) {
       this.logger.warn(
-        `Table ${table} does not exist, skipping reindexing. This is only normal if this is a new Immich instance.`,
+        `Table ${table} does not exist, skipping reindexing. This is only normal if this is a new UniversalPhotos instance.`,
       );
       return;
     }
@@ -277,7 +277,7 @@ export class DatabaseRepository {
     const source = schemaFromCode({
       overrides: true,
       namingStrategy: 'default',
-      uuidFunction: (version) => (version === 7 ? `${immich_uuid_v7.name}()` : 'uuid_generate_v4()'),
+      uuidFunction: (version) => (version === 7 ? `${universalphotos_uuid_v7.name}()` : 'uuid_generate_v4()'),
     });
     const { database } = this.configRepository.getEnv();
     const target = await schemaFromDatabase({ connection: database.config });
@@ -405,7 +405,7 @@ export class DatabaseRepository {
         error instanceof Error ? error.message.match(/previously executed migration (.+) is missing/u) : null;
       if (missing) {
         throw new Error(
-          `Migration "${missing[1]}" was already applied to this database but is not in this version of Immich (${serverVersion}). ` +
+          `Migration "${missing[1]}" was already applied to this database but is not in this version of UniversalPhotos (${serverVersion}). ` +
             `This usually means the database was migrated by a newer version. Downgrades are not supported.`,
           { cause: error },
         );

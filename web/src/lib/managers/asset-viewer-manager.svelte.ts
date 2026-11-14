@@ -4,7 +4,7 @@ import type { ImageLoaderStatus } from '#lib/utils/adaptive-image-loader.svelte.
 import { canCopyImageToClipboard } from '#lib/utils/asset-utils.ts';
 import { BaseEventManager } from '#lib/utils/base-event-manager.svelte.ts';
 import type { AssetGridRouteSearchParams } from '#lib/utils/navigation.ts';
-import { getAssetInfo, type AssetResponseDto } from '@immich/sdk';
+import { getAssetInfo, type AssetResponseDto } from '@universalphotos/sdk';
 import type { ZoomImageWheelState } from '@zoom-image/core';
 import { cubicOut } from 'svelte/easing';
 

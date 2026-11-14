@@ -2,7 +2,7 @@ import { CookieOptions, Response } from 'express';
 import { Duration } from 'luxon';
 import { Writable } from 'node:stream';
 import { CookieResponse } from 'src/dtos/auth.dto.js';
-import { ImmichCookie } from 'src/enum.js';
+import { UniversalPhotosCookie } from 'src/enum.js';
 
 export class ClientDisconnectedError extends Error {}
 
@@ -48,15 +48,15 @@ export const respondWithCookie = <T>(res: Response, body: T, { isSecure, values 
     maxAge: Duration.fromObject({ days: 400 }).toMillis(),
   };
 
-  const cookieOptions: Record<ImmichCookie, CookieOptions> = {
-    [ImmichCookie.AuthType]: defaults,
-    [ImmichCookie.AccessToken]: defaults,
-    [ImmichCookie.MaintenanceToken]: { ...defaults, maxAge: Duration.fromObject({ days: 1 }).toMillis() },
-    [ImmichCookie.OAuthState]: defaults,
-    [ImmichCookie.OAuthCodeVerifier]: defaults,
+  const cookieOptions: Record<UniversalPhotosCookie, CookieOptions> = {
+    [UniversalPhotosCookie.AuthType]: defaults,
+    [UniversalPhotosCookie.AccessToken]: defaults,
+    [UniversalPhotosCookie.MaintenanceToken]: { ...defaults, maxAge: Duration.fromObject({ days: 1 }).toMillis() },
+    [UniversalPhotosCookie.OAuthState]: defaults,
+    [UniversalPhotosCookie.OAuthCodeVerifier]: defaults,
     // no httpOnly so that the client can know the auth state
-    [ImmichCookie.IsAuthenticated]: { ...defaults, httpOnly: false },
-    [ImmichCookie.SharedLinkToken]: { ...defaults, maxAge: Duration.fromObject({ days: 1 }).toMillis() },
+    [UniversalPhotosCookie.IsAuthenticated]: { ...defaults, httpOnly: false },
+    [UniversalPhotosCookie.SharedLinkToken]: { ...defaults, maxAge: Duration.fromObject({ days: 1 }).toMillis() },
   };
 
   for (const { key, value } of values) {
@@ -70,7 +70,7 @@ export const respondWithCookie = <T>(res: Response, body: T, { isSecure, values 
   return body;
 };
 
-export const respondWithoutCookie = <T>(res: Response, body: T, cookies: ImmichCookie[]) => {
+export const respondWithoutCookie = <T>(res: Response, body: T, cookies: UniversalPhotosCookie[]) => {
   for (const cookie of cookies) {
     res.clearCookie(cookie);
   }

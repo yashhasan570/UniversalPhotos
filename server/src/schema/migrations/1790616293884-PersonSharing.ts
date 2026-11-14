@@ -40,7 +40,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   "role" person_user_role_enum NOT NULL,
   "createdAt" timestamp with time zone NOT NULL DEFAULT now(),
   "updatedAt" timestamp with time zone NOT NULL DEFAULT now(),
-  "updateId" uuid NOT NULL DEFAULT immich_uuid_v7(),
+  "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
   CONSTRAINT "person_user_sharedWithId_fkey" FOREIGN KEY ("sharedWithId") REFERENCES "user" ("id") ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT "person_user_sharedById_personGroupId_fkey" FOREIGN KEY ("sharedById", "personGroupId") REFERENCES "person" ("ownerId", "personGroupId") ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT "person_user_pkey" PRIMARY KEY ("personGroupId", "sharedById", "sharedWithId")

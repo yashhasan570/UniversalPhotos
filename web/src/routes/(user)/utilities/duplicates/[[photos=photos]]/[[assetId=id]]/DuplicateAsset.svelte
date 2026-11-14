@@ -5,8 +5,8 @@
   import { getAllMetadataItems, type DifferingMetadataFields } from '#lib/utils/duplicate-utils.ts';
   import { getAltText } from '#lib/utils/thumbnail-util.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import { type AssetResponseDto } from '@immich/sdk';
-  import { Icon } from '@immich/ui';
+  import { type AssetResponseDto } from '@Universal Photos/sdk';
+  import { Icon } from '@Universal Photos/ui';
   import { mdiBookmarkOutline, mdiHeart, mdiImageMultipleOutline, mdiMagnifyPlus } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
@@ -81,12 +81,12 @@
       <!-- EXTERNAL LIBRARY / STACK COUNT CHIP -->
       <div class="absolute inset-e-3 top-2">
         {#if isFromExternalLibrary}
-          <div class="rounded-xl bg-immich-primary/90 px-2 py-1 text-xs text-white">
+          <div class="rounded-xl bg-Universal Photos-primary/90 px-2 py-1 text-xs text-white">
             {$t('external')}
           </div>
         {/if}
         {#if asset.stack?.assetCount}
-          <div class="my-0.5 rounded-xl bg-immich-primary/90 px-2 py-1 text-xs text-white">
+          <div class="my-0.5 rounded-xl bg-Universal Photos-primary/90 px-2 py-1 text-xs text-white">
             <div class="flex items-center justify-center">
               <div class="me-1">{asset.stack.assetCount}</div>
               <Icon icon={mdiImageMultipleOutline} size="18" />

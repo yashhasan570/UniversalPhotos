@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link, Section, Text } from 'react-email';
-import { ImmichButton } from 'src/emails/components/button.component.js';
-import ImmichLayout from 'src/emails/components/immich.layout.js';
+import { UniversalPhotosButton } from 'src/emails/components/button.component.js';
+import UniversalPhotosLayout from 'src/emails/components/universalphotos.layout.js';
 import { WelcomeEmailProps } from 'src/repositories/email.repository.js';
 import { replaceTemplateTags, templatePreview } from 'src/utils/replace-template-tags.js';
 
@@ -36,11 +36,11 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password, customT
   );
 
   return (
-    <ImmichLayout
+    <UniversalPhotosLayout
       preview={
         customTemplate
           ? templatePreview(customTemplate, usableTemplateVariables)
-          : 'You have been invited to a new Immich instance.'
+          : 'You have been invited to a new UniversalPhotos instance.'
       }
     >
       {customTemplate && (
@@ -52,7 +52,7 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password, customT
       {!customTemplate && emailContent}
 
       <Section className="flex justify-center my-6">
-        <ImmichButton href={`${baseUrl}/auth/login`}>Login</ImmichButton>
+        <UniversalPhotosButton href={`${baseUrl}/auth/login`}>Login</UniversalPhotosButton>
       </Section>
 
       <Text className="text-xs">
@@ -60,14 +60,14 @@ export const WelcomeEmail = ({ baseUrl, displayName, username, password, customT
         <br />
         <Link href={baseUrl}>{baseUrl}</Link>
       </Text>
-    </ImmichLayout>
+    </UniversalPhotosLayout>
   );
 };
 
 WelcomeEmail.PreviewProps = {
-  baseUrl: 'https://demo.immich.app/auth/login',
+  baseUrl: 'https://demo./auth/login',
   displayName: 'Alan Turing',
-  username: 'alanturing@immich.app',
+  username: 'alanturing@',
   password: 'mysuperpassword',
 } as WelcomeEmailProps;
 

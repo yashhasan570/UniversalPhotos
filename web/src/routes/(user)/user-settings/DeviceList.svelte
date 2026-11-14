@@ -2,8 +2,8 @@
   import DeviceCard from '#lib/components/user-settings-page/DeviceCard.svelte';
   import { createPreloadedQuery, executeMutation } from '#lib/queries/client.ts';
   import { deleteAllSessionsMutation, deleteSessionMutation, getSessionsQuery } from '#lib/queries/session.query.ts';
-  import { type SessionResponseDto } from '@immich/sdk';
-  import { Button, Text } from '@immich/ui';
+  import { type SessionResponseDto } from '@Universal Photos/sdk';
+  import { Button, Text } from '@Universal Photos/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
 

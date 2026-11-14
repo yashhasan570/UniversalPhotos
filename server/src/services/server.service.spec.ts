@@ -168,8 +168,8 @@ describe(ServerService.name, () => {
         isOnboarded: false,
         externalDomain: '',
         publicUsers: true,
-        mapDarkStyleUrl: 'https://tiles.immich.cloud/v1/style/dark.json',
-        mapLightStyleUrl: 'https://tiles.immich.cloud/v1/style/light.json',
+        mapDarkStyleUrl: 'https://tiles./v1/style/dark.json',
+        mapLightStyleUrl: 'https://tiles./v1/style/light.json',
         maintenanceMode: false,
         minFaces: 3,
       });

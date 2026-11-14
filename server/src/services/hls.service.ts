@@ -6,12 +6,12 @@ import { StorageCore } from 'src/cores/storage.core.js';
 import { OnEvent } from 'src/decorators.js';
 import { AuthDto } from 'src/dtos/auth.dto.js';
 import { ConfigFFmpegDto } from 'src/dtos/config.dto.js';
-import { CacheControl, ImmichWorker, Permission } from 'src/enum.js';
+import { CacheControl, UniversalPhotosWorker, Permission } from 'src/enum.js';
 import type { ArgOf } from 'src/repositories/event.repository.js';
 import { BaseService } from 'src/services/base.service.js';
 import type { VideoPacketInfo, VideoStreamInfo } from 'src/types.js';
 import { PendingEvents } from 'src/utils/event.js';
-import { ImmichFileResponse } from 'src/utils/file.js';
+import { UniversalPhotosFileResponse } from 'src/utils/file.js';
 import { getCodecString, getOutputSize } from 'src/utils/media.js';
 
 type AssetWithStreamInfo = { videoStream: VideoStreamInfo & { timeBase: number }; packets: VideoPacketInfo };
@@ -24,7 +24,7 @@ export class HlsService extends BaseService {
   private pendingSessions = new PendingEvents<'HlsSessionResult'>({ timeoutMs: 5000 });
   private sessions = new Map<string, ApiSession>();
 
-  @OnEvent({ name: 'HlsSessionResult', server: true, workers: [ImmichWorker.Api] })
+  @OnEvent({ name: 'HlsSessionResult', server: true, workers: [UniversalPhotosWorker.Api] })
   onSessionResult(event: ArgOf<'HlsSessionResult'>) {
     this.pendingSessions.complete(event.sessionId, event);
     if (!event.error) {
@@ -35,13 +35,13 @@ export class HlsService extends BaseService {
     this.pendingSegments.rejectByPrefix(`${event.sessionId}:`, event.error);
   }
 
-  @OnEvent({ name: 'HlsSessionEnd', server: true, workers: [ImmichWorker.Api] })
+  @OnEvent({ name: 'HlsSessionEnd', server: true, workers: [UniversalPhotosWorker.Api] })
   onSessionEnd({ sessionId }: ArgOf<'HlsSessionEnd'>) {
     this.sessions.delete(sessionId);
     this.pendingSegments.rejectByPrefix(`${sessionId}:`, 'Session ended');
   }
 
-  @OnEvent({ name: 'HlsSegmentResult', server: true, workers: [ImmichWorker.Api] })
+  @OnEvent({ name: 'HlsSegmentResult', server: true, workers: [UniversalPhotosWorker.Api] })
   onSegmentResult(event: ArgOf<'HlsSegmentResult'>) {
     this.pendingSegments.complete(this.getSegmentKey(event), event);
   }
@@ -100,7 +100,7 @@ export class HlsService extends BaseService {
 
     const variantDir = StorageCore.getHlsVariantFolder({ ownerId: auth.user.id, sessionId, variantIndex });
     const path = join(variantDir, filename);
-    const response = new ImmichFileResponse({
+    const response = new UniversalPhotosFileResponse({
       path,
       contentType: 'video/mp4',
       cacheControl: CacheControl.PrivateWithCache,

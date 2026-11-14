@@ -2,13 +2,13 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/infrastructure/loaders/image_request.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/presentation/widgets/images/animated_image_stream_completer.dart';
-import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
-import 'package:immich_mobile/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
-import 'package:immich_mobile/presentation/widgets/timeline/constants.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/infrastructure/loaders/image_request.dart';
+import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos/presentation/widgets/images/animated_image_stream_completer.dart';
+import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
+import 'package:universal_photos/presentation/widgets/timeline/constants.dart';
 
 // iOS GPU textures max out at 16384px; larger images squish.
 const _kMaxPixelSize = 16384;

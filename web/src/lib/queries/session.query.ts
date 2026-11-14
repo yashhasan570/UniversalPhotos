@@ -1,5 +1,5 @@
 import { asMutation, queryClient } from '#lib/queries/client.ts';
-import { deleteAllSessions, deleteSession, getSessions } from '@immich/sdk';
+import { deleteAllSessions, deleteSession, getSessions } from '@universalphotos/sdk';
 import { mutationOptions, queryOptions } from '@tanstack/svelte-query';
 
 export const getSessionsQuery = () =>

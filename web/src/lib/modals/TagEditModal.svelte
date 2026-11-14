@@ -5,7 +5,7 @@
   import { updateTagMutation } from '#lib/queries/tag.query.ts';
   import { Route } from '#lib/route.ts';
   import type { TreeNode } from '#lib/utils/tree-utils.ts';
-  import { FormModal, Text, toastManager } from '@immich/ui';
+  import { FormModal, Text, toastManager } from '@Universal Photos/ui';
   import { mdiTag } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';

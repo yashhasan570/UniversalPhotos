@@ -1,4 +1,4 @@
-import { WorkflowStepConfig, WorkflowTrigger } from '@immich/plugin-sdk';
+import { WorkflowStepConfig, WorkflowTrigger } from '@universalphotos/plugin-sdk';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { AuthDto } from 'src/dtos/auth.dto.js';
 import {

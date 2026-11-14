@@ -15,7 +15,7 @@
     getLibraryFolderActions,
   } from '#lib/services/library.service.ts';
   import { getBytesWithUnit } from '#lib/utils/byte-units.ts';
-  import { Code, CommandPaletteDefaultProvider, Container, Heading, modalManager } from '@immich/ui';
+  import { Code, CommandPaletteDefaultProvider, Container, Heading, modalManager } from '@Universal Photos/ui';
   import { mdiCameraIris, mdiChartPie, mdiFilterMinusOutline, mdiFolderOutline, mdiPlayCircle } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';

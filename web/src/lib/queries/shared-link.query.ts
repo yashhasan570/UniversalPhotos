@@ -7,7 +7,7 @@ import {
   removeSharedLinkAssets,
   updateSharedLink,
   type SharedLinkResponseDto,
-} from '@immich/sdk';
+} from '@universalphotos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 const findOrFail = (sharedLinks: SharedLinkResponseDto[], id: string) => {

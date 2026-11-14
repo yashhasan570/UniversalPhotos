@@ -2,8 +2,8 @@
   import { cleanClass } from '#lib';
   import { getQueueSnapshotsQuery } from '#lib/queries/queue.query.ts';
   import type { QueueSnapshot } from '#lib/types.ts';
-  import type { QueueResponseDto } from '@immich/sdk';
-  import { LoadingSpinner, Theme, themeManager } from '@immich/ui';
+  import type { QueueResponseDto } from '@Universal Photos/sdk';
+  import { LoadingSpinner, Theme, themeManager } from '@Universal Photos/ui';
   import { createQuery } from '@tanstack/svelte-query';
   import { DateTime } from 'luxon';
   import { onMount } from 'svelte';

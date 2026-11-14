@@ -1,17 +1,17 @@
 import 'dart:async';
 
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/data/db/main/table/local/album.dart';
-import 'package:immich_mobile/data/db/main/table/local/album.drift.dart';
-import 'package:immich_mobile/data/db/main/table/local/album_asset.drift.dart';
-import 'package:immich_mobile/data/db/main/table/local/asset.dart';
-import 'package:immich_mobile/data/db/main/table/local/asset.drift.dart';
-import 'package:immich_mobile/domain/models/album/local_album.model.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/extensions/platform_extensions.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_album.repository.drift.dart';
-import 'package:immich_mobile/utils/datetime_helpers.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/data/db/main/table/local/album.dart';
+import 'package:universal_photos/data/db/main/table/local/album.drift.dart';
+import 'package:universal_photos/data/db/main/table/local/album_asset.drift.dart';
+import 'package:universal_photos/data/db/main/table/local/asset.dart';
+import 'package:universal_photos/data/db/main/table/local/asset.drift.dart';
+import 'package:universal_photos/domain/models/album/local_album.model.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/extensions/platform_extensions.dart';
+import 'package:universal_photos/infrastructure/repositories/local_album.repository.drift.dart';
+import 'package:universal_photos/utils/datetime_helpers.dart';
 
 enum SortLocalAlbumsBy { id, backupSelection, isIosSharedAlbum, name, assetCount, newestAsset }
 

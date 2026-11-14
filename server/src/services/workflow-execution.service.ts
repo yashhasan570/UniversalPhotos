@@ -5,7 +5,7 @@ import {
   WorkflowEventPayload,
   WorkflowResponse,
   WorkflowTrigger,
-} from '@immich/plugin-sdk';
+} from '@universalphotos/plugin-sdk';
 import { HttpException, UnauthorizedException } from '@nestjs/common';
 import { join } from 'node:path';
 import { DummyValue, OnEvent, OnJob } from 'src/decorators.js';
@@ -17,8 +17,8 @@ import { TagBulkAssetsDto } from 'src/dtos/tag.dto.js';
 import {
   BootstrapEventPriority,
   DatabaseLock,
-  ImmichEnvironment,
-  ImmichWorker,
+  UniversalPhotosEnvironment,
+  UniversalPhotosWorker,
   JobName,
   JobStatus,
   QueueName,
@@ -53,14 +53,14 @@ type HostContext = {
 export class WorkflowExecutionService extends BaseService {
   private jwtSecret!: string;
 
-  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginSync, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginSync, workers: [UniversalPhotosWorker.Microservices] })
   async onPluginSync() {
     await this.databaseRepository.withLock(DatabaseLock.PluginImport, async () => {
       // TODO avoid importing plugins in each worker
       // Can this use system metadata similar to geocoding?
 
       const { environment, resourcePaths, plugins } = this.configRepository.getEnv();
-      await this.importFolder(resourcePaths.corePlugin, { force: environment === ImmichEnvironment.Development });
+      await this.importFolder(resourcePaths.corePlugin, { force: environment === UniversalPhotosEnvironment.Development });
 
       if (plugins.external.allow && plugins.external.installFolder) {
         await this.importFolders(plugins.external.installFolder);
@@ -68,7 +68,7 @@ export class WorkflowExecutionService extends BaseService {
     });
   }
 
-  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginLoad, workers: [ImmichWorker.Microservices] })
+  @OnEvent({ name: 'AppBootstrap', priority: BootstrapEventPriority.PluginLoad, workers: [UniversalPhotosWorker.Microservices] })
   async onPluginLoad() {
     this.jwtSecret = this.cryptoRepository.randomBytesAsText(32);
 

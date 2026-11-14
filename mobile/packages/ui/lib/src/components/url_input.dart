@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
-import 'package:immich_ui/src/components/text_input.dart';
+import 'package:universalphotos_ui/src/components/text_input.dart';
 
-class ImmichURLInput extends ImmichTextInput {
-  ImmichURLInput({
+class UniversalPhotosURLInput extends UniversalPhotosTextInput {
+  UniversalPhotosURLInput({
     super.key,
     super.controller,
     super.focusNode,

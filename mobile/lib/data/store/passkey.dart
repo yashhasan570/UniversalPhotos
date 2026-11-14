@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/data/server/passkey.dart';
-import 'package:immich_mobile/data/store/util/cache.dart';
-import 'package:immich_mobile/domain/models/passkey.model.dart';
-import 'package:immich_mobile/models/auth/login_response.model.dart';
-import 'package:immich_mobile/providers/infrastructure/platform.provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
+import 'package:universal_photos/data/server/passkey.dart';
+import 'package:universal_photos/data/store/util/cache.dart';
+import 'package:universal_photos/domain/models/passkey.model.dart';
+import 'package:universal_photos/models/auth/login_response.model.dart';
+import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos/providers/server_info.provider.dart';
 import 'package:logging/logging.dart';
 
 final _log = Logger("PasskeyStore");

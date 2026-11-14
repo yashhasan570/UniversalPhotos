@@ -6,52 +6,52 @@ import 'package:drift/drift.dart';
 import 'package:drift/src/runtime/executor/stream_queries.dart' show StreamQueryStore;
 import 'package:drift_sqlite_async/drift_sqlite_async.dart';
 import 'package:flutter/foundation.dart';
-import 'package:immich_mobile/data/db/main/dao/ocr.dart';
-import 'package:immich_mobile/data/db/main/dao/person.dart';
-import 'package:immich_mobile/data/db/main/dao/user_metadata.dart';
-import 'package:immich_mobile/data/db/main/database.drift.dart';
-import 'package:immich_mobile/data/db/main/database.steps.dart';
-import 'package:immich_mobile/data/db/main/table/app/settings.dart';
-import 'package:immich_mobile/data/db/main/table/app/store.dart';
-import 'package:immich_mobile/data/db/main/table/asset/edit.dart';
-import 'package:immich_mobile/data/db/main/table/asset/ocr.dart';
-import 'package:immich_mobile/data/db/main/table/local/album.dart';
-import 'package:immich_mobile/data/db/main/table/local/album_asset.dart';
-import 'package:immich_mobile/data/db/main/table/local/asset.dart';
-import 'package:immich_mobile/data/db/main/table/local/asset.drift.dart';
-import 'package:immich_mobile/data/db/main/table/local/trashed_asset.dart';
-import 'package:immich_mobile/data/db/main/table/local/trashed_asset.drift.dart';
-import 'package:immich_mobile/data/db/main/table/memory/asset.dart';
-import 'package:immich_mobile/data/db/main/table/memory/memory.dart';
-import 'package:immich_mobile/data/db/main/table/people/asset_face.dart';
-import 'package:immich_mobile/data/db/main/table/people/person.dart';
-import 'package:immich_mobile/data/db/main/table/remote/album.dart';
-import 'package:immich_mobile/data/db/main/table/remote/album_asset.dart';
-import 'package:immich_mobile/data/db/main/table/remote/album_user.dart';
-import 'package:immich_mobile/data/db/main/table/remote/asset.dart';
-import 'package:immich_mobile/data/db/main/table/remote/asset.drift.dart';
-import 'package:immich_mobile/data/db/main/table/remote/cloud_id.dart';
-import 'package:immich_mobile/data/db/main/table/remote/exif.dart';
-import 'package:immich_mobile/data/db/main/table/remote/stack.dart';
-import 'package:immich_mobile/data/db/main/table/user/auth_user.dart';
-import 'package:immich_mobile/data/db/main/table/user/metadata.dart';
-import 'package:immich_mobile/data/db/main/table/user/partner.dart';
-import 'package:immich_mobile/data/db/main/table/user/user.dart';
-import 'package:immich_mobile/infrastructure/repositories/backup.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_album.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/local_asset.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/map.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/memory.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/partner.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/remote_album.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/remote_asset.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/remote_exif.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/sync_migration.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/sync_stream.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/timeline.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/trashed_local_asset.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/user.repository.dart';
+import 'package:universal_photos/data/db/main/dao/ocr.dart';
+import 'package:universal_photos/data/db/main/dao/person.dart';
+import 'package:universal_photos/data/db/main/dao/user_metadata.dart';
+import 'package:universal_photos/data/db/main/database.drift.dart';
+import 'package:universal_photos/data/db/main/database.steps.dart';
+import 'package:universal_photos/data/db/main/table/app/settings.dart';
+import 'package:universal_photos/data/db/main/table/app/store.dart';
+import 'package:universal_photos/data/db/main/table/asset/edit.dart';
+import 'package:universal_photos/data/db/main/table/asset/ocr.dart';
+import 'package:universal_photos/data/db/main/table/local/album.dart';
+import 'package:universal_photos/data/db/main/table/local/album_asset.dart';
+import 'package:universal_photos/data/db/main/table/local/asset.dart';
+import 'package:universal_photos/data/db/main/table/local/asset.drift.dart';
+import 'package:universal_photos/data/db/main/table/local/trashed_asset.dart';
+import 'package:universal_photos/data/db/main/table/local/trashed_asset.drift.dart';
+import 'package:universal_photos/data/db/main/table/memory/asset.dart';
+import 'package:universal_photos/data/db/main/table/memory/memory.dart';
+import 'package:universal_photos/data/db/main/table/people/asset_face.dart';
+import 'package:universal_photos/data/db/main/table/people/person.dart';
+import 'package:universal_photos/data/db/main/table/remote/album.dart';
+import 'package:universal_photos/data/db/main/table/remote/album_asset.dart';
+import 'package:universal_photos/data/db/main/table/remote/album_user.dart';
+import 'package:universal_photos/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos/data/db/main/table/remote/asset.drift.dart';
+import 'package:universal_photos/data/db/main/table/remote/cloud_id.dart';
+import 'package:universal_photos/data/db/main/table/remote/exif.dart';
+import 'package:universal_photos/data/db/main/table/remote/stack.dart';
+import 'package:universal_photos/data/db/main/table/user/auth_user.dart';
+import 'package:universal_photos/data/db/main/table/user/metadata.dart';
+import 'package:universal_photos/data/db/main/table/user/partner.dart';
+import 'package:universal_photos/data/db/main/table/user/user.dart';
+import 'package:universal_photos/infrastructure/repositories/backup.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/local_album.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/local_asset.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/map.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/memory.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/partner.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/remote_album.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/remote_asset.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/remote_exif.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/sync_migration.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/sync_stream.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/timeline.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/trashed_local_asset.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/user.repository.dart';
 import 'package:logging/logging.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -86,7 +86,7 @@ import 'package:sqlite_async/sqlite_async.dart';
     SettingsEntity,
     AssetOcrEntity,
   ],
-  include: {'package:immich_mobile/data/db/main/query/merged_asset.drift'},
+  include: {'package:universal_photos/data/db/main/query/merged_asset.drift'},
   daos: [
     AuthUserRepository,
     BackupRepository,
@@ -480,12 +480,12 @@ Future<void> deleteSqliteDatabase({required String name}) async {
 }
 
 Future<SqliteConnection> openSqliteConnection({required String name}) async {
-  return _openImmichDatabase(await _databaseFile(name));
+  return _openUniversalPhotosDatabase(await _databaseFile(name));
 }
 
 Future<(SqliteConnection, SqliteConnectionPool)> openSqliteConnectionWithUpdatePool({required String name}) async {
   final file = await _databaseFile(name);
-  final db = _openImmichDatabase(file);
+  final db = _openUniversalPhotosDatabase(file);
   await db.initialize();
   final updatePool = SqliteConnectionPool.open(
     name: file.path,
@@ -499,9 +499,9 @@ Future<File> _databaseFile(String name) async {
   return File(p.join(dbFolder.path, '$name.sqlite'));
 }
 
-SqliteDatabase _openImmichDatabase(File file) {
+SqliteDatabase _openUniversalPhotosDatabase(File file) {
   return SqliteDatabase.withFactory(
-    ImmichSqliteOpenFactory(
+    UniversalPhotosSqliteOpenFactory(
       path: file.path,
       sqliteOptions: const SqliteOptions(
         journalMode: SqliteJournalMode.wal, // PRAGMA journal_mode (writer only)
@@ -513,8 +513,8 @@ SqliteDatabase _openImmichDatabase(File file) {
 }
 
 @visibleForTesting
-final class ImmichSqliteOpenFactory extends NativeSqliteOpenFactory {
-  ImmichSqliteOpenFactory({required super.path, super.sqliteOptions});
+final class UniversalPhotosSqliteOpenFactory extends NativeSqliteOpenFactory {
+  UniversalPhotosSqliteOpenFactory({required super.path, super.sqliteOptions});
 
   @override
   List<String> pragmaStatements(SqliteOpenOptions options) {

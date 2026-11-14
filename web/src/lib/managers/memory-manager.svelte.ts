@@ -16,8 +16,8 @@ import {
   updateMemory,
   type AssetResponseDto,
   type MemoryResponseDto,
-} from '@immich/sdk';
-import { toastManager } from '@immich/ui';
+} from '@universalphotos/sdk';
+import { toastManager } from '@universalphotos/ui';
 import { isEqual, omitBy } from 'lodash-es';
 import { DateTime } from 'luxon';
 import { t } from 'svelte-i18n';

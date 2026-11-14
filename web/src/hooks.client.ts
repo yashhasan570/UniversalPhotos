@@ -1,4 +1,4 @@
-import { isHttpError, type ApiHttpError } from '@immich/sdk';
+import { isHttpError, type ApiHttpError } from '@universalphotos/sdk';
 import type { ClientCaughtError, HandleClientError } from '@sveltejs/kit/hooks';
 
 const DEFAULT_MESSAGE = 'Hmm, not sure about that. Check the logs or open a ticket?';

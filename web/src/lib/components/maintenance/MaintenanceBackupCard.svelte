@@ -3,7 +3,7 @@
   import { getDatabaseBackupDateTime } from '#lib/services/database-backups.service.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
   import { getBytesWithUnit } from '#lib/utils/byte-units.ts';
-  import { Card, CardBody, Code, HStack, Icon, Stack, Text } from '@immich/ui';
+  import { Card, CardBody, Code, HStack, Icon, Stack, Text } from '@Universal Photos/ui';
   import { mdiAlertCircle, mdiCheckCircle, mdiDatabaseRefreshOutline } from '@mdi/js';
   import { DateTime } from 'luxon';
   import type { Snippet } from 'svelte';

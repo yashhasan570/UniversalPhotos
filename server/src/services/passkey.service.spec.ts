@@ -18,18 +18,18 @@ const loginDetails = {
   appVersion: null,
 };
 
-const headers = { origin: 'https://immich.example' };
+const headers = { origin: 'https://universalphotos.example' };
 
 const registrationOptions = {
-  rp: { id: 'immich.example', name: 'Immich' },
-  user: { id: 'user-handle', name: 'user@immich.cloud', displayName: 'User' },
+  rp: { id: 'universalphotos.example', name: 'UniversalPhotos' },
+  user: { id: 'user-handle', name: 'user@', displayName: 'User' },
   challenge: 'challenge',
   pubKeyCredParams: [{ alg: -7, type: 'public-key' as const }],
 };
 
 const authenticationOptions = {
   challenge: 'challenge',
-  rpId: 'immich.example',
+  rpId: 'universalphotos.example',
 };
 
 const registrationResponse = {
@@ -60,7 +60,7 @@ const registrationResult: VerifiedRegistrationResponse = {
     userVerified: true,
     credentialDeviceType: 'multiDevice',
     credentialBackedUp: true,
-    origin: 'https://immich.example',
+    origin: 'https://universalphotos.example',
   },
 };
 
@@ -72,8 +72,8 @@ const authenticationResult: VerifiedAuthenticationResponse = {
     userVerified: true,
     credentialDeviceType: 'multiDevice',
     credentialBackedUp: true,
-    origin: 'https://immich.example',
-    rpID: 'immich.example',
+    origin: 'https://universalphotos.example',
+    rpID: 'universalphotos.example',
   },
 };
 
@@ -97,7 +97,7 @@ describe(PasskeyService.name, () => {
   beforeEach(() => {
     ({ sut, mocks } = newTestService(PasskeyService));
     mocks.systemMetadata.get.mockResolvedValue({
-      passkey: { enabled: true, domain: 'https://immich.example', additionalDomains: [] },
+      passkey: { enabled: true, domain: 'https://universalphotos.example', additionalDomains: [] },
     });
     mocks.authChallenge.create.mockResolvedValue(new InsertResult(void 0, 1n));
     mocks.authChallenge.consume.mockResolvedValue({ id: newUuid(), userId: null });
@@ -139,7 +139,7 @@ describe(PasskeyService.name, () => {
       );
 
       expect(mocks.webAuthn.generateRegistrationOptions).toHaveBeenCalledWith(
-        expect.objectContaining({ rpID: 'my.immich.app' }),
+        expect.objectContaining({ rpID: 'my.' }),
       );
     });
 
@@ -151,11 +151,11 @@ describe(PasskeyService.name, () => {
       mocks.webAuthn.generateRegistrationOptions.mockResolvedValue(registrationOptions);
 
       await expect(
-        sut.startRegistration(AuthFactory.from().session().build(), { origin: 'https://photos.immich.example' }),
+        sut.startRegistration(AuthFactory.from().session().build(), { origin: 'https://photos.example' }),
       ).resolves.toEqual(registrationOptions);
 
       expect(mocks.webAuthn.generateRegistrationOptions).toHaveBeenCalledWith(
-        expect.objectContaining({ rpID: 'photos.immich.example' }),
+        expect.objectContaining({ rpID: 'photos.example' }),
       );
     });
 
@@ -177,7 +177,7 @@ describe(PasskeyService.name, () => {
 
     it('should reject a subdomain of the relying party that is not listed', async () => {
       await expect(
-        sut.startRegistration(AuthFactory.from().session().build(), { origin: 'https://photos.immich.example' }),
+        sut.startRegistration(AuthFactory.from().session().build(), { origin: 'https://photos.example' }),
       ).rejects.toThrow('Origin is not trusted');
 
       expect(mocks.webAuthn.generateRegistrationOptions).not.toHaveBeenCalled();
@@ -188,7 +188,7 @@ describe(PasskeyService.name, () => {
       mocks.webAuthn.generateRegistrationOptions.mockResolvedValue(registrationOptions);
 
       await expect(
-        sut.startRegistration(AuthFactory.from().session().build(), { origin: 'https://immich.example:2283' }),
+        sut.startRegistration(AuthFactory.from().session().build(), { origin: 'https://universalphotos.example:2283' }),
       ).resolves.toEqual(registrationOptions);
     });
 
@@ -196,19 +196,19 @@ describe(PasskeyService.name, () => {
       mocks.systemMetadata.get.mockResolvedValue({
         passkey: {
           enabled: true,
-          domain: 'https://immich.example',
-          additionalDomains: ['https://immich.tailnet.example/'],
+          domain: 'https://universalphotos.example',
+          additionalDomains: ['https://universalphotos.tailnet.example/'],
         },
       });
       mocks.passkey.search.mockResolvedValue([]);
       mocks.webAuthn.generateRegistrationOptions.mockResolvedValue(registrationOptions);
 
       await expect(
-        sut.startRegistration(AuthFactory.from().session().build(), { origin: 'https://immich.tailnet.example' }),
+        sut.startRegistration(AuthFactory.from().session().build(), { origin: 'https://universalphotos.tailnet.example' }),
       ).resolves.toEqual(registrationOptions);
 
       expect(mocks.webAuthn.generateRegistrationOptions).toHaveBeenCalledWith(
-        expect.objectContaining({ rpID: 'immich.example' }),
+        expect.objectContaining({ rpID: 'universalphotos.example' }),
       );
     });
 
@@ -230,7 +230,7 @@ describe(PasskeyService.name, () => {
       });
       expect(mocks.webAuthn.generateRegistrationOptions).toHaveBeenCalledWith(
         expect.objectContaining({
-          rpID: 'immich.example',
+          rpID: 'universalphotos.example',
           userName: auth.user.email,
           userDisplayName: auth.user.name,
           excludeCredentials: [{ id: passkey.credentialId, transports: passkey.transports }],
@@ -323,11 +323,11 @@ describe(PasskeyService.name, () => {
       expect(mocks.webAuthn.verifyRegistrationResponse).toHaveBeenCalledWith(
         expect.objectContaining({
           expectedOrigin: [
-            'https://my.immich.app',
+            'https://my.',
             'android:apk-key-hash:hsXEVd-vSYWSOo81rbMdDJ4LlX1_lMLSr2okOKqWACA',
             'android:apk-key-hash:WiLBg0dUBfVJxOufsmwuk6PvnFdmFQp684yNP-UVzNY',
           ],
-          expectedRPID: 'my.immich.app',
+          expectedRPID: 'my.',
         }),
       );
     });
@@ -396,8 +396,8 @@ describe(PasskeyService.name, () => {
       expect(mocks.webAuthn.verifyRegistrationResponse).toHaveBeenCalledWith({
         response: registrationResponse,
         expectedChallenge: expect.any(Function),
-        expectedOrigin: 'https://immich.example',
-        expectedRPID: 'immich.example',
+        expectedOrigin: 'https://universalphotos.example',
+        expectedRPID: 'universalphotos.example',
       });
       expect(mocks.passkey.create).toHaveBeenCalledWith({
         userId: auth.user.id,
@@ -475,7 +475,7 @@ describe(PasskeyService.name, () => {
       });
 
       expect(mocks.webAuthn.generateAuthenticationOptions).toHaveBeenCalledWith({
-        rpID: 'immich.example',
+        rpID: 'universalphotos.example',
         userVerification: 'required',
       });
     });
@@ -570,8 +570,8 @@ describe(PasskeyService.name, () => {
       expect(mocks.webAuthn.verifyAuthenticationResponse).toHaveBeenCalledWith({
         response: newAuthenticationResponse(user.id),
         expectedChallenge: expect.any(Function),
-        expectedOrigin: 'https://immich.example',
-        expectedRPID: 'immich.example',
+        expectedOrigin: 'https://universalphotos.example',
+        expectedRPID: 'universalphotos.example',
         credential: {
           id: passkey.credentialId,
           publicKey: new Uint8Array(passkey.publicKey),
@@ -595,13 +595,13 @@ describe(PasskeyService.name, () => {
       mocks.systemMetadata.get.mockResolvedValue({
         passkey: {
           enabled: true,
-          domain: 'https://immich.example/',
-          additionalDomains: ['https://immich.tailnet.example/', 'https://photos.immich.example'],
+          domain: 'https://universalphotos.example/',
+          additionalDomains: ['https://universalphotos.tailnet.example/', 'https://photos.example'],
         },
       });
 
       await expect(sut.getWellKnown()).resolves.toEqual({
-        origins: ['https://immich.example', 'https://immich.tailnet.example', 'https://photos.immich.example'],
+        origins: ['https://universalphotos.example', 'https://universalphotos.tailnet.example', 'https://photos.example'],
       });
     });
   });

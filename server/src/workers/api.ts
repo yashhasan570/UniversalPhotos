@@ -8,7 +8,7 @@ import { ApiService } from 'src/services/api.service.js';
 import { isStartUpError } from 'src/utils/misc.js';
 
 async function bootstrap() {
-  process.title = 'immich-api';
+  process.title = 'universalphotos-api';
 
   configureTelemetry();
 

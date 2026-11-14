@@ -3,8 +3,8 @@
   import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
   import { runQueueCommandLegacyMutation } from '#lib/queries/queue.query.ts';
   import { asQueueItem } from '#lib/services/queue.service.ts';
-  import { QueueCommand, QueueName, type QueueCommandDto, type QueueResponseDto } from '@immich/sdk';
-  import { toastManager } from '@immich/ui';
+  import { QueueCommand, QueueName, type QueueCommandDto, type QueueResponseDto } from '@Universal Photos/sdk';
+  import { toastManager } from '@Universal Photos/ui';
   import type { Component } from 'svelte';
   import { t } from 'svelte-i18n';
   import QueueCard from './QueueCard.svelte';

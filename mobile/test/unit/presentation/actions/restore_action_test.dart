@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/presentation/actions/action.widget.dart';
-import 'package:immich_mobile/presentation/actions/restore.action.dart';
-import 'package:immich_ui/immich_ui.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/presentation/actions/action.widget.dart';
+import 'package:universal_photos/presentation/actions/restore.action.dart';
+import 'package:universalphotos_ui/universalphotos_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../service.mocks.dart';
@@ -59,7 +59,7 @@ void main() {
       await pumpRestore(tester, {owned()});
       await tester.pumpAndSettle();
 
-      expect(find.byType(ImmichIconButton), findsNothing, reason: 'an empty selection hides the action');
+      expect(find.byType(UniversalPhotosIconButton), findsNothing, reason: 'an empty selection hides the action');
     });
 
     testWidgets('offers an undo that puts the assets back in the trash', (tester) async {
@@ -80,7 +80,7 @@ void main() {
         overrides: context.selected({owned(trashed: false)}),
       );
 
-      expect(find.byType(ImmichIconButton), findsNothing);
+      expect(find.byType(UniversalPhotosIconButton), findsNothing);
     });
   });
 }

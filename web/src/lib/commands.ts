@@ -3,7 +3,7 @@ import { readPreloadedQuery } from '#lib/queries/client.ts';
 import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
 import { Route } from '#lib/route.ts';
 import { copyToClipboard } from '#lib/utils.ts';
-import { ThemePreference, defaultProvider, screencastManager, themeManager, type ActionItem } from '@immich/ui';
+import { ThemePreference, defaultProvider, screencastManager, themeManager, type ActionItem } from '@universalphotos/ui';
 import {
   mdiAccountMultipleOutline,
   mdiAccountOutline,
@@ -210,8 +210,8 @@ export const getPagesProvider = ($t: MessageFormatter) => {
   return defaultProvider({ name: $t('page'), actions: [...userPages, ...utilityPages, ...adminPages] });
 };
 
-const getMyImmichLink = () => {
-  return new URL(page.url.pathname + page.url.search, 'https://my.immich.app');
+const getMyUniversalPhotosLink = () => {
+  return new URL(page.url.pathname + page.url.search, 'https://my.');
 };
 
 export const getSettingsProvider = ($t: MessageFormatter) => {
@@ -238,9 +238,9 @@ export const getSettingsProvider = ($t: MessageFormatter) => {
       onAction: () => screencastManager.toggle(),
     },
     {
-      title: $t('my_immich_title'),
-      description: $t('my_immich_description'),
-      onAction: () => copyToClipboard(getMyImmichLink().href),
+      title: $t('my_universalphotos_title'),
+      description: $t('my_universalphotos_description'),
+      onAction: () => copyToClipboard(getMyUniversalPhotosLink().href),
       shortcuts: { ctrl: true, shift: true, key: 'm' },
     },
   ];

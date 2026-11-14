@@ -1,4 +1,4 @@
-import 'package:immich_mobile/domain/models/store.model.dart';
+import 'package:universal_photos/domain/models/store.model.dart';
 
 enum Setting<T> {
   advancedTroubleshooting<bool>(StoreKey.advancedTroubleshooting, false);

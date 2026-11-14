@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { authenticate } from '#lib/utils/auth.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { getAuthStatus } from '@immich/sdk';
+import { getAuthStatus } from '@universalphotos/sdk';
 import { redirect } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 

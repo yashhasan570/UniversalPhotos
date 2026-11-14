@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:immich_mobile/data/db/main/table/user/user.dart';
-import 'package:immich_mobile/data/db/util/datetime_clamp_type.dart';
-import 'package:immich_mobile/data/db/util/defaults_mixin.dart';
-import 'package:immich_mobile/domain/models/memory.model.dart';
+import 'package:universal_photos/data/db/main/table/user/user.dart';
+import 'package:universal_photos/data/db/util/datetime_clamp_type.dart';
+import 'package:universal_photos/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos/domain/models/memory.model.dart';
 
 class MemoryEntity extends Table with DriftDefaultsMixin {
   const MemoryEntity();

@@ -1,7 +1,7 @@
 import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { ClsService } from 'nestjs-cls';
-import { ImmichHeader } from 'src/enum.js';
+import { UniversalPhotosHeader } from 'src/enum.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
 import { isHttpException, onRouteError } from 'src/utils/logger.js';
 
@@ -29,7 +29,7 @@ export class GlobalExceptionFilter implements ExceptionFilter<Error> {
 
     res
       .header({
-        [ImmichHeader.CorrelationId]: this.cls.getId(),
+        [UniversalPhotosHeader.CorrelationId]: this.cls.getId(),
         'Content-Type': 'application/json',
       })
       .status(status)

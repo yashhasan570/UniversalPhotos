@@ -6,7 +6,7 @@ import androidx.core.content.edit
 
 class BackgroundWorkerPreferences(private val ctx: Context) {
   companion object {
-    const val SHARED_PREF_NAME = "Immich::BackgroundWorker"
+    const val SHARED_PREF_NAME = "UniversalPhotos::BackgroundWorker"
     private const val SHARED_PREF_MIN_DELAY_KEY = "BackgroundWorker::minDelaySeconds"
     private const val SHARED_PREF_REQUIRE_CHARGING_KEY = "BackgroundWorker::requireCharging"
     private const val SHARED_PREF_LOCK_KEY = "BackgroundWorker::isLocked"

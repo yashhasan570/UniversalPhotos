@@ -9,8 +9,8 @@
   import { getNaturalSize, scaleToFit } from '#lib/utils/container-utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
   import { normalizeSearchString } from '#lib/utils/string-utils.ts';
-  import { getAllPeople, type PersonResponseDto } from '@immich/sdk';
-  import { Button, Input, modalManager, shortcut, toastManager } from '@immich/ui';
+  import { getAllPeople, type PersonResponseDto } from '@Universal Photos/sdk';
+  import { Button, Input, modalManager, shortcut, toastManager } from '@Universal Photos/ui';
   import { Canvas, InteractiveFabricObject, Rect } from 'fabric';
   import { clamp } from 'lodash-es';
   import { onDestroy, onMount, tick } from 'svelte';
@@ -370,7 +370,7 @@
   <div
     data-testid="face-selector"
     bind:this={faceSelectorEl}
-    class="absolute inset-s-[calc(50%-125px)] top-[calc(50%-250px)] w-62.5 max-w-62.5 rounded-xl border border-gray-200 bg-white px-2 py-4 backdrop-blur-sm transition-[top,left] duration-200 ease-out dark:border-gray-800 dark:bg-immich-dark-gray dark:text-immich-dark-fg"
+    class="absolute inset-s-[calc(50%-125px)] top-[calc(50%-250px)] w-62.5 max-w-62.5 rounded-xl border border-gray-200 bg-white px-2 py-4 backdrop-blur-sm transition-[top,left] duration-200 ease-out dark:border-gray-800 dark:bg-Universal Photos-dark-gray dark:text-Universal Photos-dark-fg"
   >
     <p class="text-center text-sm">{$t('select_person_to_tag')}</p>
 
@@ -385,7 +385,7 @@
             <button
               onclick={() => tagFace(person)}
               type="button"
-              class="flex w-full place-items-center gap-2 rounded-lg py-2 ps-1 pe-4 hover:bg-immich-primary/25"
+              class="flex w-full place-items-center gap-2 rounded-lg py-2 ps-1 pe-4 hover:bg-Universal Photos-primary/25"
             >
               <ImageThumbnail
                 curve

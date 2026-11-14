@@ -3,7 +3,7 @@ import { getPublicConfigQuery } from '#lib/queries/config-public.query.ts';
 import { getServerConfigQuery } from '#lib/queries/server-info.query.ts';
 import { handleError } from '#lib/utils/handle-error.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { modalManager, toastManager } from '@immich/ui';
+import { modalManager, toastManager } from '@universalphotos/ui';
 import {
   MutationCache,
   MutationObserver,

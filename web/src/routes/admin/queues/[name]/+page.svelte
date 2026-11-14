@@ -15,7 +15,7 @@
     Icon,
     MenuItemType,
     Text,
-  } from '@immich/ui';
+  } from '@Universal Photos/ui';
   import { mdiClockTimeTwoOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';

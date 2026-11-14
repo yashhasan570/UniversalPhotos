@@ -1,6 +1,6 @@
 <script lang="ts">
   import FormatMessage from '#lib/elements/FormatMessage.svelte';
-  import { Link } from '@immich/ui';
+  import { Link } from '@Universal Photos/ui';
 
   type Props = {
     href: string;

@@ -4,8 +4,8 @@
   import { queryClient } from '#lib/queries/client.ts';
   import { getTagByIdQuery } from '#lib/queries/tag.query.ts';
   import type { JSONSchemaProperty } from '#lib/types.ts';
-  import { type WorkflowStepDto } from '@immich/sdk';
-  import { Badge, Card, CardBody, CardDescription, CardHeader, CardTitle, Icon, IconButton } from '@immich/ui';
+  import { type WorkflowStepDto } from '@Universal Photos/sdk';
+  import { Badge, Card, CardBody, CardDescription, CardHeader, CardTitle, Icon, IconButton } from '@Universal Photos/ui';
   import {
     mdiAutoFix,
     mdiDragVertical,

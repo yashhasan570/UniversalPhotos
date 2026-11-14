@@ -3,15 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/extensions/build_context_extensions.dart';
-import 'package:immich_mobile/extensions/theme_extensions.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/models/server_info/server_info.model.dart';
-import 'package:immich_mobile/providers/locale_provider.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
-import 'package:immich_mobile/providers/user.provider.dart';
-import 'package:immich_mobile/utils/url_helper.dart';
-import 'package:immich_mobile/widgets/common/app_bar_dialog/server_update_notification.dart';
+import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos/extensions/theme_extensions.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/models/server_info/server_info.model.dart';
+import 'package:universal_photos/providers/locale_provider.dart';
+import 'package:universal_photos/providers/server_info.provider.dart';
+import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos/utils/url_helper.dart';
+import 'package:universal_photos/widgets/common/app_bar_dialog/server_update_notification.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class AppBarServerInfo extends HookConsumerWidget {

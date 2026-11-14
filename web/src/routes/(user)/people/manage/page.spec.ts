@@ -1,7 +1,7 @@
 import { factory } from '#test/unit/factories.ts';
 import { test } from '#test/unit/fixtures.ts';
 import type { Mock } from '#test/unit/mocks/mock.ts';
-import type { PersonResponseDto } from '@immich/sdk';
+import type { PersonResponseDto } from '@universalphotos/sdk';
 import { expect } from 'vitest';
 import Page from './+page.svelte';
 import { load } from './+page.ts';

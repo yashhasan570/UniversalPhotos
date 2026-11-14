@@ -2,7 +2,7 @@ import { getSharedLink as getCachedSharedLink, setSharedLink } from '#lib/utils.
 import { authenticate } from '#lib/utils/auth.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
 import { getAssetInfoFromParam } from '#lib/utils/navigation.ts';
-import { getMySharedLink, isHttpError } from '@immich/sdk';
+import { getMySharedLink, isHttpError } from '@universalphotos/sdk';
 
 export const asQueryString = ({ slug, key }: { slug?: string; key?: string }) => {
   const params = new URLSearchParams();

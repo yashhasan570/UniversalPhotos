@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/models/server_info/server_features.model.dart';
-import 'package:immich_mobile/providers/server_info.provider.dart';
+import 'package:universal_photos/models/server_info/server_features.model.dart';
+import 'package:universal_photos/providers/server_info.provider.dart';
 
 /// A utility widget that conditionally renders its child based on a server feature flag.
 ///

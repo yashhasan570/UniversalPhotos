@@ -1,7 +1,7 @@
 <script lang="ts">
   import AdminPageLayout from '#lib/components/layouts/AdminPageLayout.svelte';
   import { Route } from '#lib/route.ts';
-  import { ImmichSnapshotsPage, YuccaContext } from '@futo-org/backups-orchestrator-ui';
+  import { Universal PhotosSnapshotsPage, YuccaContext } from '@futo-org/backups-orchestrator-ui';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
   import type { PageData } from './$types';
@@ -15,6 +15,6 @@
 
 <YuccaContext>
   <AdminPageLayout breadcrumbs={[{ title: $t('admin.backups'), href: Route.backups() }, { title: data.meta.title }]}>
-    <ImmichSnapshotsPage onUnconfigured={() => goto(Route.backups())} />
+    <Universal PhotosSnapshotsPage onUnconfigured={() => goto(Route.backups())} />
   </AdminPageLayout>
 </YuccaContext>

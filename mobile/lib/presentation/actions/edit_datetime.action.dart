@@ -1,16 +1,16 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:immich_mobile/constants/enums.dart';
-import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
-import 'package:immich_mobile/generated/translations.g.dart';
-import 'package:immich_mobile/presentation/actions/action.dart';
-import 'package:immich_mobile/providers/infrastructure/asset.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/db.provider.dart';
-import 'package:immich_mobile/providers/infrastructure/toast.provider.dart';
-import 'package:immich_mobile/utils/error_handler.dart';
-import 'package:immich_mobile/utils/timezone.dart';
-import 'package:immich_mobile/widgets/common/date_time_picker.dart';
+import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos/presentation/actions/action.dart';
+import 'package:universal_photos/providers/infrastructure/asset.provider.dart';
+import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos/providers/infrastructure/toast.provider.dart';
+import 'package:universal_photos/utils/error_handler.dart';
+import 'package:universal_photos/utils/timezone.dart';
+import 'package:universal_photos/widgets/common/date_time_picker.dart';
 
 typedef _State = ({List<String> assetIds, RemoteAsset? origin});
 

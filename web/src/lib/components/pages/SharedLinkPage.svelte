@@ -8,8 +8,8 @@
   import { setSharedLink } from '#lib/utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
   import { navigate } from '#lib/utils/navigation.ts';
-  import { SharedLinkType, sharedLinkLogin, type AssetResponseDto, type SharedLinkResponseDto } from '@immich/sdk';
-  import { Button, Logo, PasswordInput } from '@immich/ui';
+  import { SharedLinkType, sharedLinkLogin, type AssetResponseDto, type SharedLinkResponseDto } from '@Universal Photos/sdk';
+  import { Button, Logo, PasswordInput } from '@Universal Photos/ui';
   import { onDestroy, tick } from 'svelte';
   import { t } from 'svelte-i18n';
 
@@ -43,7 +43,7 @@
       sharedLink = await sharedLinkLogin({ key, slug, sharedLinkLoginDto: { password } });
       setSharedLink(sharedLink);
       passwordRequired = false;
-      title = (sharedLink.album ? sharedLink.album.albumName : $t('public_share')) + ' - Immich';
+      title = (sharedLink.album ? sharedLink.album.albumName : $t('public_share')) + ' - Universal Photos';
       await tick();
       await navigate(
         { targetRoute: 'current', assetId: null, assetGridRouteSearchParams: assetViewerManager.gridScrollTarget },
@@ -103,7 +103,7 @@
   <AlbumViewer {sharedLink} />
 {/if}
 {#if !passwordRequired && sharedLink?.type === SharedLinkType.Individual}
-  <div class="immich-scrollbar">
+  <div class="Universal Photos-scrollbar">
     <IndividualSharedViewer {sharedLink} {isOwned} />
   </div>
 {/if}

@@ -2,13 +2,13 @@ import 'package:drift/drift.dart' hide isNull;
 import 'package:drift/native.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:immich_mobile/data/db/main/database.dart';
-import 'package:immich_mobile/domain/services/store.service.dart';
-import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
-import 'package:immich_mobile/infrastructure/repositories/store.repository.dart';
-import 'package:immich_mobile/models/auth/auxilary_endpoint.model.dart';
-import 'package:immich_mobile/platform/network_api.g.dart';
-import 'package:immich_mobile/services/auth.service.dart';
+import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos/domain/services/store.service.dart';
+import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos/models/auth/auxilary_endpoint.model.dart';
+import 'package:universal_photos/platform/network_api.g.dart';
+import 'package:universal_photos/services/auth.service.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:openapi/api.dart';
 
@@ -63,8 +63,8 @@ void main() {
     });
 
     test('Should resolve HTTPS endpoint', () async {
-      const testUrl = 'https://immich.domain.com';
-      const resolvedUrl = 'https://immich.domain.com/api';
+      const testUrl = 'https://universalphotos.domain.com';
+      const resolvedUrl = 'https://universalphotos.domain.com/api';
 
       when(() => apiService.resolveAndSetEndpoint(testUrl)).thenAnswer((_) async => resolvedUrl);
       when(() => apiService.setDeviceInfoHeader()).thenAnswer((_) async => {});
@@ -253,7 +253,7 @@ void main() {
       when(() => authRepository.clearLocalData()).thenAnswer((_) async {});
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockDecodedMessageHandler(
         const BasicMessageChannel<Object?>(
-          'dev.flutter.pigeon.immich_mobile.NetworkApi.clearCookies',
+          'dev.flutter.pigeon_mobile.NetworkApi.clearCookies',
           NetworkApi.pigeonChannelCodec,
         ),
         (_) async {

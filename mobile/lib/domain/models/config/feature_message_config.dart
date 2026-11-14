@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:immich_mobile/utils/semver.dart';
+import 'package:universal_photos/utils/semver.dart';
 
 part 'feature_message_config.freezed.dart';
 

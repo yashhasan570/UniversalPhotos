@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Img, Link, Section, Text } from 'react-email';
-import { ImmichButton } from 'src/emails/components/button.component.js';
-import ImmichLayout from 'src/emails/components/immich.layout.js';
+import { UniversalPhotosButton } from 'src/emails/components/button.component.js';
+import UniversalPhotosLayout from 'src/emails/components/universalphotos.layout.js';
 import { AlbumUpdateEmailProps } from 'src/repositories/email.repository.js';
 import { replaceTemplateTags, templatePreview } from 'src/utils/replace-template-tags.js';
 
@@ -36,7 +36,7 @@ export const AlbumUpdateEmail = ({
   );
 
   return (
-    <ImmichLayout
+    <UniversalPhotosLayout
       preview={
         customTemplate
           ? templatePreview(customTemplate, usableTemplateVariables)
@@ -64,7 +64,7 @@ export const AlbumUpdateEmail = ({
       )}
 
       <Section className="flex justify-center my-6">
-        <ImmichButton href={`${baseUrl}/albums/${albumId}`}>View Album</ImmichButton>
+        <UniversalPhotosButton href={`${baseUrl}/albums/${albumId}`}>View Album</UniversalPhotosButton>
       </Section>
 
       <Text className="text-xs">
@@ -72,12 +72,12 @@ export const AlbumUpdateEmail = ({
         <br />
         <Link href={`${baseUrl}/albums/${albumId}`}>{`${baseUrl}/albums/${albumId}`}</Link>
       </Text>
-    </ImmichLayout>
+    </UniversalPhotosLayout>
   );
 };
 
 AlbumUpdateEmail.PreviewProps = {
-  baseUrl: 'https://demo.immich.app',
+  baseUrl: 'https://demo.',
   albumName: 'Trip to Europe',
   albumId: 'b63f6dae-e1c9-401b-9a85-9dbbf5612539',
   recipientName: 'Alan Turing',
