@@ -1,0 +1,389 @@
+import { BadRequestException, INestApplication } from '@nestjs/common';
+import {
+  ApiBodyOptions,
+  DocumentBuilder,
+  OpenAPIObject,
+  SwaggerCustomOptions,
+  SwaggerDocumentOptions,
+  SwaggerModule,
+} from '@nestjs/swagger';
+import { get, isArray, isDate, isEmpty, isObject, orderBy, unset } from 'lodash-es';
+import { writeFileSync } from 'node:fs';
+import path from 'node:path';
+import picomatch from 'picomatch';
+import { CLIP_MODEL_INFO, JOBS_ASSET_PAGINATION_SIZE, endpointTags, serverVersion } from 'src/constants.js';
+import { extraModels } from 'src/decorators.js';
+import { SystemConfig } from 'src/dtos/config.dto.js';
+import { ApiCustomExtension, ImmichCookie, ImmichHeader, MetadataKey } from 'src/enum.js';
+import { LoggingRepository } from 'src/repositories/logging.repository.js';
+import { patchOpenApiParameters, toOpenApiComponents, toOpenApiSchema } from 'src/zod.js';
+
+type OperationObject = NonNullable<OpenAPIObject['paths'][string]['get']>;
+type ReferenceOrSchemaObject = Extract<ApiBodyOptions, { schema: unknown }>['schema'];
+type ReferenceObject = Extract<ReferenceOrSchemaObject, { $ref: unknown }>;
+type SchemaObject = Exclude<ReferenceOrSchemaObject, ReferenceObject>;
+
+export class ImmichStartupError extends Error {}
+export const isStartUpError = (error: unknown): error is ImmichStartupError => error instanceof ImmichStartupError;
+
+export const getKeyByValue = (object: Record<string, unknown>, value: unknown) =>
+  Object.keys(object).find((key) => object[key] === value);
+
+export const getMethodNames = (instance: any) => {
+  const ctx = Object.getPrototypeOf(instance);
+  const methods: string[] = [];
+  for (const property of Object.getOwnPropertyNames(ctx)) {
+    const descriptor = Object.getOwnPropertyDescriptor(ctx, property);
+    if (!descriptor || descriptor.get || descriptor.set) {
+      continue;
+    }
+
+    const handler = instance[property];
+    if (typeof handler !== 'function') {
+      continue;
+    }
+
+    methods.push(property);
+  }
+
+  return methods;
+};
+
+export const getExternalDomain = (server: SystemConfig['server'], defaultDomain = 'https://my.immich.app') =>
+  server.externalDomain || defaultDomain;
+
+/** @returns a list of strings representing the keys of the object in dot notation */
+export const getKeysDeep = (target: unknown, path: string[] = []) => {
+  if (!target || typeof target !== 'object') {
+    return [];
+  }
+
+  const obj = target as object;
+
+  const properties: string[] = [];
+  for (const key of Object.keys(obj as object)) {
+    const value = obj[key as keyof object];
+    if (value === undefined) {
+      continue;
+    }
+
+    if (isObject(value) && !isArray(value) && !isDate(value)) {
+      properties.push(...getKeysDeep(value, [...path, key]));
+      continue;
+    }
+
+    properties.push([...path, key].join('.'));
+  }
+
+  return properties;
+};
+
+export const unsetDeep = (object: unknown, key: string) => {
+  const parts = key.split('.');
+  while (parts.length > 0) {
+    unset(object, parts);
+    parts.pop();
+    if (!isEmpty(get(object, parts))) {
+      break;
+    }
+  }
+
+  return isEmpty(object) ? undefined : object;
+};
+
+const isMachineLearningEnabled = (machineLearning: SystemConfig['machineLearning']) => machineLearning.enabled;
+export const isSmartSearchEnabled = (machineLearning: SystemConfig['machineLearning']) =>
+  isMachineLearningEnabled(machineLearning) && machineLearning.clip.enabled;
+export const isOcrEnabled = (machineLearning: SystemConfig['machineLearning']) =>
+  isMachineLearningEnabled(machineLearning) && machineLearning.ocr.enabled;
+export const isFacialRecognitionEnabled = (machineLearning: SystemConfig['machineLearning']) =>
+  isMachineLearningEnabled(machineLearning) && machineLearning.facialRecognition.enabled;
+export const isDuplicateDetectionEnabled = (machineLearning: SystemConfig['machineLearning']) =>
+  isSmartSearchEnabled(machineLearning) && machineLearning.duplicateDetection.enabled;
+export const isFaceImportEnabled = (metadata: SystemConfig['metadata']) => metadata.faces.import;
+
+export const handlePromiseError = <T>(promise: Promise<T>, logger: LoggingRepository): void => {
+  promise.catch((error: Error | any) => logger.error(`Promise error: ${error}`, error?.stack));
+};
+
+export const hasSomeDefined = (values: unknown[]) => values.some((value) => value !== undefined);
+
+export const findOrFail = async <T>(find: () => Promise<T>, entity: string): Promise<NonNullable<T>> => {
+  const value = await find();
+  if (!value) {
+    throw new BadRequestException(`${entity} not found`);
+  }
+
+  return value;
+};
+
+export async function* batched<T>(items: AsyncIterable<T>, size = JOBS_ASSET_PAGINATION_SIZE): AsyncGenerator<T[]> {
+  let batch: T[] = [];
+
+  for await (const item of items) {
+    batch.push(item);
+
+    if (batch.length < size) {
+      continue;
+    }
+
+    yield batch;
+    batch = [];
+  }
+
+  if (batch.length > 0) {
+    yield batch;
+  }
+}
+
+export interface OpenGraphTags {
+  title: string;
+  description: string;
+  imageUrl?: string;
+}
+
+function cleanModelName(modelName: string): string {
+  const token = modelName.split('/').at(-1);
+  if (!token) {
+    throw new Error(`Invalid model name: ${modelName}`);
+  }
+
+  return token.replaceAll(':', '_');
+}
+
+export function getCLIPModelInfo(modelName: string) {
+  const modelInfo = CLIP_MODEL_INFO[cleanModelName(modelName)];
+  if (!modelInfo) {
+    throw new Error(`Unknown CLIP model: ${modelName}`);
+  }
+
+  return modelInfo;
+}
+
+const canonicalize = (document: OpenAPIObject): OpenAPIObject => {
+  for (const path of Object.values(document.paths)) {
+    for (const operation of Object.values(path)) {
+      if (hasParameters(operation)) {
+        operation.parameters = orderBy(operation.parameters, 'name');
+      }
+    }
+  }
+
+  return Object.fromEntries(Object.entries(document).map(([key, value]) => [key, sortKeys(value)])) as OpenAPIObject;
+};
+
+const hasParameters = (value: unknown): value is { parameters: Array<{ name?: string }> } =>
+  typeof value === 'object' && value !== null && 'parameters' in value && Array.isArray(value.parameters);
+
+function sortKeys<T>(target: T): T {
+  if (!target || typeof target !== 'object') {
+    return target;
+  }
+
+  if (Array.isArray(target)) {
+    return target.map((item) => sortKeys(item)) as T;
+  }
+
+  const result: Partial<T> = {};
+  const keys = Object.keys(target).toSorted() as Array<keyof T>;
+  for (const key of keys) {
+    const value = target[key];
+    result[key] = key === 'required' && isStringArray(value) ? (value.toSorted() as T[keyof T]) : sortKeys(value);
+  }
+  return result as T;
+}
+
+const isStringArray = (value: unknown): value is string[] =>
+  Array.isArray(value) && value.every((item) => typeof item === 'string');
+
+export const routeToErrorMessage = (methodName: string) =>
+  'Failed to ' + methodName.replaceAll(/[A-Z]+/g, (letter) => ` ${letter.toLowerCase()}`);
+
+const isSchema = (schema: string | ReferenceObject | SchemaObject): schema is SchemaObject => {
+  return !(typeof schema === 'string' || '$ref' in schema);
+};
+
+const getNumberSchemas = (schema: string | ReferenceObject | SchemaObject): SchemaObject[] => {
+  if (!isSchema(schema)) {
+    return [];
+  }
+
+  if (schema.type === 'array' && schema.items) {
+    return getNumberSchemas(schema.items);
+  }
+
+  if (schema.anyOf) {
+    return schema.anyOf.flatMap((branch) => getNumberSchemas(branch));
+  }
+
+  return [schema.type].flat().includes('number') ? [schema] : [];
+};
+
+const patchOpenAPI = (document: OpenAPIObject) => {
+  patchOpenApiParameters(document);
+
+  if (document.components?.schemas) {
+    const schemas = document.components.schemas as Record<string, SchemaObject>;
+
+    for (const schema of Object.values(schemas)) {
+      delete (schema as Record<string, unknown>).id;
+
+      // documents a property as required even though it is optional during body validation
+      for (const [key, value] of Object.entries(schema.properties ?? {})) {
+        if (!(ApiCustomExtension.Required in value)) {
+          continue;
+        }
+
+        delete (value as Record<string, unknown>)[ApiCustomExtension.Required];
+        (schema.required ??= []).push(key);
+      }
+    }
+
+    const errors: string[] = [];
+
+    for (const [schemaName, schema] of Object.entries(schemas)) {
+      if (!schema.properties) {
+        continue;
+      }
+
+      schema.properties = sortKeys(schema.properties);
+
+      for (const [key, property] of Object.entries(schema.properties)) {
+        for (const value of getNumberSchemas(property)) {
+          if (value.format === 'float') {
+            errors.push(`Invalid number format: ${schemaName}.${key}=float (use double instead). `);
+          }
+
+          // verify it was meant to be a number (and not an integer)
+          if (!value.format) {
+            errors.push(
+              `${schemaName}.${key} is a number (not an integer) and requires a format (e.g .meta({ format: 'double' })). `,
+            );
+          }
+        }
+      }
+      if (errors.length > 0) {
+        throw new Error(`Schema validation failed:\n  ${errors.join('\n  ')}`);
+      }
+    }
+  }
+
+  for (const [key, value] of Object.entries(document.paths)) {
+    const newKey = key.replace('/api/', '/');
+    delete document.paths[key];
+    document.paths[newKey] = value;
+  }
+
+  for (const path of Object.values(document.paths)) {
+    const operations = {
+      get: path.get,
+      put: path.put,
+      post: path.post,
+      delete: path.delete,
+      options: path.options,
+      head: path.head,
+      patch: path.patch,
+      trace: path.trace,
+    };
+
+    for (const operation of Object.values(operations) as Array<
+      OperationObject & {
+        [ApiCustomExtension.AdminOnly]?: boolean;
+        [ApiCustomExtension.Permission]?: string;
+      }
+    >) {
+      if (!operation) {
+        continue;
+      }
+
+      if (operation.summary === '') {
+        delete operation.summary;
+      }
+
+      if (operation.description === '') {
+        delete operation.description;
+      }
+
+      if (operation.operationId) {
+        // console.log(`${routeToErrorMessage(operation.operationId).padEnd(40)} (${operation.operationId})`);
+      }
+    }
+  }
+
+  return document;
+};
+
+export const useSwagger = (app: INestApplication, { write }: { write: boolean }) => {
+  const builder = new DocumentBuilder()
+    .setTitle('Immich')
+    .setDescription('Immich API')
+    .setVersion(serverVersion.toString())
+    .setOpenAPIVersion('3.1.0')
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'Bearer',
+      in: 'header',
+    })
+    .addCookieAuth(ImmichCookie.AccessToken)
+    .addApiKey(
+      {
+        type: 'apiKey',
+        in: 'header',
+        name: ImmichHeader.ApiKey,
+      },
+      MetadataKey.ApiKeySecurity,
+    )
+    .addServer('/api');
+
+  for (const [tag, description] of Object.entries(endpointTags)) {
+    builder.addTag(tag, description);
+  }
+  const config = builder.build();
+
+  const options: SwaggerDocumentOptions = {
+    operationIdFactory: (controllerKey: string, methodKey: string) => methodKey,
+    ignoreGlobalPrefix: true,
+    standardSchemaConverter: toOpenApiSchema,
+  };
+
+  const specification = SwaggerModule.createDocument(app, config, options);
+  specification.components = {
+    ...specification.components,
+    schemas: { ...specification.components?.schemas, ...toOpenApiComponents(extraModels) },
+  };
+
+  const customOptions: SwaggerCustomOptions = {
+    swaggerOptions: {
+      persistAuthorization: true,
+    },
+    jsonDocumentUrl: '/api/spec.json',
+    yamlDocumentUrl: '/api/spec.yaml',
+    customSiteTitle: 'Immich API Documentation',
+  };
+
+  SwaggerModule.setup('doc', app, specification, customOptions);
+
+  // Generate API Documentation only in development mode
+  if (!write) {
+    return;
+  }
+
+  const outputPath = path.resolve(process.cwd(), '../open-api/immich-openapi-specs.json');
+  writeFileSync(outputPath, JSON.stringify(canonicalize(patchOpenAPI(specification)), null, 2), { encoding: 'utf8' });
+};
+
+// Offline detection and the re-online check must share one matcher, or an asset flips state on every scan
+export const createLibraryMatcher = ({
+  importPaths,
+  exclusionPatterns,
+}: {
+  importPaths: string[];
+  exclusionPatterns: string[];
+}) => {
+  const isExcluded = picomatch(exclusionPatterns, { nocase: true });
+  return (path: string) => importPaths.some((importPath) => path.startsWith(importPath)) && !isExcluded(path);
+};
+
+export function clamp(value: number, min: number, max: number) {
+  return Math.max(min, Math.min(max, value));
+}

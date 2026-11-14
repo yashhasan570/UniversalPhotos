@@ -1,0 +1,369 @@
+import 'dart:async';
+import 'dart:io';
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:immich_mobile/domain/models/events.model.dart';
+import 'package:immich_mobile/domain/utils/event_stream.dart';
+import 'package:immich_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:immich_mobile/extensions/build_context_extensions.dart';
+import 'package:immich_mobile/generated/translations.g.dart';
+import 'package:immich_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:immich_mobile/presentation/widgets/bottom_sheet/map_bottom_sheet.widget.dart';
+import 'package:immich_mobile/presentation/widgets/map/map.state.dart';
+import 'package:immich_mobile/presentation/widgets/map/map_utils.dart';
+import 'package:immich_mobile/providers/routes.provider.dart';
+import 'package:immich_mobile/utils/async_mutex.dart';
+import 'package:immich_mobile/utils/debounce.dart';
+import 'package:immich_mobile/widgets/common/immich_toast.dart';
+import 'package:immich_mobile/widgets/map/map_theme_override.dart';
+import 'package:maplibre_gl/maplibre_gl.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+class CustomSourceProperties implements SourceProperties {
+  final Map<String, dynamic> data;
+  const CustomSourceProperties({required this.data});
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "type": "geojson",
+      "data": data,
+      // "cluster": true,
+      // "clusterRadius": 1,
+      // "clusterMinPoints": 5,
+      // "tolerance": 0.1,
+    };
+  }
+}
+
+class MapView extends ConsumerStatefulWidget {
+  final LatLng? initialLocation;
+
+  const MapView({super.key, this.initialLocation});
+
+  @override
+  ConsumerState<MapView> createState() => _MapViewState();
+}
+
+class _MapViewState extends ConsumerState<MapView> {
+  MapLibreMapController? mapController;
+  final _reloadMutex = AsyncMutex();
+  final _debouncer = Debouncer(interval: const Duration(milliseconds: 500), maxWaitTime: const Duration(seconds: 2));
+  final ValueNotifier<double> bottomSheetOffset = ValueNotifier(0.25);
+  final GlobalKey _bottomSheetKey = GlobalKey();
+  StreamSubscription? _eventSubscription;
+  MapAttribution? _attribution;
+
+  @override
+  void initState() {
+    super.initState();
+    _eventSubscription = EventStream.shared.listen<MapMarkerReloadEvent>(_onEvent);
+  }
+
+  @override
+  void dispose() {
+    _debouncer.dispose();
+    bottomSheetOffset.dispose();
+    unawaited(_eventSubscription?.cancel());
+    super.dispose();
+  }
+
+  void onMapCreated(MapLibreMapController controller) {
+    mapController = controller;
+  }
+
+  void _onEvent(_) => _debouncer.run(() => setBounds(forceReload: true));
+
+  Future<void> onMapReady() async {
+    final controller = mapController;
+    if (controller == null) {
+      return;
+    }
+
+    // Start the fetch as soon as possible
+    final attributionLoaded = MapUtils.getAttribution(controller);
+
+    await controller.addSource(
+      MapUtils.defaultSourceId,
+      const CustomSourceProperties(data: {'type': 'FeatureCollection', 'features': []}),
+    );
+
+    if (Platform.isAndroid) {
+      await controller.addCircleLayer(
+        MapUtils.defaultSourceId,
+        MapUtils.defaultHeatMapLayerId,
+        const CircleLayerProperties(
+          circleRadius: 10,
+          circleColor: "rgba(150,86,34,0.7)",
+          circleBlur: 1.0,
+          circleOpacity: 0.7,
+          circleStrokeWidth: 0.1,
+          circleStrokeColor: "rgba(203,46,19,0.5)",
+          circleStrokeOpacity: 0.7,
+        ),
+      );
+    }
+
+    if (Platform.isIOS) {
+      await controller.addHeatmapLayer(
+        MapUtils.defaultSourceId,
+        MapUtils.defaultHeatMapLayerId,
+        MapUtils.defaultHeatmapLayerProperties,
+      );
+    }
+
+    _debouncer.run(() => setBounds(forceReload: true));
+    controller.addListener(onMapMoved);
+
+    final attribution = await attributionLoaded;
+    if (mounted) {
+      setState(() => _attribution = attribution);
+    }
+  }
+
+  void onMapMoved() {
+    if (mapController!.isCameraMoving || !mounted) {
+      return;
+    }
+
+    _debouncer.run(setBounds);
+  }
+
+  Future<void> setBounds({bool forceReload = false}) async {
+    final controller = mapController;
+    if (controller == null || !mounted) {
+      return;
+    }
+
+    // When the AssetViewer is open, the DriftMap route stays alive in the background.
+    // If we continue to update bounds, the map-scoped timeline service gets recreated and the previous one disposed,
+    // which can invalidate the TimelineService instance that was passed into AssetViewerRoute (causing "loading forever").
+    if (ref.read(isAssetViewerOpenProvider)) {
+      return;
+    }
+
+    final bounds = await controller.getVisibleRegion();
+    unawaited(
+      _reloadMutex.run(() async {
+        if (mounted && (ref.read(mapStateProvider.notifier).setBounds(bounds) || forceReload)) {
+          final markers = await ref.read(mapMarkerProvider(bounds).future);
+          await reloadMarkers(markers);
+        }
+      }),
+    );
+  }
+
+  Future<void> reloadMarkers(Map<String, dynamic> markers) async {
+    final controller = mapController;
+    if (controller == null || !mounted) {
+      return;
+    }
+
+    await controller.setGeoJsonSource(MapUtils.defaultSourceId, markers);
+  }
+
+  Future<void> onZoomToLocation() async {
+    final (location, error) = await MapUtils.checkPermAndGetLocation(context: context);
+    if (error != null) {
+      if (error == LocationPermission.unableToDetermine && context.mounted) {
+        ImmichToast.show(
+          context: context,
+          gravity: ToastGravity.BOTTOM,
+          toastType: ToastType.error,
+          msg: context.t.map_cannot_get_user_location,
+        );
+      }
+      return;
+    }
+
+    final controller = mapController;
+    if (controller != null && location != null) {
+      await controller.animateCamera(
+        CameraUpdate.newLatLngZoom(LatLng(location.latitude, location.longitude), MapUtils.mapZoomToAssetLevel),
+        duration: const Duration(milliseconds: 800),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ref.listen<bool>(isAssetViewerOpenProvider, (previous, current) {
+      if (previous == true && !current) {
+        _debouncer.run(() => setBounds(forceReload: true));
+      }
+    });
+    return Stack(
+      children: [
+        _Map(initialLocation: widget.initialLocation, onMapCreated: onMapCreated, onMapReady: onMapReady),
+        _DynamicBottomSheet(bottomSheetOffset: bottomSheetOffset, sheetKey: _bottomSheetKey),
+        _DynamicBottomButtons(
+          onZoomToLocation: onZoomToLocation,
+          bottomSheetOffset: bottomSheetOffset,
+          attribution: _attribution,
+        ),
+      ],
+    );
+  }
+}
+
+class _Map extends StatelessWidget {
+  final LatLng? initialLocation;
+
+  const _Map({this.initialLocation, required this.onMapCreated, required this.onMapReady});
+
+  final MapCreatedCallback onMapCreated;
+
+  final VoidCallback onMapReady;
+
+  @override
+  Widget build(BuildContext context) {
+    final initialLocation = this.initialLocation;
+    return MapThemeOverride(
+      mapBuilder: (style) => style.widgetWhen(
+        onData: (style) => MapLibreMap(
+          initialCameraPosition: initialLocation == null
+              ? const CameraPosition(target: LatLng(0, 0), zoom: 0)
+              : CameraPosition(target: initialLocation, zoom: MapUtils.mapZoomToAssetLevel),
+          compassEnabled: false,
+          rotateGesturesEnabled: false,
+          styleString: style,
+          onMapCreated: onMapCreated,
+          onStyleLoadedCallback: onMapReady,
+          // Hide offscreen so we can draw our own
+          attributionButtonMargins: const Point(-200, 0),
+        ),
+      ),
+    );
+  }
+}
+
+class _DynamicBottomSheet extends StatefulWidget {
+  final ValueNotifier<double> bottomSheetOffset;
+  final GlobalKey sheetKey;
+
+  const _DynamicBottomSheet({required this.bottomSheetOffset, required this.sheetKey});
+
+  @override
+  State<_DynamicBottomSheet> createState() => _DynamicBottomSheetState();
+}
+
+class _DynamicBottomSheetState extends State<_DynamicBottomSheet> {
+  @override
+  Widget build(BuildContext context) {
+    return NotificationListener<DraggableScrollableNotification>(
+      onNotification: (notification) {
+        final sheet = notification.context.findAncestorWidgetOfExactType<BaseBottomSheet>();
+        if (sheet?.key == widget.sheetKey) {
+          widget.bottomSheetOffset.value = notification.extent;
+        }
+        return false;
+      },
+      child: MapBottomSheet(sheetKey: widget.sheetKey),
+    );
+  }
+}
+
+class _DynamicBottomButtons extends StatelessWidget {
+  const _DynamicBottomButtons({
+    required this.onZoomToLocation,
+    required this.bottomSheetOffset,
+    required this.attribution,
+  });
+
+  final VoidCallback onZoomToLocation;
+  final ValueNotifier<double> bottomSheetOffset;
+  final MapAttribution? attribution;
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<double>(
+      valueListenable: bottomSheetOffset,
+      builder: (context, offset, child) {
+        return Positioned(
+          left: 20,
+          right: 20,
+          bottom: context.height * (offset - 0.02) + context.padding.bottom,
+          child: AnimatedOpacity(
+            opacity: offset < 0.8 ? 1 : 0,
+            duration: const Duration(milliseconds: 150),
+            child: Row(
+              children: [
+                if (attribution case final attribution?) _AttributionButton(attribution: attribution),
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: onZoomToLocation,
+                  style: ElevatedButton.styleFrom(shape: const CircleBorder()),
+                  child: const Icon(Icons.my_location),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _AttributionButton extends StatefulWidget {
+  const _AttributionButton({required this.attribution});
+
+  final MapAttribution attribution;
+
+  @override
+  State<_AttributionButton> createState() => _AttributionButtonState();
+}
+
+class _AttributionButtonState extends State<_AttributionButton> {
+  // OSM's attribution guidelines require it to be visible by default
+  bool _expanded = true;
+
+  @override
+  Widget build(BuildContext context) {
+    final (:text, :url) = widget.attribution;
+    return TapRegion(
+      // Any interaction outside of the popup causes it to close
+      onTapOutside: _expanded ? (_) => setState(() => _expanded = false) : null,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ElevatedButton(
+            onPressed: () => setState(() => _expanded = !_expanded),
+            style: ElevatedButton.styleFrom(shape: const CircleBorder()),
+            child: const Icon(Icons.info_outline),
+          ),
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 100),
+            child: _expanded
+                ? Material(
+                    // Without a key the transition remotes pill instantly instead of fading it out
+                    key: const ValueKey('attribution'),
+                    color: context.colorScheme.surfaceContainerLow,
+                    elevation: 1,
+                    shape: const StadiumBorder(),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: context.width / 2),
+                      child: TextButton(
+                        onPressed: url == null
+                            ? null
+                            : () => unawaited(launchUrl(url, mode: LaunchMode.externalApplication)),
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          minimumSize: const Size(0, 40),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          disabledForegroundColor: context.colorScheme.onSurface,
+                        ),
+                        child: Text(text, maxLines: 1, overflow: TextOverflow.ellipsis),
+                      ),
+                    ),
+                  )
+                : const SizedBox.shrink(),
+          ),
+        ],
+      ),
+    );
+  }
+}
