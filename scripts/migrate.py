@@ -26,7 +26,7 @@ def main():
     CODE_EXT = {'.ts', '.tsx', '.js', '.mjs', '.cjs', '.dart', '.py', '.kt', '.kts',
                 '.swift', '.gradle', '.toml', '.yaml', '.yml', '.json', '.sh',
                 '.properties', '.env', '.sql', '.sqlx'}
-    SKIP = {'.git', 'scripts', 'node_modules'}
+    SKIP = {'.github', '.git', 'scripts', 'node_modules'}
     changed = 0
     for dirpath, dirnames, filenames in os.walk(ROOT):
         rel = os.path.relpath(dirpath, ROOT).replace(os.sep, '/')
