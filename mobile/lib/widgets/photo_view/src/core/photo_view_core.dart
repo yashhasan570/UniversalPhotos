@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
-import 'package:universal_photos/widgets/photo_view/photo_view.dart'
+import 'package:universal_photos_mobile/widgets/photo_view/photo_view.dart'
     show
         PhotoViewHeroAttributes,
         PhotoViewImageDragEndCallback,
@@ -13,12 +13,12 @@ import 'package:universal_photos/widgets/photo_view/photo_view.dart'
         PhotoViewImageTapUpCallback,
         PhotoViewScaleState,
         ScaleStateCycle;
-import 'package:universal_photos/widgets/photo_view/src/controller/photo_view_controller.dart';
-import 'package:universal_photos/widgets/photo_view/src/controller/photo_view_controller_delegate.dart';
-import 'package:universal_photos/widgets/photo_view/src/controller/photo_view_scalestate_controller.dart';
-import 'package:universal_photos/widgets/photo_view/src/core/photo_view_gesture_detector.dart';
-import 'package:universal_photos/widgets/photo_view/src/core/photo_view_hit_corners.dart';
-import 'package:universal_photos/widgets/photo_view/src/utils/photo_view_utils.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/src/controller/photo_view_controller.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/src/controller/photo_view_controller_delegate.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/src/controller/photo_view_scalestate_controller.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/src/core/photo_view_gesture_detector.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/src/core/photo_view_hit_corners.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/src/utils/photo_view_utils.dart';
 
 const _defaultDecoration = BoxDecoration(color: Color.fromRGBO(0, 0, 0, 1.0));
 

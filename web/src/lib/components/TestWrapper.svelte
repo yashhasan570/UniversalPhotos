@@ -1,5 +1,5 @@
 <script lang="ts" generics="T extends Record<string, unknown>">
-  import { TooltipProvider } from '@Universal Photos/ui';
+  import { TooltipProvider } from '@immich/ui';
   import type { Component } from 'svelte';
 
   type Props = {

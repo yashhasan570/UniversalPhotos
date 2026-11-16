@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
-import 'package:universal_photos/presentation/widgets/bottom_sheet/local_album_bottom_sheet.widget.dart';
-import 'package:universal_photos/presentation/widgets/timeline/timeline.widget.dart';
-import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
-import 'package:universal_photos/widgets/common/mesmerizing_sliver_app_bar.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/presentation/widgets/bottom_sheet/local_album_bottom_sheet.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/timeline/timeline.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos_mobile/widgets/common/mesmerizing_sliver_app_bar.dart';
 
 @RoutePage()
 class LocalTimelinePage extends StatelessWidget {

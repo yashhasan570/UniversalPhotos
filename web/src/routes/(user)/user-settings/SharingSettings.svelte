@@ -27,8 +27,8 @@
     type ClusterGroupRequestResponseDto,
     type PartnerResponseDto,
     type UserResponseDto,
-  } from '@Universal Photos/sdk';
-  import { ActionButton, Button, Card, CardBody, HStack, Icon, IconButton, Text, modalManager } from '@Universal Photos/ui';
+  } from '@immich/sdk';
+  import { ActionButton, Button, Card, CardBody, HStack, Icon, IconButton, Text, modalManager } from '@immich/ui';
   import { mdiCheck, mdiClose } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -261,13 +261,13 @@
               <div class="flex items-center gap-4">
                 <UserAvatar {user} size="md" />
                 <div class="text-start">
-                  <p class="text-Universal Photos-fg dark:text-Universal Photos-dark-fg">
+                  <p class="text-immich-fg dark:text-immich-dark-fg">
                     {user.name}
                     {#if user.id === authManager.user.id}
-                      <span class="text-sm text-Universal Photos-fg/75 dark:text-Universal Photos-dark-fg/75">({$t('you')})</span>
+                      <span class="text-sm text-immich-fg/75 dark:text-immich-dark-fg/75">({$t('you')})</span>
                     {/if}
                   </p>
-                  <p class="text-sm text-Universal Photos-fg/75 dark:text-Universal Photos-dark-fg/75">{user.email}</p>
+                  <p class="text-sm text-immich-fg/75 dark:text-immich-dark-fg/75">{user.email}</p>
                 </div>
               </div>
 
@@ -312,8 +312,8 @@
                     <UserAvatar {user} size="md" />
                   {/if}
                   <div class="text-start">
-                    <p class="text-Universal Photos-fg dark:text-Universal Photos-dark-fg">{user?.name ?? request.userId}</p>
-                    <p class="text-sm text-Universal Photos-fg/75 dark:text-Universal Photos-dark-fg/75">{user?.email ?? ''}</p>
+                    <p class="text-immich-fg dark:text-immich-dark-fg">{user?.name ?? request.userId}</p>
+                    <p class="text-sm text-immich-fg/75 dark:text-immich-dark-fg/75">{user?.email ?? ''}</p>
                   </div>
                 </div>
 
@@ -342,10 +342,10 @@
               <div class="flex gap-4">
                 <UserAvatar user={partner.user} size="md" />
                 <div class="text-start">
-                  <p class="text-Universal Photos-fg dark:text-Universal Photos-dark-fg">
+                  <p class="text-immich-fg dark:text-immich-dark-fg">
                     {partner.user.name}
                   </p>
-                  <p class="text-sm text-Universal Photos-fg/75 dark:text-Universal Photos-dark-fg/75">
+                  <p class="text-sm text-immich-fg/75 dark:text-immich-dark-fg/75">
                     {partner.user.email}
                   </p>
                 </div>
@@ -364,7 +364,7 @@
               {/if}
             </div>
 
-            <div class="text-Universal Photos-dark-gray dark:text-gray-200">
+            <div class="text-immich-dark-gray dark:text-gray-200">
               <!-- I am sharing my assets with this user -->
               {#if partner.sharedByMe}
                 <hr class="my-4 border border-gray-200 dark:border-gray-700" />

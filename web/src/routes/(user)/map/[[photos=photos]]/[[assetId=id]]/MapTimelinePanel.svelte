@@ -20,8 +20,8 @@
   import { getStackBulkActions } from '#lib/services/stack.service.ts';
   import { mapSettings } from '#lib/stores/preferences.store.ts';
   import { type OnLink, type OnUnlink } from '#lib/utils/actions.ts';
-  import { AssetVisibility } from '@Universal Photos/sdk';
-  import { ActionButton, CloseButton, CommandPaletteDefaultProvider, Icon } from '@Universal Photos/ui';
+  import { AssetVisibility } from '@immich/sdk';
+  import { ActionButton, CloseButton, CommandPaletteDefaultProvider, Icon } from '@immich/ui';
   import { mdiDotsVertical, mdiImageMultiple } from '@mdi/js';
   import { ceil, floor } from 'lodash-es';
   import { t } from 'svelte-i18n';
@@ -89,11 +89,11 @@
   });
 </script>
 
-<aside class="flex size-full flex-col overflow-hidden bg-Universal Photos-bg contain-content dark:bg-Universal Photos-dark-bg">
-  <div class="flex items-center justify-between border-b border-gray-200 pe-1 pb-1 dark:border-Universal Photos-dark-gray">
+<aside class="flex size-full flex-col overflow-hidden bg-immich-bg contain-content dark:bg-immich-dark-bg">
+  <div class="flex items-center justify-between border-b border-gray-200 pe-1 pb-1 dark:border-immich-dark-gray">
     <div class="flex items-center gap-2">
       <Icon icon={mdiImageMultiple} size="20" />
-      <p class="text-sm font-medium text-Universal Photos-fg dark:text-Universal Photos-dark-fg">
+      <p class="text-sm font-medium text-immich-fg dark:text-immich-dark-fg">
         {$t('assets_count', { values: { count: assetCount } })}
       </p>
     </div>

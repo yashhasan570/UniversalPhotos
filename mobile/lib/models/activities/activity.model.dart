@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
 
 part 'activity.model.freezed.dart';
 

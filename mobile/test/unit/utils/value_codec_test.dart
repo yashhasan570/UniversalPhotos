@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/value_codec.dart';
+import 'package:universal_photos_mobile/domain/models/value_codec.dart';
 
 enum _Fruit { apple, banana, cherry }
 

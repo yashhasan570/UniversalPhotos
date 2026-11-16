@@ -1,4 +1,4 @@
-import { Database, Extensions, Generated, Int8 } from '@universalphotos/sql-tools';
+import { Database, Extensions, Generated, Int8 } from '@universal_photos/sql-tools';
 import {
   album_user_role_enum,
   asset_face_source_type,
@@ -16,7 +16,7 @@ import {
   asset_ocr_delete_audit,
   f_concat_ws,
   f_unaccent,
-  universalphotos_uuid_v7,
+  universal_photos_uuid_v7,
   ll_to_earth_public,
   memory_asset_delete_audit,
   memory_delete_audit,
@@ -101,7 +101,7 @@ import { WorkflowStepTable } from 'src/schema/tables/workflow-step.table.js';
 import { WorkflowTable } from 'src/schema/tables/workflow.table.js';
 
 @Extensions(['uuid-ossp', 'unaccent', 'cube', 'earthdistance', 'pg_trgm', 'plpgsql'])
-@Database({ name: 'universalphotos' })
+@Database({ name: 'universal_photos' })
 export class UniversalPhotosDatabase {
   tables = [
     ActivityTable,
@@ -174,7 +174,7 @@ export class UniversalPhotosDatabase {
   ];
 
   functions = [
-    universalphotos_uuid_v7,
+    universal_photos_uuid_v7,
     updated_at,
     f_concat_ws,
     f_unaccent,

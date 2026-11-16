@@ -1,6 +1,6 @@
 import { eventManager } from '#lib/managers/event-manager.svelte.ts';
 import { asMutation, queryClient } from '#lib/queries/client.ts';
-import { createStack, deleteStacks, getStack, removeAssetFromStack, updateStack } from '@universalphotos/sdk';
+import { createStack, deleteStacks, getStack, removeAssetFromStack, updateStack } from '@universal_photos/sdk';
 import { queryOptions, type MutationMeta } from '@tanstack/svelte-query';
 
 export const getStackQuery = (id: string) =>

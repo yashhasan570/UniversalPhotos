@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { WorkflowTrigger, type WorkflowStepDto, type WorkflowUpdateDto } from '@Universal Photos/sdk';
+  import { WorkflowTrigger, type WorkflowStepDto, type WorkflowUpdateDto } from '@immich/sdk';
   import {
     Card,
     CardBody,
@@ -10,7 +10,7 @@
     Theme,
     VStack,
     themeManager,
-  } from '@Universal Photos/ui';
+  } from '@immich/ui';
   import { mdiCodeJson } from '@mdi/js';
   import { isEqual } from 'lodash-es';
   import { untrack } from 'svelte';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/theme_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/theme_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
 
 class BackupInfoCard extends StatelessWidget {
   final String title;

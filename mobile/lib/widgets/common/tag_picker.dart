@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/store.dart';
-import 'package:universal_photos/domain/models/tag.model.dart';
-import 'package:universal_photos/extensions/asyncvalue_extensions.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/widgets/common/search_field.dart';
+import 'package:universal_photos_mobile/data/store.dart';
+import 'package:universal_photos_mobile/domain/models/tag.model.dart';
+import 'package:universal_photos_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/widgets/common/search_field.dart';
 
 String _trimSlashes(String s) => s.replaceAll(RegExp(r'^/+|/+$'), '');
 

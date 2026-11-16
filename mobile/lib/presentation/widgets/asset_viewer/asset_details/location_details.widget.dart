@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/exif.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/theme_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/actions/edit_location.action.dart';
-import 'package:universal_photos/presentation/widgets/asset_viewer/sheet_tile.widget.dart';
-import 'package:universal_photos/widgets/asset_viewer/detail_panel/exif_map.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/theme_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/actions/edit_location.action.dart';
+import 'package:universal_photos_mobile/presentation/widgets/asset_viewer/sheet_tile.widget.dart';
+import 'package:universal_photos_mobile/widgets/asset_viewer/detail_panel/exif_map.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 class LocationDetails extends ConsumerStatefulWidget {

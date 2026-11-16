@@ -3,16 +3,16 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/services/remote_album.service.dart';
-import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:universal_photos/providers/backup/asset_upload_progress.provider.dart';
-import 'package:universal_photos/providers/infrastructure/album.provider.dart';
-import 'package:universal_photos/providers/timeline/multiselect.provider.dart';
-import 'package:universal_photos/services/action.service.dart';
-import 'package:universal_photos/services/foreground_upload.service.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/services/remote_album.service.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos_mobile/providers/backup/asset_upload_progress.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:universal_photos_mobile/services/action.service.dart';
+import 'package:universal_photos_mobile/services/foreground_upload.service.dart';
 import 'package:logging/logging.dart';
 
 final actionProvider = NotifierProvider<ActionNotifier, void>(ActionNotifier.new, dependencies: [multiSelectProvider]);

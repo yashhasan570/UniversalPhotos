@@ -17,7 +17,7 @@ const buildDir = 'build';
 const inlineTags = ['script', 'style'];
 
 const cspManifest = (): Plugin => ({
-  name: 'universalphotos:csp-manifest',
+  name: 'universal_photos:csp-manifest',
   apply: 'build',
   buildApp: {
     order: 'post',
@@ -53,7 +53,7 @@ const cspManifest = (): Plugin => ({
 const notFoundGetLine = /^404 (GET|HEAD) /;
 
 const testing = (): Plugin => ({
-  name: 'universalphotos:test',
+  name: 'universal_photos:test',
   apply: () => !!process.env.VITEST,
   configureServer: (server) => {
     const { logger } = server.config;
@@ -71,7 +71,7 @@ const testing = (): Plugin => ({
 const isUnmockedMediaOrDownload = (message: string) => notFoundGetLine.test(stripVTControlCharacters(message));
 
 const upstream = {
-  target: process.env.UNIVERSALPHOTOS_SERVER_URL || 'http://universalphotos-server:2283/',
+  target: process.env.UNIVERSALPHOTOS_SERVER_URL || 'http://universal_photos-server:2283/',
   secure: true,
   changeOrigin: true,
   logLevel: 'info',
@@ -80,7 +80,7 @@ const upstream = {
 
 const proxy: Record<string, string | ProxyOptions> = {
   '/api': upstream,
-  '/.well-known/universalphotos': upstream,
+  '/.well-known/universal_photos': upstream,
   '/.well-known/webauthn': upstream,
   '/custom.css': upstream,
 };
@@ -98,7 +98,7 @@ export default defineConfig({
       'xmlhttprequest-ssl': './node_modules/engine.io-client/lib/xmlhttprequest.js',
     },
   },
-  // '@universalphotos/ui': path.resolve(import.meta.dirname, '../../ui/packages/ui'),
+  // '@universal_photos/ui': path.resolve(import.meta.dirname, '../../ui/packages/ui'),
   server: {
     // connect to a remote backend during web-only development
     proxy: process.env.VITEST ? {} : proxy,
@@ -112,7 +112,7 @@ export default defineConfig({
     tailwindcss(),
     sveltekit({
       compilerOptions: {},
-      // TODO pending `@universalphotos/ui` to enable it
+      // TODO pending `@universal_photos/ui` to enable it
       // runes: true,
       preprocess: vitePreprocess(),
 

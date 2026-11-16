@@ -21,8 +21,8 @@ import {
   type DownloadInfoDto,
   type ExifResponseDto,
   type UserResponseDto,
-} from '@universalphotos/sdk';
-import { toastManager } from '@universalphotos/ui';
+} from '@universal_photos/sdk';
+import { toastManager } from '@universal_photos/ui';
 import { DateTime } from 'luxon';
 import { t } from 'svelte-i18n';
 import { get } from 'svelte/store';

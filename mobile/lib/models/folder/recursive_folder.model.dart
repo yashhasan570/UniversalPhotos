@@ -1,4 +1,4 @@
-import 'package:universal_photos/models/folder/root_folder.model.dart';
+import 'package:universal_photos_mobile/models/folder/root_folder.model.dart';
 
 class RecursiveFolder extends RootFolder {
   final String name;

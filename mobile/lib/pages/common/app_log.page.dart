@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:universal_photos/domain/models/log.model.dart';
-import 'package:universal_photos/domain/services/log.service.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/datetime_extensions.dart';
-import 'package:universal_photos/extensions/theme_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/services/universalphotos_logger.service.dart';
+import 'package:universal_photos_mobile/domain/models/log.model.dart';
+import 'package:universal_photos_mobile/domain/services/log.service.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/datetime_extensions.dart';
+import 'package:universal_photos_mobile/extensions/theme_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/services/universal_photos_logger.service.dart';
 import 'package:intl/intl.dart';
 
 @RoutePage()
@@ -19,9 +19,9 @@ class AppLogPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final universalphotosLogger = LogService.I;
+    final universal_photosLogger = LogService.I;
     final shouldReload = useState(false);
-    final logMessages = useFuture(useMemoized(() => universalphotosLogger.getMessages(), [shouldReload.value]));
+    final logMessages = useFuture(useMemoized(() => universal_photosLogger.getMessages(), [shouldReload.value]));
 
     Widget colorStatusIndicator(Color color) {
       return Column(
@@ -64,7 +64,7 @@ class AppLogPage extends HookWidget {
               size: 20.0,
             ),
             onPressed: () {
-              unawaited(universalphotosLogger.clearLogs());
+              unawaited(universal_photosLogger.clearLogs());
               shouldReload.value = !shouldReload.value;
             },
           ),

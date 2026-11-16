@@ -5,7 +5,7 @@ import {
   WorkflowEventPayload,
   WorkflowResponse,
   WorkflowTrigger,
-} from '@universalphotos/plugin-sdk';
+} from '@universal_photos/plugin-sdk';
 import { HttpException, UnauthorizedException } from '@nestjs/common';
 import { join } from 'node:path';
 import { DummyValue, OnEvent, OnJob } from 'src/decorators.js';

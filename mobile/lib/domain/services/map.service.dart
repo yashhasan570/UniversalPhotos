@@ -1,5 +1,5 @@
-import 'package:universal_photos/domain/models/map.model.dart';
-import 'package:universal_photos/infrastructure/repositories/map.repository.dart';
+import 'package:universal_photos_mobile/domain/models/map.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/map.repository.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 typedef MapMarkerSource = Future<List<Marker>> Function(LatLngBounds? bounds);

@@ -2,8 +2,8 @@
   import AlbumCover from '#lib/components/album-page/AlbumCover.svelte';
   import { updateAlbumInfoMutation } from '#lib/queries/album.query.ts';
   import { executeMutation } from '#lib/queries/client.ts';
-  import { type AlbumResponseDto } from '@Universal Photos/sdk';
-  import { Field, FormModal, Input, Textarea } from '@Universal Photos/ui';
+  import { type AlbumResponseDto } from '@immich/sdk';
+  import { Field, FormModal, Input, Textarea } from '@immich/ui';
   import { mdiRenameOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

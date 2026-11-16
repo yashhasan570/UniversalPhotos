@@ -1,17 +1,17 @@
 import 'dart:async';
 
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/db/main/table/local/asset.dart';
-import 'package:universal_photos/data/db/main/table/remote/asset.dart';
-import 'package:universal_photos/data/db/main/table/remote/asset.drift.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/map.model.dart';
-import 'package:universal_photos/domain/models/timeline.model.dart';
-import 'package:universal_photos/domain/services/timeline.service.dart';
-import 'package:universal_photos/infrastructure/repositories/map.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/timeline.repository.drift.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/table/local/asset.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/asset.drift.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/map.model.dart';
+import 'package:universal_photos_mobile/domain/models/timeline.model.dart';
+import 'package:universal_photos_mobile/domain/services/timeline.service.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/map.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/timeline.repository.drift.dart';
 import 'package:intl/intl.dart';
 import 'package:stream_transform/stream_transform.dart';
 

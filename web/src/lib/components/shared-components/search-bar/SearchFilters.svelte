@@ -2,8 +2,8 @@
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { searchManager } from '#lib/managers/search-manager.svelte.ts';
   import { getAllTagsQuery } from '#lib/queries/tag.query.ts';
-  import { type PersonResponseDto } from '@Universal Photos/sdk';
-  import { Button, Text } from '@Universal Photos/ui';
+  import { type PersonResponseDto } from '@immich/sdk';
+  import { Button, Text } from '@immich/ui';
   import {
     mdiAccount,
     mdiCalendarBlank,
@@ -191,7 +191,7 @@
   {#if isOpen}
     <div
       transition:fly={{ y: 25, duration: 250 }}
-      class="absolute z-1 max-h-[80svh] w-full overflow-y-auto rounded-b-3xl bg-white shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-all dark:bg-Universal Photos-dark-gray dark:text-gray-300"
+      class="absolute z-1 max-h-[80svh] w-full overflow-y-auto rounded-b-3xl bg-white shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-all dark:bg-immich-dark-gray dark:text-gray-300"
     >
       <SearchHistorySection
         bind:this={searchHistory}

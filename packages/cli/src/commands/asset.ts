@@ -12,7 +12,7 @@ import {
   defaults,
   getAllAlbums,
   getSupportedMediaTypes,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 import byteSize from 'byte-size';
 import { Matcher, watch as watchFs } from 'chokidar';
 import { MultiBar, Presets, SingleBar } from 'cli-progress';

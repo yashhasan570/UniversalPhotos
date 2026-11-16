@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/table/remote/album.dart';
-import 'package:universal_photos/data/db/main/table/user/user.dart';
-import 'package:universal_photos/data/db/util/defaults_mixin.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/album.dart';
+import 'package:universal_photos_mobile/data/db/main/table/user/user.dart';
+import 'package:universal_photos_mobile/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
 
 class RemoteAlbumUserEntity extends Table with DriftDefaultsMixin {
   const RemoteAlbumUserEntity();

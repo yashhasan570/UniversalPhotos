@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/providers/locale_provider.dart';
-import 'package:universal_photos/providers/map/map_state.provider.dart';
-import 'package:universal_photos/providers/theme.provider.dart';
-import 'package:universal_photos/theme/theme_data.dart';
+import 'package:universal_photos_mobile/providers/locale_provider.dart';
+import 'package:universal_photos_mobile/providers/map/map_state.provider.dart';
+import 'package:universal_photos_mobile/providers/theme.provider.dart';
+import 'package:universal_photos_mobile/theme/theme_data.dart';
 
 /// Overrides the theme below the widget tree to use the theme data based on the
 /// map settings instead of the one from the app settings
@@ -66,7 +66,7 @@ class _MapThemeOverrideState extends ConsumerState<MapThemeOverride> with Widget
   @override
   Widget build(BuildContext context) {
     _theme = widget.themeMode ?? ref.watch(mapStateNotifierProvider.select((v) => v.themeMode));
-    final appTheme = ref.watch(universalphotosThemeProvider);
+    final appTheme = ref.watch(universal_photosThemeProvider);
     final locale = ref.watch(localeProvider);
 
     useValueChanged<ThemeMode, void>(_theme, (_, _) {

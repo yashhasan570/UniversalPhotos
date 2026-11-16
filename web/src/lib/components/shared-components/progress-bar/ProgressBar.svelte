@@ -88,5 +88,5 @@
 </script>
 
 {#if !hidden}
-  <span class="absolute inset-s-0 h-[3px] bg-Universal Photos-primary shadow-2xl" style:width={`${$progress * 100}%`}></span>
+  <span class="absolute inset-s-0 h-[3px] bg-immich-primary shadow-2xl" style:width={`${$progress * 100}%`}></span>
 {/if}

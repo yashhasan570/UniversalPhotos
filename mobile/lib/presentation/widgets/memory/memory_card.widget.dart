@@ -1,14 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/memory.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/presentation/widgets/asset_viewer/video_viewer.widget.dart';
-import 'package:universal_photos/presentation/widgets/images/full_image.widget.dart';
-import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
-import 'package:universal_photos/presentation/widgets/images/thumb_hash_provider.dart';
-import 'package:universal_photos/presentation/widgets/memory/memory_title.widget.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/memory.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/presentation/widgets/asset_viewer/video_viewer.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/full_image.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/thumb_hash_provider.dart';
+import 'package:universal_photos_mobile/presentation/widgets/memory/memory_title.widget.dart';
 
 class MemoryCard extends StatelessWidget {
   final RemoteAsset asset;

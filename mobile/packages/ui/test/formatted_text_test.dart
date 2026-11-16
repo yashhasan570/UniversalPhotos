@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universalphotos_ui/src/components/formatted_text.dart';
+import 'package:universal_photos_ui/src/components/formatted_text.dart';
 
 import 'test_utils.dart';
 

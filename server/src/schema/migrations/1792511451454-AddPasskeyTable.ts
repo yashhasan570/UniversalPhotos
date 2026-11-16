@@ -14,7 +14,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   "createdAt" timestamp with time zone NOT NULL DEFAULT now(),
   "updatedAt" timestamp with time zone NOT NULL DEFAULT now(),
   "usedAt" timestamp with time zone,
-  "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
+  "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7(),
   CONSTRAINT "passkey_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user" ("id") ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT "passkey_credentialId_uq" UNIQUE ("credentialId"),
   CONSTRAINT "passkey_pkey" PRIMARY KEY ("id")

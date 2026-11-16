@@ -5,7 +5,7 @@
   import AssetDeleteConfirmModal from '#lib/modals/AssetDeleteConfirmModal.svelte';
   import { showDeleteModal } from '#lib/stores/preferences.store.ts';
   import { deleteAssets, type OnDelete, type OnUndoDelete } from '#lib/utils/actions.ts';
-  import { IconButton, modalManager } from '@Universal Photos/ui';
+  import { IconButton, modalManager } from '@immich/ui';
   import { mdiDeleteForeverOutline, mdiDeleteOutline, mdiTimerSand } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/services/search.service.dart';
-import 'package:universal_photos/infrastructure/repositories/remote_asset.repository.dart';
-import 'package:universal_photos/models/search/search_filter.model.dart';
-import 'package:universal_photos/providers/infrastructure/db.provider.dart';
-import 'package:universal_photos/providers/infrastructure/search.provider.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/services/search.service.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/remote_asset.repository.dart';
+import 'package:universal_photos_mobile/models/search/search_filter.model.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/search.provider.dart';
 
 final searchPreFilterProvider = NotifierProvider<SearchFilterProvider, SearchFilter?>(SearchFilterProvider.new);
 

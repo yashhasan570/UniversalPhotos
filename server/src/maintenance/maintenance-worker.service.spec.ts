@@ -126,7 +126,7 @@ describe(MaintenanceWorkerService.name, () => {
 
       await expect(sut.login(token)).resolves.toEqual(
         expect.objectContaining({
-          username: 'universalphotos-admin',
+          username: 'universal_photos-admin',
         }),
       );
     });
@@ -148,7 +148,7 @@ describe(MaintenanceWorkerService.name, () => {
 
       await expect(
         sut.authenticate({
-          cookie: 'universalphotos_maintenance_token=invalid-jwt',
+          cookie: 'universal_photos_maintenance_token=invalid-jwt',
         }),
       ).rejects.toThrowError(new UnauthorizedException('Invalid JWT Token'));
     });
@@ -188,7 +188,7 @@ describe(MaintenanceWorkerService.name, () => {
 
   describe('detectPriorInstall', () => {
     it('generate report about prior installation', async () => {
-      mocks.storage.readdir.mockResolvedValue(['', 'file1', 'file2']);
+      mocks.storage.readdir.mockResolvedValue(['.universal_photos', 'file1', 'file2']);
       mocks.storage.readFile.mockResolvedValue(undefined as never);
       mocks.storage.overwriteFile.mockRejectedValue(undefined as never);
 

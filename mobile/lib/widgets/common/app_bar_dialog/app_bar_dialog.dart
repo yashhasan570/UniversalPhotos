@@ -4,22 +4,22 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' hide Store;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/models/server_info/server_disk_info.model.dart';
-import 'package:universal_photos/pages/common/settings.page.dart';
-import 'package:universal_photos/providers/auth.provider.dart';
-import 'package:universal_photos/providers/backup/backup_server.provider.dart';
-import 'package:universal_photos/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:universal_photos/providers/locale_provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/providers/websocket.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/utils/bytes_units.dart';
-import 'package:universal_photos/widgets/common/app_bar_dialog/app_bar_profile_info.dart';
-import 'package:universal_photos/widgets/common/app_bar_dialog/app_bar_server_info.dart';
-import 'package:universal_photos/widgets/common/confirm_dialog.dart';
-import 'package:universal_photos/widgets/common/universalphotos_logo.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/models/server_info/server_disk_info.model.dart';
+import 'package:universal_photos_mobile/pages/common/settings.page.dart';
+import 'package:universal_photos_mobile/providers/auth.provider.dart';
+import 'package:universal_photos_mobile/providers/backup/backup_server.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:universal_photos_mobile/providers/locale_provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/providers/websocket.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/utils/bytes_units.dart';
+import 'package:universal_photos_mobile/widgets/common/app_bar_dialog/app_bar_profile_info.dart';
+import 'package:universal_photos_mobile/widgets/common/app_bar_dialog/app_bar_server_info.dart';
+import 'package:universal_photos_mobile/widgets/common/confirm_dialog.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_logo.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -58,7 +58,7 @@ class UniversalPhotosAppBarDialog extends HookConsumerWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 4),
                 child: Image.asset(
-                  context.isDarkTheme ? 'assets/universalphotos-text-dark.png' : 'assets/universalphotos-text-light.png',
+                  context.isDarkTheme ? 'assets/universal_photos-text-dark.png' : 'assets/universal_photos-text-light.png',
                   height: 16,
                 ),
               ),

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { focusOutside } from '#lib/actions/focus-outside.ts';
-  import { Icon, shortcuts } from '@Universal Photos/ui';
+  import { Icon, shortcuts } from '@immich/ui';
   import { mdiStar, mdiStarOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

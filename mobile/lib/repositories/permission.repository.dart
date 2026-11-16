@@ -1,9 +1,9 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/extensions/platform_extensions.dart';
-import 'package:universal_photos/platform/permission_api.g.dart';
-import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/extensions/platform_extensions.dart';
+import 'package:universal_photos_mobile/platform/permission_api.g.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/platform.provider.dart';
 import 'package:permission_handler/permission_handler.dart' as ph;
 
 final permissionRepositoryProvider = Provider((ref) {

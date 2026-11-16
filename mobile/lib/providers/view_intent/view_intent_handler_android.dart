@@ -2,17 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/services/timeline.service.dart';
-import 'package:universal_photos/platform/view_intent_api.g.dart';
-import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:universal_photos/providers/auth.provider.dart';
-import 'package:universal_photos/providers/view_intent/view_intent_file_path.provider.dart';
-import 'package:universal_photos/providers/view_intent/view_intent_handler.provider.dart';
-import 'package:universal_photos/providers/view_intent/view_intent_pending.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/services/view_intent.service.dart';
-import 'package:universal_photos/services/view_intent_asset_resolver.service.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/services/timeline.service.dart';
+import 'package:universal_photos_mobile/platform/view_intent_api.g.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos_mobile/providers/auth.provider.dart';
+import 'package:universal_photos_mobile/providers/view_intent/view_intent_file_path.provider.dart';
+import 'package:universal_photos_mobile/providers/view_intent/view_intent_handler.provider.dart';
+import 'package:universal_photos_mobile/providers/view_intent/view_intent_pending.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/services/view_intent.service.dart';
+import 'package:universal_photos_mobile/services/view_intent_asset_resolver.service.dart';
 import 'package:logging/logging.dart';
 
 class AndroidViewIntentHandler implements ViewIntentHandler {

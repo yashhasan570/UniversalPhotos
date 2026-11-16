@@ -2,8 +2,8 @@
   import { assetMultiSelectManager } from '#lib/managers/asset-multi-select-manager.svelte.ts';
   import { executeMutation } from '#lib/queries/client.ts';
   import { removeSharedLinkAssetsMutation } from '#lib/queries/shared-link.query.ts';
-  import { type SharedLinkResponseDto } from '@Universal Photos/sdk';
-  import { IconButton, shortcut, toastManager } from '@Universal Photos/ui';
+  import { type SharedLinkResponseDto } from '@immich/sdk';
+  import { IconButton, shortcut, toastManager } from '@immich/ui';
   import { mdiDeleteOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

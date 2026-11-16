@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/store/util/cache.dart';
-import 'package:universal_photos/domain/models/user_metadata.model.dart';
-import 'package:universal_photos/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos_mobile/data/store/util/cache.dart';
+import 'package:universal_photos_mobile/domain/models/user_metadata.model.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/db.provider.dart';
 // TODO(rewrite): Remove once the current user is a store entry of its own
-import 'package:universal_photos/providers/user.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
 
 /// Server held metadata about the current user; their preferences, onboarding state and license
 ///

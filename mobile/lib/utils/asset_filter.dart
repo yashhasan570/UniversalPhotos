@@ -1,4 +1,4 @@
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
 
 extension type const AssetFilter<T extends BaseAsset>(Iterable<T> assets) implements Iterable<T> {
   AssetFilter<T> where(bool Function(T asset) test) => AssetFilter(assets.where(test));

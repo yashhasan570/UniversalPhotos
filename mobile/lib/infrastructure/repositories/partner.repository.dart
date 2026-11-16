@@ -1,11 +1,11 @@
 import 'package:drift/drift.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/db/main/table/user/partner.drift.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/infrastructure/mapper.dart';
-import 'package:universal_photos/infrastructure/repositories/partner.repository.drift.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/table/user/partner.drift.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/infrastructure/mapper.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/partner.repository.drift.dart';
 
 @DriftAccessor()
 class PartnerRepository extends DatabaseAccessor<Drift> with $PartnerRepositoryMixin {

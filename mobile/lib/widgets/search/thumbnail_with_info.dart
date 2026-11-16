@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/presentation/widgets/images/remote_image_provider.dart';
-import 'package:universal_photos/presentation/widgets/images/thumbnail.widget.dart';
-import 'package:universal_photos/widgets/search/thumbnail_with_info_container.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/thumbnail.widget.dart';
+import 'package:universal_photos_mobile/widgets/search/thumbnail_with_info_container.dart';
 
 class ThumbnailWithInfo extends StatelessWidget {
   const ThumbnailWithInfo({

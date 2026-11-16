@@ -4,8 +4,8 @@
   import { languageManager } from '#lib/managers/language-manager.svelte.ts';
   import SlideshowSettingsModal from '#lib/modals/SlideshowSettingsModal.svelte';
   import { SlideshowNavigation, SlideshowState, slideshowStore } from '#lib/stores/slideshow.store.ts';
-  import { AssetTypeEnum } from '@Universal Photos/sdk';
-  import { IconButton, modalManager, shortcuts, type ShortcutOptions } from '@Universal Photos/ui';
+  import { AssetTypeEnum } from '@immich/sdk';
+  import { IconButton, modalManager, shortcuts, type ShortcutOptions } from '@immich/ui';
   import { mdiChevronLeft, mdiChevronRight, mdiClose, mdiCog, mdiFullscreen, mdiPause, mdiPlay } from '@mdi/js';
   import { onDestroy, onMount } from 'svelte';
   import { useSwipe } from 'svelte-gestures';

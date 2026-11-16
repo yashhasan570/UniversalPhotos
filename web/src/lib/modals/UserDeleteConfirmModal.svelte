@@ -3,8 +3,8 @@
   import { createPreloadedQuery, executeMutation } from '#lib/queries/client.ts';
   import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
   import { deleteUserAdminMutation } from '#lib/queries/user-admin.query.ts';
-  import { type UserAdminResponseDto } from '@Universal Photos/sdk';
-  import { Alert, Checkbox, ConfirmModal, Field, Input, Label, Text } from '@Universal Photos/ui';
+  import { type UserAdminResponseDto } from '@immich/sdk';
+  import { Alert, Checkbox, ConfirmModal, Field, Input, Label, Text } from '@immich/ui';
   import { mdiTrashCanOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

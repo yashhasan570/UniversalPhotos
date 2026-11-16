@@ -6,17 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
-import 'package:universal_photos/providers/auth.provider.dart';
-import 'package:universal_photos/providers/backup/backup_server.provider.dart';
-import 'package:universal_photos/providers/upload_profile_image.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/utils/image_converter.dart';
-import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos_mobile/providers/auth.provider.dart';
+import 'package:universal_photos_mobile/providers/backup/backup_server.provider.dart';
+import 'package:universal_photos_mobile/providers/upload_profile_image.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/utils/image_converter.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_toast.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 @RoutePage()
 class ProfilePictureCropPage extends ConsumerStatefulWidget {

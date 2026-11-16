@@ -33,7 +33,7 @@
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/packages/cli/dist/**/*.js"],
       "skipFiles": ["<node_internals>/**"],
-      "preLaunchTask": "Build @universalphotos/cli"
+      "preLaunchTask": "Build @universal_photos/cli"
     }
   ]
 }

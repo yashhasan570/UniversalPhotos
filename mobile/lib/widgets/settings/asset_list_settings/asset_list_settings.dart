@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/providers/app_settings.provider.dart';
-import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
-import 'package:universal_photos/widgets/settings/asset_list_settings/asset_list_group_settings.dart';
-import 'package:universal_photos/widgets/settings/asset_list_settings/asset_list_layout_settings.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/providers/app_settings.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos_mobile/widgets/settings/asset_list_settings/asset_list_group_settings.dart';
+import 'package:universal_photos_mobile/widgets/settings/asset_list_settings/asset_list_layout_settings.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 class AssetListSettings extends HookConsumerWidget {
   const AssetListSettings({super.key});

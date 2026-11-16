@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/presentation/widgets/images/thumbnail.widget.dart';
-import 'package:universal_photos/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/thumbnail.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/album.provider.dart';
 
 class LocalAlbumThumbnail extends ConsumerWidget {
   const LocalAlbumThumbnail({super.key, required this.albumId});

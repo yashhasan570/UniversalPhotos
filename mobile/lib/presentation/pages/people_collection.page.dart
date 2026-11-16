@@ -3,16 +3,16 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/store.dart';
-import 'package:universal_photos/domain/models/person.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/string_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/widgets/images/remote_image_provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/utils/image_url_builder.dart';
-import 'package:universal_photos/utils/people.utils.dart';
-import 'package:universal_photos/widgets/common/search_field.dart';
+import 'package:universal_photos_mobile/data/store.dart';
+import 'package:universal_photos_mobile/domain/models/person.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/string_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/utils/image_url_builder.dart';
+import 'package:universal_photos_mobile/utils/people.utils.dart';
+import 'package:universal_photos_mobile/widgets/common/search_field.dart';
 
 @RoutePage()
 class PeopleCollectionPage extends ConsumerStatefulWidget {

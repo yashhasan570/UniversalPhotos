@@ -12,7 +12,7 @@
     showDeleteModal,
   } from '#lib/stores/preferences.store.ts';
   import { createDateFormatter, findLocale } from '#lib/utils.ts';
-  import { Field, Switch, Text, Theme, ThemePreference, themeManager } from '@Universal Photos/ui';
+  import { Field, Switch, Text, Theme, ThemePreference, themeManager } from '@immich/ui';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';

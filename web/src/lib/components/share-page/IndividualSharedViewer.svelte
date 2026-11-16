@@ -15,8 +15,8 @@
   import { fileUploadHandler, openFileUploadDialog } from '#lib/utils/file-uploader.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import { getAssetInfo, type SharedLinkResponseDto } from '@Universal Photos/sdk';
-  import { IconButton, Logo, toastManager } from '@Universal Photos/ui';
+  import { getAssetInfo, type SharedLinkResponseDto } from '@immich/sdk';
+  import { IconButton, Logo, toastManager } from '@immich/ui';
   import { mdiDownload, mdiFileImagePlusOutline, mdiSelectAll } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
@@ -44,7 +44,7 @@
   });
 
   const downloadAssets = async () => {
-    await downloadArchive(`Universal Photos-shared`, { assetIds: assets.map((asset) => asset.id) });
+    await downloadArchive(`immich-shared`, { assetIds: assets.map((asset) => asset.id) });
   };
 
   const handleUploadAssets = async (files: File[] = []) => {
@@ -97,7 +97,7 @@
           onclick={handleSelectAll}
         />
         {#if sharedLink?.allowDownload}
-          <DownloadAction filename="Universal Photos-shared" />
+          <DownloadAction filename="immich-shared" />
         {/if}
         {#if isOwned}
           <RemoveFromSharedLink bind:sharedLink />

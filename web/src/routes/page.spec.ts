@@ -10,7 +10,7 @@ import { load } from './+page.ts';
 test('starts the database restore flow', async ({ data, render, settle, api, app }) => {
   const previous = get(lang);
   lang.set('dev');
-  document.cookie = 'universalphotos_is_authenticated=; max-age=0';
+  document.cookie = 'universal_photos_is_authenticated=; max-age=0';
   data.serverConfig.isInitialized = false;
   await queryClient.refetchQueries({ queryKey: getServerConfigQuery().queryKey, exact: true });
 

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { handleChangePassword } from '#lib/services/user.service.ts';
-  import { Button, Field, PasswordInput, Switch } from '@Universal Photos/ui';
+  import { Button, Field, PasswordInput, Switch } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
 

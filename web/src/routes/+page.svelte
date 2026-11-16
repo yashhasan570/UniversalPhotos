@@ -3,8 +3,8 @@
   import { Route } from '#lib/route.ts';
   import { websocketStore } from '#lib/stores/websocket.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { startDatabaseRestoreFlow } from '@Universal Photos/sdk';
-  import { Button, Heading, Stack } from '@Universal Photos/ui';
+  import { startDatabaseRestoreFlow } from '@immich/sdk';
+  import { Button, Heading, Stack } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   async function switchToMaintenance() {
@@ -22,7 +22,7 @@
 
 <AuthPageLayout>
   <div class="flex flex-col place-items-center gap-12 text-center">
-    <Heading size="large" color="primary" tag="h1">{$t('welcome_to_Universal Photos')}</Heading>
+    <Heading size="large" color="primary" tag="h1">{$t('welcome_to_immich')}</Heading>
     <Stack>
       <Button href={Route.register()} size="large" shape="round">
         <span class="px-2 font-semibold">{$t('getting_started')}</span>

@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-import { AssetVisibility } from '@universalphotos/sdk';
+import { AssetVisibility } from '@universal_photos/sdk';
 import { Command, Option } from 'commander';
 import os from 'node:os';
 import path from 'node:path';
@@ -8,11 +8,11 @@ import { login, logout } from 'src/commands/auth.js';
 import { serverInfo } from 'src/commands/server-info.js';
 import { version } from '../package.json';
 
-const defaultConfigDirectory = path.join(os.homedir(), '.config/universalphotos/');
+const defaultConfigDirectory = path.join(os.homedir(), '.config/universal_photos/');
 const defaultConcurrency = Math.max(1, os.cpus().length - 1);
 
 const program = new Command()
-  .name('universalphotos')
+  .name('universal_photos')
   .version(version)
   .description('Command line interface for UniversalPhotos')
   .addOption(

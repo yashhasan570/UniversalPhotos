@@ -1,5 +1,5 @@
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/exif.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart';
 import 'package:timezone/timezone.dart';
 
 /// Applies timezone conversion to a DateTime using EXIF timezone information.

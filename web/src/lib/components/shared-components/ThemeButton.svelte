@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ThemePreference, ThemeSwitcher, themeManager } from '@Universal Photos/ui';
+  import { ThemePreference, ThemeSwitcher, themeManager } from '@immich/ui';
 </script>
 
 {#if themeManager.preference !== ThemePreference.System}

@@ -1,7 +1,7 @@
 import { truncateMiddle } from '#lib/utils.ts';
 import { getAssetResolution, getFileSize } from '#lib/utils/asset-utils.ts';
 import { fromISODateTime, fromISODateTimeUTC } from '#lib/utils/timeline-util.ts';
-import type { AssetResponseDto } from '@universalphotos/sdk';
+import type { AssetResponseDto } from '@universal_photos/sdk';
 import {
   mdiBrightness6,
   mdiCalendar,

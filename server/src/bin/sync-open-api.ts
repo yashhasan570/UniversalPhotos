@@ -4,7 +4,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { ApiModule } from 'src/app.module.js';
 import { useSwagger } from 'src/utils/misc.js';
 
-process.env.DB_URL = 'postgres://postgres:postgres@localhost:5432/universalphotos';
+process.env.DB_URL = 'postgres://postgres:postgres@localhost:5432/universal_photos';
 
 const sync = async () => {
   const app = await NestFactory.create<NestExpressApplication>(ApiModule, { preview: true });

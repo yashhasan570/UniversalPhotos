@@ -6,7 +6,7 @@ import {
   Table,
   Timestamp,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { SharedLinkType } from 'src/enum.js';
 import { AlbumTable } from 'src/schema/tables/album.table.js';
 import { UserTable } from 'src/schema/tables/user.table.js';

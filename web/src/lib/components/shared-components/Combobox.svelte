@@ -21,7 +21,7 @@
 
 <script lang="ts">
   import { focusOutside } from '#lib/actions/focus-outside.ts';
-  import { Icon, IconButton, Label, shortcuts } from '@Universal Photos/ui';
+  import { Icon, IconButton, Label, shortcuts } from '@immich/ui';
   import { mdiChevronDown, mdiClose, mdiMagnify } from '@mdi/js';
   import { onMount, tick } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -163,7 +163,7 @@
     onSelect(selectedOption);
   };
 
-  // TODO: move this combobox component into @Universal Photos/ui
+  // TODO: move this combobox component into @immich/ui
   // Bits UI dialogs use `contain: layout` so fixed descendants are positioned in dialog space
   const getModalBounds = () => {
     const modalRoot = input?.closest('[data-dialog-content]');
@@ -270,7 +270,7 @@
   <div>
     {#if isActive}
       <div class="absolute inset-y-0 inset-s-0 flex items-center ps-3">
-        <div class="dark:text-Universal Photos-dark-fg/75">
+        <div class="dark:text-immich-dark-fg/75">
           <Icon icon={mdiMagnify} aria-hidden />
         </div>
       </div>
@@ -289,7 +289,7 @@
       class:rounded-b-none!={isOpen && dropdownDirection === 'bottom'}
       class:rounded-t-none!={isOpen && dropdownDirection === 'top'}
       class:cursor-pointer={!isActive}
-      class="Universal Photos-form-input w-full pe-12! text-sm transition-all"
+      class="immich-form-input w-full pe-12! text-sm transition-all"
       id={inputId}
       onfocus={activate}
       oninput={onInput}

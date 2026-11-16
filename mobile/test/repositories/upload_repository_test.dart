@@ -7,12 +7,12 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/services/store.service.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
-import 'package:universal_photos/repositories/upload.repository.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/services/store.service.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos_mobile/repositories/upload.repository.dart';
 import 'package:logging/logging.dart';
 import 'package:mocktail/mocktail.dart';
 

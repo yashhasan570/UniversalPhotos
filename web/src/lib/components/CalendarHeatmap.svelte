@@ -1,7 +1,7 @@
 <script lang="ts">
   import { locale } from '#lib/stores/preferences.store.ts';
-  import type { CalendarHeatmapResponseDto } from '@Universal Photos/sdk';
-  import { Text } from '@Universal Photos/ui';
+  import type { CalendarHeatmapResponseDto } from '@immich/sdk';
+  import { Text } from '@immich/ui';
   import { DateTime, Info } from 'luxon';
   import { t } from 'svelte-i18n';
 
@@ -24,18 +24,18 @@
     }
 
     if (count <= Math.ceil(maxCount * 0.25)) {
-      return 'bg-Universal Photos-primary/30';
+      return 'bg-immich-primary/30';
     }
 
     if (count <= Math.ceil(maxCount * 0.5)) {
-      return 'bg-Universal Photos-primary/50';
+      return 'bg-immich-primary/50';
     }
 
     if (count <= Math.ceil(maxCount * 0.75)) {
-      return 'bg-Universal Photos-primary/70';
+      return 'bg-immich-primary/70';
     }
 
-    return 'bg-Universal Photos-primary';
+    return 'bg-immich-primary';
   };
 
   const weekdays = $derived([
@@ -89,10 +89,10 @@
     <div class="mt-2 flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
       <span>{$t('less')}</span>
       <span class="size-3 rounded-sm bg-gray-200 dark:bg-gray-700"></span>
-      <span class="size-3 rounded-sm bg-Universal Photos-primary/30"></span>
-      <span class="size-3 rounded-sm bg-Universal Photos-primary/50"></span>
-      <span class="size-3 rounded-sm bg-Universal Photos-primary/70"></span>
-      <span class="size-3 rounded-sm bg-Universal Photos-primary"></span>
+      <span class="size-3 rounded-sm bg-immich-primary/30"></span>
+      <span class="size-3 rounded-sm bg-immich-primary/50"></span>
+      <span class="size-3 rounded-sm bg-immich-primary/70"></span>
+      <span class="size-3 rounded-sm bg-immich-primary"></span>
       <span>{$t('more')}</span>
       <span class="ml-4">{totalLabel(data.totalCount)}</span>
     </div>

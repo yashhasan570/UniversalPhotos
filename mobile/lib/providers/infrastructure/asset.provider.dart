@@ -1,9 +1,9 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/services/asset.service.dart';
-import 'package:universal_photos/providers/infrastructure/db.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/repositories/asset_api.repository.dart';
-import 'package:universal_photos/repositories/asset_media.repository.dart';
+import 'package:universal_photos_mobile/domain/services/asset.service.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/repositories/asset_api.repository.dart';
+import 'package:universal_photos_mobile/repositories/asset_media.repository.dart';
 
 final assetServiceProvider = Provider((ref) {
   final db = ref.watch(driftProvider);

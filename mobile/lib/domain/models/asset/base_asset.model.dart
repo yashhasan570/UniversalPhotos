@@ -1,4 +1,4 @@
-import 'package:universal_photos/domain/models/exif.model.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart';
 
 part 'local_asset.model.dart';
 part 'remote_asset.model.dart';

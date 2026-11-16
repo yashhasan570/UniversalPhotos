@@ -1,4 +1,4 @@
-# Universal Photos Machine Learning
+# Immich Machine Learning
 
 - Clasificación de imágenes
 - Incorporación de CLIP

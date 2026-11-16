@@ -5,10 +5,10 @@ import 'package:pigeon/pigeon.dart';
     dartOut: 'lib/platform/native_sync_api.g.dart',
     swiftOut: 'ios/Runner/Sync/Messages.g.swift',
     swiftOptions: SwiftOptions(),
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universalphotos/sync/Messages.g.kt',
-    kotlinOptions: KotlinOptions(package: 'app.alextran.sync'),
+    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universal_photos/sync/Messages.g.kt',
+    kotlinOptions: KotlinOptions(package: 'app.alextran.universal_photos.sync'),
     dartOptions: DartOptions(),
-    dartPackageName: 'universal_photos',
+    dartPackageName: 'universal_photos_mobile',
   ),
 )
 const String kUnsupportedOSError = 'UNSUPPORTED_OS';

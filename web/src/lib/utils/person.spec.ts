@@ -1,4 +1,4 @@
-import type { PersonResponseDto } from '@universalphotos/sdk';
+import type { PersonResponseDto } from '@universal_photos/sdk';
 import { searchNameLocal } from './person';
 
 const makePerson = (overrides: Partial<PersonResponseDto> = {}): PersonResponseDto => ({

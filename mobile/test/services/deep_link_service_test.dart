@@ -1,18 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/memory.model.dart';
-import 'package:universal_photos/domain/models/timeline.model.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/domain/services/asset.service.dart';
-import 'package:universal_photos/domain/services/memory.service.dart';
-import 'package:universal_photos/domain/services/remote_album.service.dart';
-import 'package:universal_photos/domain/services/timeline.service.dart';
-import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/services/deep_link.service.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/memory.model.dart';
+import 'package:universal_photos_mobile/domain/models/timeline.model.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/domain/services/asset.service.dart';
+import 'package:universal_photos_mobile/domain/services/memory.service.dart';
+import 'package:universal_photos_mobile/domain/services/remote_album.service.dart';
+import 'package:universal_photos_mobile/domain/services/timeline.service.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/services/deep_link.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockTimelineFactory extends Mock implements TimelineFactory {}
@@ -158,7 +158,7 @@ void main() {
   test('memory scheme link without an id opens the memory lane', () async {
     when(() => memoryService.getMemoryLane(_userId)).thenAnswer((_) async => [_memory]);
     final deepLink = MockPlatformDeepLink();
-    when(() => deepLink.uri).thenReturn(Uri.parse('universalphotos://memory'));
+    when(() => deepLink.uri).thenReturn(Uri.parse('universal_photos://memory'));
 
     final route = await sut.handleScheme(deepLink, ref);
 
@@ -171,7 +171,7 @@ void main() {
   test('memory scheme link with an id opens only the specified memory', () async {
     when(() => memoryService.get(_memoryId)).thenAnswer((_) async => _memory);
     final deepLink = MockPlatformDeepLink();
-    when(() => deepLink.uri).thenReturn(Uri.parse('universalphotos://memory?id=$_memoryId'));
+    when(() => deepLink.uri).thenReturn(Uri.parse('universal_photos://memory?id=$_memoryId'));
 
     final route = await sut.handleScheme(deepLink, ref);
 

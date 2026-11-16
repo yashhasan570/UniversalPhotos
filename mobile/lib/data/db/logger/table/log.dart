@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/logger/table/log.drift.dart';
-import 'package:universal_photos/data/db/util/datetime_clamp_type.dart';
-import 'package:universal_photos/data/db/util/defaults_mixin.dart';
-import 'package:universal_photos/domain/models/log.model.dart' as domain;
+import 'package:universal_photos_mobile/data/db/logger/table/log.drift.dart';
+import 'package:universal_photos_mobile/data/db/util/datetime_clamp_type.dart';
+import 'package:universal_photos_mobile/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos_mobile/domain/models/log.model.dart' as domain;
 
 class LogMessageEntity extends Table with DriftDefaultsMixin {
   const LogMessageEntity();

@@ -2,13 +2,13 @@ import { authManager } from '#lib/managers/auth-manager.svelte.ts';
 import PartnerSelectionModal from '#lib/modals/PartnerSelectionModal.svelte';
 import { factory } from '#test/unit/factories.ts';
 import { test } from '#test/unit/fixtures.ts';
-import { PartnerDirection } from '@universalphotos/sdk';
+import { PartnerDirection } from '@universal_photos/sdk';
 import { expect, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 
 test('offers only users who are not partners yet', async ({ data, app }) => {
-  const bob = factory.user({ name: 'Bob Smith', email: 'bob@' });
-  const carol = factory.user({ name: 'Carol White', email: 'carol@' });
+  const bob = factory.user({ name: 'Bob Smith', email: 'bob@universal_photos.cloud' });
+  const carol = factory.user({ name: 'Carol White', email: 'carol@universal_photos.cloud' });
   data.addUsers([bob, carol]).addPartners(PartnerDirection.SharedBy, factory.partner(carol));
   authManager.setUser(data.user);
   const onClose = vi.fn();

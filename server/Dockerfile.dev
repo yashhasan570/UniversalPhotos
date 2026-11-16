@@ -1,9 +1,9 @@
 # dev build
-FROM /base-server-dev:202611031105@sha256:a1569fa3e5de340495658c3683574a15c1cc675db4bee635dd83f66e0ec7212b AS dev
+FROM ghcr.io/immich-app/base-server-dev:202611031105@sha256:a1569fa3e5de340495658c3683574a15c1cc675db4bee635dd83f66e0ec7212b AS dev
 
 
 COPY --from=ghcr.io/jdx/mise:2026.11.6@sha256:d4de1845114f6d73e90e15f7642885f74f3ca93074491038a2b9c43e4b897f21 /usr/local/bin/mise /usr/local/bin/mise
-COPY --from=/futo-backups-restic-proxy:commit-6297cf30a3caf4101e1ca74247bb822ab1f56ee0@sha256:04a931357d27318e9ffcf8d8be2e782329bacff55cb1cef6c85fc8f69ba42a81 /usr/local/bin/restic-proxy /usr/local/bin/restic-proxy
+COPY --from=ghcr.io/immich-app/futo-backups-restic-proxy:commit-6297cf30a3caf4101e1ca74247bb822ab1f56ee0@sha256:04a931357d27318e9ffcf8d8be2e782329bacff55cb1cef6c85fc8f69ba42a81 /usr/local/bin/restic-proxy /usr/local/bin/restic-proxy
 
 RUN echo "devdir=/buildcache/node-gyp" >> /usr/local/etc/npmrc && \
   echo "store-dir=/buildcache/pnpm-store" >> /usr/local/etc/npmrc && \
@@ -18,7 +18,7 @@ ENV PNPM_HOME=/buildcache/pnpm-store
 ENV MISE_DATA_DIR=/buildcache/mise
 ENV MISE_TRUSTED_CONFIG_PATHS=/usr/src/app/mise.toml
 ENV PATH="${MISE_DATA_DIR}/shims:${PATH}:/usr/src/app/server/bin:/usr/src/app/web/bin"
-ENV UNIVERSAL PHOTOS_ENV=development
+ENV IMMICH_ENV=development
 ENV NVIDIA_DRIVER_CAPABILITIES=all
 ENV NVIDIA_VISIBLE_DEVICES=all
 
@@ -34,11 +34,11 @@ RUN apt-get update --allow-releaseinfo-change && \
   -y --no-install-recommends --fix-missing
 
 RUN mkdir -p /workspaces && \
-  ln -s /usr/src/app /workspaces/Universal Photos
+  ln -s /usr/src/app /workspaces/immich
 
-COPY --chmod=755 ../.devcontainer/server/*.sh /Universal Photos-devcontainer/
+COPY --chmod=755 ../.devcontainer/server/*.sh /immich-devcontainer/
 
-WORKDIR /workspaces/Universal Photos
+WORKDIR /workspaces/immich
 
 FROM dev-container-server AS dev-container-mobile
 USER root

@@ -23,7 +23,7 @@
     type AlbumGroupOptionMetadata,
     type AlbumSortOptionMetadata,
   } from '#lib/utils/album-utils.ts';
-  import { Button, IconButton, Text } from '@Universal Photos/ui';
+  import { Button, IconButton, Text } from '@immich/ui';
   import {
     mdiArrowDownThin,
     mdiArrowUpThin,

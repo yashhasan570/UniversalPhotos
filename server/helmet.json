@@ -11,8 +11,8 @@
         "'self'",
         "blob:",
         "https://pay.futo.org",
-        "https://static.",
-        "https://tiles."
+        "https://static.universal_photos.cloud",
+        "https://tiles.universal_photos.cloud"
       ],
       "worker-src": ["'self'", "blob:"],
       "frame-src": ["'none'"],

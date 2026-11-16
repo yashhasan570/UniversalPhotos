@@ -1,7 +1,7 @@
 import { authManager } from '#lib/managers/auth-manager.svelte.ts';
 import { eventManager } from '#lib/managers/event-manager.svelte.ts';
 import type { TimelineAsset } from '#lib/managers/timeline-manager/types.ts';
-import { AssetVisibility } from '@universalphotos/sdk';
+import { AssetVisibility } from '@universal_photos/sdk';
 import { SvelteMap, SvelteSet } from 'svelte/reactivity';
 
 export type AssetMultiSelectOptions = {

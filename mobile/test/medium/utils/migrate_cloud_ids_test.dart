@@ -4,10 +4,10 @@ import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/utils/cloud_id_resolver.dart';
-import 'package:universal_photos/domain/utils/migrate_cloud_ids.dart';
-import 'package:universal_photos/infrastructure/repositories/local_album.repository.dart';
-import 'package:universal_photos/platform/native_sync_api.g.dart';
+import 'package:universal_photos_mobile/domain/utils/cloud_id_resolver.dart';
+import 'package:universal_photos_mobile/domain/utils/migrate_cloud_ids.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/local_album.repository.dart';
+import 'package:universal_photos_mobile/platform/native_sync_api.g.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../service.mocks.dart';

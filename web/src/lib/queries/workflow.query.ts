@@ -7,7 +7,7 @@ import {
   searchWorkflows,
   updateWorkflow,
   type WorkflowResponseDto,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 const findOrFail = (workflows: WorkflowResponseDto[], id: string) => {

@@ -188,8 +188,8 @@ ARG BUILD_SOURCE_COMMIT
 ENV UNIVERSALPHOTOS_BUILD=${BUILD_ID}
 ENV UNIVERSALPHOTOS_BUILD_URL=https://github.com/yashhasan570/UniversalPhotos/actions/runs/${BUILD_ID}
 ENV UNIVERSALPHOTOS_BUILD_IMAGE=${BUILD_IMAGE}
-ENV UNIVERSALPHOTOS_BUILD_IMAGE_URL=https://github.com/yashhasan570/UniversalPhotos/pkgs/container/universalphotos-machine-learning
-ENV UNIVERSALPHOTOS_REPOSITORY=universalphotos-app/universalphotos
+ENV UNIVERSALPHOTOS_BUILD_IMAGE_URL=https://github.com/yashhasan570/UniversalPhotos/pkgs/container/universal_photos-machine-learning
+ENV UNIVERSALPHOTOS_REPOSITORY=universal_photos-app/universal_photos
 ENV UNIVERSALPHOTOS_REPOSITORY_URL=https://github.com/yashhasan570/UniversalPhotos
 ENV UNIVERSALPHOTOS_SOURCE_REF=${BUILD_SOURCE_REF}
 ENV UNIVERSALPHOTOS_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}

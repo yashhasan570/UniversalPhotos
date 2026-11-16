@@ -3,8 +3,8 @@
   import OnEvents from '#lib/components/OnEvents.svelte';
   import MaintenanceBackupEntry from '#lib/components/maintenance/MaintenanceBackupEntry.svelte';
   import { getDatabaseBackupDateTime, handleUploadDatabaseBackup } from '#lib/services/database-backups.service.ts';
-  import { listDatabaseBackups, type DatabaseBackupDto } from '@Universal Photos/sdk';
-  import { Card, CardBody, HStack, Icon, ProgressBar, Stack, Text } from '@Universal Photos/ui';
+  import { listDatabaseBackups, type DatabaseBackupDto } from '@immich/sdk';
+  import { Card, CardBody, HStack, Icon, ProgressBar, Stack, Text } from '@immich/ui';
   import { mdiCalendar, mdiTrayArrowUp } from '@mdi/js';
   import { DateTime } from 'luxon';
   import { onMount } from 'svelte';

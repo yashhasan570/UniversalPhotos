@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/infrastructure/repositories/network.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
-import 'package:universal_photos/utils/debug_print.dart';
-import 'package:universal_photos/utils/url_helper.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/network.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos_mobile/utils/debug_print.dart';
+import 'package:universal_photos_mobile/utils/url_helper.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 
@@ -102,7 +102,7 @@ class ApiService {
   Future<String> resolveEndpoint(String serverUrl) async {
     String url = normalizeServerUrl(serverUrl);
 
-    // Check for /.well-known/universalphotos
+    // Check for /.well-known/universal_photos
     final wellKnownEndpoint = await _getWellKnownEndpoint(url);
     if (wellKnownEndpoint.isNotEmpty) {
       url = normalizeServerUrl(wellKnownEndpoint);
@@ -138,7 +138,7 @@ class ApiService {
   Future<String> _getWellKnownEndpoint(String baseUrl) async {
     try {
       final res = await NetworkRepository.client
-          .get(Uri.parse("$baseUrl/.well-known/universalphotos"))
+          .get(Uri.parse("$baseUrl/.well-known/universal_photos"))
           .timeout(const Duration(seconds: 5));
 
       if (res.statusCode == 200) {
@@ -152,7 +152,7 @@ class ApiService {
         return endpoint;
       }
     } catch (e) {
-      dPrint(() => "Could not locate /.well-known/universalphotos at $baseUrl");
+      dPrint(() => "Could not locate /.well-known/universal_photos at $baseUrl");
     }
 
     return "";

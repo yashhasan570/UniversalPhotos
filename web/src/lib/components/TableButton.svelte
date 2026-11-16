@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { IconButton, type ActionItem, type Size } from '@Universal Photos/ui';
+  import { IconButton, type ActionItem, type Size } from '@immich/ui';
 
   type Props = {
     action: ActionItem;

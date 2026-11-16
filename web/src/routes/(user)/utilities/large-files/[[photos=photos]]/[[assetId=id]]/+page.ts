@@ -1,6 +1,6 @@
 import { authenticate } from '#lib/utils/auth.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { searchLargeAssets } from '@universalphotos/sdk';
+import { searchLargeAssets } from '@universal_photos/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ url }) => {

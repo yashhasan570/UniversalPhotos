@@ -11,7 +11,7 @@ onnx__*
 *.latent
 *.pos_embed
 vocab.txt
-export/universalphotos_model_exporter/models/**/README.md
+export/universal_photos_model_exporter/models/**/README.md
 export/**/results/*.json
 export/**/root
 *.armnn

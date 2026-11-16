@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { factory } from '#test/common/factories.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { AssetTypeEnum } from '@universalphotos/sdk';
+import { AssetTypeEnum } from '@universal_photos/sdk';
 
 test.describe('download from the viewer', () => {
   test('saves the original under its file name', async ({ page, data, api, app }) => {

@@ -3,11 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/presentation/widgets/sliver_app_bar/item_count_text.widget.dart';
-import 'package:universal_photos/presentation/widgets/sliver_app_bar/random_asset_background_image.widget.dart';
-import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
-import 'package:universal_photos/providers/timeline/multiselect.provider.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/presentation/widgets/sliver_app_bar/item_count_text.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/sliver_app_bar/random_asset_background_image.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos_mobile/providers/timeline/multiselect.provider.dart';
 
 class MesmerizingSliverAppBar extends ConsumerStatefulWidget {
   const MesmerizingSliverAppBar({super.key, required this.title});

@@ -14,7 +14,7 @@
     Select,
     Switch,
     Text,
-  } from '@Universal Photos/ui';
+  } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {

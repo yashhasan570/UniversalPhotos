@@ -8,27 +8,27 @@ export class TelemetryService extends BaseService {
   @OnEvent({ name: 'AppBootstrap', workers: [UniversalPhotosWorker.Api] })
   async onBootstrap(): Promise<void> {
     const userCount = await this.userRepository.getCount();
-    this.telemetryRepository.api.addToGauge('universalphotos.users.total', userCount);
+    this.telemetryRepository.api.addToGauge('universal_photos.users.total', userCount);
   }
 
   @OnEvent({ name: 'UserCreate' })
   onUserCreate() {
-    this.telemetryRepository.api.addToGauge(`universalphotos.users.total`, 1);
+    this.telemetryRepository.api.addToGauge(`universal_photos.users.total`, 1);
   }
 
   @OnEvent({ name: 'UserTrash' })
   onUserTrash() {
-    this.telemetryRepository.api.addToGauge(`universalphotos.users.total`, -1);
+    this.telemetryRepository.api.addToGauge(`universal_photos.users.total`, -1);
   }
 
   @OnEvent({ name: 'UserRestore' })
   onUserRestore() {
-    this.telemetryRepository.api.addToGauge(`universalphotos.users.total`, 1);
+    this.telemetryRepository.api.addToGauge(`universal_photos.users.total`, 1);
   }
 
   @OnEvent({ name: 'JobStart' })
   onJobStart(...[queueName]: ArgsOf<'JobStart'>) {
-    const queueMetric = `universalphotos.queues.${snakeCase(queueName)}.active`;
+    const queueMetric = `universal_photos.queues.${snakeCase(queueName)}.active`;
     this.telemetryRepository.jobs.addToGauge(queueMetric, 1);
   }
 
@@ -38,25 +38,25 @@ export class TelemetryService extends BaseService {
       return;
     }
 
-    const jobMetric = `universalphotos.jobs.${snakeCase(job.name)}.${response}`;
+    const jobMetric = `universal_photos.jobs.${snakeCase(job.name)}.${response}`;
     this.telemetryRepository.jobs.addToCounter(jobMetric, 1);
   }
 
   @OnEvent({ name: 'JobError' })
   onJobError({ job }: ArgOf<'JobError'>) {
-    const jobMetric = `universalphotos.jobs.${snakeCase(job.name)}.${JobStatus.Failed}`;
+    const jobMetric = `universal_photos.jobs.${snakeCase(job.name)}.${JobStatus.Failed}`;
     this.telemetryRepository.jobs.addToCounter(jobMetric, 1);
   }
 
   @OnEvent({ name: 'JobComplete' })
   onJobComplete(...[queueName]: ArgsOf<'JobComplete'>) {
-    const queueMetric = `universalphotos.queues.${snakeCase(queueName)}.active`;
+    const queueMetric = `universal_photos.queues.${snakeCase(queueName)}.active`;
     this.telemetryRepository.jobs.addToGauge(queueMetric, -1);
-    this.telemetryRepository.jobs.addToCounter(`universalphotos.queues.${snakeCase(queueName)}.completed`, 1);
+    this.telemetryRepository.jobs.addToCounter(`universal_photos.queues.${snakeCase(queueName)}.completed`, 1);
   }
 
   @OnEvent({ name: 'QueueStart' })
   onQueueStart({ name }: ArgOf<'QueueStart'>) {
-    this.telemetryRepository.jobs.addToCounter(`universalphotos.queues.${snakeCase(name)}.started`, 1);
+    this.telemetryRepository.jobs.addToCounter(`universal_photos.queues.${snakeCase(name)}.started`, 1);
   }
 }

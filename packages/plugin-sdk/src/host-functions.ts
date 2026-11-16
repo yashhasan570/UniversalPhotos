@@ -6,7 +6,7 @@ import {
   type CreateAlbumDto,
   type TagBulkAssetsDto,
   type TagBulkAssetsResponseDto,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 
 declare module 'extism:host' {
   interface user extends Record<

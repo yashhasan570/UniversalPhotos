@@ -1,4 +1,4 @@
-import { schemaDiff } from '@universalphotos/sql-tools';
+import { schemaDiff } from '@universal_photos/sql-tools';
 import { Injectable } from '@nestjs/common';
 import { isAbsolute, join } from 'node:path';
 import { SALT_ROUNDS } from 'src/constants.js';

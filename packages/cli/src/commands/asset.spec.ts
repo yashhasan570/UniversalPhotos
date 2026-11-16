@@ -11,7 +11,7 @@ import {
   checkBulkUpload,
   defaults,
   getSupportedMediaTypes,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 import createFetchMock from 'vitest-fetch-mock';
 
 import {
@@ -24,7 +24,7 @@ import {
   UploadOptionsDto,
 } from 'src/commands/asset';
 
-vi.mock('@universalphotos/sdk');
+vi.mock('@universal_photos/sdk');
 
 describe('getAlbumName', () => {
   it('should return a non-undefined value', () => {

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { searchManager } from '#lib/managers/search-manager.svelte.ts';
-  import { DatePicker, Text } from '@Universal Photos/ui';
+  import { DatePicker, Text } from '@immich/ui';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
   import SearchButton from './SearchButton.svelte';

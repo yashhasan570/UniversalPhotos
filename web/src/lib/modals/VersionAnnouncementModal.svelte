@@ -1,6 +1,6 @@
 <script lang="ts">
   import FormatMessage from '#lib/elements/FormatMessage.svelte';
-  import { BasicModal } from '@Universal Photos/ui';
+  import { BasicModal } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {
@@ -24,7 +24,7 @@
     {#snippet children({ tag, message })}
       {#if tag === 'link'}
         <span class="font-medium underline">
-          <a href="https://github.com/yashhasan570/UniversalPhotos/releases/latest" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/immich-app/immich/releases/latest" target="_blank" rel="noopener noreferrer">
             {message}
           </a>
         </span>

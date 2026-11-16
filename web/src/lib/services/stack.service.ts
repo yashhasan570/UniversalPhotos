@@ -13,8 +13,8 @@ import { openFileUploadDialog } from '#lib/utils/file-uploader.ts';
 import { handleError } from '#lib/utils/handle-error.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
 import { navigate } from '#lib/utils/navigation.ts';
-import { deleteAssets, type AssetResponseDto, type AssetStackResponseDto, type StackResponseDto } from '@universalphotos/sdk';
-import { modalManager, toastManager, type ActionItem } from '@universalphotos/ui';
+import { deleteAssets, type AssetResponseDto, type AssetStackResponseDto, type StackResponseDto } from '@universal_photos/sdk';
+import { modalManager, toastManager, type ActionItem } from '@universal_photos/ui';
 import {
   mdiImageCheckOutline,
   mdiImageMinusOutline,

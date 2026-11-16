@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:universal_photos/providers/timeline/multiselect.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/utils/asset_filter.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/utils/asset_filter.dart';
 
 class ActionItem {
   final IconData icon;

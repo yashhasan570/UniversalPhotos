@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/server/passkey.dart';
-import 'package:universal_photos/data/store.dart';
-import 'package:universal_photos/models/auth/login_response.model.dart';
-import 'package:universal_photos/models/server_info/server_version.model.dart';
-import 'package:universal_photos/platform/passkey_api.g.dart';
-import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
-import 'package:universal_photos/providers/server_info.provider.dart';
+import 'package:universal_photos_mobile/data/server/passkey.dart';
+import 'package:universal_photos_mobile/data/store.dart';
+import 'package:universal_photos_mobile/models/auth/login_response.model.dart';
+import 'package:universal_photos_mobile/models/server_info/server_version.model.dart';
+import 'package:universal_photos_mobile/platform/passkey_api.g.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos_mobile/providers/server_info.provider.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:openapi/api.dart';
 

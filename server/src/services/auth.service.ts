@@ -291,10 +291,10 @@ export class AuthService extends BaseService {
 
     return OAuthProfileSchema.parse({
       ...profile,
-      defaults: { universalphotos_quota_bytes: defaultStorageQuota },
-      universalphotos_storage_label: profile[storageLabelClaim],
-      universalphotos_quota_bytes: profile[storageQuotaClaim],
-      universalphotos_role: profile[roleClaim],
+      defaults: { universal_photos_quota_bytes: defaultStorageQuota },
+      universal_photos_storage_label: profile[storageLabelClaim],
+      universal_photos_quota_bytes: profile[storageQuotaClaim],
+      universal_photos_role: profile[roleClaim],
     });
   }
 
@@ -337,9 +337,9 @@ export class AuthService extends BaseService {
       }
     }
 
-    const isAdmin = profile_role === 'admin';
+    const isAdmin = profile.universal_photos_role === 'admin';
 
-    if (user && profile_role && isAdmin !== user.isAdmin) {
+    if (user && profile.universal_photos_role && isAdmin !== user.isAdmin) {
       user = await this.userRepository.update(user.id, { isAdmin });
     }
 
@@ -369,8 +369,8 @@ export class AuthService extends BaseService {
         email: profile.email,
         oauthId: profile.sub,
         quotaSizeInBytes:
-          profile_quota_bytes === undefined ? profile.defaults_quota_bytes : profile_quota_bytes,
-        storageLabel: profile_storage_label ?? null,
+          profile.universal_photos_quota_bytes === undefined ? profile.defaults.universal_photos_quota_bytes : profile.universal_photos_quota_bytes,
+        storageLabel: profile.universal_photos_storage_label ?? null,
         isAdmin,
       });
     }
@@ -623,22 +623,22 @@ export class AuthService extends BaseService {
 
     if (
       oauth.storageLabelClaim !== defaults.oauth.storageLabelClaim &&
-      profile_storage_label !== undefined &&
-      profile_storage_label !== user.storageLabel
+      profile.universal_photos_storage_label !== undefined &&
+      profile.universal_photos_storage_label !== user.storageLabel
     ) {
-      const duplicate = profile_storage_label
-        ? await this.userRepository.getByStorageLabel(profile_storage_label)
+      const duplicate = profile.universal_photos_storage_label
+        ? await this.userRepository.getByStorageLabel(profile.universal_photos_storage_label)
         : undefined;
 
       if (duplicate && duplicate.id !== user.id) {
         this.logger.warn(`Unable to sync OAuth storage label for user ${user.id}: label already in use`);
       } else {
-        updates.storageLabel = profile_storage_label;
+        updates.storageLabel = profile.universal_photos_storage_label;
       }
     }
 
-    if (profile_quota_bytes !== undefined && profile_quota_bytes !== user.quotaSizeInBytes) {
-      updates.quotaSizeInBytes = profile_quota_bytes;
+    if (profile.universal_photos_quota_bytes !== undefined && profile.universal_photos_quota_bytes !== user.quotaSizeInBytes) {
+      updates.quotaSizeInBytes = profile.universal_photos_quota_bytes;
     }
 
     if (Object.keys(updates).length === 0) {
@@ -657,7 +657,7 @@ export class AuthService extends BaseService {
     url: string,
   ) {
     if (mobileOverrideEnabled && mobileRedirectUri) {
-      return url.replace(/app\:\/+oauth-callback/, () => mobileRedirectUri);
+      return url.replace(/app\.universal_photos:\/+oauth-callback/, () => mobileRedirectUri);
     }
     return url;
   }

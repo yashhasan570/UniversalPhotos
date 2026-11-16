@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/services/device_permission.service.dart';
-import 'package:universal_photos/repositories/permission.repository.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/services/device_permission.service.dart';
+import 'package:universal_photos_mobile/repositories/permission.repository.dart';
 
 final galleryPermissionServiceProvider = Provider((ref) {
   return DevicePermissionService(ref.watch(permissionRepositoryProvider));

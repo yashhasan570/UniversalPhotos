@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/theme_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/providers/infrastructure/user.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/widgets/common/user_circle_avatar.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/theme_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/user.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/widgets/common/user_circle_avatar.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 class AssetOwnerDetails extends ConsumerWidget {
   final BaseAsset asset;

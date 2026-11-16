@@ -3,7 +3,7 @@
   import { locale } from '#lib/stores/preferences.store.ts';
   import { downloadUrlPost } from '#lib/utils.ts';
   import { getByteUnitString } from '#lib/utils/byte-units.ts';
-  import { CloseButton, Heading, IconButton } from '@Universal Photos/ui';
+  import { CloseButton, Heading, IconButton } from '@immich/ui';
   import { mdiDownload, mdiReload } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { fly, slide } from 'svelte/transition';

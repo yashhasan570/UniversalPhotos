@@ -854,7 +854,7 @@ const userInsert = (user: Partial<Insertable<UserTable>> & { clusterGroupId: str
   const id = user.id || newUuid();
 
   const defaults = {
-    email: `${id}@`,
+    email: `${id}@universal_photos.cloud`,
     name: `User ${id}`,
     deletedAt: null,
     isAdmin: false,

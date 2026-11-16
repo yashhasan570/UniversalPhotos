@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/presentation/actions/action.widget.dart';
-import 'package:universal_photos/presentation/actions/cast.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.widget.dart';
+import 'package:universal_photos_mobile/presentation/actions/cast.action.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../presentation_context.dart';

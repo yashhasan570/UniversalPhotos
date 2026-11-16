@@ -3,7 +3,7 @@ import { queryClient } from '#lib/queries/client.ts';
 import { getExploreDataQuery } from '#lib/queries/search.query.ts';
 import { authenticate } from '#lib/utils/auth.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { MemorySearchOrder, getAllPeople } from '@universalphotos/sdk';
+import { MemorySearchOrder, getAllPeople } from '@universal_photos/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ url }) => {

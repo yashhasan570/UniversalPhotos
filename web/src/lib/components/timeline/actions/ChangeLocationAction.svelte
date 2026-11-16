@@ -5,8 +5,8 @@
   import GeolocationPointPickerModal from '#lib/modals/GeolocationPointPickerModal.svelte';
   import { getOwnedAssetsWithWarning } from '#lib/utils/asset-utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { updateAssets } from '@Universal Photos/sdk';
-  import { modalManager, toastManager } from '@Universal Photos/ui';
+  import { updateAssets } from '@immich/sdk';
+  import { modalManager, toastManager } from '@immich/ui';
   import { mdiMapMarkerMultipleOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

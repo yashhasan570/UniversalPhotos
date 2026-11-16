@@ -1,6 +1,6 @@
 import type { EditActions } from '#lib/managers/edit/edit-manager.svelte.ts';
 import { buildAffineFromEdits, normalizeTransformEdits } from '#lib/utils/editor.ts';
-import { AssetEditAction, MirrorAxis } from '@universalphotos/sdk';
+import { AssetEditAction, MirrorAxis } from '@universal_photos/sdk';
 
 type NormalizedParameters = {
   rotation: number;

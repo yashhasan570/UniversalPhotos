@@ -4839,7 +4839,7 @@ export function uploadAsset({ key, slug, xUniversalPhotosChecksum, assetMediaCre
         method: "POST",
         body: assetMediaCreateDto,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-universalphotos-checksum": xUniversalPhotosChecksum
+            "x-universal_photos-checksum": xUniversalPhotosChecksum
         })
     })));
 }
@@ -5197,7 +5197,7 @@ export function getMediaPlaylist({ id, key, sessionId, slug, variantIndex, xUniv
     }))}`, {
         ...opts,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-universalphotos-hls-pos": xUniversalPhotosHlsPos
+            "x-universal_photos-hls-pos": xUniversalPhotosHlsPos
         })
     }));
 }
@@ -5222,7 +5222,7 @@ export function getSegment({ filename, id, key, sessionId, slug, variantIndex, x
     }))}`, {
         ...opts,
         headers: oazapfts.mergeHeaders(opts?.headers, {
-            "x-universalphotos-hls-msn": xUniversalPhotosHlsMsn
+            "x-universal_photos-hls-msn": xUniversalPhotosHlsMsn
         })
     }));
 }

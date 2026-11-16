@@ -11,7 +11,7 @@ import {
   TriggerFunction,
   UpdateDateColumn,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { UpdateIdColumn } from 'src/decorators.js';
 import { AssetVisibility, SourceType } from 'src/enum.js';
 import { asset_face_source_type, asset_visibility_enum } from 'src/schema/enums.js';

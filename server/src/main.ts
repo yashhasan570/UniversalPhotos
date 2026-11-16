@@ -122,7 +122,7 @@ class Workers {
   }
 
   onExit(name: UniversalPhotosWorker, exitCode: number | null) {
-    // restart universalphotos server
+    // restart universal_photos server
     if (exitCode === ExitCode.AppRestart || this.restarting) {
       this.restarting = true;
 
@@ -155,13 +155,13 @@ class Workers {
 }
 
 async function main() {
-  const universalphotosApp = process.argv[2];
-  if (universalphotosApp) {
+  const universal_photosApp = process.argv[2];
+  if (universal_photosApp) {
     process.argv.splice(2, 1);
   }
 
-  if (universalphotosApp === 'universalphotos-admin') {
-    process.title = 'universalphotos_admin_cli';
+  if (universal_photosApp === 'universal_photos-admin') {
+    process.title = 'universal_photos_admin_cli';
     process.env.UNIVERSALPHOTOS_LOG_LEVEL = LogLevel.Warn;
 
     // imported lazily, so that the supervisor process does not build the whole application
@@ -171,19 +171,19 @@ async function main() {
     return CommandFactory.run(UniversalPhotosAdminModule);
   }
 
-  if (universalphotosApp === 'universalphotos' || universalphotosApp === 'microservices') {
+  if (universal_photosApp === 'universal_photos' || universal_photosApp === 'microservices') {
     console.error(
-      `Using "start.sh ${universalphotosApp}" has been deprecated. See https://github.com/yashhasan570/UniversalPhotos/releases/tag/v1.118.0 for more information.`,
+      `Using "start.sh ${universal_photosApp}" has been deprecated. See https://github.com/yashhasan570/UniversalPhotos/releases/tag/v1.118.0 for more information.`,
     );
     process.exit(1);
   }
 
-  if (universalphotosApp) {
-    console.error(`Unknown command: "${universalphotosApp}"`);
+  if (universal_photosApp) {
+    console.error(`Unknown command: "${universal_photosApp}"`);
     process.exit(1);
   }
 
-  process.title = 'universalphotos';
+  process.title = 'universal_photos';
   void new Workers().bootstrap();
 }
 

@@ -6,7 +6,7 @@ import {
   isHttpError,
   isMalformedResponseError,
   Permission,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 import { convertPathToPattern, glob } from 'fast-glob';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
@@ -76,7 +76,7 @@ Please make sure your API key has the correct permissions.`,
 };
 
 export const connect = async (url: string, key: string) => {
-  const wellKnownUrl = new URL('.well-known/universalphotos', url);
+  const wellKnownUrl = new URL('.well-known/universal_photos', url);
   try {
     // eslint-disable-next-line unicorn/prefer-await
     const wellKnown = (await fetch(wellKnownUrl).then((response) => response.json())) as { api: { endpoint: string } };

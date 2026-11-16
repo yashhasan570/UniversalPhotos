@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
-import 'package:universalphotos_ui/src/theme.dart';
+import 'package:universal_photos_ui/src/theme.dart';
 
 const ColorScheme _lightColorScheme = ColorScheme.light(
   primary: Color(0xFF4250AF),
@@ -46,9 +46,9 @@ final class _UniversalPhotosPreviewThemeData extends PreviewThemeData {
   );
 }
 
-PreviewThemeData universalphotosPreviewTheme() => const _UniversalPhotosPreviewThemeData();
+PreviewThemeData universal_photosPreviewTheme() => const _UniversalPhotosPreviewThemeData();
 
-Widget universalphotosPreviewWrapper(Widget child) {
+Widget universal_photosPreviewWrapper(Widget child) {
   return Builder(
     builder: (context) => UniversalPhotosThemeProvider(
       colorScheme: Theme.of(context).colorScheme,
@@ -65,5 +65,5 @@ Widget universalphotosPreviewWrapper(Widget child) {
 
 final class UniversalPhotosPreview extends Preview {
   const UniversalPhotosPreview({super.name, super.group, super.size, super.textScaleFactor})
-    : super(theme: universalphotosPreviewTheme, wrapper: universalphotosPreviewWrapper);
+    : super(theme: universal_photosPreviewTheme, wrapper: universal_photosPreviewWrapper);
 }

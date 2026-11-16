@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/db/main/table/app/store.drift.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/table/app/store.drift.dart';
 import 'package:sqlite3_connection_pool/sqlite3_connection_pool.dart';
 import 'package:sqlite_async/sqlite_async.dart';
 
@@ -24,7 +24,7 @@ void main() {
 
   setUp(() async {
     dir = await Directory.systemTemp.createTemp('drift_pool_stream');
-    path = '${dir.path}/universalphotos.sqlite';
+    path = '${dir.path}/universal_photos.sqlite';
   });
 
   tearDown(() async {

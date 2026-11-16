@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/services.dart';
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/services/api.service.dart';
-import 'package:universal_photos/services/local_auth.service.dart';
-import 'package:universal_photos/services/secure_storage.service.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/services/api.service.dart';
+import 'package:universal_photos_mobile/services/local_auth.service.dart';
+import 'package:universal_photos_mobile/services/secure_storage.service.dart';
 import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:logging/logging.dart';
 // ignore: import_rule_openapi

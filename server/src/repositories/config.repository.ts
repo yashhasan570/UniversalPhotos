@@ -1,4 +1,4 @@
-import { DatabaseConnectionParams } from '@universalphotos/sql-tools';
+import { DatabaseConnectionParams } from '@universal_photos/sql-tools';
 import { RegisterQueueOptions } from '@nestjs/bullmq';
 import { Inject, Injectable, Optional } from '@nestjs/common';
 import { QueueOptions } from 'bullmq';
@@ -273,7 +273,7 @@ const getEnv = (): EnvData => {
         port: dto.DB_PORT || 5432,
         username: dto.DB_USERNAME || 'postgres',
         password: dto.DB_PASSWORD || 'postgres',
-        database: dto.DB_DATABASE_NAME || 'universalphotos',
+        database: dto.DB_DATABASE_NAME || 'universal_photos',
         ssl: dto.DB_SSL_MODE || undefined,
       };
 
@@ -317,7 +317,7 @@ const getEnv = (): EnvData => {
 
     bull: {
       config: {
-        prefix: 'universalphotos_bull',
+        prefix: 'universal_photos_bull',
         connection: { ...redisConfig },
         defaultJobOptions: {
           attempts: 1,
@@ -355,7 +355,7 @@ const getEnv = (): EnvData => {
     licensePublicKey: isProd ? productionKeys : stagingKeys,
 
     versionCheck: {
-      url: isProd ? 'https://version./version' : 'https://version.dev./version',
+      url: isProd ? 'https://version.universal_photos.cloud/version' : 'https://version.dev.universal_photos.cloud/version',
     },
 
     network: {
@@ -384,7 +384,7 @@ const getEnv = (): EnvData => {
         root: folders.web,
         indexHtml: join(folders.web, 'index.html'),
       },
-      corePlugin: join(buildFolder, 'plugins', 'universalphotos-plugin-core'),
+      corePlugin: join(buildFolder, 'plugins', 'universal_photos-plugin-core'),
     },
 
     setup: {

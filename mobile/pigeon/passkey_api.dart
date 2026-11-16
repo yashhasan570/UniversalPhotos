@@ -5,10 +5,10 @@ import 'package:pigeon/pigeon.dart';
     dartOut: 'lib/platform/passkey_api.g.dart',
     swiftOut: 'ios/Runner/Core/Passkey.g.swift',
     swiftOptions: SwiftOptions(includeErrorClass: false),
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universalphotos/passkey/Passkey.g.kt',
-    kotlinOptions: KotlinOptions(package: 'app.alextran.passkey'),
+    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universal_photos/passkey/Passkey.g.kt',
+    kotlinOptions: KotlinOptions(package: 'app.alextran.universal_photos.passkey'),
     dartOptions: DartOptions(),
-    dartPackageName: 'universal_photos',
+    dartPackageName: 'universal_photos_mobile',
   ),
 )
 @HostApi()

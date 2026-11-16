@@ -1,4 +1,4 @@
-import { matchesShortcut } from '@universalphotos/ui';
+import { matchesShortcut } from '@universal_photos/ui';
 
 interface Options {
   onOutclick?: () => void;

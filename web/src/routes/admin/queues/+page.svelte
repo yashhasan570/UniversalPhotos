@@ -3,7 +3,7 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getQueuesQuery } from '#lib/queries/queue.query.ts';
   import { getQueuesActions } from '#lib/services/queue.service.ts';
-  import { CommandPaletteDefaultProvider, Container, type ActionItem } from '@Universal Photos/ui';
+  import { CommandPaletteDefaultProvider, Container, type ActionItem } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
   import JobsPanel from './QueuePanel.svelte';

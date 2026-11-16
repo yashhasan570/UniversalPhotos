@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/extensions/build_context_extensions.dart';
+import 'package:universal_photos_ui/extensions/build_context_extensions.dart';
 
 class SettingListTile extends StatelessWidget {
   final String title;

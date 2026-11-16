@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fake_async/fake_async.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart' as domain;
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart' as domain;
 
 import 'mock_http_override.dart';
 

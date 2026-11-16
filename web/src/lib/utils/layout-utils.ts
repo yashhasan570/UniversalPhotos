@@ -2,8 +2,8 @@ import type { TimelineAsset } from '#lib/managers/timeline-manager/types.ts';
 import { getAssetRatio } from '#lib/utils/asset-utils.ts';
 import { isTimelineAsset, isTimelineAssets } from '#lib/utils/timeline-util.ts';
 import { TUNABLES } from '#lib/utils/tunables.ts';
-import { JustifiedLayout, type LayoutOptions } from '@universalphotos/justified-layout-wasm';
-import type { AssetResponseDto } from '@universalphotos/sdk';
+import { JustifiedLayout, type LayoutOptions } from '@universal_photos/justified-layout-wasm';
+import type { AssetResponseDto } from '@universal_photos/sdk';
 import createJustifiedLayout from 'justified-layout';
 
 const useWasm = TUNABLES.LAYOUT.WASM;

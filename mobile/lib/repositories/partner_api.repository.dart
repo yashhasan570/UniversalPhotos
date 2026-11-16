@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/infrastructure/utils/user.converter.dart';
-import 'package:universal_photos/providers/api.provider.dart';
-import 'package:universal_photos/repositories/api.repository.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/infrastructure/utils/user.converter.dart';
+import 'package:universal_photos_mobile/providers/api.provider.dart';
+import 'package:universal_photos_mobile/repositories/api.repository.dart';
 import 'package:openapi/api.dart';
 
 final partnerApiRepositoryProvider = Provider((ref) => PartnerApiRepository(ref.watch(apiServiceProvider).partnersApi));

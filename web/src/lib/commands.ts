@@ -3,7 +3,7 @@ import { readPreloadedQuery } from '#lib/queries/client.ts';
 import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
 import { Route } from '#lib/route.ts';
 import { copyToClipboard } from '#lib/utils.ts';
-import { ThemePreference, defaultProvider, screencastManager, themeManager, type ActionItem } from '@universalphotos/ui';
+import { ThemePreference, defaultProvider, screencastManager, themeManager, type ActionItem } from '@universal_photos/ui';
 import {
   mdiAccountMultipleOutline,
   mdiAccountOutline,
@@ -238,8 +238,8 @@ export const getSettingsProvider = ($t: MessageFormatter) => {
       onAction: () => screencastManager.toggle(),
     },
     {
-      title: $t('my_universalphotos_title'),
-      description: $t('my_universalphotos_description'),
+      title: $t('my_universal_photos_title'),
+      description: $t('my_universal_photos_description'),
       onAction: () => copyToClipboard(getMyUniversalPhotosLink().href),
       shortcuts: { ctrl: true, shift: true, key: 'm' },
     },

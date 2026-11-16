@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/db/main/table/local/album_asset.drift.dart';
-import 'package:universal_photos/data/db/main/table/local/asset.dart';
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/infrastructure/repositories/backup.repository.drift.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/table/local/album_asset.drift.dart';
+import 'package:universal_photos_mobile/data/db/main/table/local/asset.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/backup.repository.drift.dart';
 
 @DriftAccessor()
 class BackupRepository extends DatabaseAccessor<Drift> with $BackupRepositoryMixin {

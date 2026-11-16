@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:universal_photos/providers/cast.provider.dart';
-import 'package:universal_photos/providers/infrastructure/current_album.provider.dart';
-import 'package:universal_photos/providers/infrastructure/setting.provider.dart';
-import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
-import 'package:universal_photos/providers/routes.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/utils/action_button.utils.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos_mobile/providers/cast.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/current_album.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/setting.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos_mobile/providers/routes.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/utils/action_button.utils.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 class ViewerKebabMenu extends ConsumerWidget {
   const ViewerKebabMenu({super.key, this.originalTheme});

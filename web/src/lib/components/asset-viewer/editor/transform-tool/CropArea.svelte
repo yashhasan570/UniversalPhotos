@@ -3,8 +3,8 @@
   import { getAssetMediaUrl } from '#lib/utils.ts';
   import { getAltText } from '#lib/utils/thumbnail-util.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import { AssetMediaSize, type AssetResponseDto } from '@Universal Photos/sdk';
-  import { Icon } from '@Universal Photos/ui';
+  import { AssetMediaSize, type AssetResponseDto } from '@immich/sdk';
+  import { Icon } from '@immich/ui';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
 

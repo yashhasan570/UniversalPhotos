@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@universalphotos/plugin-sdk';
+import { WorkflowTrigger } from '@universal_photos/plugin-sdk';
 import { WorkflowType } from 'src/enum.js';
 import { isAllowedHost, isMethodCompatible } from 'src/utils/workflow.js';
 

@@ -1,4 +1,4 @@
-import 'package:universal_photos/data/db/util/datetime_clamp_type.dart';
+import 'package:universal_photos_mobile/data/db/util/datetime_clamp_type.dart';
 import 'package:intl/intl.dart';
 
 DateTime? tryFromSecondsSinceEpoch(int? secondsSinceEpoch, {bool isUtc = false}) {

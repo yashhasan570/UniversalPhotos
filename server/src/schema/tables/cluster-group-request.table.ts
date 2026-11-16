@@ -6,7 +6,7 @@ import {
   Timestamp,
   Unique,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { ClusterGroupTable } from 'src/schema/tables/cluster-group.table.js';
 import { UserTable } from 'src/schema/tables/user.table.js';
 

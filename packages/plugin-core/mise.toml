@@ -3,4 +3,4 @@ run = "pnpm install --frozen-lockfile"
 
 [tasks.build]
 depends = ["install"]
-run = "pnpm --filter @universalphotos/plugin-sdk --filter @universalphotos/plugin-core build"
+run = "pnpm --filter @universal_photos/plugin-sdk --filter @universal_photos/plugin-core build"

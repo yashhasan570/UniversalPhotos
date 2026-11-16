@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { factory } from '#test/common/factories.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { AssetEditAction } from '@universalphotos/sdk';
+import { AssetEditAction } from '@universal_photos/sdk';
 
 test.describe('editor', () => {
   test('opens with the saved edits of an asset', async ({ page, data, api, app }) => {

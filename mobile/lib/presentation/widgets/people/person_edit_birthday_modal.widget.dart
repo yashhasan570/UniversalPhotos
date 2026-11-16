@@ -2,13 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/store.dart';
-import 'package:universal_photos/domain/models/person.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/datetime_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/utils/debug_print.dart';
-import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universal_photos_mobile/data/store.dart';
+import 'package:universal_photos_mobile/domain/models/person.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/datetime_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/utils/debug_print.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_toast.dart';
 import 'package:scroll_date_picker/scroll_date_picker.dart';
 
 class PersonBirthdayEditForm extends ConsumerStatefulWidget {

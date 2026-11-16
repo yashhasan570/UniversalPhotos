@@ -22,7 +22,7 @@
     ContextMenuButton,
     Icon,
     MenuItemType,
-  } from '@Universal Photos/ui';
+  } from '@immich/ui';
   import { mdiClose, mdiFlashOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { SvelteSet } from 'svelte/reactivity';
@@ -77,7 +77,7 @@
                   <div
                     class={`flex size-11 shrink-0 items-center justify-center rounded-xl ${
                       workflow.enabled
-                        ? 'bg-Universal Photos-primary/10 text-Universal Photos-primary dark:bg-Universal Photos-dark-primary/15 dark:text-Universal Photos-dark-primary'
+                        ? 'bg-immich-primary/10 text-immich-primary dark:bg-immich-dark-primary/15 dark:text-immich-dark-primary'
                         : 'bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500'
                     }`}
                   >

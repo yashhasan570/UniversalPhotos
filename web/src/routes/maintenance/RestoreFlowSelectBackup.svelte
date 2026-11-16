@@ -1,6 +1,6 @@
 <script lang="ts">
   import MaintenanceBackupsList from '#lib/components/maintenance/MaintenanceBackupsList.svelte';
-  import { Button, HStack, Heading, Scrollable } from '@Universal Photos/ui';
+  import { Button, HStack, Heading, Scrollable } from '@immich/ui';
   import { mdiArrowLeft } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

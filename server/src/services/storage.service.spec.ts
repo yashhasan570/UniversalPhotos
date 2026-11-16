@@ -48,27 +48,27 @@ describe(StorageService.name, () => {
       expect(mocks.storage.mkdirSync).toHaveBeenCalledWith(expect.stringContaining('/data/upload'));
       expect(mocks.storage.mkdirSync).toHaveBeenCalledWith(expect.stringContaining('/data/backups'));
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/encoded-video/'),
+        expect.stringContaining('/data/encoded-video/.universal_photos'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/library/'),
+        expect.stringContaining('/data/library/.universal_photos'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/profile/'),
+        expect.stringContaining('/data/profile/.universal_photos'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/thumbs/'),
+        expect.stringContaining('/data/thumbs/.universal_photos'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/upload/'),
+        expect.stringContaining('/data/upload/.universal_photos'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/backups/'),
+        expect.stringContaining('/data/backups/.universal_photos'),
         expect.any(Buffer),
       );
     });
@@ -111,18 +111,18 @@ describe(StorageService.name, () => {
       expect(mocks.storage.mkdirSync).toHaveBeenCalledWith(expect.stringContaining('/data/backups'));
       expect(mocks.storage.createFile).toHaveBeenCalledTimes(2);
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/library/'),
+        expect.stringContaining('/data/library/.universal_photos'),
         expect.any(Buffer),
       );
       expect(mocks.storage.createFile).toHaveBeenCalledWith(
-        expect.stringContaining('/data/backups/'),
+        expect.stringContaining('/data/backups/.universal_photos'),
         expect.any(Buffer),
       );
     });
 
-    it('should throw an error if  is missing', async () => {
+    it('should throw an error if .universal_photos is missing', async () => {
       mocks.systemMetadata.get.mockResolvedValue({ mountChecks: { upload: true } });
-      mocks.storage.readFile.mockRejectedValue(new Error("ENOENT: no such file or directory, open '/app/'"));
+      mocks.storage.readFile.mockRejectedValue(new Error("ENOENT: no such file or directory, open '/app/.universal_photos'"));
 
       await expect(sut.onBootstrap()).rejects.toThrow('Failed to read');
 
@@ -130,10 +130,10 @@ describe(StorageService.name, () => {
       expect(mocks.systemMetadata.set).not.toHaveBeenCalled();
     });
 
-    it('should throw an error if  is present but read-only', async () => {
+    it('should throw an error if .universal_photos is present but read-only', async () => {
       mocks.systemMetadata.get.mockResolvedValue({ mountChecks: { upload: true } });
       mocks.storage.overwriteFile.mockRejectedValue(
-        new Error("ENOENT: no such file or directory, open '/app/'"),
+        new Error("ENOENT: no such file or directory, open '/app/.universal_photos'"),
       );
 
       await expect(sut.onBootstrap()).rejects.toThrow('Failed to write');
@@ -170,7 +170,7 @@ describe(StorageService.name, () => {
       );
       mocks.asset.getFileSamples.mockResolvedValue([]);
       mocks.storage.overwriteFile.mockRejectedValue(
-        new Error("ENOENT: no such file or directory, open '/app/'"),
+        new Error("ENOENT: no such file or directory, open '/app/.universal_photos'"),
       );
 
       await expect(sut.onBootstrap()).resolves.toBeUndefined();

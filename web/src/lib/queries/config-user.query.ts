@@ -1,4 +1,4 @@
-import { getUserConfig, type UserConfigDto } from '@universalphotos/sdk';
+import { getUserConfig, type UserConfigDto } from '@universal_photos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 import { cloneDeep } from 'lodash-es';
 

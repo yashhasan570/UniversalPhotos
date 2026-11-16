@@ -6,7 +6,7 @@ use native_core::rotate::{Orientation, rotate};
 use super::bitmap::{self, FORMAT_RGBA_8888};
 
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_Universal Photos_NativeImage_rotate<'caller>(
+pub extern "system" fn Java_app_alextran_immich_NativeImage_rotate<'caller>(
     env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     bitmap: JObject<'caller>,

@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/store.repository.dart';
 
 /// Provides access to a persistent key-value store with an in-memory cache.
 /// Listens for repository changes to keep the cache updated.

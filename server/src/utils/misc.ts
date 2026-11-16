@@ -368,7 +368,7 @@ export const useSwagger = (app: INestApplication, { write }: { write: boolean })
     return;
   }
 
-  const outputPath = path.resolve(process.cwd(), '../open-api/universalphotos-openapi-specs.json');
+  const outputPath = path.resolve(process.cwd(), '../open-api/universal_photos-openapi-specs.json');
   writeFileSync(outputPath, JSON.stringify(canonicalize(patchOpenAPI(specification)), null, 2), { encoding: 'utf8' });
 };
 

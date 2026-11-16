@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Field, FormModal, Textarea } from '@Universal Photos/ui';
+  import { Field, FormModal, Textarea } from '@immich/ui';
   import { mdiText } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

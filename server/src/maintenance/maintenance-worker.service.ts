@@ -86,7 +86,7 @@ export class MaintenanceWorkerService {
     await this.logSecret();
 
     this.moduleRef.get(YuccaService, { strict: false }).setDatabaseHooks({
-      tagName: '',
+      tagName: 'yucca.v1.universal_photosBackupFileName',
       dump: (signal) => this.databaseBackupService.createDatabaseBackup('', signal),
       cleanup: () => this.databaseBackupService.cleanupDatabaseBackups(),
       restore: (fileName) => this.databaseBackupService.restoreDatabaseBackup(basename(fileName)),
@@ -210,7 +210,7 @@ export class MaintenanceWorkerService {
     const url = await createMaintenanceLoginUrl(
       baseUrl,
       {
-        username: 'universalphotos-admin',
+        username: 'universal_photos-admin',
       },
       this.secret,
     );
@@ -372,7 +372,7 @@ export class MaintenanceWorkerService {
     });
 
     const futoBackups = this.moduleRef.get(YuccaService, { strict: false });
-    const { jobId, task, universalphotosBackupFileName } = await futoBackups.restoreSnapshotInplace(repositoryId, snapshotId);
+    const { jobId, task, universal_photosBackupFileName } = await futoBackups.restoreSnapshotInplace(repositoryId, snapshotId);
 
     this.setStatus({
       active: true,
@@ -382,13 +382,13 @@ export class MaintenanceWorkerService {
 
     await task;
 
-    if (!universalphotosBackupFileName) {
+    if (!universal_photosBackupFileName) {
       return this.setAction({
         action: MaintenanceAction.SelectDatabaseRestore,
       });
     }
 
-    const backupFileName = basename(universalphotosBackupFileName);
+    const backupFileName = basename(universal_photosBackupFileName);
     await this.restoreBackup(backupFileName);
   }
 

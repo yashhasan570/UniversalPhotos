@@ -1,20 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/store.dart';
-import 'package:universal_photos/domain/services/timeline.service.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/datetime_extensions.dart';
-import 'package:universal_photos/models/activities/activity.model.dart';
-import 'package:universal_photos/presentation/widgets/asset_viewer/asset_viewer.page.dart';
-import 'package:universal_photos/presentation/widgets/images/remote_image_provider.dart';
-import 'package:universal_photos/providers/infrastructure/asset.provider.dart';
-import 'package:universal_photos/providers/infrastructure/current_album.provider.dart';
-import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/widgets/activities/dismissible_activity.dart';
-import 'package:universal_photos/widgets/common/user_circle_avatar.dart';
+import 'package:universal_photos_mobile/data/store.dart';
+import 'package:universal_photos_mobile/domain/services/timeline.service.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/datetime_extensions.dart';
+import 'package:universal_photos_mobile/models/activities/activity.model.dart';
+import 'package:universal_photos_mobile/presentation/widgets/asset_viewer/asset_viewer.page.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/remote_image_provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/asset.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/current_album.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/widgets/activities/dismissible_activity.dart';
+import 'package:universal_photos_mobile/widgets/common/user_circle_avatar.dart';
 
 class CommentBubble extends ConsumerWidget {
   final Activity activity;

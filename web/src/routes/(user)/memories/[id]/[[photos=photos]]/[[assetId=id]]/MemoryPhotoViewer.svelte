@@ -4,7 +4,7 @@
   import type { TimelineAsset } from '#lib/managers/timeline-manager/types.ts';
   import { getAssetMediaUrl } from '#lib/utils.ts';
   import { getAltText } from '#lib/utils/thumbnail-util.ts';
-  import { AssetMediaSize } from '@Universal Photos/sdk';
+  import { AssetMediaSize } from '@immich/sdk';
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
 

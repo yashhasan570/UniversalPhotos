@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/store.dart';
-import 'package:universal_photos/domain/models/passkey.model.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/actions/action.dart';
-import 'package:universal_photos/providers/infrastructure/toast.provider.dart';
-import 'package:universal_photos/utils/error_handler.dart';
-import 'package:universal_photos/widgets/common/confirm_dialog.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/data/store.dart';
+import 'package:universal_photos_mobile/domain/models/passkey.model.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/toast.provider.dart';
+import 'package:universal_photos_mobile/utils/error_handler.dart';
+import 'package:universal_photos_mobile/widgets/common/confirm_dialog.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 class PasskeyCreateAction extends ActionBuilder {
   const PasskeyCreateAction();

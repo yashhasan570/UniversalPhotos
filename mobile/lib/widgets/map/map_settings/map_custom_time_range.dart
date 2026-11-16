@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:universal_photos/domain/models/time_range.model.dart';
-import 'package:universal_photos/extensions/datetime_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/utils/option.dart';
+import 'package:universal_photos_mobile/domain/models/time_range.model.dart';
+import 'package:universal_photos_mobile/extensions/datetime_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/utils/option.dart';
 
 class MapTimeRange extends StatelessWidget {
   const MapTimeRange({super.key, required this.timeRange, required this.onChanged});

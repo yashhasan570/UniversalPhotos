@@ -5,25 +5,25 @@
 //
 // Create `Signing.local.xcconfig` overriding each variable to provide your own personal signing
 // overrides during local development:
-//     UNIVERSAL PHOTOS_TEAM_ID = ABCDE12345
-//     UNIVERSAL PHOTOS_BUNDLE_ID_PROD = com.customuniqueid
-//     UNIVERSAL PHOTOS_BUNDLE_ID_DEV = com.customuniqueiddev
-//     UNIVERSAL PHOTOS_GROUP_ID = group.com.customuniqueid
+//     IMMICH_TEAM_ID = ABCDE12345
+//     IMMICH_BUNDLE_ID_PROD = com.customuniqueid.immich
+//     IMMICH_BUNDLE_ID_DEV = com.customuniqueid.immichdev
+//     IMMICH_GROUP_ID = group.com.customuniqueid.immich
 
 // Apple Developer Team ID used for automatically provisioning signing credentials
-UNIVERSAL PHOTOS_TEAM_ID = 2W7AC6T8T5
+IMMICH_TEAM_ID = 2W7AC6T8T5
 
 // Root bundle identifier for the Release configuration.
 // Extension suffixes (`.ShareExtension`/`.Widget`) will be appended
-UNIVERSAL PHOTOS_BUNDLE_ID_PROD = app.alextran
+IMMICH_BUNDLE_ID_PROD = app.alextran.immich
 
 // Root bundle identifier for the Debug and Profile configurations.
 // Build scheme suffixes (`.debug`/`.profile`) will be appended
-UNIVERSAL PHOTOS_BUNDLE_ID_DEV = app.futo
+IMMICH_BUNDLE_ID_DEV = app.futo.immich
 
 // Root App Group identifier.
 // Build scheme suffixes (`.debug`/`.profile`) will be appended
-UNIVERSAL PHOTOS_GROUP_ID = group.app.share
+IMMICH_GROUP_ID = group.app.immich.share
 
 // Optional per-developer configuration override
 #include? "Signing.local.xcconfig"

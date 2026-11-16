@@ -174,8 +174,8 @@ export class StorageService extends BaseService {
 
   private getMountFilePaths(folder: StorageFolder) {
     const folderPath = StorageCore.getBaseFolder(folder);
-    const internalPath = join(folderPath, '');
-    const externalPath = `<UPLOAD_LOCATION>/${folder}/`;
+    const internalPath = join(folderPath, '.universal_photos');
+    const externalPath = `<UPLOAD_LOCATION>/${folder}/.universal_photos`;
 
     return { folderPath, internalPath, externalPath };
   }

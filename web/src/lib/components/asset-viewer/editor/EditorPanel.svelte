@@ -1,8 +1,8 @@
 <script lang="ts">
   import { EditToolType, editManager } from '#lib/managers/edit/edit-manager.svelte.ts';
   import { websocketEvents } from '#lib/stores/websocket.ts';
-  import { getAssetEdits, type AssetResponseDto } from '@Universal Photos/sdk';
-  import { Button, HStack, IconButton, shortcuts } from '@Universal Photos/ui';
+  import { getAssetEdits, type AssetResponseDto } from '@immich/sdk';
+  import { Button, HStack, IconButton, shortcuts } from '@immich/ui';
   import { mdiClose } from '@mdi/js';
   import { onDestroy, onMount } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -53,7 +53,7 @@
   ])}
 />
 
-<section class="dark relative flex h-full flex-col p-2 pt-3 dark:bg-Universal Photos-dark-bg dark:text-Universal Photos-dark-fg">
+<section class="dark relative flex h-full flex-col p-2 pt-3 dark:bg-immich-dark-bg dark:text-immich-dark-fg">
   <HStack class="me-4 justify-between">
     <HStack>
       <IconButton
@@ -64,7 +64,7 @@
         aria-label={$t('close')}
         onclick={closeEditor}
       />
-      <p class="text-lg text-Universal Photos-fg capitalize dark:text-Universal Photos-dark-fg">{$t('editor')}</p>
+      <p class="text-lg text-immich-fg capitalize dark:text-immich-dark-fg">{$t('editor')}</p>
     </HStack>
     <Button shape="round" size="small" onclick={applyEdits} loading={editManager.isApplyingEdits}>{$t('save')}</Button>
   </HStack>

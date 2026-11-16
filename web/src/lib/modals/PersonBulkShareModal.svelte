@@ -6,7 +6,7 @@
   import { handleBulkUpsert } from '#lib/services/person-user.service.ts';
   import { getPeopleThumbnailUrl } from '#lib/utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { getAllPeople, type PersonResponseDto, type UserResponseDto } from '@Universal Photos/sdk';
+  import { getAllPeople, type PersonResponseDto, type UserResponseDto } from '@immich/sdk';
   import {
     ActionButton,
     Field,
@@ -17,7 +17,7 @@
     Text,
     modalManager,
     type ActionItem,
-  } from '@Universal Photos/ui';
+  } from '@immich/ui';
   import { mdiAccountMultipleOutline, mdiPencilOutline } from '@mdi/js';
   import { untrack } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -217,7 +217,7 @@
             <ActionButton type="button" color="primary" variant="ghost" action={ManagePeople} />
           </div>
 
-          <div class="Universal Photos-scrollbar overflow-y-auto sm:max-h-64">
+          <div class="immich-scrollbar overflow-y-auto sm:max-h-64">
             {#each selectedPeople as person (person.id)}
               <div class="flex items-center gap-3 rounded-lg px-2 py-1 hover:bg-subtle">
                 <ImageThumbnail circle url={getPeopleThumbnailUrl(person)} altText={person.name} widthStyle="2.5rem" />

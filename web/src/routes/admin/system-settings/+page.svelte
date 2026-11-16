@@ -7,7 +7,7 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getAdminConfigQuery } from '#lib/queries/config-admin.query.ts';
   import { getSystemConfigActions } from '#lib/services/system-config.service.ts';
-  import { Alert, CommandPaletteDefaultProvider, Container } from '@Universal Photos/ui';
+  import { Alert, CommandPaletteDefaultProvider, Container } from '@immich/ui';
   import {
     mdiAccountOutline,
     mdiBackupRestore,

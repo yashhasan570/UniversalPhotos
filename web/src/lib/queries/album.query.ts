@@ -22,8 +22,8 @@ import {
   type AlbumResponseDto,
   type AlbumsAddAssetsResponseDto,
   type BulkIdResponseDto,
-} from '@universalphotos/sdk';
-import { toastManager } from '@universalphotos/ui';
+} from '@universal_photos/sdk';
+import { toastManager } from '@universal_photos/ui';
 import { mutationOptions, queryOptions, type MutationMeta } from '@tanstack/svelte-query';
 import type { MessageFormatter } from 'svelte-i18n';
 import { goto } from '$app/navigation';

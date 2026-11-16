@@ -26,7 +26,7 @@
   import { getAssetBulkActions } from '#lib/services/asset.service.ts';
   import { getTagActions } from '#lib/services/tag.service.ts';
   import { TreeNode, joinPaths } from '#lib/utils/tree-utils.ts';
-  import { ActionButton, CommandPaletteDefaultProvider, Text } from '@Universal Photos/ui';
+  import { ActionButton, CommandPaletteDefaultProvider, Text } from '@immich/ui';
   import { mdiDotsVertical, mdiTag, mdiTagMultiple } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
@@ -74,7 +74,7 @@
 
   <TreeBreadcrumbs node={tag} icon={mdiTagMultiple} title={$t('tags')} {getLink} />
 
-  <section class="mt-2 h-[calc(100%-(--spacing(20)))] Universal Photos-scrollbar overflow-auto">
+  <section class="mt-2 h-[calc(100%-(--spacing(20)))] immich-scrollbar overflow-auto">
     {#if tag.hasAssets}
       <Timeline
         enableRouting={true}

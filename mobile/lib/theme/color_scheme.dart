@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:universal_photos/constants/colors.dart';
-import 'package:universal_photos/theme/theme_data.dart';
+import 'package:universal_photos_mobile/constants/colors.dart';
+import 'package:universal_photos_mobile/theme/theme_data.dart';
 
 final Map<UniversalPhotosColorPreset, UniversalPhotosTheme> _themePresets = {
   UniversalPhotosColorPreset.indigo: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(
-      seedColor: universalphotosBrandColorLight,
-    ).copyWith(primary: universalphotosBrandColorLight, onSurface: const Color.fromARGB(255, 34, 31, 32)),
+      seedColor: universal_photosBrandColorLight,
+    ).copyWith(primary: universal_photosBrandColorLight, onSurface: const Color.fromARGB(255, 34, 31, 32)),
     dark: ColorScheme.fromSeed(
-      seedColor: universalphotosBrandColorDark,
+      seedColor: universal_photosBrandColorDark,
       brightness: Brightness.dark,
-    ).copyWith(primary: universalphotosBrandColorDark),
+    ).copyWith(primary: universal_photosBrandColorDark),
   ),
   UniversalPhotosColorPreset.deepPurple: UniversalPhotosTheme(
     light: ColorScheme.fromSeed(seedColor: const Color(0xFF6F43C0)),

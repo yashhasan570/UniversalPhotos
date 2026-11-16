@@ -11,7 +11,7 @@ import {
   logout,
   type UserAdminResponseDto,
   type UserPreferencesResponseDto,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 import { browser } from '$app/env';
 import { goto } from '$app/navigation';
 import { page } from '$app/state';
@@ -135,7 +135,7 @@ class AuthManager {
 
     for (const cookie of document.cookie.split('; ')) {
       const [name] = cookie.split('=', 1);
-      if (name === 'universalphotos_is_authenticated') {
+      if (name === 'universal_photos_is_authenticated') {
         return true;
       }
     }

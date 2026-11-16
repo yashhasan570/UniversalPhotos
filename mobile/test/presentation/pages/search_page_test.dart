@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/presentation/pages/search/search.page.dart';
-import 'package:universal_photos/providers/server_info.provider.dart';
+import 'package:universal_photos_mobile/presentation/pages/search/search.page.dart';
+import 'package:universal_photos_mobile/providers/server_info.provider.dart';
 
 import '../../unit/presentation/presentation_context.dart';
 

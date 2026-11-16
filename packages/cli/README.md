@@ -1,10 +1,10 @@
-A command-line interface for interfacing with the self-hosted photo manager [Universal Photos](https:///).
+A command-line interface for interfacing with the self-hosted photo manager [Immich](https://immich.app/).
 
-Please see the [Universal Photos CLI documentation](https://docs./features/command-line-interface).
+Please see the [Immich CLI documentation](https://docs.immich.app/features/command-line-interface).
 
 # For developers
 
-Before building the CLI, you must build the Universal Photos server and the open-api client. You can use the following command:
+Before building the CLI, you must build the immich server and the open-api client. You can use the following command:
 
     $ mise //:open-api
 
@@ -18,7 +18,7 @@ Go to the cli folder and build it:
 
 ## Run and Debug from source (VSCode)
 
-With VScode you can run and debug the Universal Photos CLI. Go to the launch.json file, find the Universal Photos CLI config and change this with the command you need to debug
+With VScode you can run and debug the Immich CLI. Go to the launch.json file, find the Immich CLI config and change this with the command you need to debug
 
 `"args": ["upload", "--help"],`
 

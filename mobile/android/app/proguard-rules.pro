@@ -36,7 +36,7 @@
 ##---------------End: proguard configuration for Gson  ----------
 
 # Keep all widget model classes and their fields for Gson
--keep class com.universalphotos.app.widget.model.** { *; }
+-keep class app.alextran.immich.widget.model.** { *; }
 
 ##---------------Begin: proguard configuration for ok_http JNI ----------
 # The ok_http Dart plugin accesses OkHttp and Okio classes via JNI

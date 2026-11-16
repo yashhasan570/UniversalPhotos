@@ -16,7 +16,7 @@ export const LicenseEmail = () => (
     </Text>
 
     <Section className="my-2 bg-gray-200 rounded-2xl text-center p-4">
-      <Text className="m-0 text-monospace font-bold text-universalphotos-primary">{'{{LICENSEKEY}}'}</Text>
+      <Text className="m-0 text-monospace font-bold text-universal_photos-primary">{'{{LICENSEKEY}}'}</Text>
     </Section>
 
     <Text>
@@ -33,7 +33,7 @@ export const LicenseEmail = () => (
 
     <Text className="text-center">
       <Link
-        className="text-universalphotos-primary text-sm"
+        className="text-universal_photos-primary text-sm"
         // style={{ marginTop: '50px', color: 'rgb(66, 80, 175)', fontSize: '0.9rem' }}
         href={`https://my./link?target=activate_license&licenseKey={{LICENSEKEY}}&activationKey={{ACTIVATIONKEY}}`}
       >

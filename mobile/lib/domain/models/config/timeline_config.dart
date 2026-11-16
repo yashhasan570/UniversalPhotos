@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:universal_photos/domain/models/timeline.model.dart';
+import 'package:universal_photos_mobile/domain/models/timeline.model.dart';
 
 part 'timeline_config.freezed.dart';
 

@@ -134,7 +134,7 @@ export class DatabaseService extends BaseService {
     if (drift.items.length === 0) {
       this.logger.log('No schema drift detected');
     } else {
-      this.logger.warn(`${ErrorMessages.SchemaDrift} or run \`universalphotos-admin schema-check\``);
+      this.logger.warn(`${ErrorMessages.SchemaDrift} or run \`universal_photos-admin schema-check\``);
       for (const warning of drift.asHuman()) {
         this.logger.warn(`  - ${warning}`);
       }

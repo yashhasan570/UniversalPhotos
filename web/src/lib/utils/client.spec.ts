@@ -2,7 +2,7 @@ import { queryClient } from '#lib/queries/client.ts';
 import { getServerConfigQuery } from '#lib/queries/server-info.query.ts';
 import { init } from '#lib/utils/client.ts';
 import { test } from '#test/unit/fixtures.ts';
-import { MalformedResponseError } from '@universalphotos/sdk';
+import { MalformedResponseError } from '@universal_photos/sdk';
 import { describe, expect } from 'vitest';
 
 describe('init', () => {

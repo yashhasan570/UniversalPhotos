@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
-import 'package:universal_photos/presentation/widgets/images/progressive_image.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/progressive_image.widget.dart';
 
 class _ProgressiveProvider extends ImageProvider<_ProgressiveProvider> {
   const _ProgressiveProvider(this.frames);

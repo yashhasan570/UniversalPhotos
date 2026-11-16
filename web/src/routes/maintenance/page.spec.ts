@@ -1,5 +1,5 @@
 import { test } from '#test/unit/fixtures.ts';
-import { MaintenanceAction } from '@universalphotos/sdk';
+import { MaintenanceAction } from '@universal_photos/sdk';
 import { expect } from 'vitest';
 import Page from './+page.svelte';
 import { load } from './+page.ts';

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/utils/debounce.dart';
+import 'package:universal_photos_mobile/utils/debounce.dart';
 
 class _Counter {
   int _count = 0;

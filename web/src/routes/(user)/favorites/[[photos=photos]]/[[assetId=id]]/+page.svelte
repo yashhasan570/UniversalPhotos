@@ -16,7 +16,7 @@
   import { assetMultiSelectManager } from '#lib/managers/asset-multi-select-manager.svelte.ts';
   import { TimelineManager } from '#lib/managers/timeline-manager/timeline-manager.svelte.ts';
   import { getAssetBulkActions } from '#lib/services/asset.service.ts';
-  import { ActionButton, CommandPaletteDefaultProvider } from '@Universal Photos/ui';
+  import { ActionButton, CommandPaletteDefaultProvider } from '@immich/ui';
   import { mdiDotsVertical } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/utils/diff.dart';
+import 'package:universal_photos_mobile/utils/diff.dart';
 
 void main() {
   final List<int> listA = [1, 2, 3, 4, 6];

@@ -73,7 +73,7 @@ export class FutoBackupsService {
     void this.updateLibraryConfig();
 
     this.orchestratorService.setDatabaseHooks({
-      tagName: '',
+      tagName: 'yucca.v1.universal_photosBackupFileName',
       dump: (signal) => this.databaseBackupService.createDatabaseBackup('', signal),
       cleanup: () => this.databaseBackupService.cleanupDatabaseBackups(),
       restore: (fileName) => this.databaseBackupService.restoreDatabaseBackup(basename(fileName)),

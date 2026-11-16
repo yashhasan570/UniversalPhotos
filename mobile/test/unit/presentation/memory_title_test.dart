@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/memory.model.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/widgets/memory/memory_title.widget.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/memory.model.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/widgets/memory/memory_title.widget.dart';
 
 import '../factories/remote_asset_factory.dart';
 import 'presentation_context.dart';

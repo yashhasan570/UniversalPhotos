@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/presentation/widgets/asset_viewer/video_viewer.widget.dart';
-import 'package:universal_photos/providers/infrastructure/storage.provider.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/presentation/widgets/asset_viewer/video_viewer.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/storage.provider.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:native_video_player/native_video_player.dart';
 

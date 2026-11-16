@@ -17,8 +17,8 @@
     TranscodePolicy,
     VideoCodec,
     VideoContainer,
-  } from '@Universal Photos/sdk';
-  import { Icon, Link } from '@Universal Photos/ui';
+  } from '@immich/sdk';
+  import { Icon, Link } from '@immich/ui';
   import { mdiHelpCircleOutline } from '@mdi/js';
   import { cloneDeep, isEqual, sortBy } from 'lodash-es';
   import { t } from 'svelte-i18n';
@@ -37,7 +37,7 @@
   <div in:fade={{ duration: 500 }}>
     <form autocomplete="off" onsubmit={(event) => event.preventDefault()}>
       <div class="ms-4 mt-4 flex flex-col gap-4">
-        <p class="text-sm dark:text-Universal Photos-dark-fg">
+        <p class="text-sm dark:text-immich-dark-fg">
           <Icon icon={mdiHelpCircleOutline} class="inline" size="15" />
           <FormatMessage key="admin.transcoding_codecs_learn_more">
             {#snippet children({ tag, message })}

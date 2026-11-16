@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/models/auth/biometric_status.model.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/models/auth/biometric_status.model.dart';
 import 'package:local_auth/local_auth.dart';
 
 final biometricRepositoryProvider = Provider((ref) => BiometricRepository(LocalAuthentication()));

@@ -7,10 +7,10 @@ enum PermissionStatus { granted, denied, permanentlyDenied }
     dartOut: 'lib/platform/permission_api.g.dart',
     swiftOut: 'ios/Runner/Permission/PermissionApi.g.swift',
     swiftOptions: SwiftOptions(includeErrorClass: false),
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universalphotos/permission/PermissionApi.g.kt',
-    kotlinOptions: KotlinOptions(package: 'app.alextran.permission'),
+    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universal_photos/permission/PermissionApi.g.kt',
+    kotlinOptions: KotlinOptions(package: 'app.alextran.universal_photos.permission'),
     dartOptions: DartOptions(),
-    dartPackageName: 'universal_photos',
+    dartPackageName: 'universal_photos_mobile',
   ),
 )
 @HostApi()

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/components/url_input.dart';
-import 'package:universalphotos_ui/src/previews.dart';
+import 'package:universal_photos_ui/src/components/url_input.dart';
+import 'package:universal_photos_ui/src/previews.dart';
 
 @UniversalPhotosPreview(group: 'URLInput', name: 'Basic')
 Widget previewUrlInput() => const _PreviewUrlInput();
@@ -23,6 +23,6 @@ class _PreviewUrlInputState extends State<_PreviewUrlInput> {
 
   @override
   Widget build(BuildContext context) {
-    return UniversalPhotosURLInput(label: 'Server URL', hintText: 'https://demo.com', controller: _controller);
+    return UniversalPhotosURLInput(label: 'Server URL', hintText: 'https://demo.universal_photos.com', controller: _controller);
   }
 }

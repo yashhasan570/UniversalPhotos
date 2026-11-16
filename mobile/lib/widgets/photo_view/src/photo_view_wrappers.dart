@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:universal_photos/widgets/photo_view/photo_view.dart';
-import 'package:universal_photos/widgets/photo_view/src/core/photo_view_core.dart';
-import 'package:universal_photos/widgets/photo_view/src/photo_view_default_widgets.dart';
-import 'package:universal_photos/widgets/photo_view/src/utils/photo_view_utils.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/photo_view.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/src/core/photo_view_core.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/src/photo_view_default_widgets.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/src/utils/photo_view_utils.dart';
 
 class ImageWrapper extends StatefulWidget {
   const ImageWrapper({

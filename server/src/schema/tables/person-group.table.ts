@@ -7,7 +7,7 @@ import {
   Timestamp,
   UpdateDateColumn,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { CreateIdColumn, UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { person_group_delete_audit } from 'src/schema/functions.js';
 import { ClusterGroupTable } from 'src/schema/tables/cluster-group.table.js';

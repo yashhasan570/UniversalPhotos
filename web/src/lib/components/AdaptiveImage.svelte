@@ -62,7 +62,7 @@
   import { scaleToCover, scaleToFit, type Size } from '#lib/utils/container-utils.ts';
   import { getAltText } from '#lib/utils/thumbnail-util.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import type { AssetResponseDto, SharedLinkResponseDto } from '@Universal Photos/sdk';
+  import type { AssetResponseDto, SharedLinkResponseDto } from '@immich/sdk';
   import { untrack, type Snippet } from 'svelte';
 
   type Props = {

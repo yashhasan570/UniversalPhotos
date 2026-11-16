@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/memory.model.dart';
-import 'package:universal_photos/extensions/datetime_extensions.dart';
-import 'package:universal_photos/extensions/object_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/memory.model.dart';
+import 'package:universal_photos_mobile/extensions/datetime_extensions.dart';
+import 'package:universal_photos_mobile/extensions/object_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
 import 'package:intl/intl.dart';
 
 /// [asset] adds the age at that asset to birthday titles

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/components/text_input.dart';
-import 'package:universalphotos_ui/src/previews.dart';
+import 'package:universal_photos_ui/src/components/text_input.dart';
+import 'package:universal_photos_ui/src/previews.dart';
 
 @UniversalPhotosPreview(group: 'TextInput', name: 'Basic')
 Widget previewTextInputBasic() => const _PreviewTextInputBasic();

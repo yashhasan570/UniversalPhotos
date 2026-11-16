@@ -657,7 +657,7 @@ export const defaults = Object.freeze<SystemConfig>({
   },
   machineLearning: {
     enabled: process.env.UNIVERSALPHOTOS_MACHINE_LEARNING_ENABLED !== 'false',
-    urls: [process.env.UNIVERSALPHOTOS_MACHINE_LEARNING_URL || 'http://universalphotos-machine-learning:3003'],
+    urls: [process.env.UNIVERSALPHOTOS_MACHINE_LEARNING_URL || 'http://universal_photos-machine-learning:3003'],
     availabilityChecks: {
       enabled: true,
       timeout: 2000,
@@ -688,8 +688,8 @@ export const defaults = Object.freeze<SystemConfig>({
   },
   map: {
     enabled: true,
-    lightStyle: 'https://tiles./v1/style/light.json',
-    darkStyle: 'https://tiles./v1/style/dark.json',
+    lightStyle: 'https://tiles.universal_photos.cloud/v1/style/light.json',
+    darkStyle: 'https://tiles.universal_photos.cloud/v1/style/dark.json',
   },
   reverseGeocoding: {
     enabled: true,
@@ -717,8 +717,8 @@ export const defaults = Object.freeze<SystemConfig>({
     signingAlgorithm: 'RS256',
     profileSigningAlgorithm: 'none',
     storageLabelClaim: 'preferred_username',
-    storageQuotaClaim: 'universalphotos_quota',
-    roleClaim: 'universalphotos_role',
+    storageQuotaClaim: 'universal_photos_quota',
+    roleClaim: 'universal_photos_role',
     tokenEndpointAuthMethod: OAuthTokenEndpointAuthMethod.ClientSecretPost,
     timeout: 30_000,
     allowInsecureRequests: false,

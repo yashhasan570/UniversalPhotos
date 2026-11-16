@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:universalphotos_ui/extensions/build_context_extensions.dart';
-import 'package:universalphotos_ui/extensions/theme_extensions.dart';
+import 'package:universal_photos_ui/extensions/build_context_extensions.dart';
+import 'package:universal_photos_ui/extensions/theme_extensions.dart';
 
 class SettingGroupTitle extends StatelessWidget {
   final String title;

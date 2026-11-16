@@ -1,9 +1,9 @@
 import type { TimelineDate, TimelineDateTime, TimelineYearMonth } from '#lib/utils/timeline-util.ts';
-import type { AssetStackResponseDto, AssetVisibility } from '@universalphotos/sdk';
+import type { AssetStackResponseDto, AssetVisibility } from '@universal_photos/sdk';
 
 export type ViewportTopMonth = TimelineYearMonth | undefined | 'lead-in' | 'lead-out';
 
-export type AssetApiGetTimeBucketsRequest = Parameters<typeof import('@universalphotos/sdk').getTimeBuckets>[0];
+export type AssetApiGetTimeBucketsRequest = Parameters<typeof import('@universal_photos/sdk').getTimeBuckets>[0];
 
 export type TimelineManagerOptions = Omit<AssetApiGetTimeBucketsRequest, 'size'> & {
   timelineAlbumId?: string;

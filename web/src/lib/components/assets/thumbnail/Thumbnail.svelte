@@ -9,8 +9,8 @@
   import { moveFocus } from '#lib/utils/focus-util.ts';
   import { currentUrlReplaceAssetId } from '#lib/utils/navigation.ts';
   import { getAltText } from '#lib/utils/thumbnail-util.ts';
-  import { AssetMediaSize, AssetVisibility, type UserResponseDto } from '@Universal Photos/sdk';
-  import { Icon } from '@Universal Photos/ui';
+  import { AssetMediaSize, AssetVisibility, type UserResponseDto } from '@immich/sdk';
+  import { Icon } from '@immich/ui';
   import {
     mdiArchiveArrowDownOutline,
     mdiCameraBurst,
@@ -387,7 +387,7 @@
     {#if selectionCandidate}
       <div
         data-testid="selection-candidate"
-        class={['absolute top-0 z-2 size-full bg-Universal Photos-primary opacity-40', { 'rounded-xl': selected }]}
+        class={['absolute top-0 z-2 size-full bg-immich-primary opacity-40', { 'rounded-xl': selected }]}
         in:fade={{ duration: 100 }}
         out:fade={{ duration: 100 }}
       ></div>
@@ -437,7 +437,7 @@
     <!-- Outline on focus -->
     <div
       class={[
-        'pointer-events-none absolute z-1 size-full outline-Universal Photos-primary group-focus-visible:outline-4 group-focus-visible:-outline-offset-4 dark:outline-Universal Photos-dark-primary',
+        'pointer-events-none absolute z-1 size-full outline-immich-primary group-focus-visible:outline-4 group-focus-visible:-outline-offset-4 dark:outline-immich-dark-primary',
         { 'rounded-xl': selected },
       ]}
       data-outline

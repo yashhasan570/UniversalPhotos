@@ -1,9 +1,9 @@
 import 'package:async/async.dart';
 import 'package:drift/drift.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/data/db/main/table/remote/asset.drift.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/infrastructure/repositories/remote_asset.repository.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/asset.drift.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/remote_asset.repository.dart';
 
 import '../repository_context.dart';
 

@@ -6,7 +6,7 @@
   import { getAllLibrariesQuery } from '#lib/queries/library.query.ts';
   import { Route } from '#lib/route.ts';
   import { getLibrariesActions } from '#lib/services/library.service.ts';
-  import { CommandPaletteDefaultProvider, Container, Table, TableBody, TableHeader, TableHeading } from '@Universal Photos/ui';
+  import { CommandPaletteDefaultProvider, Container, Table, TableBody, TableHeader, TableHeading } from '@immich/ui';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';

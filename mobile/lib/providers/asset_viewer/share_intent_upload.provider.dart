@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/models/upload/share_intent_attachment.model.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/services/foreground_upload.service.dart';
-import 'package:universal_photos/services/share_intent_service.dart';
+import 'package:universal_photos_mobile/models/upload/share_intent_attachment.model.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/services/foreground_upload.service.dart';
+import 'package:universal_photos_mobile/services/share_intent_service.dart';
 import 'package:path/path.dart' as p;
 
 final shareIntentUploadProvider = StateNotifierProvider<ShareIntentUploadStateNotifier, List<ShareIntentAttachment>>(

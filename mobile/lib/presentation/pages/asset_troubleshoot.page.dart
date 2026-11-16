@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/exif.model.dart';
-import 'package:universal_photos/extensions/platform_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/providers/infrastructure/asset.provider.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart';
+import 'package:universal_photos_mobile/extensions/platform_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/asset.provider.dart';
 
 @RoutePage()
 class AssetTroubleshootPage extends StatelessWidget {

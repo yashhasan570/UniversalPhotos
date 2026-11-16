@@ -45,7 +45,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   LANGUAGE PLPGSQL
   AS $$
     BEGIN
-      UPDATE album SET "updatedAt" = clock_timestamp(), "updateId" = universalphotos_uuid_v7(clock_timestamp())
+      UPDATE album SET "updatedAt" = clock_timestamp(), "updateId" = universal_photos_uuid_v7(clock_timestamp())
       WHERE "id" IN (SELECT DISTINCT "albumsId" FROM inserted_rows);
       RETURN NULL;
     END
@@ -565,7 +565,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   await sql`INSERT INTO "migration_overrides" ("name", "value") VALUES ('trigger_session_updatedAt', '{"type":"trigger","name":"session_updatedAt","sql":"CREATE OR REPLACE TRIGGER \\"session_updatedAt\\"\\n  BEFORE UPDATE ON \\"session\\"\\n  FOR EACH ROW\\n  EXECUTE FUNCTION updated_at();"}'::jsonb);`.execute(db);
   await sql`INSERT INTO "migration_overrides" ("name", "value") VALUES ('trigger_session_sync_checkpoint_updatedAt', '{"type":"trigger","name":"session_sync_checkpoint_updatedAt","sql":"CREATE OR REPLACE TRIGGER \\"session_sync_checkpoint_updatedAt\\"\\n  BEFORE UPDATE ON \\"session_sync_checkpoint\\"\\n  FOR EACH ROW\\n  EXECUTE FUNCTION updated_at();"}'::jsonb);`.execute(db);
   await sql`INSERT INTO "migration_overrides" ("name", "value") VALUES ('trigger_tag_updatedAt', '{"type":"trigger","name":"tag_updatedAt","sql":"CREATE OR REPLACE TRIGGER \\"tag_updatedAt\\"\\n  BEFORE UPDATE ON \\"tag\\"\\n  FOR EACH ROW\\n  EXECUTE FUNCTION updated_at();"}'::jsonb);`.execute(db);
-  await sql`UPDATE "migration_overrides" SET "value" = '{"type":"function","name":"album_user_after_insert","sql":"CREATE OR REPLACE FUNCTION album_user_after_insert()\\n  RETURNS TRIGGER\\n  LANGUAGE PLPGSQL\\n  AS $$\\n    BEGIN\\n      UPDATE album SET \\"updatedAt\\" = clock_timestamp(), \\"updateId\\" = universalphotos_uuid_v7(clock_timestamp())\\n      WHERE \\"id\\" IN (SELECT DISTINCT \\"albumsId\\" FROM inserted_rows);\\n      RETURN NULL;\\n    END\\n  $$;"}'::jsonb WHERE "name" = 'function_album_user_after_insert';`.execute(db);
+  await sql`UPDATE "migration_overrides" SET "value" = '{"type":"function","name":"album_user_after_insert","sql":"CREATE OR REPLACE FUNCTION album_user_after_insert()\\n  RETURNS TRIGGER\\n  LANGUAGE PLPGSQL\\n  AS $$\\n    BEGIN\\n      UPDATE album SET \\"updatedAt\\" = clock_timestamp(), \\"updateId\\" = universal_photos_uuid_v7(clock_timestamp())\\n      WHERE \\"id\\" IN (SELECT DISTINCT \\"albumsId\\" FROM inserted_rows);\\n      RETURN NULL;\\n    END\\n  $$;"}'::jsonb WHERE "name" = 'function_album_user_after_insert';`.execute(db);
   await sql`UPDATE "migration_overrides" SET "value" = '{"type":"index","name":"UQ_assets_owner_checksum","sql":"CREATE UNIQUE INDEX \\"UQ_assets_owner_checksum\\" ON \\"asset\\" (\\"ownerId\\", \\"checksum\\") WHERE (\\"libraryId\\" IS NULL);"}'::jsonb WHERE "name" = 'index_UQ_assets_owner_checksum';`.execute(db);
   await sql`UPDATE "migration_overrides" SET "value" = '{"type":"trigger","name":"album_user_after_insert","sql":"CREATE OR REPLACE TRIGGER \\"album_user_after_insert\\"\\n  AFTER INSERT ON \\"album_user\\"\\n  REFERENCING NEW TABLE AS \\"inserted_rows\\"\\n  FOR EACH STATEMENT\\n  EXECUTE FUNCTION album_user_after_insert();"}'::jsonb WHERE "name" = 'trigger_album_user_after_insert';`.execute(db);
   await sql`DELETE FROM "migration_overrides" WHERE "name" = 'function_users_delete_audit';`.execute(db);
@@ -621,7 +621,7 @@ export async function down(db: Kysely<any>): Promise<void> {
  LANGUAGE plpgsql
 AS $function$
     BEGIN
-      UPDATE albums SET "updatedAt" = clock_timestamp(), "updateId" = universalphotos_uuid_v7(clock_timestamp())
+      UPDATE albums SET "updatedAt" = clock_timestamp(), "updateId" = universal_photos_uuid_v7(clock_timestamp())
       WHERE "id" IN (SELECT DISTINCT "albumsId" FROM inserted_rows);
       RETURN NULL;
     END
@@ -1150,7 +1150,7 @@ AS $function$
   await sql`INSERT INTO "migration_overrides" ("name", "value") VALUES ('index_idx_local_date_time', '{"sql":"CREATE INDEX \\"idx_local_date_time\\" ON \\"assets\\" (((\\"localDateTime\\" at time zone ''UTC'')::date));","name":"idx_local_date_time","type":"index"}'::jsonb);`.execute(db);
   await sql`INSERT INTO "migration_overrides" ("name", "value") VALUES ('index_UQ_assets_owner_library_checksum', '{"sql":"CREATE UNIQUE INDEX \\"UQ_assets_owner_library_checksum\\" ON \\"assets\\" (\\"ownerId\\", \\"libraryId\\", \\"checksum\\") WHERE (\\"libraryId\\" IS NOT NULL);","name":"UQ_assets_owner_library_checksum","type":"index"}'::jsonb);`.execute(db);
   await sql`INSERT INTO "migration_overrides" ("name", "value") VALUES ('index_IDX_activity_like', '{"sql":"CREATE UNIQUE INDEX \\"IDX_activity_like\\" ON \\"activity\\" (\\"assetId\\", \\"userId\\", \\"albumId\\") WHERE (\\"isLiked\\" = true);","name":"IDX_activity_like","type":"index"}'::jsonb);`.execute(db);
-  await sql`UPDATE "migration_overrides" SET "value" = '{"sql":"CREATE OR REPLACE FUNCTION album_user_after_insert()\\n  RETURNS TRIGGER\\n  LANGUAGE PLPGSQL\\n  AS $$\\n    BEGIN\\n      UPDATE albums SET \\"updatedAt\\" = clock_timestamp(), \\"updateId\\" = universalphotos_uuid_v7(clock_timestamp())\\n      WHERE \\"id\\" IN (SELECT DISTINCT \\"albumsId\\" FROM inserted_rows);\\n      RETURN NULL;\\n    END\\n  $$;","name":"album_user_after_insert","type":"function"}'::jsonb WHERE "name" = 'function_album_user_after_insert';`.execute(db);
+  await sql`UPDATE "migration_overrides" SET "value" = '{"sql":"CREATE OR REPLACE FUNCTION album_user_after_insert()\\n  RETURNS TRIGGER\\n  LANGUAGE PLPGSQL\\n  AS $$\\n    BEGIN\\n      UPDATE albums SET \\"updatedAt\\" = clock_timestamp(), \\"updateId\\" = universal_photos_uuid_v7(clock_timestamp())\\n      WHERE \\"id\\" IN (SELECT DISTINCT \\"albumsId\\" FROM inserted_rows);\\n      RETURN NULL;\\n    END\\n  $$;","name":"album_user_after_insert","type":"function"}'::jsonb WHERE "name" = 'function_album_user_after_insert';`.execute(db);
   await sql`UPDATE "migration_overrides" SET "value" = '{"sql":"CREATE OR REPLACE TRIGGER \\"album_user_after_insert\\"\\n  AFTER INSERT ON \\"albums_shared_users_users\\"\\n  REFERENCING NEW TABLE AS \\"inserted_rows\\"\\n  FOR EACH STATEMENT\\n  EXECUTE FUNCTION album_user_after_insert();","name":"album_user_after_insert","type":"trigger"}'::jsonb WHERE "name" = 'trigger_album_user_after_insert';`.execute(db);
   await sql`UPDATE "migration_overrides" SET "value" = '{"sql":"CREATE UNIQUE INDEX \\"UQ_assets_owner_checksum\\" ON \\"assets\\" (\\"ownerId\\", \\"checksum\\") WHERE (\\"libraryId\\" IS NULL);","name":"UQ_assets_owner_checksum","type":"index"}'::jsonb WHERE "name" = 'index_UQ_assets_owner_checksum';`.execute(db);
   await sql`DELETE FROM "migration_overrides" WHERE "name" = 'function_user_delete_audit';`.execute(db);

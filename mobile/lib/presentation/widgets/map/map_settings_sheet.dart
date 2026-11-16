@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/time_range.model.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/widgets/map/map.state.dart';
-import 'package:universal_photos/widgets/map/map_settings/map_custom_time_range.dart';
-import 'package:universal_photos/widgets/map/map_settings/map_settings_list_tile.dart';
-import 'package:universal_photos/widgets/map/map_settings/map_settings_time_dropdown.dart';
+import 'package:universal_photos_mobile/domain/models/time_range.model.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/widgets/map/map.state.dart';
+import 'package:universal_photos_mobile/widgets/map/map_settings/map_custom_time_range.dart';
+import 'package:universal_photos_mobile/widgets/map/map_settings/map_settings_list_tile.dart';
+import 'package:universal_photos_mobile/widgets/map/map_settings/map_settings_time_dropdown.dart';
 
 class MapSettingsSheet extends ConsumerStatefulWidget {
   const MapSettingsSheet({super.key});

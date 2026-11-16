@@ -2,8 +2,8 @@
 set -o nounset
 set -o pipefail
 
-create_universalphotos_directory() {
-  local -r Tgt='./universalphotos-app'
+create_universal_photos_directory() {
+  local -r Tgt='./universal_photos-app'
   echo "Creating UniversalPhotos directory..."
   if [[ -e $Tgt ]]; then
     echo "Found existing directory $Tgt, will overwrite YAML files"
@@ -61,11 +61,11 @@ You can access the website or the mobile app at http://$ip_address:2283
 ---------------------------------------------------
 If you want to configure custom information of the server, including the database, Redis information, or the backup (or upload) location, etc.
 
-  1. First bring down the containers with the command 'docker compose down' in the universalphotos-app directory,
+  1. First bring down the containers with the command 'docker compose down' in the universal_photos-app directory,
 
   2. Then change the information that fits your needs in the '.env' file,
 
-  3. Finally, bring the containers back up with the command 'docker compose up --remove-orphans -d' in the universalphotos-app directory
+  3. Finally, bring the containers back up with the command 'docker compose up --remove-orphans -d' in the universal_photos-app directory
 EOF
 }
 
@@ -81,7 +81,7 @@ main() {
     return 14
   fi
 
-  create_universalphotos_directory || {
+  create_universal_photos_directory || {
     echo 'error creating UniversalPhotos directory'
     return 10
   }

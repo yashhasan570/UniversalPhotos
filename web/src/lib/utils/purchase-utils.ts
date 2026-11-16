@@ -1,5 +1,5 @@
 import { authManager } from '#lib/managers/auth-manager.svelte.ts';
-import { updateMyPreferences } from '@universalphotos/sdk';
+import { updateMyPreferences } from '@universal_photos/sdk';
 import { DateTime } from 'luxon';
 
 export const getButtonVisibility = (): boolean => {

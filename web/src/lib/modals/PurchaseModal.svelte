@@ -1,7 +1,7 @@
 <script lang="ts">
   import PurchaseActivationSuccess from '#lib/components/shared-components/purchasing/PurchaseActivationSuccess.svelte';
   import PurchaseContent from '#lib/components/shared-components/purchasing/PurchaseContent.svelte';
-  import { Modal, ModalBody } from '@Universal Photos/ui';
+  import { Modal, ModalBody } from '@immich/ui';
 
   interface Props {
     onClose: () => void;

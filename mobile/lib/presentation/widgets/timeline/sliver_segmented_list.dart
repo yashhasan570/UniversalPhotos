@@ -4,7 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:universal_photos/presentation/widgets/timeline/segment.model.dart';
+import 'package:universal_photos_mobile/presentation/widgets/timeline/segment.model.dart';
 
 class SliverSegmentedList extends SliverMultiBoxAdaptorWidget {
   final List<Segment> _segments;

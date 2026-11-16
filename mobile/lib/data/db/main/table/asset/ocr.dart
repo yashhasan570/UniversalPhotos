@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/table/remote/asset.dart';
-import 'package:universal_photos/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos_mobile/data/db/util/defaults_mixin.dart';
 
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_asset_ocr_asset_id ON asset_ocr_entity (asset_id)')
 class AssetOcrEntity extends Table with DriftDefaultsMixin {

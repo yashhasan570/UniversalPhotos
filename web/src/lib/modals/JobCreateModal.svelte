@@ -1,8 +1,8 @@
 <script lang="ts">
   import Combobox, { type ComboBoxOption } from '#lib/components/shared-components/Combobox.svelte';
   import { handleCreateJob } from '#lib/services/job.service.ts';
-  import { ManualJobName } from '@Universal Photos/sdk';
-  import { FormModal } from '@Universal Photos/ui';
+  import { ManualJobName } from '@immich/sdk';
+  import { FormModal } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   type Props = { onClose: () => void };

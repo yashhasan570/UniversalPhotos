@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/extensions/asset_extensions.dart';
-import 'package:universal_photos/providers/api.provider.dart';
-import 'package:universal_photos/repositories/api.repository.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/extensions/asset_extensions.dart';
+import 'package:universal_photos_mobile/providers/api.provider.dart';
+import 'package:universal_photos_mobile/repositories/api.repository.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 

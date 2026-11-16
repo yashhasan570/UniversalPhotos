@@ -1,5 +1,5 @@
 import { eventManager } from '#lib/managers/event-manager.svelte.ts';
-import { getServerFeatures, type ServerFeaturesDto } from '@universalphotos/sdk';
+import { getServerFeatures, type ServerFeaturesDto } from '@universal_photos/sdk';
 
 class FeatureFlagsManager {
   #value?: ServerFeaturesDto = $state();

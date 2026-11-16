@@ -1,4 +1,4 @@
-import { searchPluginMethods, searchPluginTemplates, type WorkflowTrigger } from '@universalphotos/sdk';
+import { searchPluginMethods, searchPluginTemplates, type WorkflowTrigger } from '@universal_photos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 export const searchPluginMethodsQuery = (filter: { trigger?: WorkflowTrigger } = {}) =>

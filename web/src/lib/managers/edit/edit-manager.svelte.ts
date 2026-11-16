@@ -3,8 +3,8 @@ import { transformManager } from '#lib/managers/edit/transform-manager.svelte.ts
 import { eventManager } from '#lib/managers/event-manager.svelte.ts';
 import { waitForWebsocketEvent } from '#lib/stores/websocket.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { editAsset, removeAssetEdits, type AssetEditsCreateDto, type AssetResponseDto } from '@universalphotos/sdk';
-import { ConfirmModal, modalManager, toastManager } from '@universalphotos/ui';
+import { editAsset, removeAssetEdits, type AssetEditsCreateDto, type AssetResponseDto } from '@universal_photos/sdk';
+import { ConfirmModal, modalManager, toastManager } from '@universal_photos/ui';
 import { mdiCropRotate } from '@mdi/js';
 import type { Component } from 'svelte';
 

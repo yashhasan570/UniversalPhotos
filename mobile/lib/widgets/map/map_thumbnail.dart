@@ -2,11 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:universal_photos/extensions/asyncvalue_extensions.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/maplibrecontroller_extensions.dart';
-import 'package:universal_photos/widgets/map/asset_marker_icon.dart';
-import 'package:universal_photos/widgets/map/map_theme_override.dart';
+import 'package:universal_photos_mobile/extensions/asyncvalue_extensions.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/maplibrecontroller_extensions.dart';
+import 'package:universal_photos_mobile/widgets/map/asset_marker_icon.dart';
+import 'package:universal_photos_mobile/widgets/map/map_theme_override.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 /// A non-interactive thumbnail of a map in the given coordinates with optional markers

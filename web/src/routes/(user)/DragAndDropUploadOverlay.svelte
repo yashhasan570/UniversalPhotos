@@ -3,7 +3,7 @@
   import { dragAndDropFilesStore } from '#lib/stores/drag-and-drop-files.store.ts';
   import { fileUploadHandler } from '#lib/utils/file-uploader.ts';
   import { isAlbumsRoute, isLockedFolderRoute } from '#lib/utils/navigation.ts';
-  import { Logo, shouldIgnoreEvent } from '@Universal Photos/ui';
+  import { Logo, shouldIgnoreEvent } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
   import { page } from '$app/state';
@@ -178,7 +178,7 @@
 {#if dragStartTarget}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
-    class="fixed inset-0 flex size-full flex-col items-center justify-center bg-gray-100/90 text-Universal Photos-dark-gray dark:bg-Universal Photos-dark-bg/90 dark:text-Universal Photos-gray"
+    class="fixed inset-0 flex size-full flex-col items-center justify-center bg-gray-100/90 text-immich-dark-gray dark:bg-immich-dark-bg/90 dark:text-immich-gray"
     transition:fade={{ duration: 250 }}
     ondragover={onDragOver}
   >

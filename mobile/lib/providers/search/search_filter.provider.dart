@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/services/search.service.dart';
+import 'package:universal_photos_mobile/services/search.service.dart';
 import 'package:openapi/api.dart';
 
 part 'search_filter.provider.freezed.dart';

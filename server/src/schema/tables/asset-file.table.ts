@@ -8,7 +8,7 @@ import {
   Unique,
   UpdateDateColumn,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { AssetFileType } from 'src/enum.js';
 import { AssetTable } from 'src/schema/tables/asset.table.js';

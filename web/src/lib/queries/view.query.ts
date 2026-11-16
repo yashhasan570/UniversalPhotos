@@ -1,5 +1,5 @@
 import { TreeNode } from '#lib/utils/tree-utils.ts';
-import { getAssetsByOriginalPath, getUniqueOriginalPaths } from '@universalphotos/sdk';
+import { getAssetsByOriginalPath, getUniqueOriginalPaths } from '@universal_photos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 const toTree = (paths: string[]) => {

@@ -1,5 +1,5 @@
 import type { JSONSchemaProperty } from '#lib/types.ts';
-import { WorkflowTrigger } from '@universalphotos/sdk';
+import { WorkflowTrigger } from '@universal_photos/sdk';
 import type { MessageFormatter } from 'svelte-i18n';
 
 export const getTriggerName = ($t: MessageFormatter, type: WorkflowTrigger) => {

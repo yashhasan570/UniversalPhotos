@@ -1,4 +1,4 @@
-import { Column, ForeignKeyColumn, PrimaryGeneratedColumn, Table, Unique, type Generated } from '@universalphotos/sql-tools';
+import { Column, ForeignKeyColumn, PrimaryGeneratedColumn, Table, Unique, type Generated } from '@universal_photos/sql-tools';
 import { JsonSchemaDto } from 'src/dtos/json-schema.dto.js';
 import { WorkflowType } from 'src/enum.js';
 import { PluginTable } from 'src/schema/tables/plugin.table.js';

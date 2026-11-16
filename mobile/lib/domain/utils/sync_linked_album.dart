@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/services/sync_linked_album.service.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/providers/infrastructure/cancel.provider.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/services/sync_linked_album.service.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/cancel.provider.dart';
 import 'package:logging/logging.dart';
 
 Future<void> syncLinkedAlbumsIsolated(ProviderContainer ref) {

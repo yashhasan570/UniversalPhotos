@@ -1,4 +1,4 @@
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
 
 import '../../utils.dart';
 

@@ -1,21 +1,21 @@
 @import 'tailwindcss';
-@import '@Universal Photos/ui/theme/default.css';
+@import '@immich/ui/theme/default.css';
 
-@source "../node_modules/@Universal Photos/ui";
+@source "../node_modules/@immich/ui";
 /* @import '../../../ui/packages/ui/dist/theme/default.css'; */
 
 @custom-variant dark (&:where(.dark, .dark *):not(.light));
 
 @theme inline {
-  --color-Universal Photos-primary: rgb(var(--Universal Photos-primary));
-  --color-Universal Photos-bg: rgb(var(--Universal Photos-bg));
-  --color-Universal Photos-fg: rgb(var(--Universal Photos-fg));
-  --color-Universal Photos-gray: rgb(var(--Universal Photos-gray));
+  --color-immich-primary: rgb(var(--immich-primary));
+  --color-immich-bg: rgb(var(--immich-bg));
+  --color-immich-fg: rgb(var(--immich-fg));
+  --color-immich-gray: rgb(var(--immich-gray));
 
-  --color-Universal Photos-dark-primary: rgb(var(--Universal Photos-dark-primary));
-  --color-Universal Photos-dark-bg: rgb(var(--Universal Photos-dark-bg));
-  --color-Universal Photos-dark-fg: rgb(var(--Universal Photos-dark-fg));
-  --color-Universal Photos-dark-gray: rgb(var(--Universal Photos-dark-gray));
+  --color-immich-dark-primary: rgb(var(--immich-dark-primary));
+  --color-immich-dark-bg: rgb(var(--immich-dark-bg));
+  --color-immich-dark-fg: rgb(var(--immich-dark-fg));
+  --color-immich-dark-gray: rgb(var(--immich-dark-gray));
 }
 
 @theme {
@@ -54,15 +54,15 @@
   mask-image: linear-gradient(to top, var(--mask-smoothstep));
 }
 
-@utility Universal Photos-form-input {
+@utility immich-form-input {
   @apply bg-gray-100 ring-1 ring-gray-200 transition outline-none focus-within:ring-primary focus-within:ring-1 disabled:cursor-not-allowed dark:bg-gray-800 dark:ring-neutral-900 dark:focus-within:ring-primary flex w-full items-center rounded-lg disabled:bg-gray-300 disabled:text-dark dark:disabled:bg-gray-900 dark:disabled:text-gray-200 flex-1 py-2.5 text-base px-4;
 }
 
-@utility Universal Photos-form-label {
+@utility immich-form-label {
   @apply font-medium text-gray-500 dark:text-gray-300;
 }
 
-@utility Universal Photos-scrollbar {
+@utility immich-scrollbar {
   /* width */
   scrollbar-width: thin;
 }
@@ -88,15 +88,15 @@
 @layer base {
   :root {
     /* light */
-    --Universal Photos-primary: 66 80 175;
-    --Universal Photos-bg: 255 255 255;
-    --Universal Photos-fg: 0 0 0;
+    --immich-primary: 66 80 175;
+    --immich-bg: 255 255 255;
+    --immich-fg: 0 0 0;
 
     /* dark */
-    --Universal Photos-dark-primary: 172 203 250;
-    --Universal Photos-dark-bg: 10 10 10;
-    --Universal Photos-dark-fg: 229 231 235;
-    --Universal Photos-dark-gray: 33 33 33;
+    --immich-dark-primary: 172 203 250;
+    --immich-dark-bg: 10 10 10;
+    --immich-dark-fg: 229 231 235;
+    --immich-dark-gray: 33 33 33;
   }
 
   button:not(:disabled),
@@ -150,24 +150,24 @@
 
   /* Track */
   html::-webkit-scrollbar-track {
-    background-color: var(--Universal Photos-ui-light-100);
+    background-color: var(--immich-ui-light-100);
     border-radius: 4px;
   }
 
   /* Handle */
   html::-webkit-scrollbar-thumb {
-    background-color: color-mix(in oklab, var(--Universal Photos-ui-light-600) 40%, transparent);
+    background-color: color-mix(in oklab, var(--immich-ui-light-600) 40%, transparent);
     border-radius: 4px;
   }
 
   /* Handle on hover */
   html::-webkit-scrollbar-thumb:hover {
-    background-color: color-mix(in oklab, var(--Universal Photos-ui-primary-500) 70%, transparent);
+    background-color: color-mix(in oklab, var(--immich-ui-primary-500) 70%, transparent);
   }
 
   body {
     margin: 0;
-    color: var(--Universal Photos-ui-dark);
+    color: var(--immich-ui-dark);
   }
 
   body.asset-viewer-open {

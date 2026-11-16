@@ -1,4 +1,4 @@
-import { registerEnum } from '@universalphotos/sql-tools';
+import { registerEnum } from '@universal_photos/sql-tools';
 import { PersonUserRole } from 'src/dtos/person.dto.js';
 import { AlbumUserRole, AssetStatus, AssetVisibility, ChecksumAlgorithm, SourceType, VideoCodec } from 'src/enum.js';
 

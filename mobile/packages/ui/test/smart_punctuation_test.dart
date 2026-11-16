@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universalphotos_ui/src/components/email_input.dart';
-import 'package:universalphotos_ui/src/components/password_input.dart';
+import 'package:universal_photos_ui/src/components/email_input.dart';
+import 'package:universal_photos_ui/src/components/password_input.dart';
 
 import 'test_utils.dart';
 

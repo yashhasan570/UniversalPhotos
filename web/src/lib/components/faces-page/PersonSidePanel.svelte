@@ -10,8 +10,8 @@
   import { handleError } from '#lib/utils/handle-error.ts';
   import { zoomImageToBase64 } from '#lib/utils/people-utils.ts';
   import { getPersonNameWithHiddenValue } from '#lib/utils/person.ts';
-  import { AssetTypeEnum, createPerson, type AssetFaceResponseDto, type PersonResponseDto } from '@Universal Photos/sdk';
-  import { Icon, IconButton, LoadingSpinner, shortcut, toastManager } from '@Universal Photos/ui';
+  import { AssetTypeEnum, createPerson, type AssetFaceResponseDto, type PersonResponseDto } from '@immich/sdk';
+  import { Icon, IconButton, LoadingSpinner, shortcut, toastManager } from '@immich/ui';
   import { mdiAccountOff, mdiArrowLeftThin, mdiArrowRightThin, mdiPencil, mdiRestart, mdiTrashCan } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
@@ -177,7 +177,7 @@
 
 <section
   transition:fly={{ x: 360, duration: 100, easing: linear }}
-  class="absolute top-0 h-full w-90 overflow-x-hidden bg-light p-2 dark:text-Universal Photos-dark-fg"
+  class="absolute top-0 h-full w-90 overflow-x-hidden bg-light p-2 dark:text-immich-dark-fg"
 >
   <div class="flex place-items-center justify-between gap-2">
     <div class="flex items-center gap-2">
@@ -189,12 +189,12 @@
         aria-label={$t('back')}
         onclick={onClose}
       />
-      <p class="flex text-lg text-Universal Photos-fg dark:text-Universal Photos-dark-fg">{$t('edit_faces')}</p>
+      <p class="flex text-lg text-immich-fg dark:text-immich-dark-fg">{$t('edit_faces')}</p>
     </div>
     {#if !isShowLoadingDone}
       <button
         type="button"
-        class="justify-self-end rounded-lg p-2 hover:bg-Universal Photos-dark-primary hover:dark:bg-Universal Photos-dark-primary/50"
+        class="justify-self-end rounded-lg p-2 hover:bg-immich-dark-primary hover:dark:bg-immich-dark-primary/50"
         onclick={() => handleEditFaces()}
       >
         {$t('done')}

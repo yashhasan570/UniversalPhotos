@@ -1,8 +1,8 @@
 <script lang="ts">
   import { timeToLoadTheMap } from '#lib/constants.ts';
   import { delay } from '#lib/utils/asset-utils.ts';
-  import type { MapMarkerResponseDto } from '@Universal Photos/sdk';
-  import { LoadingSpinner, Modal, ModalBody } from '@Universal Photos/ui';
+  import type { MapMarkerResponseDto } from '@immich/sdk';
+  import { LoadingSpinner, Modal, ModalBody } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {

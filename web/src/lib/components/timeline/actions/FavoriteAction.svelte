@@ -3,7 +3,7 @@
   import { assetMultiSelectManager } from '#lib/managers/asset-multi-select-manager.svelte.ts';
   import { toggleFavoriteAssets } from '#lib/services/asset.service.ts';
   import type { OnFavorite } from '#lib/utils/actions.ts';
-  import { IconButton } from '@Universal Photos/ui';
+  import { IconButton } from '@immich/ui';
   import { mdiHeartMinusOutline, mdiHeartOutline, mdiTimerSand } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/models/search/search_filter.model.dart';
-import 'package:universal_photos/providers/search/search_filter.provider.dart';
-import 'package:universal_photos/widgets/search/search_filter/common/dropdown.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/models/search/search_filter.model.dart';
+import 'package:universal_photos_mobile/providers/search/search_filter.provider.dart';
+import 'package:universal_photos_mobile/widgets/search/search_filter/common/dropdown.dart';
 import 'package:openapi/api.dart';
 
 class LocationPicker extends HookConsumerWidget {

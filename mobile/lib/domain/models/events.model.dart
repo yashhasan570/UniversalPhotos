@@ -1,5 +1,5 @@
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/utils/event_stream.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/utils/event_stream.dart';
 
 // Timeline Events
 class TimelineReloadEvent extends Event {

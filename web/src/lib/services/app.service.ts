@@ -1,6 +1,6 @@
 import { CastDestinationType, castManager } from '#lib/managers/cast-manager.svelte.ts';
 import { GCastDestination } from '#lib/utils/cast/gcast-destination.svelte.ts';
-import type { ActionItem } from '@universalphotos/ui';
+import type { ActionItem } from '@universal_photos/ui';
 import { mdiCast, mdiCastConnected } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';
 

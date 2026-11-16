@@ -11,10 +11,10 @@
 # - https://docs./developer/setup
 # - https://docs./developer/troubleshooting
 
-name: universalphotos-dev
+name: universal_photos-dev
 
 services:
-  universalphotos-app-base:
+  universal_photos-app-base:
     profiles: ['_base']
     tmpfs:
       - /tmp
@@ -33,12 +33,12 @@ services:
       - sveltekit:/usr/src/app/web/.svelte-kit
       - coverage:/usr/src/app/web/coverage
 
-  universalphotos-init:
+  universal_photos-init:
     extends:
-      service: universalphotos-app-base
+      service: universal_photos-app-base
     profiles: !reset []
-    container_name: universalphotos_init
-    image: universalphotos-server-dev:latest
+    container_name: universal_photos_init
+    image: universal_photos-server-dev:latest
     build:
       context: ../
       dockerfile: server/Dockerfile.dev
@@ -58,13 +58,13 @@ services:
       retries: 300
       start_period: 300s
 
-  universalphotos-server:
+  universal_photos-server:
     extends:
-      service: universalphotos-app-base
+      service: universal_photos-app-base
     profiles: !reset []
-    container_name: universalphotos_server
-    command: ['universalphotos-dev']
-    image: universalphotos-server-dev:latest
+    container_name: universal_photos_server
+    command: ['universal_photos-dev']
+    image: universal_photos-server-dev:latest
     build:
       context: ../
       dockerfile: server/Dockerfile.dev
@@ -73,11 +73,11 @@ services:
     volumes:
       - ${UPLOAD_LOCATION}/photos:/data
       - /etc/localtime:/etc/localtime:ro
-      - ../packages/plugin-core:/build/plugins/universalphotos-plugin-core
+      - ../packages/plugin-core:/build/plugins/universal_photos-plugin-core
     env_file:
       - .env
     environment:
-      UNIVERSALPHOTOS_REPOSITORY: universalphotos-app/universalphotos
+      UNIVERSALPHOTOS_REPOSITORY: universal_photos-app/universal_photos
       UNIVERSALPHOTOS_REPOSITORY_URL: https://github.com/yashhasan570/UniversalPhotos
       UNIVERSALPHOTOS_SOURCE_REF: local
       UNIVERSALPHOTOS_SOURCE_COMMIT: af2efbdbbddc27cd06142f22253ccbbbbeec1f55
@@ -85,7 +85,7 @@ services:
       UNIVERSALPHOTOS_BUILD: '9654404849'
       UNIVERSALPHOTOS_BUILD_URL: https://github.com/yashhasan570/UniversalPhotos/actions/runs/9654404849
       UNIVERSALPHOTOS_BUILD_IMAGE: development
-      UNIVERSALPHOTOS_BUILD_IMAGE_URL: https://github.com/yashhasan570/UniversalPhotos/pkgs/container/universalphotos-server
+      UNIVERSALPHOTOS_BUILD_IMAGE_URL: https://github.com/yashhasan570/UniversalPhotos/pkgs/container/universal_photos-server
       UNIVERSALPHOTOS_THIRD_PARTY_SOURCE_URL: https://github.com/yashhasan570/UniversalPhotos/
       UNIVERSALPHOTOS_THIRD_PARTY_BUG_FEATURE_URL: https://github.com/yashhasan570/UniversalPhotos/issues
       UNIVERSALPHOTOS_THIRD_PARTY_DOCUMENTATION_URL: https://docs.
@@ -96,7 +96,7 @@ services:
       - 9231:9231
       - 2283:2283
     depends_on:
-      universalphotos-init:
+      universal_photos-init:
         condition: service_healthy
       redis:
         condition: service_started
@@ -105,17 +105,17 @@ services:
     healthcheck:
       disable: false
 
-  universalphotos-web:
+  universal_photos-web:
     extends:
-      service: universalphotos-app-base
+      service: universal_photos-app-base
     profiles: !reset []
-    container_name: universalphotos_web
-    image: universalphotos-web-dev:latest
+    container_name: universal_photos_web
+    image: universal_photos-web-dev:latest
     build:
       context: ../
       dockerfile: server/Dockerfile.dev
       target: dev
-    command: ['universalphotos-web']
+    command: ['universal_photos-web']
     env_file:
       - .env
     ports:
@@ -123,14 +123,14 @@ services:
       - 24678:24678
     restart: unless-stopped
     depends_on:
-      universalphotos-init:
+      universal_photos-init:
         condition: service_healthy
-      universalphotos-server:
+      universal_photos-server:
         condition: service_started
 
-  universalphotos-machine-learning:
-    container_name: universalphotos_machine_learning
-    image: universalphotos-machine-learning-dev:latest
+  universal_photos-machine-learning:
+    container_name: universal_photos_machine_learning
+    image: universal_photos-machine-learning-dev:latest
     # extends:
     #   file: hwaccel.ml.yml
     #   service: cpu # set to one of [armnn, cuda, rocm, openvino, openvino-wsl, rknn] for accelerated inference
@@ -153,14 +153,14 @@ services:
       disable: false
 
   redis:
-    container_name: universalphotos_redis
+    container_name: universal_photos_redis
     image: docker.io/valkey/valkey:9@sha256:3add1a336a920ea54770a001ab6feb3da5fceea96a40373a3a2cd469b815f0b7
     healthcheck:
       test: redis-cli ping | grep -q PONG || exit 1
 
   database:
-    container_name: universalphotos_postgres
-    image: /postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
+    container_name: universal_photos_postgres
+    image: ghcr.io/universal_photos-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
     env_file:
       - .env
     environment:
@@ -176,8 +176,8 @@ services:
     healthcheck:
       disable: false
   # set UNIVERSALPHOTOS_TELEMETRY_INCLUDE=all in .env to enable metrics
-  # universalphotos-prometheus:
-  #   container_name: universalphotos_prometheus
+  # universal_photos-prometheus:
+  #   container_name: universal_photos_prometheus
   #   ports:
   #     - 9090:9090
   #   image: prom/prometheus
@@ -186,9 +186,9 @@ services:
   #     - prometheus_data:/prometheus
 
   # first login uses admin/admin
-  # add data source for http://universalphotos-prometheus:9090 to get started
-  # universalphotos-grafana:
-  #   container_name: universalphotos_grafana
+  # add data source for http://universal_photos-prometheus:9090 to get started
+  # universal_photos-grafana:
+  #   container_name: universal_photos_grafana
   #   command: ['./run.sh', '-disable-reporting']
   #   ports:
   #     - 3000:3000

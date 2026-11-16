@@ -6,7 +6,7 @@
   import { getUserAdminActions, getUserAdminsActions } from '#lib/services/user-admin.service.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
   import { getByteUnitString } from '#lib/utils/byte-units.ts';
-  import type { UserAdminResponseDto } from '@Universal Photos/sdk';
+  import type { UserAdminResponseDto } from '@immich/sdk';
   import {
     CommandPaletteDefaultProvider,
     Container,
@@ -20,7 +20,7 @@
     TableHeader,
     TableHeading,
     TableRow,
-  } from '@Universal Photos/ui';
+  } from '@immich/ui';
   import { mdiInfinity } from '@mdi/js';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';

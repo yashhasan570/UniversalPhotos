@@ -3,17 +3,17 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/domain/services/background_worker.service.dart';
-import 'package:universal_photos/domain/utils/background_sync.dart';
-import 'package:universal_photos/main.dart' as app;
-import 'package:universal_photos/platform/background_worker_api.g.dart';
-import 'package:universal_photos/services/api.service.dart';
-import 'package:universal_photos/utils/bootstrap.dart';
-import 'package:universal_photos/wm_executor.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/domain/services/background_worker.service.dart';
+import 'package:universal_photos_mobile/domain/utils/background_sync.dart';
+import 'package:universal_photos_mobile/main.dart' as app;
+import 'package:universal_photos_mobile/platform/background_worker_api.g.dart';
+import 'package:universal_photos_mobile/services/api.service.dart';
+import 'package:universal_photos_mobile/utils/bootstrap.dart';
+import 'package:universal_photos_mobile/wm_executor.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'test_utils/fake_universalphotos_server.dart';
+import 'test_utils/fake_universal_photos_server.dart';
 
 // Issue #28082: a remote sync in-flight when the app is backgrounded stays referenced
 // but frozen across the suspension. On resume the app drops the stale task

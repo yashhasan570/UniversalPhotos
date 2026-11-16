@@ -4,8 +4,8 @@
   import { Route } from '#lib/route.ts';
   import { getPersonActions } from '#lib/services/person.service.ts';
   import { getPeopleThumbnailUrl } from '#lib/utils.ts';
-  import { type PersonResponseDto } from '@Universal Photos/sdk';
-  import { ContextMenuButton } from '@Universal Photos/ui';
+  import { type PersonResponseDto } from '@immich/sdk';
+  import { ContextMenuButton } from '@immich/ui';
   import { mdiAccountMultipleCheckOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

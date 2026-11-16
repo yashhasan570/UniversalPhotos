@@ -107,7 +107,7 @@ pub unsafe extern "C" fn native_core_cancel(flag: *mut bool) {
 
 #[cfg(target_os = "android")]
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_Universal Photos_NativeImage_decode<'caller>(
+pub extern "system" fn Java_app_alextran_immich_NativeImage_decode<'caller>(
     mut env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     data: jlong,
@@ -150,7 +150,7 @@ pub extern "system" fn Java_app_alextran_Universal Photos_NativeImage_decode<'ca
 
 #[cfg(target_os = "android")]
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_Universal Photos_NativeImage_cancel<'caller>(
+pub extern "system" fn Java_app_alextran_immich_NativeImage_cancel<'caller>(
     mut env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     flag: JByteBuffer<'caller>,

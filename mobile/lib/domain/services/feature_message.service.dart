@@ -1,6 +1,6 @@
-import 'package:universal_photos/domain/models/feature_message.model.dart';
-import 'package:universal_photos/domain/models/settings_key.dart';
-import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos_mobile/domain/models/feature_message.model.dart';
+import 'package:universal_photos_mobile/domain/models/settings_key.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/settings.repository.dart';
 
 class FeatureMessageService {
   final SettingsRepository _settingsRepository;

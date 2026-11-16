@@ -8,8 +8,8 @@
   import { createAlbumMutation, getAllAlbumsQuery, getRecentAlbumsQuery } from '#lib/queries/album.query.ts';
   import { executeMutation, queryClient } from '#lib/queries/client.ts';
   import { albumViewSettings } from '#lib/stores/preferences.store.ts';
-  import { type AlbumResponseDto } from '@Universal Photos/sdk';
-  import { Button, Icon, Modal, ModalBody, ModalFooter, Text } from '@Universal Photos/ui';
+  import { type AlbumResponseDto } from '@immich/sdk';
+  import { Button, Icon, Modal, ModalBody, ModalFooter, Text } from '@immich/ui';
   import { mdiKeyboardReturn } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
@@ -174,13 +174,13 @@
         {/each}
       {:else}
         <input
-          class="border-b-4 border-Universal Photos-bg px-6 py-2 text-2xl focus:border-Universal Photos-primary dark:border-Universal Photos-dark-gray dark:focus:border-Universal Photos-dark-primary"
+          class="border-b-4 border-immich-bg px-6 py-2 text-2xl focus:border-immich-primary dark:border-immich-dark-gray dark:focus:border-immich-dark-primary"
           placeholder={$t('search')}
           {onkeydown}
           bind:value={search}
           {@attach initInput}
         />
-        <div class="Universal Photos-scrollbar overflow-y-auto">
+        <div class="immich-scrollbar overflow-y-auto">
           <!-- eslint-disable-next-line svelte/require-each-key -->
           {#each albumModalRows as row}
             {#if row.type === AlbumModalRowType.NEW_ALBUM}

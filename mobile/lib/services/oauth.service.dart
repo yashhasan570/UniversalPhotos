@@ -1,13 +1,13 @@
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
-import 'package:universal_photos/services/api.service.dart';
+import 'package:universal_photos_mobile/services/api.service.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 
-// Redirect URL = app:///oauth-callback
+// Redirect URL = app.universal_photos:///oauth-callback
 
 class OAuthService {
   final ApiService _apiService;
-  final callbackUrlScheme = 'app';
+  final callbackUrlScheme = 'app.universal_photos';
   final log = Logger('OAuthService');
   OAuthService(this._apiService);
 
@@ -36,8 +36,8 @@ class OAuthService {
 
     log.info('Received OAuth callback');
 
-    if (result.startsWith('app:/oauth-callback')) {
-      result = result.replaceAll('app:/oauth-callback', 'app:///oauth-callback');
+    if (result.startsWith('app.universal_photos:/oauth-callback')) {
+      result = result.replaceAll('app.universal_photos:/oauth-callback', 'app.universal_photos:///oauth-callback');
     }
 
     return await _apiService.oAuthApi.finishOAuth(

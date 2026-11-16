@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:universal_photos/constants/locales.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/services/localization.service.dart';
-import 'package:universal_photos/widgets/common/search_field.dart';
+import 'package:universal_photos_mobile/constants/locales.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/services/localization.service.dart';
+import 'package:universal_photos_mobile/widgets/common/search_field.dart';
 
 class LanguageSettings extends HookWidget {
   const LanguageSettings({super.key});

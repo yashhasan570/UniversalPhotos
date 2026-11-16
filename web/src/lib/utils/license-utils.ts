@@ -3,7 +3,7 @@ import { authManager } from '#lib/managers/auth-manager.svelte.ts';
 import { queryClient, readPreloadedQuery } from '#lib/queries/client.ts';
 import { getUserConfigQuery } from '#lib/queries/config-user.query.ts';
 import { getAboutInfoQuery } from '#lib/queries/server-info.query.ts';
-import { setServerLicense, setUserLicense, type LicenseResponseDto } from '@universalphotos/sdk';
+import { setServerLicense, setUserLicense, type LicenseResponseDto } from '@universal_photos/sdk';
 import { PUBLIC_UNIVERSALPHOTOS_BUY_HOST, PUBLIC_UNIVERSALPHOTOS_PAY_HOST } from '$app/env/public';
 
 export const activateProduct = async (licenseKey: string, activationKey: string): Promise<LicenseResponseDto> => {

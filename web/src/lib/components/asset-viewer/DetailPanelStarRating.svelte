@@ -3,7 +3,7 @@
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { handlePromiseError } from '#lib/utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { updateAsset, type AssetResponseDto } from '@Universal Photos/sdk';
+  import { updateAsset, type AssetResponseDto } from '@immich/sdk';
   import { t } from 'svelte-i18n';
 
   interface Props {

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/memory.model.dart';
-import 'package:universal_photos/presentation/pages/memory_list.page.dart';
-import 'package:universal_photos/providers/infrastructure/memory.provider.dart';
+import 'package:universal_photos_mobile/domain/models/memory.model.dart';
+import 'package:universal_photos_mobile/presentation/pages/memory_list.page.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/memory.provider.dart';
 import 'package:intl/intl.dart';
 
 import '../factories/remote_asset_factory.dart';

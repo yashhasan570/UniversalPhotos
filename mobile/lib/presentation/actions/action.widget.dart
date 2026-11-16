@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/presentation/actions/action.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 abstract class ActionWidget extends ConsumerWidget {
   final ActionBuilder action;

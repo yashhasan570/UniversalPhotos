@@ -3,14 +3,14 @@ export function isValidDatabaseBackupName(filename: string) {
 }
 
 export function isValidDatabaseRoutineBackupName(filename: string) {
-  const oldBackupStyle = filename.match(/^universalphotos-db-backup-\d+\.sql\.gz$/);
-  //universalphotos-db-backup-20250729T114018-v1.136.0-pg14.17.sql.gz
-  const newBackupStyle = filename.match(/^universalphotos-db-backup-\d{8}T\d{6}-v.*-pg.*\.sql\.gz$/);
+  const oldBackupStyle = filename.match(/^universal_photos-db-backup-\d+\.sql\.gz$/);
+  //universal_photos-db-backup-20250729T114018-v1.136.0-pg14.17.sql.gz
+  const newBackupStyle = filename.match(/^universal_photos-db-backup-\d{8}T\d{6}-v.*-pg.*\.sql\.gz$/);
   return oldBackupStyle || newBackupStyle;
 }
 
 export function isFailedDatabaseBackupName(filename: string) {
-  return filename.match(/^universalphotos-db-backup-.*\.sql\.gz\.tmp$/);
+  return filename.match(/^universal_photos-db-backup-.*\.sql\.gz\.tmp$/);
 }
 
 export function findDatabaseBackupVersion(filename: string) {

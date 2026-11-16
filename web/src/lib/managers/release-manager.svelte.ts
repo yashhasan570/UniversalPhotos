@@ -1,5 +1,5 @@
 import { eventManager } from '#lib/managers/event-manager.svelte.ts';
-import type { ReleaseEventV1 } from '@universalphotos/sdk';
+import type { ReleaseEventV1 } from '@universal_photos/sdk';
 
 class ReleaseManager {
   value = $state<ReleaseEventV1 | undefined>();

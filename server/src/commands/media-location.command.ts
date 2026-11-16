@@ -60,7 +60,7 @@ export class ChangeMediaLocationCommand extends CommandRunner {
 
   (please remember to update applicable volume mounts e.g
     services:
-      universalphotos-server:
+      universal_photos-server:
         ...
         volumes:
           - \${UPLOAD_LOCATION}:/data

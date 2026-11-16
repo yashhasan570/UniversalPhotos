@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/infrastructure/repositories/local_asset.repository.dart';
-import 'package:universal_photos/utils/option.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/local_asset.repository.dart';
+import 'package:universal_photos_mobile/utils/option.dart';
 
 import '../repository_context.dart';
 

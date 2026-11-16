@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Universal PhotosOnboardingRestoreFlow } from '@futo-org/backups-orchestrator-ui';
+  import { ImmichOnboardingRestoreFlow } from '@futo-org/backups-orchestrator-ui';
   import RestoreFlowAutoSelectBackup from './RestoreFlowAutoSelectBackup.svelte';
   import RestoreFlowDetectInstall from './RestoreFlowDetectInstall.svelte';
   import RestoreFlowIntro from './RestoreFlowIntro.svelte';
@@ -32,7 +32,7 @@
     {end}
   />
 {:else if stage === 'futo-backups'}
-  <Universal PhotosOnboardingRestoreFlow
+  <ImmichOnboardingRestoreFlow
     onExit={() => (stage = 'overview')}
     onFinish={({ databaseRestored }) => (databaseRestored ? end() : (stage = 'auto-select-backup'))}
   />

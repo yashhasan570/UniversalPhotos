@@ -3,7 +3,7 @@
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { searchManager } from '#lib/managers/search-manager.svelte.ts';
   import { getAllTagsQuery } from '#lib/queries/tag.query.ts';
-  import { Button, Text } from '@Universal Photos/ui';
+  import { Button, Text } from '@immich/ui';
   import { mdiClose } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';

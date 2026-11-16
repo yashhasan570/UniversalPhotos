@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@universalphotos/plugin-sdk';
+import { WorkflowTrigger } from '@universal_photos/plugin-sdk';
 import { Kysely } from 'kysely';
 import { WorkflowType } from 'src/enum.js';
 import { AccessRepository } from 'src/repositories/access.repository.js';

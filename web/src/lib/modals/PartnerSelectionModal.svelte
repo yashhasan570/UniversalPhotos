@@ -1,8 +1,8 @@
 <script lang="ts">
   import UserAvatar from '#lib/components/shared-components/UserAvatar.svelte';
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
-  import { PartnerDirection, getPartners, searchUsers, type UserResponseDto } from '@Universal Photos/sdk';
-  import { Button, ListButton, LoadingSpinner, Modal, ModalBody, ModalFooter, Text } from '@Universal Photos/ui';
+  import { PartnerDirection, getPartners, searchUsers, type UserResponseDto } from '@immich/sdk';
+  import { Button, ListButton, LoadingSpinner, Modal, ModalBody, ModalFooter, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   interface Props {
@@ -41,7 +41,7 @@
       </div>
     {:then _}
       {#if availableUsers.length > 0}
-        <div class="flex max-h-75 Universal Photos-scrollbar flex-col gap-2 overflow-y-auto">
+        <div class="flex max-h-75 immich-scrollbar flex-col gap-2 overflow-y-auto">
           {#each availableUsers as user (user.id)}
             <ListButton onclick={() => selectUser(user)} selected={selectedUsers.includes(user)}>
               <UserAvatar {user} size="md" />

@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/providers/haptic_feedback.provider.dart';
-import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/providers/haptic_feedback.provider.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_toast.dart';
 
 class SheetTile extends ConsumerWidget {
   final String title;

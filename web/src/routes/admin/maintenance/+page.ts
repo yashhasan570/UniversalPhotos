@@ -1,6 +1,6 @@
 import { authenticate } from '#lib/utils/auth.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { getIntegrityReportSummary, getServerVersion, listDatabaseBackups } from '@universalphotos/sdk';
+import { getIntegrityReportSummary, getServerVersion, listDatabaseBackups } from '@universal_photos/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ url }) => {

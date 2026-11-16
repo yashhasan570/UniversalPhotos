@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/theme_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/pages/common/large_leading_tile.dart';
-import 'package:universal_photos/presentation/widgets/images/thumbnail.widget.dart';
-import 'package:universal_photos/providers/infrastructure/asset.provider.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/theme_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/pages/common/large_leading_tile.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/thumbnail.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/asset.provider.dart';
 
 class AlbumTile extends ConsumerWidget {
   const AlbumTile({super.key, required this.album, required this.isOwner, this.onAlbumSelected});

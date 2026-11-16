@@ -1,8 +1,8 @@
 import 'package:flutter/painting.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
-import 'package:universal_photos/presentation/widgets/images/local_image_provider.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/local_image_provider.dart';
 
 import '../../../unit/factories/local_asset_factory.dart';
 

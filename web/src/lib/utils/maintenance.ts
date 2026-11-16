@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { maintenanceStore } from '#lib/stores/maintenance.store.ts';
 import { websocketStore } from '#lib/stores/websocket.ts';
-import { MaintenanceAction, getMaintenanceStatus, maintenanceLogin } from '@universalphotos/sdk';
+import { MaintenanceAction, getMaintenanceStatus, maintenanceLogin } from '@universal_photos/sdk';
 
 export function maintenanceCreateUrl(url: URL) {
   return new URL(Route.maintenanceMode({ continue: url.pathname + url.search }), url.origin).href;

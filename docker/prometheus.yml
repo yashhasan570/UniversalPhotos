@@ -3,10 +3,10 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: universalphotos_api
+  - job_name: universal_photos_api
     static_configs:
-      - targets: ['universalphotos-server:8081']
+      - targets: ['universal_photos-server:8081']
 
-  - job_name: universalphotos_microservices
+  - job_name: universal_photos_microservices
     static_configs:
-      - targets: ['universalphotos-server:8082']
+      - targets: ['universal_photos-server:8082']

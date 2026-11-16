@@ -3,11 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/models/server_info/server_info.model.dart';
-import 'package:universal_photos/providers/server_info.provider.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/models/server_info/server_info.model.dart';
+import 'package:universal_photos_mobile/providers/server_info.provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ServerUpdateNotification extends HookConsumerWidget {

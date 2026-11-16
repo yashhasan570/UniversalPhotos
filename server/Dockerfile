@@ -1,4 +1,4 @@
-FROM /base-server-dev:202611031105@sha256:a1569fa3e5de340495658c3683574a15c1cc675db4bee635dd83f66e0ec7212b AS builder
+FROM ghcr.io/universal_photos-app/base-server-dev:202611031105@sha256:a1569fa3e5de340495658c3683574a15c1cc675db4bee635dd83f66e0ec7212b AS builder
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0 \
   CI=1 \
   COREPACK_HOME=/tmp \
@@ -16,35 +16,35 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .pnpmfile.cjs ./
 FROM builder AS sdk
 
 COPY ./packages/sdk/package.json ./packages/sdk/package.json
-RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universalphotos/sdk install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universal_photos/sdk install --frozen-lockfile
 
 COPY ./packages/sdk ./packages/sdk/
-RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universalphotos/sdk build
+RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universal_photos/sdk build
 
 FROM sdk AS plugin-sdk
 
 COPY ./packages/plugin-sdk/package.json ./packages/plugin-sdk/package.json
-RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universalphotos/plugin-sdk install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universal_photos/plugin-sdk install --frozen-lockfile
 
 COPY ./packages/plugin-sdk ./packages/plugin-sdk/
-RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universalphotos/plugin-sdk build
+RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universal_photos/plugin-sdk build
 
 FROM plugin-sdk AS server
 
 COPY ./server/package.json ./server/package.json
-RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter universalphotos install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter universal_photos install --frozen-lockfile
 
 COPY ./server ./server/
 RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store \
-  pnpm --filter universalphotos build && \
-  pnpm --filter universalphotos --prod --no-optional deploy /output/server-pruned
+  pnpm --filter universal_photos build && \
+  pnpm --filter universal_photos --prod --no-optional deploy /output/server-pruned
 RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store \
   SHARP_FORCE_GLOBAL_LIBVIPS=true pnpm --config.verify-deps-before-run=false --dir /output/server-pruned/node_modules/sharp run build
 
 FROM sdk AS web
 
 COPY ./web/package.json ./web/package.json
-RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter universalphotos-web install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter universal_photos-web install --frozen-lockfile
 
 COPY ./i18n ./i18n/
 COPY ./web ./web/
@@ -52,17 +52,17 @@ COPY ./web ./web/
 ARG BUILD_ID
 ENV UNIVERSALPHOTOS_BUILD=${BUILD_ID}
 
-RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter universalphotos-web build
+RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter universal_photos-web build
 
 FROM sdk AS cli
 
 COPY ./packages/cli/package.json ./packages/cli/package.json
-RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universalphotos/cli install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store pnpm --filter @universal_photos/cli install --frozen-lockfile
 
 COPY ./packages/cli ./packages/cli/
 RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store \
-  pnpm --filter @universalphotos/cli build && \
-  pnpm --filter @universalphotos/cli --prod --no-optional deploy /output/cli-pruned
+  pnpm --filter @universal_photos/cli build && \
+  pnpm --filter @universal_photos/cli --prod --no-optional deploy /output/cli-pruned
 
 FROM plugin-sdk AS plugins
 
@@ -86,7 +86,7 @@ RUN --mount=type=cache,id=pnpm,target=/buildcache/pnpm-store \
   --mount=type=cache,id=mise-tools-${TARGETPLATFORM},target=/buildcache/mise \
   mise //:plugins
 
-FROM /base-server-prod:202611031105@sha256:11dd3d258ec519494fd116fc54e568b12769e4d26d2def063bcafb9b56cc064b
+FROM ghcr.io/universal_photos-app/base-server-prod:202611031105@sha256:11dd3d258ec519494fd116fc54e568b12769e4d26d2def063bcafb9b56cc064b
 
 WORKDIR /usr/src/app
 ENV NODE_ENV=production \
@@ -96,9 +96,9 @@ ENV NODE_ENV=production \
 COPY --from=server /output/server-pruned ./server
 COPY --from=web /usr/src/app/web/build /build/www
 COPY --from=cli /output/cli-pruned ./cli
-COPY --from=plugins /usr/src/app/packages/plugin-core/dist /build/plugins/universalphotos-plugin-core/dist
-COPY --from=plugins /usr/src/app/packages/plugin-core/manifest.json /build/plugins/universalphotos-plugin-core/manifest.json
-RUN ln -s ../../cli/bin/universalphotos server/bin/universalphotos
+COPY --from=plugins /usr/src/app/packages/plugin-core/dist /build/plugins/universal_photos-plugin-core/dist
+COPY --from=plugins /usr/src/app/packages/plugin-core/manifest.json /build/plugins/universal_photos-plugin-core/manifest.json
+RUN ln -s ../../cli/bin/universal_photos server/bin/universal_photos
 COPY LICENSE /licenses/LICENSE.txt
 COPY LICENSE /LICENSE
 
@@ -112,8 +112,8 @@ ARG BUILD_SOURCE_COMMIT
 ENV UNIVERSALPHOTOS_BUILD=${BUILD_ID}
 ENV UNIVERSALPHOTOS_BUILD_URL=https://github.com/yashhasan570/UniversalPhotos/actions/runs/${BUILD_ID}
 ENV UNIVERSALPHOTOS_BUILD_IMAGE=${BUILD_IMAGE}
-ENV UNIVERSALPHOTOS_BUILD_IMAGE_URL=https://github.com/yashhasan570/UniversalPhotos/pkgs/container/universalphotos-server
-ENV UNIVERSALPHOTOS_REPOSITORY=universalphotos-app/universalphotos
+ENV UNIVERSALPHOTOS_BUILD_IMAGE_URL=https://github.com/yashhasan570/UniversalPhotos/pkgs/container/universal_photos-server
+ENV UNIVERSALPHOTOS_REPOSITORY=universal_photos-app/universal_photos
 ENV UNIVERSALPHOTOS_REPOSITORY_URL=https://github.com/yashhasan570/UniversalPhotos
 ENV UNIVERSALPHOTOS_SOURCE_REF=${BUILD_SOURCE_REF}
 ENV UNIVERSALPHOTOS_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
@@ -127,4 +127,4 @@ EXPOSE 2283
 ENTRYPOINT ["tini", "--", "/bin/bash", "-c"]
 CMD ["start.sh"]
 
-HEALTHCHECK CMD universalphotos-healthcheck
+HEALTHCHECK CMD universal_photos-healthcheck

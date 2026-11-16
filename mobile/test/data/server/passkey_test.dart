@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:universal_photos/data/server/passkey.dart';
-import 'package:universal_photos/domain/models/passkey.model.dart';
+import 'package:universal_photos_mobile/data/server/passkey.dart';
+import 'package:universal_photos_mobile/domain/models/passkey.model.dart';
 import 'package:openapi/api.dart';
 
 void main() {

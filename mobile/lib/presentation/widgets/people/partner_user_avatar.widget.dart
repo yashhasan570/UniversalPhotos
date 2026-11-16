@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/presentation/widgets/images/remote_image_provider.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/remote_image_provider.dart';
 
 class PartnerUserAvatar extends StatelessWidget {
   const PartnerUserAvatar({super.key, required this.userId, required this.name});

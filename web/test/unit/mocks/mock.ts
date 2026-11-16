@@ -15,7 +15,7 @@ import { MockFetch } from '#test/unit/mocks/api.ts';
 import { resetPage, setPage } from '#test/unit/mocks/app-state.svelte.ts';
 import { MockConsole } from '#test/unit/mocks/logger.ts';
 import { MockRouter } from '#test/unit/mocks/router.ts';
-import { setTranslations } from '@universalphotos/ui';
+import { setTranslations } from '@universal_photos/ui';
 import { isRedirect } from '@sveltejs/kit';
 import { tick, type Component } from 'svelte';
 import { cleanup, render } from 'vitest-browser-svelte';
@@ -42,7 +42,7 @@ export class Mock {
   readonly logger = new MockConsole();
 
   async setup() {
-    document.cookie = 'universalphotos_is_authenticated=true';
+    document.cookie = 'universal_photos_is_authenticated=true';
     locale.set('en');
     this.router.setup();
     this.api.setup();

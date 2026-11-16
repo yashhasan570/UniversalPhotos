@@ -4,7 +4,7 @@
   import { executeMutation } from '#lib/queries/client.ts';
   import { upsertTagsMutation } from '#lib/queries/tag.query.ts';
   import type { TreeNode } from '#lib/utils/tree-utils.ts';
-  import { FormModal, Text, toastManager } from '@Universal Photos/ui';
+  import { FormModal, Text, toastManager } from '@immich/ui';
   import { mdiTag } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

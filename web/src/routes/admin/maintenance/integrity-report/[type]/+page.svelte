@@ -5,8 +5,8 @@
   import { Route } from '#lib/route.ts';
   import { getIntegrityReportActions } from '#lib/services/integrity.service.ts';
   import { asyncTimeout } from '#lib/utils.ts';
-  import { IntegrityReport, getIntegrityReport, getQueuesLegacy } from '@Universal Photos/sdk';
-  import { Button, Table, TableBody, TableHeader, TableHeading } from '@Universal Photos/ui';
+  import { IntegrityReport, getIntegrityReport, getQueuesLegacy } from '@immich/sdk';
+  import { Button, Table, TableBody, TableHeader, TableHeading } from '@immich/ui';
   import { onDestroy, onMount } from 'svelte';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';

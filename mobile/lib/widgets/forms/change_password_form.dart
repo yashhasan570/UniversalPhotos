@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/providers/auth.provider.dart';
-import 'package:universal_photos/providers/websocket.provider.dart';
-import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/providers/auth.provider.dart';
+import 'package:universal_photos_mobile/providers/websocket.provider.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_toast.dart';
 
 class ChangePasswordForm extends HookConsumerWidget {
   const ChangePasswordForm({super.key});

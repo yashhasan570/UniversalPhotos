@@ -34,7 +34,7 @@ describe(SmartInfoService.name, () => {
     it('should allow including organization', () => {
       expect(() =>
         sut.onConfigValidate({
-          newConfig: { machineLearning: { clip: { modelName: 'universalphotos-app/ViT-B-16__openai' } } } as SystemConfig,
+          newConfig: { machineLearning: { clip: { modelName: 'universal_photos-app/ViT-B-16__openai' } } } as SystemConfig,
           oldConfig: {} as SystemConfig,
         }),
       ).not.toThrow();

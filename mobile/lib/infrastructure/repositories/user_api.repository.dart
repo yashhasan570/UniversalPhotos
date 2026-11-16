@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
 import 'package:http/http.dart';
-import 'package:universal_photos/data/server/api_repository.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/infrastructure/utils/user.converter.dart';
+import 'package:universal_photos_mobile/data/server/api_repository.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/infrastructure/utils/user.converter.dart';
 import 'package:openapi/api.dart';
 
 class UserApiRepository extends ApiRepository {

@@ -9,7 +9,7 @@ import {
   UpdateDateColumn,
   type Generated,
   type Timestamp,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { MemoryType } from 'src/enum.js';
 import { memory_delete_audit } from 'src/schema/functions.js';

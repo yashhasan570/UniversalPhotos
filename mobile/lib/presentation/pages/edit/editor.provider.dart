@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/aspect_ratios.dart';
-import 'package:universal_photos/domain/models/asset_edit.model.dart';
-import 'package:universal_photos/domain/models/exif.model.dart';
-import 'package:universal_photos/utils/editor.utils.dart';
+import 'package:universal_photos_mobile/constants/aspect_ratios.dart';
+import 'package:universal_photos_mobile/domain/models/asset_edit.model.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart';
+import 'package:universal_photos_mobile/utils/editor.utils.dart';
 
 part 'editor.provider.freezed.dart';
 

@@ -4,13 +4,13 @@ import { queryClient } from '#lib/queries/client.ts';
 import { getPublicConfigQuery } from '#lib/queries/config-public.query.ts';
 import { getServerConfigQuery } from '#lib/queries/server-info.query.ts';
 import { initLanguage } from '#lib/utils.ts';
-import { setFetch } from '@universalphotos/sdk';
+import { setFetch } from '@universal_photos/sdk';
 import { memoize } from 'lodash-es';
 
 type Fetch = typeof fetch;
 
 async function _init(fetch: Fetch) {
-  // set event.fetch on the fetch-client used by @universalphotos/sdk
+  // set event.fetch on the fetch-client used by @universal_photos/sdk
   // https://kit.svelte.dev/docs/load#making-fetch-requests
   // https://github.com/oazapfts/oazapfts/blob/main/README.md#fetch-options
   setFetch(fetch);

@@ -5,29 +5,29 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/locales.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/domain/models/config/app_config.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/extensions/platform_extensions.dart';
-import 'package:universal_photos/generated/codegen_loader.g.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
-import 'package:universal_photos/providers/app_life_cycle.provider.dart';
-import 'package:universal_photos/providers/auth.provider.dart';
-import 'package:universal_photos/providers/background_sync.provider.dart';
-import 'package:universal_photos/providers/backup/backup.provider.dart';
-import 'package:universal_photos/providers/server_info.provider.dart';
-import 'package:universal_photos/providers/view_intent/view_intent_handler.provider.dart';
-import 'package:universal_photos/providers/websocket.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/services/universalphotos_logger.service.dart';
-import 'package:universal_photos/theme/color_scheme.dart';
-import 'package:universal_photos/theme/theme_data.dart';
-import 'package:universal_photos/utils/fallback_localizations.dart';
-import 'package:universal_photos/widgets/common/universalphotos_logo.dart';
-import 'package:universal_photos/widgets/common/universalphotos_title_text.dart';
+import 'package:universal_photos_mobile/constants/locales.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/domain/models/config/app_config.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/extensions/platform_extensions.dart';
+import 'package:universal_photos_mobile/generated/codegen_loader.g.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos_mobile/providers/app_life_cycle.provider.dart';
+import 'package:universal_photos_mobile/providers/auth.provider.dart';
+import 'package:universal_photos_mobile/providers/background_sync.provider.dart';
+import 'package:universal_photos_mobile/providers/backup/backup.provider.dart';
+import 'package:universal_photos_mobile/providers/server_info.provider.dart';
+import 'package:universal_photos_mobile/providers/view_intent/view_intent_handler.provider.dart';
+import 'package:universal_photos_mobile/providers/websocket.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/services/universal_photos_logger.service.dart';
+import 'package:universal_photos_mobile/theme/color_scheme.dart';
+import 'package:universal_photos_mobile/theme/theme_data.dart';
+import 'package:universal_photos_mobile/utils/fallback_localizations.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_logo.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_title_text.dart';
 import 'package:logging/logging.dart';
 import 'package:url_launcher/url_launcher.dart' show LaunchMode, launchUrl;
 
@@ -39,7 +39,7 @@ class BootstrapErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext _) {
-    final universalphotosTheme = defaultConfig.theme.primaryColor.themeOfPreset;
+    final universal_photosTheme = defaultConfig.theme.primaryColor.themeOfPreset;
 
     return EasyLocalization(
       supportedLocales: locales.values.toList(),
@@ -55,8 +55,8 @@ class BootstrapErrorWidget extends StatelessWidget {
           supportedLocales: lCtx.supportedLocales,
           locale: lCtx.locale,
           themeMode: ThemeMode.system,
-          darkTheme: getThemeData(colorScheme: universalphotosTheme.dark, locale: lCtx.locale),
-          theme: getThemeData(colorScheme: universalphotosTheme.light, locale: lCtx.locale),
+          darkTheme: getThemeData(colorScheme: universal_photosTheme.dark, locale: lCtx.locale),
+          theme: getThemeData(colorScheme: universal_photosTheme.light, locale: lCtx.locale),
           home: Builder(
             builder: (ctx) => Scaffold(
               body: Column(
@@ -139,7 +139,7 @@ class _BottomPanelState extends State<_BottomPanel> {
     }
 
     try {
-      await deleteSqliteDatabase(name: 'universalphotos');
+      await deleteSqliteDatabase(name: 'universal_photos');
     } catch (_) {
       return;
     }
@@ -413,7 +413,7 @@ class SplashScreenPageState extends ConsumerState<SplashScreenPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Image(image: AssetImage('assets/universalphotos-logo.png'), width: 80, filterQuality: FilterQuality.high),
+        child: Image(image: AssetImage('assets/universal_photos-logo.png'), width: 80, filterQuality: FilterQuality.high),
       ),
     );
   }

@@ -23,8 +23,8 @@
   import { locale } from '#lib/stores/preferences.store.ts';
   import { getAssetMediaUrl, handlePromiseError, memoryLaneTitle } from '#lib/utils.ts';
   import { fromISODateTimeUTC, toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import { AssetMediaSize, AssetTypeEnum, MemoryType, getAssetInfo } from '@Universal Photos/sdk';
-  import { ActionButton, CommandPaletteDefaultProvider, Icon, IconButton, Text, shortcuts } from '@Universal Photos/ui';
+  import { AssetMediaSize, AssetTypeEnum, MemoryType, getAssetInfo } from '@immich/sdk';
+  import { ActionButton, CommandPaletteDefaultProvider, Icon, IconButton, Text, shortcuts } from '@immich/ui';
   import {
     mdiCakeVariant,
     mdiCardsOutline,
@@ -313,7 +313,7 @@
 <section
   data-testid="memory-viewer"
   data-sveltekit-reset={false}
-  class="dark w-full bg-Universal Photos-dark-gray text-white"
+  class="dark w-full bg-immich-dark-gray text-white"
   {@attach scrollMemoryClearer({ routeStartsWith: Route.memories() })}
   bind:this={memoryWrapper}
   bind:clientHeight={viewport.height}
@@ -612,7 +612,7 @@
 
 {#if current}
   <!-- GALLERY VIEWER -->
-  <section class="bg-Universal Photos-dark-gray p-4">
+  <section class="bg-immich-dark-gray p-4">
     <div
       class="dark sticky mb-10 flex place-content-center place-items-center transition-all"
       class:opacity-0={galleryInView}

@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/util/datetime_clamp_type.dart';
-import 'package:universal_photos/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos_mobile/data/db/util/datetime_clamp_type.dart';
+import 'package:universal_photos_mobile/data/db/util/defaults_mixin.dart';
 
 class SettingsEntity extends Table with DriftDefaultsMixin {
   const SettingsEntity();

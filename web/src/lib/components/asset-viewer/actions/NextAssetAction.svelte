@@ -1,6 +1,6 @@
 <script lang="ts">
   import { languageManager } from '#lib/managers/language-manager.svelte.ts';
-  import { Icon, shortcuts } from '@Universal Photos/ui';
+  import { Icon, shortcuts } from '@immich/ui';
   import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import NavigationArea from '../NavigationArea.svelte';

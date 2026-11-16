@@ -1,6 +1,6 @@
 import { eventManager } from '#lib/managers/event-manager.svelte.ts';
 import { GCastDestination } from '#lib/utils/cast/gcast-destination.svelte.ts';
-import { createSession, type SessionCreateResponseDto } from '@universalphotos/sdk';
+import { createSession, type SessionCreateResponseDto } from '@universal_photos/sdk';
 import { DateTime, Duration } from 'luxon';
 
 // follows chrome.cast.media.PlayerState

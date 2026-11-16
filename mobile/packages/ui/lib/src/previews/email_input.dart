@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/components/email_input.dart';
-import 'package:universalphotos_ui/src/previews.dart';
+import 'package:universal_photos_ui/src/components/email_input.dart';
+import 'package:universal_photos_ui/src/previews.dart';
 
 @UniversalPhotosPreview(group: 'EmailInput', name: 'Basic')
 Widget previewEmailInput() => const _PreviewEmailInput();

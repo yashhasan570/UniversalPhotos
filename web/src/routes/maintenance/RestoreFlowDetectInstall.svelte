@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { detectPriorInstall, type MaintenanceDetectInstallResponseDto } from '@Universal Photos/sdk';
-  import { Button, HStack, Heading, Icon, Stack, Text } from '@Universal Photos/ui';
+  import { detectPriorInstall, type MaintenanceDetectInstallResponseDto } from '@immich/sdk';
+  import { Button, HStack, Heading, Icon, Stack, Text } from '@immich/ui';
   import { mdiAlert, mdiArrowRight, mdiCheck, mdiClose, mdiRefresh } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -84,7 +84,7 @@
       <Button leadingIcon={mdiRefresh} variant="ghost" onclick={reload}>{$t('refresh')}</Button>
     {:else}
       <HStack>
-        <Icon icon={mdiRefresh} color="rgb(var(--Universal Photos-ui-primary))" />
+        <Icon icon={mdiRefresh} color="rgb(var(--immich-ui-primary))" />
         <Text>{$t('maintenance_restore_library_loading')}</Text>
       </HStack>
     {/if}

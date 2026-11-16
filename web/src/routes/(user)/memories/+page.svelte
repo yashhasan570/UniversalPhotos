@@ -10,8 +10,8 @@
   import { getAssetMediaUrl, memoryLaneTitle } from '#lib/utils.ts';
   import { getAltText } from '#lib/utils/thumbnail-util.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import type { MemoryResponseDto } from '@Universal Photos/sdk';
-  import { IconButton, LoadingSpinner, modalManager } from '@Universal Photos/ui';
+  import type { MemoryResponseDto } from '@immich/sdk';
+  import { IconButton, LoadingSpinner, modalManager } from '@immich/ui';
   import { mdiTune } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';

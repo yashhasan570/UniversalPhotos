@@ -8,18 +8,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/services/store.service.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/storage.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
-import 'package:universal_photos/platform/native_sync_api.g.dart';
-import 'package:universal_photos/repositories/asset_media.repository.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/services/store.service.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/storage.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos_mobile/platform/native_sync_api.g.dart';
+import 'package:universal_photos_mobile/repositories/asset_media.repository.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:path/path.dart' as p;
 
@@ -81,7 +81,7 @@ void main() {
   });
 
   setUp(() {
-    tempRoot = Directory.systemTemp.createTempSync('universalphotos-share-test');
+    tempRoot = Directory.systemTemp.createTempSync('universal_photos-share-test');
     storage = _MockStorageRepository();
     shareCall = Completer<List<String>>();
     repository = _TestAssetMediaRepository(_MockNativeSyncApi(), storage, shareCall);

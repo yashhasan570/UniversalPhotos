@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/domain/models/server_capability.model.dart';
-import 'package:universal_photos/domain/models/sync_event.model.dart';
-import 'package:universal_photos/infrastructure/repositories/network.repository.dart';
-import 'package:universal_photos/services/api.service.dart';
-import 'package:universal_photos/utils/semver.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/domain/models/server_capability.model.dart';
+import 'package:universal_photos_mobile/domain/models/sync_event.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/network.repository.dart';
+import 'package:universal_photos_mobile/services/api.service.dart';
+import 'package:universal_photos_mobile/utils/semver.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 

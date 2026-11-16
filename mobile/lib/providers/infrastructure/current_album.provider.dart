@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/album.provider.dart';
 
 final currentRemoteAlbumScopedProvider = Provider<RemoteAlbum?>((ref) => null);
 final currentRemoteAlbumProvider = NotifierProvider<CurrentAlbumNotifier, RemoteAlbum?>(

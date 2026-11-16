@@ -8,8 +8,8 @@ import { updateUserAdminMutation } from '#lib/queries/user-admin.query.ts';
 import { Route } from '#lib/route.ts';
 import type { HeaderButtonActionItem } from '#lib/types.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { UserStatus, type UserAdminResponseDto } from '@universalphotos/sdk';
-import { modalManager, type ActionItem } from '@universalphotos/ui';
+import { UserStatus, type UserAdminResponseDto } from '@universal_photos/sdk';
+import { modalManager, type ActionItem } from '@universal_photos/ui';
 import {
   mdiDeleteRestore,
   mdiInformationOutline,

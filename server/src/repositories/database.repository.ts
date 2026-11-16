@@ -1,4 +1,4 @@
-import { schemaDiff, schemaFromCode, schemaFromDatabase } from '@universalphotos/sql-tools';
+import { schemaDiff, schemaFromCode, schemaFromDatabase } from '@universal_photos/sql-tools';
 import { Injectable } from '@nestjs/common';
 import AsyncLock from 'async-lock';
 import { Kysely, sql } from 'kysely';
@@ -22,7 +22,7 @@ import { GenerateSql } from 'src/decorators.js';
 import { DatabaseExtension, DatabaseLock, VectorIndex } from 'src/enum.js';
 import { ConfigRepository } from 'src/repositories/config.repository.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';
-import { universalphotos_uuid_v7 } from 'src/schema/functions.js';
+import { universal_photos_uuid_v7 } from 'src/schema/functions.js';
 // eslint-disable-next-line import-x/no-duplicates
 import 'src/schema/index.js'; // make sure all schema definitions are imported for schemaFromCode
 
@@ -277,7 +277,7 @@ export class DatabaseRepository {
     const source = schemaFromCode({
       overrides: true,
       namingStrategy: 'default',
-      uuidFunction: (version) => (version === 7 ? `${universalphotos_uuid_v7.name}()` : 'uuid_generate_v4()'),
+      uuidFunction: (version) => (version === 7 ? `${universal_photos_uuid_v7.name}()` : 'uuid_generate_v4()'),
     });
     const { database } = this.configRepository.getEnv();
     const target = await schemaFromDatabase({ connection: database.config });

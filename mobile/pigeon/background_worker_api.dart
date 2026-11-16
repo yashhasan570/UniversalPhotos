@@ -5,10 +5,10 @@ import 'package:pigeon/pigeon.dart';
     dartOut: 'lib/platform/background_worker_api.g.dart',
     swiftOut: 'ios/Runner/Background/BackgroundWorker.g.swift',
     swiftOptions: SwiftOptions(includeErrorClass: false),
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universalphotos/background/BackgroundWorker.g.kt',
-    kotlinOptions: KotlinOptions(package: 'app.alextran.background'),
+    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universal_photos/background/BackgroundWorker.g.kt',
+    kotlinOptions: KotlinOptions(package: 'app.alextran.universal_photos.background'),
     dartOptions: DartOptions(),
-    dartPackageName: 'universal_photos',
+    dartPackageName: 'universal_photos_mobile',
   ),
 )
 class BackgroundWorkerSettings {

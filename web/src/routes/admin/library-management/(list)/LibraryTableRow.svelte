@@ -7,8 +7,8 @@
   import { getLibraryActions } from '#lib/services/library.service.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
   import { getBytesWithUnit } from '#lib/utils/byte-units.ts';
-  import type { LibraryResponseDto } from '@Universal Photos/sdk';
-  import { ContextMenuButton, Link, MenuItemType, TableCell, TableRow } from '@Universal Photos/ui';
+  import type { LibraryResponseDto } from '@immich/sdk';
+  import { ContextMenuButton, Link, MenuItemType, TableCell, TableRow } from '@immich/ui';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
 

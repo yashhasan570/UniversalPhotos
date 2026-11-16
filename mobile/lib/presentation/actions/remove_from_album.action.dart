@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/actions/action.dart';
-import 'package:universal_photos/providers/infrastructure/album.provider.dart';
-import 'package:universal_photos/providers/infrastructure/toast.provider.dart';
-import 'package:universal_photos/utils/error_handler.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/toast.provider.dart';
+import 'package:universal_photos_mobile/utils/error_handler.dart';
 
 final _stateProvider = Provider.family.autoDispose<List<String>?, ActionSource>((ref, source) {
   final assets = ref.watch(assetsActionProvider(source));

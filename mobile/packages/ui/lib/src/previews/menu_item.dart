@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/components/menu_item.dart';
-import 'package:universalphotos_ui/src/previews.dart';
+import 'package:universal_photos_ui/src/components/menu_item.dart';
+import 'package:universal_photos_ui/src/previews.dart';
 
 void _previewNoop() {}
 

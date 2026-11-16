@@ -8,7 +8,7 @@ import { AppRepository } from 'src/repositories/app.repository.js';
 import { isStartUpError } from 'src/utils/misc.js';
 
 async function bootstrap() {
-  process.title = 'universalphotos-maintenance';
+  process.title = 'universal_photos-maintenance';
   configureTelemetry();
 
   const app = await NestFactory.create<NestExpressApplication>(MaintenanceModule, {

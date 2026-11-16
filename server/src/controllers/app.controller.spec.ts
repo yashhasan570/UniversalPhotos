@@ -21,14 +21,14 @@ describe(AppController.name, () => {
     passkeyService.resetAllMocks();
   });
 
-  describe('GET /.well-known/universalphotos', () => {
+  describe('GET /.well-known/universal_photos', () => {
     it('should not be an authenticated route', async () => {
-      await request(ctx.getHttpServer()).post('/.well-known/universalphotos');
+      await request(ctx.getHttpServer()).post('/.well-known/universal_photos');
       expect(ctx.authenticate).not.toHaveBeenCalled();
     });
 
     it('should return a 200 status code', async () => {
-      const { status, body } = await request(ctx.getHttpServer()).get('/.well-known/universalphotos');
+      const { status, body } = await request(ctx.getHttpServer()).get('/.well-known/universal_photos');
       expect(status).toBe(200);
       expect(body).toEqual({
         api: {

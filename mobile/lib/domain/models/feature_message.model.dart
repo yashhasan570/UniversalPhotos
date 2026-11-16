@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/utils/semver.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/utils/semver.dart';
 
 enum FeatureHighlight {
   shareQuality(image: 'assets/feature_message/share_quality.webp'),
   slideshow(image: 'assets/feature_message/slideshow.webp'),
   recentlyAdded(image: 'assets/feature_message/recently_added.webp'),
   ocr(image: 'assets/feature_message/ocr.webp'),
-  openInUniversalPhotos(image: 'assets/feature_message/open_in_universalphotos.webp', platform: [.android]),
+  openInUniversalPhotos(image: 'assets/feature_message/open_in_universal_photos.webp', platform: [.android]),
   uploadToAlbum();
 
   /// Asset path of the feature screenshot, or null to show a placeholder.
@@ -23,7 +23,7 @@ enum FeatureHighlight {
     FeatureHighlight.slideshow => t.slideshow_title,
     FeatureHighlight.recentlyAdded => t.recently_added_title,
     FeatureHighlight.ocr => t.ocr_title,
-    FeatureHighlight.openInUniversalPhotos => t.open_in_universalphotos_title,
+    FeatureHighlight.openInUniversalPhotos => t.open_in_universal_photos_title,
     FeatureHighlight.uploadToAlbum => t.upload_to_album_title,
   };
 
@@ -32,7 +32,7 @@ enum FeatureHighlight {
     FeatureHighlight.slideshow => t.slideshow_body,
     FeatureHighlight.recentlyAdded => t.recently_added_body,
     FeatureHighlight.ocr => t.ocr_body,
-    FeatureHighlight.openInUniversalPhotos => t.open_in_universalphotos_body,
+    FeatureHighlight.openInUniversalPhotos => t.open_in_universal_photos_body,
     FeatureHighlight.uploadToAlbum => t.upload_to_album_body,
   };
 }

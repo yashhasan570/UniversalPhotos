@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:universal_photos/utils/bytes_units.dart';
+import 'package:universal_photos_mobile/utils/bytes_units.dart';
 import 'package:path/path.dart';
 
 part 'share_intent_attachment.model.freezed.dart';

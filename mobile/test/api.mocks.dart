@@ -1,5 +1,5 @@
-import 'package:universal_photos/platform/connectivity_api.g.dart';
-import 'package:universal_photos/repositories/partner_api.repository.dart';
+import 'package:universal_photos_mobile/platform/connectivity_api.g.dart';
+import 'package:universal_photos_mobile/repositories/partner_api.repository.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:openapi/api.dart';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Modal, ModalBody } from '@Universal Photos/ui';
+  import { Modal, ModalBody } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   interface Props {

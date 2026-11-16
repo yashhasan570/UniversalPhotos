@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/components/text_input.dart';
-import 'package:universalphotos_ui/src/internal.dart';
+import 'package:universal_photos_ui/src/components/text_input.dart';
+import 'package:universal_photos_ui/src/internal.dart';
 
 class UniversalPhotosPasswordInput extends StatefulWidget {
   final String? label;

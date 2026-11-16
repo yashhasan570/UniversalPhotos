@@ -1,6 +1,6 @@
 import { sortAlbums } from '#lib/utils/album-utils.ts';
 import { normalizeSearchString } from '#lib/utils/string-utils.ts';
-import type { AlbumResponseDto } from '@universalphotos/sdk';
+import type { AlbumResponseDto } from '@universal_photos/sdk';
 import { t } from 'svelte-i18n';
 import { get } from 'svelte/store';
 

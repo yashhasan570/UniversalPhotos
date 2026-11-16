@@ -1,7 +1,7 @@
 <script lang="ts">
   import UserAvatar from '#lib/components/shared-components/UserAvatar.svelte';
-  import { searchUsers, type UserResponseDto } from '@Universal Photos/sdk';
-  import { Button, ListButton, LoadingSpinner, Modal, ModalBody, ModalFooter, Text } from '@Universal Photos/ui';
+  import { searchUsers, type UserResponseDto } from '@immich/sdk';
+  import { Button, ListButton, LoadingSpinner, Modal, ModalBody, ModalFooter, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {
@@ -35,7 +35,7 @@
       </div>
     {:then _}
       {#if availableUsers.length > 0}
-        <div class="flex max-h-75 Universal Photos-scrollbar flex-col gap-2 overflow-y-auto">
+        <div class="flex max-h-75 immich-scrollbar flex-col gap-2 overflow-y-auto">
           {#each availableUsers as user (user.id)}
             <ListButton onclick={() => selectUser(user)} selected={selectedUsers.some(({ id }) => id === user.id)}>
               <UserAvatar {user} size="md" />

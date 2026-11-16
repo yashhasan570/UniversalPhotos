@@ -24,8 +24,8 @@ import {
   type ServerVersionResponseDto,
   type SharedLinkResponseDto,
   type UserResponseDto,
-} from '@universalphotos/sdk';
-import { toastManager, type ActionItem, type IfLike } from '@universalphotos/ui';
+} from '@universal_photos/sdk';
+import { toastManager, type ActionItem, type IfLike } from '@universal_photos/ui';
 import { DateTime } from 'luxon';
 import { init, register, t } from 'svelte-i18n';
 import { derived, get } from 'svelte/store';

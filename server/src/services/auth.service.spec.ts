@@ -17,7 +17,7 @@ import { userStub } from 'test/fixtures/user.stub.js';
 import { newUuid } from 'test/small.factory.js';
 import { ServiceMocks, newTestService } from 'test/utils.js';
 
-const email = 'test@universalphotos.com';
+const email = 'test@universal_photos.com';
 const loginDetails = {
   isSecure: true,
   clientIp: '127.0.0.1',
@@ -70,7 +70,7 @@ describe(AuthService.name, () => {
     });
 
     it('should successfully log the user in', async () => {
-      const user = UserFactory.create({ password: 'universalphotos_password' });
+      const user = UserFactory.create({ password: 'universal_photos_password' });
       const session = SessionFactory.create();
       mocks.user.getByEmail.mockResolvedValue(user);
       mocks.session.create.mockResolvedValue(session);
@@ -321,14 +321,14 @@ describe(AuthService.name, () => {
   });
 
   describe('adminSignUp', () => {
-    const dto: SignUpDto = { email: 'test@universalphotos.com', password: 'password', name: 'universalphotos admin' };
+    const dto: SignUpDto = { email: 'test@universal_photos.com', password: 'password', name: 'universal_photos admin' };
 
     it('should sign up the admin', async () => {
       mocks.user.create.mockResolvedValue({
         ...userStub.admin,
         ...dto,
         id: 'admin',
-        name: 'universalphotos admin',
+        name: 'universal_photos admin',
         createdAt: new Date('2021-01-01'),
         metadata: [] as UserMetadataItem[],
       } as UserAdmin);
@@ -337,8 +337,8 @@ describe(AuthService.name, () => {
         avatarColor: expect.any(String),
         id: 'admin',
         createdAt: new Date('2021-01-01'),
-        email: 'test@universalphotos.com',
-        name: 'universalphotos admin',
+        email: 'test@universal_photos.com',
+        name: 'universal_photos admin',
       });
 
       expect(mocks.user.create).toHaveBeenCalled();
@@ -391,7 +391,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-universalphotos-share-key': 'key' },
+          headers: { 'x-universal_photos-share-key': 'key' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -403,7 +403,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-universalphotos-share-key': 'key' },
+          headers: { 'x-universal_photos-share-key': 'key' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -415,7 +415,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-universalphotos-share-key': 'key' },
+          headers: { 'x-universal_photos-share-key': 'key' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -428,7 +428,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-universalphotos-share-key': 'key' },
+          headers: { 'x-universal_photos-share-key': 'key' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -447,7 +447,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-universalphotos-share-key': key },
+          headers: { 'x-universal_photos-share-key': key },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -468,7 +468,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-universalphotos-share-key': key },
+          headers: { 'x-universal_photos-share-key': key },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -484,7 +484,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-universalphotos-share-slug': 'slug' },
+          headers: { 'x-universal_photos-share-slug': 'slug' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -500,7 +500,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-universalphotos-share-slug': 'slug-123' },
+          headers: { 'x-universal_photos-share-slug': 'slug-123' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: true, uri: 'test' },
         }),
@@ -516,7 +516,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { 'x-universalphotos-user-token': 'auth_token' },
+          headers: { 'x-universal_photos-user-token': 'auth_token' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -538,7 +538,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { cookie: 'universalphotos_access_token=auth_token' },
+          headers: { cookie: 'universal_photos_access_token=auth_token' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -567,7 +567,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { cookie: 'universalphotos_access_token=auth_token' },
+          headers: { cookie: 'universal_photos_access_token=auth_token' },
           queryParams: {},
           metadata: { adminRoute: true, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -591,7 +591,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.authenticate({
-          headers: { cookie: 'universalphotos_access_token=auth_token' },
+          headers: { cookie: 'universal_photos_access_token=auth_token' },
           queryParams: {},
           metadata: { adminRoute: false, sharedLinkRoute: false, uri: 'test' },
         }),
@@ -684,12 +684,12 @@ describe(AuthService.name, () => {
   describe('getMobileRedirect', () => {
     it('should pass along the query params', () => {
       expect(sut.getMobileRedirect('https://?code=123&state=456')).toEqual(
-        'app:///oauth-callback?code=123&state=456',
+        'app.universal_photos:///oauth-callback?code=123&state=456',
       );
     });
 
     it('should work if called without query params', () => {
-      expect(sut.getMobileRedirect('https://')).toEqual('app:///oauth-callback?');
+      expect(sut.getMobileRedirect('https://')).toEqual('app.universal_photos:///oauth-callback?');
     });
   });
 
@@ -723,7 +723,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.callback(
-          { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+          { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
           {},
           loginDetails,
         ),
@@ -743,7 +743,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
@@ -767,7 +767,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
@@ -788,12 +788,12 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
 
-      expect(mocks.user.getByEmail).toHaveBeenCalledWith('test@');
+      expect(mocks.user.getByEmail).toHaveBeenCalledWith('test@universal_photos.cloud');
       expect(mocks.user.update).toHaveBeenCalledWith(user.id, { oauthId: rawProfile.sub });
     });
 
@@ -807,7 +807,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.callback(
-          { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+          { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
           {},
           loginDetails,
         ),
@@ -826,7 +826,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
@@ -845,7 +845,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.callback(
-          { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+          { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
           {},
           loginDetails,
         ),
@@ -856,9 +856,9 @@ describe(AuthService.name, () => {
     });
 
     for (const url of [
-      'app:/oauth-callback?code=abc123',
-      'app://oauth-callback?code=abc123',
-      'app:///oauth-callback?code=abc123',
+      'app.universal_photos:/oauth-callback?code=abc123',
+      'app.universal_photos://oauth-callback?code=abc123',
+      'app.universal_photos:///oauth-callback?code=abc123',
     ]) {
       it(`should use the mobile redirect override for a url of ${url}`, async () => {
         mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithMobileOverride);
@@ -888,7 +888,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -907,7 +907,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -926,7 +926,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -937,7 +937,7 @@ describe(AuthService.name, () => {
     it('should ignore an invalid storage quota', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ universalphotos_quota: 'abc' }),
+        rawProfile: OAuthProfileFactory.create({ universal_photos_quota: 'abc' }),
       });
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
       mocks.user.getByEmail.mockResolvedValue(void 0);
@@ -945,7 +945,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -956,7 +956,7 @@ describe(AuthService.name, () => {
     it('should ignore an invalid negative quota', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ universalphotos_quota: -5 }),
+        rawProfile: OAuthProfileFactory.create({ universal_photos_quota: -5 }),
       });
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
       mocks.user.getByEmail.mockResolvedValue(void 0);
@@ -964,7 +964,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -975,7 +975,7 @@ describe(AuthService.name, () => {
     it('should set unlimited quota for -1', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ universalphotos_quota: -1 }),
+        rawProfile: OAuthProfileFactory.create({ universal_photos_quota: -1 }),
       });
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
       mocks.user.getByEmail.mockResolvedValue(void 0);
@@ -983,7 +983,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -994,7 +994,7 @@ describe(AuthService.name, () => {
     it('should set quota for 0 quota', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ universalphotos_quota: 0 }),
+        rawProfile: OAuthProfileFactory.create({ universal_photos_quota: 0 }),
       });
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
       mocks.user.getByEmail.mockResolvedValue(void 0);
@@ -1002,7 +1002,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1013,7 +1013,7 @@ describe(AuthService.name, () => {
     it('should use a valid storage quota', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ universalphotos_quota: 5 }),
+        rawProfile: OAuthProfileFactory.create({ universal_photos_quota: 5 }),
       });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
@@ -1022,7 +1022,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1033,7 +1033,7 @@ describe(AuthService.name, () => {
     it('should sync the profile picture', async () => {
       const fileId = newUuid();
       const user = UserFactory.create({ oauthId: 'oauth-id' });
-      const rawProfile = OAuthProfileFactory.create({ picture: 'https://auth./profiles/1.jpg' });
+      const rawProfile = OAuthProfileFactory.create({ picture: 'https://auth.universal_photos.cloud/profiles/1.jpg' });
       const pictureBytes = new Uint8Array([1, 2, 3, 4, 5]);
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthEnabled);
@@ -1045,7 +1045,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1068,7 +1068,7 @@ describe(AuthService.name, () => {
 
     it('should not update the user when thumbnail processing fails on the OAuth picture', async () => {
       const user = UserFactory.create({ oauthId: 'oauth-id' });
-      const rawProfile = OAuthProfileFactory.create({ picture: 'https://auth./profiles/1.jpg' });
+      const rawProfile = OAuthProfileFactory.create({ picture: 'https://auth.universal_photos.cloud/profiles/1.jpg' });
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthEnabled);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({ rawProfile });
@@ -1079,7 +1079,7 @@ describe(AuthService.name, () => {
 
       await expect(
         sut.callback(
-          { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+          { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
           {},
           loginDetails,
         ),
@@ -1098,7 +1098,7 @@ describe(AuthService.name, () => {
         rawProfile: OAuthProfileFactory.create({
           sub: oauthId,
           email: user.email,
-          picture: 'https://auth./profiles/1.jpg',
+          picture: 'https://auth.universal_photos.cloud/profiles/1.jpg',
         }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
@@ -1106,7 +1106,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1118,7 +1118,7 @@ describe(AuthService.name, () => {
     it('should only allow "admin" and "user" for the role claim', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithAutoRegister);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ universalphotos_role: 'foo' }),
+        rawProfile: OAuthProfileFactory.create({ universal_photos_role: 'foo' }),
       });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getAdmin.mockResolvedValue(UserFactory.create({ isAdmin: true }));
@@ -1127,7 +1127,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1138,7 +1138,7 @@ describe(AuthService.name, () => {
     it('should create an admin user if the role claim is set to admin', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithAutoRegister);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ universalphotos_role: 'admin' }),
+        rawProfile: OAuthProfileFactory.create({ universal_photos_role: 'admin' }),
       });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getByOAuthId.mockResolvedValue(void 0);
@@ -1146,7 +1146,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1167,7 +1167,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1178,7 +1178,7 @@ describe(AuthService.name, () => {
     it('should create an admin user if the role claim is an array containing admin', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithAutoRegister);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ universalphotos_role: ['user', 'admin'] }),
+        rawProfile: OAuthProfileFactory.create({ universal_photos_role: ['user', 'admin'] }),
       });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getByOAuthId.mockResolvedValue(void 0);
@@ -1186,7 +1186,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1197,7 +1197,7 @@ describe(AuthService.name, () => {
     it('should create a standard user if the role claim is an array containing only user', async () => {
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithAutoRegister);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ universalphotos_role: ['user'] }),
+        rawProfile: OAuthProfileFactory.create({ universal_photos_role: ['user'] }),
       });
       mocks.user.getByEmail.mockResolvedValue(void 0);
       mocks.user.getByOAuthId.mockResolvedValue(void 0);
@@ -1206,7 +1206,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1219,14 +1219,14 @@ describe(AuthService.name, () => {
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universalphotos_quota: 5 }),
+        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universal_photos_quota: 5 }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
       mocks.user.update.mockResolvedValue({ ...user, quotaSizeInBytes: 5_368_709_120 });
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1243,14 +1243,14 @@ describe(AuthService.name, () => {
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthWithStorageQuota);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universalphotos_quota: -1 }),
+        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universal_photos_quota: -1 }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
       mocks.user.update.mockResolvedValue({ ...user, quotaSizeInBytes: null });
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1273,7 +1273,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1286,10 +1286,10 @@ describe(AuthService.name, () => {
       const user = UserFactory.create({ oauthId: 'oauth-id', storageLabel: 'custom-label' });
 
       mocks.systemMetadata.get.mockResolvedValue({
-        oauth: { ...systemConfigStub.oauthWithAutoRegister.oauth, storageLabelClaim: 'universalphotos_label' },
+        oauth: { ...systemConfigStub.oauthWithAutoRegister.oauth, storageLabelClaim: 'universal_photos_label' },
       });
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universalphotos_label: 'synced-label' }),
+        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universal_photos_label: 'synced-label' }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
       mocks.user.getByStorageLabel.mockResolvedValue(void 0);
@@ -1297,7 +1297,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1312,10 +1312,10 @@ describe(AuthService.name, () => {
       const user = UserFactory.create({ oauthId: 'oauth-id', storageLabel: 'custom-label' });
 
       mocks.systemMetadata.get.mockResolvedValue({
-        oauth: { ...systemConfigStub.oauthWithAutoRegister.oauth, storageLabelClaim: 'universalphotos_label' },
+        oauth: { ...systemConfigStub.oauthWithAutoRegister.oauth, storageLabelClaim: 'universal_photos_label' },
       });
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universalphotos_label: 'synced.label' }),
+        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universal_photos_label: 'synced.label' }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
       mocks.user.getByStorageLabel.mockResolvedValue(void 0);
@@ -1323,7 +1323,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1338,10 +1338,10 @@ describe(AuthService.name, () => {
       const user = UserFactory.create({ oauthId: 'oauth-id', storageLabel: 'custom-label' });
 
       mocks.systemMetadata.get.mockResolvedValue({
-        oauth: { ...systemConfigStub.oauthWithAutoRegister.oauth, storageLabelClaim: 'universalphotos_label' },
+        oauth: { ...systemConfigStub.oauthWithAutoRegister.oauth, storageLabelClaim: 'universal_photos_label' },
       });
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universalphotos_label: '' }),
+        rawProfile: OAuthProfileFactory.create({ sub: user.oauthId!, universal_photos_label: '' }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
       mocks.user.getByStorageLabel.mockResolvedValue(void 0);
@@ -1349,7 +1349,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1366,14 +1366,14 @@ describe(AuthService.name, () => {
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthEnabled);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ sub: oauthId, universalphotos_role: 'admin' }),
+        rawProfile: OAuthProfileFactory.create({ sub: oauthId, universal_photos_role: 'admin' }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
       mocks.user.update.mockResolvedValue({ ...user, isAdmin: true });
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1387,14 +1387,14 @@ describe(AuthService.name, () => {
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthEnabled);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({
-        rawProfile: OAuthProfileFactory.create({ sub: oauthId, universalphotos_role: ['user'] }),
+        rawProfile: OAuthProfileFactory.create({ sub: oauthId, universal_photos_role: ['user'] }),
       });
       mocks.user.getByOAuthId.mockResolvedValue(user);
       mocks.user.update.mockResolvedValue({ ...user, isAdmin: false });
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1414,7 +1414,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1433,7 +1433,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1455,7 +1455,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
         loginDetails,
       );
@@ -1468,7 +1468,7 @@ describe(AuthService.name, () => {
 
     it('should re-evaluate the role claim for a user linked by email', async () => {
       const user = UserFactory.create({ isAdmin: false });
-      const rawProfile = OAuthProfileFactory.create({ universalphotos_role: 'admin' });
+      const rawProfile = OAuthProfileFactory.create({ universal_photos_role: 'admin' });
 
       mocks.systemMetadata.get.mockResolvedValue(systemConfigStub.oauthEnabled);
       mocks.oauth.getProfileAndOAuthSid.mockResolvedValue({ rawProfile });
@@ -1478,7 +1478,7 @@ describe(AuthService.name, () => {
       mocks.session.create.mockResolvedValue(SessionFactory.create());
 
       await sut.callback(
-        { url: 'http://universalphotos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
+        { url: 'http://universal_photos/auth/login?code=abc123', state: 'xyz789', codeVerifier: 'foobar' },
         {},
         loginDetails,
       );
@@ -1500,7 +1500,7 @@ describe(AuthService.name, () => {
 
       await sut.link(
         auth,
-        { url: 'http://universalphotos/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
       );
 
@@ -1523,7 +1523,7 @@ describe(AuthService.name, () => {
 
       await sut.link(
         auth,
-        { url: 'http://universalphotos/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
+        { url: 'http://universal_photos/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' },
         {},
       );
 
@@ -1544,7 +1544,7 @@ describe(AuthService.name, () => {
       mocks.user.getByOAuthId.mockResolvedValue({ id: 'other-user' } as UserAdmin);
 
       await expect(
-        sut.link(auth, { url: 'http://universalphotos/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' }, {}),
+        sut.link(auth, { url: 'http://universal_photos/user-settings?code=abc123', state: 'xyz789', codeVerifier: 'foo' }, {}),
       ).rejects.toBeInstanceOf(BadRequestException);
 
       expect(mocks.user.update).not.toHaveBeenCalled();

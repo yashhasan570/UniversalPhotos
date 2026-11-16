@@ -3,8 +3,8 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/platform/view_intent_api.g.dart';
-import 'package:universal_photos/services/view_intent.service.dart';
+import 'package:universal_photos_mobile/platform/view_intent_api.g.dart';
+import 'package:universal_photos_mobile/services/view_intent.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockViewIntentHostApi extends Mock implements ViewIntentHostApi {}

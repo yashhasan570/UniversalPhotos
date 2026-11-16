@@ -159,7 +159,7 @@ struct UniversalPhotosMemoryProvider: AppIntentTimelineProvider {
 }
 
 struct UniversalPhotosMemoryWidget: Widget {
-  let kind: String = "com.widget.memory"
+  let kind: String = "com.universal_photos.widget.memory"
 
   var body: some WidgetConfiguration {
     AppIntentConfiguration(

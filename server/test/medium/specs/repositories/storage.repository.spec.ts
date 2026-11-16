@@ -151,7 +151,7 @@ const tests: Test[] = [
   },
 ];
 
-const newRoot = () => mkdtempDisposable(join(tmpdir(), 'universalphotos-storage-'));
+const newRoot = () => mkdtempDisposable(join(tmpdir(), 'universal_photos-storage-'));
 
 const writeFiles = async (root: string, files: string[]) => {
   for (const file of files) {
@@ -175,7 +175,7 @@ describe(StorageRepository.name, () => {
   beforeEach(async () => {
     // eslint-disable-next-line no-sparse-arrays
     sut = new StorageRepository(automock(LoggingRepository, { args: [, { getEnv: () => ({}) }], strict: false }));
-    tempDir = await mkdtemp(join(tmpdir(), 'universalphotos-storage-watch-'));
+    tempDir = await mkdtemp(join(tmpdir(), 'universal_photos-storage-watch-'));
     includedFile = join(tempDir, 'included/photo.jpg');
     excludedFile = join(tempDir, 'excluded/photo.jpg');
 
@@ -238,7 +238,7 @@ describe(StorageRepository.name, () => {
   });
 
   it('should ignore symbolic links to files and directories', async () => {
-    const outsideDir = await mkdtemp(join(tmpdir(), 'universalphotos-storage-outside-'));
+    const outsideDir = await mkdtemp(join(tmpdir(), 'universal_photos-storage-outside-'));
 
     try {
       await writeFile(join(outsideDir, 'secret.txt'), 'secret');
@@ -268,7 +268,7 @@ describe(StorageRepository.name, () => {
     { type: 'file', action: 'retargeted' },
     { type: 'directory', action: 'retargeted' },
   ])('should ignore $type symlinks $action after the watcher is ready', async ({ type, action }) => {
-    const outsideDir = await mkdtemp(join(tmpdir(), 'universalphotos-storage-outside-'));
+    const outsideDir = await mkdtemp(join(tmpdir(), 'universal_photos-storage-outside-'));
 
     try {
       const targetDir = join(outsideDir, 'target');

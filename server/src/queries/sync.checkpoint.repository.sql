@@ -16,4 +16,4 @@ where
 
 -- SyncCheckpointRepository.getNow
 select
-  universalphotos_uuid_v7 (now() - interval '1 millisecond') as "nowId"
+  universal_photos_uuid_v7 (now() - interval '1 millisecond') as "nowId"

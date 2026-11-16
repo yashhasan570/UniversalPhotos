@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/models/search/search_filter.model.dart';
-import 'package:universal_photos/utils/option.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/models/search/search_filter.model.dart';
+import 'package:universal_photos_mobile/utils/option.dart';
 
 class StarRatingPicker extends HookWidget {
   const StarRatingPicker({super.key, required this.onSelect, this.filter});

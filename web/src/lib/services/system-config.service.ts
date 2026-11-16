@@ -1,8 +1,8 @@
 import { executeMutation } from '#lib/queries/client.ts';
 import { updateAdminConfigMutation } from '#lib/queries/config-admin.query.ts';
 import { copyToClipboard, downloadJson } from '#lib/utils.ts';
-import type { AdminConfigDto, ServerFeaturesDto } from '@universalphotos/sdk';
-import type { ActionItem } from '@universalphotos/ui';
+import type { AdminConfigDto, ServerFeaturesDto } from '@universal_photos/sdk';
+import type { ActionItem } from '@universal_photos/ui';
 import { mdiContentCopy, mdiDownload, mdiUpload } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';
 
@@ -23,7 +23,7 @@ export const getSystemConfigActions = (
     title: $t('export_as_json'),
     description: $t('admin.export_config_as_json_description'),
     icon: mdiDownload,
-    onAction: () => downloadJson(config, 'universalphotos-config.json'),
+    onAction: () => downloadJson(config, 'universal_photos-config.json'),
     shortcuts: [
       { shift: true, key: 's' },
       { shift: true, key: 'd' },

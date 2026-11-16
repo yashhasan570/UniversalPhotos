@@ -1,4 +1,4 @@
-import { getMyUser, Permission } from '@universalphotos/sdk';
+import { getMyUser, Permission } from '@universal_photos/sdk';
 import { existsSync } from 'node:fs';
 import { mkdir, unlink } from 'node:fs/promises';
 import {

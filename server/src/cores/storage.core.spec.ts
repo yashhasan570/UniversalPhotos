@@ -12,13 +12,13 @@ describe('StorageCore', () => {
     });
 
     it('should return true for APP_MEDIA_LOCATION path', () => {
-      const universalphotosPath = '/photos';
-      expect(StorageCore.isUniversalPhotosPath(universalphotosPath)).toBe(true);
+      const universal_photosPath = '/photos';
+      expect(StorageCore.isUniversalPhotosPath(universal_photosPath)).toBe(true);
     });
 
     it('should return true for paths within the APP_MEDIA_LOCATION', () => {
-      const universalphotosPath = '/photos/new/';
-      expect(StorageCore.isUniversalPhotosPath(universalphotosPath)).toBe(true);
+      const universal_photosPath = '/photos/new/';
+      expect(StorageCore.isUniversalPhotosPath(universal_photosPath)).toBe(true);
     });
 
     it('should return false for paths outside the APP_MEDIA_LOCATION and same starts', () => {

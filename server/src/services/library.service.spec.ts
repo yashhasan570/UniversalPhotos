@@ -1302,7 +1302,7 @@ describe(LibraryService.name, () => {
       });
     });
 
-    it('should detect when import path is in universalphotos media folder', async () => {
+    it('should detect when import path is in universal_photos media folder', async () => {
       const importPaths = ['/data/thumbs', `${process.cwd()}/xyz`, '/data/library'];
       const library = factory.library({ importPaths });
 

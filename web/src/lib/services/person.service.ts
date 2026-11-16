@@ -11,8 +11,8 @@ import {
   type AssetResponseDto,
   type PersonResponseDto,
   type PersonUpdateDto,
-} from '@universalphotos/sdk';
-import { modalManager, toastManager, type ActionItem } from '@universalphotos/ui';
+} from '@universal_photos/sdk';
+import { modalManager, toastManager, type ActionItem } from '@universal_photos/ui';
 import {
   mdiAccountMultipleOutline,
   mdiEyeOffOutline,

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/repositories/album_api_repository.dart';
+import 'package:universal_photos_mobile/repositories/album_api_repository.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:openapi/api.dart';
 

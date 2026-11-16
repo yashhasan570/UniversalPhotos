@@ -10,8 +10,8 @@
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getAdminConfigQuery } from '#lib/queries/config-admin.query.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { OAuthTokenEndpointAuthMethod, unlinkAllOAuthAccountsAdmin } from '@Universal Photos/sdk';
-  import { Button, IconButton, Link, Text, modalManager, toastManager } from '@Universal Photos/ui';
+  import { OAuthTokenEndpointAuthMethod, unlinkAllOAuthAccountsAdmin } from '@immich/sdk';
+  import { Button, IconButton, Link, Text, modalManager, toastManager } from '@immich/ui';
   import { mdiPlus, mdiRestart, mdiTrashCanOutline } from '@mdi/js';
   import { cloneDeep } from 'lodash-es';
   import { t } from 'svelte-i18n';
@@ -80,7 +80,7 @@
             <Text size="small">
               <FormatMessage key="admin.oauth_settings_more_details">
                 {#snippet children({ message })}
-                  <Link href="https://docs./administration/oauth">{message}</Link>
+                  <Link href="https://docs.immich.app/administration/oauth">{message}</Link>
                 {/snippet}
               </FormatMessage>
             </Text>
@@ -283,7 +283,7 @@
               <SettingSwitch
                 title={$t('admin.oauth_mobile_redirect_uri_override')}
                 subtitle={$t('admin.oauth_mobile_redirect_uri_override_description', {
-                  values: { callback: 'app:///oauth-callback' },
+                  values: { callback: 'app.immich:///oauth-callback' },
                 })}
                 disabled={disabled || !configToEdit.oauth.enabled}
                 onToggle={() => handleToggleOverride()}

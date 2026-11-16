@@ -1,6 +1,6 @@
 <script lang="ts">
   import { locale } from '#lib/stores/preferences.store.ts';
-  import { Button, DatePicker, Field } from '@Universal Photos/ui';
+  import { Button, DatePicker, Field } from '@immich/ui';
   import { DateTime, Duration } from 'luxon';
   import { t } from 'svelte-i18n';
 

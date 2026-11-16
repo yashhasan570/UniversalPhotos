@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universalphotos_ui/src/color_override.dart';
-import 'package:universalphotos_ui/src/components/icon_button.dart';
+import 'package:universal_photos_ui/src/color_override.dart';
+import 'package:universal_photos_ui/src/components/icon_button.dart';
 
 import 'test_utils.dart';
 

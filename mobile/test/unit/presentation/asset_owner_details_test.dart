@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/presentation/widgets/asset_viewer/asset_details/asset_owner_details.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/asset_viewer/asset_details/asset_owner_details.widget.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../factories/local_asset_factory.dart';

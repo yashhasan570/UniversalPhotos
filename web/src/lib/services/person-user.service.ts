@@ -11,8 +11,8 @@ import {
   upsertPeopleUsers,
   type PersonResponseDto,
   type UserResponseDto,
-} from '@universalphotos/sdk';
-import { modalManager, toastManager, type ActionItem } from '@universalphotos/ui';
+} from '@universal_photos/sdk';
+import { modalManager, toastManager, type ActionItem } from '@universal_photos/ui';
 import { mdiAccountMultipleOutline, mdiCheck, mdiClose, mdiPlus, mdiShareOutline } from '@mdi/js';
 import { type MessageFormatter } from 'svelte-i18n';
 

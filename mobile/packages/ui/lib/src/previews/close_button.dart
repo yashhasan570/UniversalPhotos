@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/components/close_button.dart';
-import 'package:universalphotos_ui/src/previews.dart';
-import 'package:universalphotos_ui/src/types.dart';
+import 'package:universal_photos_ui/src/components/close_button.dart';
+import 'package:universal_photos_ui/src/previews.dart';
+import 'package:universal_photos_ui/src/types.dart';
 
 void _previewNoop() {}
 

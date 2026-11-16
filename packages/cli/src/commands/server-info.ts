@@ -1,4 +1,4 @@
-import { getAssetStatistics, getMyUser, getServerVersion, getSupportedMediaTypes, Permission } from '@universalphotos/sdk';
+import { getAssetStatistics, getMyUser, getServerVersion, getSupportedMediaTypes, Permission } from '@universal_photos/sdk';
 import { authenticate, BaseOptions, requirePermissions } from 'src/utils.js';
 
 export const serverInfo = async (options: BaseOptions) => {

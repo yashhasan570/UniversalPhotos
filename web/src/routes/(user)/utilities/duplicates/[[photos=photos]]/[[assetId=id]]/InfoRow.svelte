@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon, Text } from '@Universal Photos/ui';
+  import { Icon, Text } from '@immich/ui';
   import type { Snippet } from 'svelte';
 
   interface Props {
@@ -15,7 +15,7 @@
 <div class="grid w-full grid-cols-[20px_auto_1fr] gap-1 overflow-hidden px-2 py-1.5" title={title ?? tooltip}>
   <Icon {icon} size="16" class="self-center text-dark/25" />
 
-  <Text size="tiny" class="self-center truncate pe-1 text-Universal Photos-fg/40 dark:text-Universal Photos-dark-fg/40">
+  <Text size="tiny" class="self-center truncate pe-1 text-immich-fg/40 dark:text-immich-dark-fg/40">
     {title}
   </Text>
 

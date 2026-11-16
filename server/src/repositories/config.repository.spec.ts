@@ -123,7 +123,7 @@ describe('getEnv', () => {
           connectionType: 'parts',
           host: 'database',
           port: 5432,
-          database: 'universalphotos',
+          database: 'universal_photos',
           username: 'postgres',
           password: 'postgres',
         },
@@ -150,11 +150,11 @@ describe('getEnv', () => {
     });
 
     it('should use DB_URL', () => {
-      process.env.DB_URL = 'postgres://postgres1:postgres2@database1:54320/universalphotos';
+      process.env.DB_URL = 'postgres://postgres1:postgres2@database1:54320/universal_photos';
       const { database } = getEnv();
       expect(database.config).toMatchObject({
         connectionType: 'url',
-        url: 'postgres://postgres1:postgres2@database1:54320/universalphotos',
+        url: 'postgres://postgres1:postgres2@database1:54320/universal_photos',
       });
     });
   });

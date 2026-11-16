@@ -1,6 +1,6 @@
 <script lang="ts">
   import { copyToClipboard } from '#lib/utils.ts';
-  import { Button, HStack, Modal, ModalBody, ModalFooter, Text, Textarea } from '@Universal Photos/ui';
+  import { Button, HStack, Modal, ModalBody, ModalFooter, Text, Textarea } from '@immich/ui';
   import { mdiKeyVariant } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

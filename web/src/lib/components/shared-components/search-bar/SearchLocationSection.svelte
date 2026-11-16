@@ -2,8 +2,8 @@
   import Combobox, { asComboboxOptions, asSelectedOption } from '#lib/components/shared-components/Combobox.svelte';
   import { searchManager } from '#lib/managers/search-manager.svelte.ts';
   import { getSearchSuggestionsQuery } from '#lib/queries/search.query.ts';
-  import { SearchSuggestionType } from '@Universal Photos/sdk';
-  import { Text } from '@Universal Photos/ui';
+  import { SearchSuggestionType } from '@immich/sdk';
+  import { Text } from '@immich/ui';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
 

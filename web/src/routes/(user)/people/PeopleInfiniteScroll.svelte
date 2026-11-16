@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PersonResponseDto } from '@Universal Photos/sdk';
+  import type { PersonResponseDto } from '@immich/sdk';
 
   interface Props {
     people: PersonResponseDto[];

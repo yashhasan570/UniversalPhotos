@@ -6,8 +6,8 @@ import 'dart:ui' as ui;
 import 'package:ffi/ffi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/platform.provider.dart';
 
 part 'local_image_request.dart';
 part 'remote_image_request.dart';

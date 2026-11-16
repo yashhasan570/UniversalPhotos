@@ -1,8 +1,8 @@
 <script lang="ts">
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { createProfileImage, type AssetResponseDto } from '@Universal Photos/sdk';
-  import { FormModal, toastManager } from '@Universal Photos/ui';
+  import { createProfileImage, type AssetResponseDto } from '@immich/sdk';
+  import { FormModal, toastManager } from '@immich/ui';
   import domtoimage from 'dom-to-image';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -83,7 +83,7 @@
 <FormModal size="small" title={$t('set_profile_picture')} {onClose} {onSubmit}>
   <div class="flex place-items-center items-center justify-center">
     <div
-      class="relative flex aspect-square w-62.5 overflow-hidden rounded-full border-4 border-Universal Photos-primary bg-Universal Photos-dark-primary dark:border-Universal Photos-dark-primary dark:bg-Universal Photos-primary"
+      class="relative flex aspect-square w-62.5 overflow-hidden rounded-full border-4 border-immich-primary bg-immich-dark-primary dark:border-immich-dark-primary dark:bg-immich-primary"
     >
       <PhotoViewer bind:element={imgElement} cursor={{ current: asset }} />
     </div>

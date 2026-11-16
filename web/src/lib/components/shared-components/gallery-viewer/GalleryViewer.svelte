@@ -22,8 +22,8 @@
   import { navigate } from '#lib/utils/navigation.ts';
   import { isTimelineAsset, toTimelineAsset } from '#lib/utils/timeline-util.ts';
   import { TUNABLES } from '#lib/utils/tunables.ts';
-  import { type AssetResponseDto } from '@Universal Photos/sdk';
-  import { modalManager, shortcuts, type ShortcutOptions } from '@Universal Photos/ui';
+  import { type AssetResponseDto } from '@immich/sdk';
+  import { modalManager, shortcuts, type ShortcutOptions } from '@immich/ui';
   import { debounce } from 'lodash-es';
   import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';

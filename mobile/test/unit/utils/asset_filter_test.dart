@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/utils/asset_filter.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/utils/asset_filter.dart';
 
 import '../factories/local_asset_factory.dart';
 import '../factories/remote_asset_factory.dart';

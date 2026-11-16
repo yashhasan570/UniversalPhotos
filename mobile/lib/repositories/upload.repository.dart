@@ -5,10 +5,10 @@ import 'dart:io';
 import 'package:background_downloader/background_downloader.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart';
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/infrastructure/repositories/network.repository.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/network.repository.dart';
 import 'package:logging/logging.dart';
 
 final uploadRepositoryProvider = Provider((ref) => UploadRepository());

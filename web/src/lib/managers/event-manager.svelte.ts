@@ -14,7 +14,7 @@ import type {
   ReleaseEventV1,
   StackResponseDto,
   UserAdminResponseDto,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 
 export type Events = {
   AppInit: [];

@@ -1,7 +1,7 @@
 import { Route } from '#lib/route.ts';
 import { authenticate } from '#lib/utils/auth.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { getAuthStatus } from '@universalphotos/sdk';
+import { getAuthStatus } from '@universal_photos/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ url }) => {

@@ -18,8 +18,8 @@ import { createAlbumAndRedirect } from '#lib/utils/album-utils.ts';
 import { downloadArchive } from '#lib/utils/asset-utils.ts';
 import { openFileUploadDialog } from '#lib/utils/file-uploader.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { AlbumUserRole, type AlbumResponseDto, type UserResponseDto } from '@universalphotos/sdk';
-import { modalManager, type ActionItem } from '@universalphotos/ui';
+import { AlbumUserRole, type AlbumResponseDto, type UserResponseDto } from '@universal_photos/sdk';
+import { modalManager, type ActionItem } from '@universal_photos/ui';
 import {
   mdiCogOutline,
   mdiDownload,

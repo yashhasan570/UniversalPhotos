@@ -2,7 +2,7 @@ import { Route } from '#lib/route.ts';
 import { factory } from '#test/common/factories.ts';
 import { adjacentAsset, adjacentYearMonths, yearMonthOf, yearMonthsOf } from '#test/common/timeline.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { AssetTypeEnum, AssetVisibility } from '@universalphotos/sdk';
+import { AssetTypeEnum, AssetVisibility } from '@universal_photos/sdk';
 
 test.describe('timeline', () => {
   test.describe('/photos', () => {

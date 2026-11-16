@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/actions/action.widget.dart';
-import 'package:universal_photos/presentation/actions/lock.action.dart';
-import 'package:universal_photos/widgets/common/confirm_dialog.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.widget.dart';
+import 'package:universal_photos_mobile/presentation/actions/lock.action.dart';
+import 'package:universal_photos_mobile/widgets/common/confirm_dialog.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../service.mocks.dart';

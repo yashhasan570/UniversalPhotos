@@ -1,4 +1,4 @@
-import { asHuman } from '@universalphotos/sql-tools';
+import { asHuman } from '@universal_photos/sql-tools';
 import { Command, CommandRunner } from 'nest-commander';
 import { ErrorMessages } from 'src/constants.js';
 import { CliService } from 'src/services/cli.service.js';

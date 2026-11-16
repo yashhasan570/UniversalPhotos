@@ -2,7 +2,7 @@
   import SearchBar from '#lib/elements/SearchBar.svelte';
   import { PlacesGroupBy, placesViewSettings } from '#lib/stores/preferences.store.ts';
   import { collapseAllPlacesGroups, expandAllPlacesGroups } from '#lib/utils/places-utils.ts';
-  import { IconButton, Select } from '@Universal Photos/ui';
+  import { IconButton, Select } from '@immich/ui';
   import { mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { slide } from 'svelte/transition';

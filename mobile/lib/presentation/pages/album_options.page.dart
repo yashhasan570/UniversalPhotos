@@ -6,20 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/theme_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/pages/user_selection.page.dart';
-import 'package:universal_photos/providers/auth.provider.dart';
-import 'package:universal_photos/providers/infrastructure/album.provider.dart';
-import 'package:universal_photos/providers/infrastructure/current_album.provider.dart';
-import 'package:universal_photos/providers/infrastructure/remote_album.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
-import 'package:universal_photos/widgets/common/user_circle_avatar.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/theme_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/pages/user_selection.page.dart';
+import 'package:universal_photos_mobile/providers/auth.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/current_album.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/remote_album.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_toast.dart';
+import 'package:universal_photos_mobile/widgets/common/user_circle_avatar.dart';
 
 @RoutePage()
 class AlbumOptionsPage extends HookConsumerWidget {

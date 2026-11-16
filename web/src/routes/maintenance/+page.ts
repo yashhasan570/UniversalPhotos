@@ -1,5 +1,5 @@
 import { loadMaintenanceAuth, loadMaintenanceStatus } from '#lib/utils/maintenance.ts';
-import { getServerVersion } from '@universalphotos/sdk';
+import { getServerVersion } from '@universal_photos/sdk';
 import type { PageLoad } from '../admin/$types';
 
 export const load = (async () => {

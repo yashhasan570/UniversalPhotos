@@ -1,5 +1,5 @@
 {
-  "name": "@universalphotos/sdk",
+  "name": "@universal_photos/sdk",
   "version": "3.4.0-rc.0",
   "description": "Auto-generated TypeScript SDK for the UniversalPhotos API",
   "repository": {

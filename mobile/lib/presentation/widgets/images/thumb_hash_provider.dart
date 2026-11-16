@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
-import 'package:universal_photos/infrastructure/loaders/image_request.dart';
-import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
-import 'package:universal_photos/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
+import 'package:universal_photos_mobile/infrastructure/loaders/image_request.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
 
 class ThumbHashProvider extends ImageProvider<ThumbHashProvider> {
   final String thumbHash;

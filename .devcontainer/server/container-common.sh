@@ -2,7 +2,7 @@
 export UNIVERSALPHOTOS_PORT="${DEV_SERVER_PORT:-2283}"
 export DEV_PORT="${DEV_PORT:-3000}"
 
-UNIVERSALPHOTOS_DEVCONTAINER_LOG="$HOME/universalphotos-devcontainer.log"
+UNIVERSALPHOTOS_DEVCONTAINER_LOG="$HOME/universal_photos-devcontainer.log"
 
 log() {
     # Display command on console, log with timestamp to file
@@ -27,6 +27,6 @@ run_cmd() {
 
 export UNIVERSALPHOTOS_WORKSPACE="/usr/src/app"
 
-log "Found universalphotos workspace in $UNIVERSALPHOTOS_WORKSPACE"
+log "Found universal_photos workspace in $UNIVERSALPHOTOS_WORKSPACE"
 log ""
 

@@ -1,5 +1,5 @@
 {
-  "name": "@universalphotos/e2e-auth-server",
+  "name": "@universal_photos/e2e-auth-server",
   "version": "0.1.0",
   "private": true,
   "type": "module",

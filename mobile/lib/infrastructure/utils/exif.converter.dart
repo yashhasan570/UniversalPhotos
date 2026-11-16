@@ -1,4 +1,4 @@
-import 'package:universal_photos/domain/models/exif.model.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart';
 import 'package:openapi/api.dart';
 
 // TODO: Move to repository once all classes are refactored

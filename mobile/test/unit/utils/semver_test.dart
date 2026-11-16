@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/utils/semver.dart';
+import 'package:universal_photos_mobile/utils/semver.dart';
 
 void main() {
   group('SemVer', () {

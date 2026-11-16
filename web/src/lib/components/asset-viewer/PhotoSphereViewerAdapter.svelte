@@ -4,7 +4,7 @@
   import { ocrManager, type OcrBoundingBox } from '#lib/stores/ocr.svelte.ts';
   import { alwaysLoadOriginalFile } from '#lib/stores/preferences.store.ts';
   import { calculateBoundingBoxMatrix, getOcrBoundingBoxes, type Point } from '#lib/utils/ocr-utils.ts';
-  import { shortcuts } from '@Universal Photos/ui';
+  import { shortcuts } from '@immich/ui';
   import {
     EquirectangularAdapter,
     Viewer,

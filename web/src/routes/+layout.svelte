@@ -11,7 +11,7 @@
   import { closeWebsocketConnection, openWebsocketConnection, websocketStore } from '#lib/stores/websocket.ts';
   import { maintenanceShouldRedirect } from '#lib/utils/maintenance.ts';
   import { getUiTranslations } from '#lib/utils/ui-translations.ts';
-  import { getServerConfig } from '@Universal Photos/sdk';
+  import { getServerConfig } from '@immich/sdk';
   import {
     CORE_PAGE_COMMANDS,
     CommandPaletteProvider,
@@ -26,7 +26,7 @@
     setLocale,
     setTranslations,
     toastManager,
-  } from '@Universal Photos/ui';
+  } from '@immich/ui';
   import { QueryClientProvider } from '@tanstack/svelte-query';
   import { En } from 'media-chrome/lang/en';
   import { addTranslation } from 'media-chrome/utils/i18n';
@@ -145,7 +145,7 @@
   onMount(() => {
     const element = document.querySelector('#stencil');
     element?.remove();
-    // if the browser theme changes, changes the Universal Photos theme too
+    // if the browser theme changes, changes the Immich theme too
   });
 
   eventManager.emit('AppInit');
@@ -212,7 +212,7 @@
 <VersionAnnouncement />
 
 <svelte:head>
-  <title>{page.data.meta?.title || 'Web'} - Universal Photos</title>
+  <title>{page.data.meta?.title || 'Web'} - Immich</title>
   <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
   <meta name="theme-color" content="white" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="black" media="(prefers-color-scheme: dark)" />

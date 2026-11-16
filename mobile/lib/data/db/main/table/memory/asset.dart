@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/table/memory/memory.dart';
-import 'package:universal_photos/data/db/main/table/remote/asset.dart';
-import 'package:universal_photos/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos_mobile/data/db/main/table/memory/memory.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos_mobile/data/db/util/defaults_mixin.dart';
 
 class MemoryAssetEntity extends Table with DriftDefaultsMixin {
   const MemoryAssetEntity();

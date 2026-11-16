@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@universalphotos/plugin-sdk';
+import { WorkflowTrigger } from '@universal_photos/plugin-sdk';
 import request from 'supertest';
 import { WorkflowController } from 'src/controllers/workflow.controller.js';
 import { LoggingRepository } from 'src/repositories/logging.repository.js';

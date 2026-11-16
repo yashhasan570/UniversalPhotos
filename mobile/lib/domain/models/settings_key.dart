@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:universal_photos/constants/colors.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/log.model.dart';
-import 'package:universal_photos/domain/models/timeline.model.dart';
-import 'package:universal_photos/domain/models/value_codec.dart';
-import 'package:universal_photos/providers/album/album_sort_by_options.provider.dart';
-import 'package:universal_photos/utils/semver.dart';
+import 'package:universal_photos_mobile/constants/colors.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/log.model.dart';
+import 'package:universal_photos_mobile/domain/models/timeline.model.dart';
+import 'package:universal_photos_mobile/domain/models/value_codec.dart';
+import 'package:universal_photos_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:universal_photos_mobile/utils/semver.dart';
 
 enum SettingsKey<T> {
   // Theme

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/constants.dart';
+import 'package:universal_photos_ui/src/constants.dart';
 import 'package:material_color_utilities/blend/blend.dart';
 import 'package:material_color_utilities/hct/hct.dart';
 import 'package:material_color_utilities/palettes/tonal_palette.dart';

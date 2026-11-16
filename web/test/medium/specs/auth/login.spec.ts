@@ -1,12 +1,12 @@
 import { Route } from '#lib/route.ts';
 import type { MockData } from '#test/common/data.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import type { LoginResponseDto } from '@universalphotos/sdk';
+import type { LoginResponseDto } from '@universal_photos/sdk';
 import type { Page } from '@playwright/test';
 import { generateKeyPairSync } from 'node:crypto';
 
-const providerUrl = 'https://oauth.example.com/authorize?state=universalphotos';
-const credentialId = Buffer.from('universalphotos-passkey');
+const providerUrl = 'https://oauth.example.com/authorize?state=universal_photos';
+const credentialId = Buffer.from('universal_photos-passkey');
 const challenge = 'c2VydmVyLWNoYWxsZW5nZQ';
 
 const routeProvider = (page: Page) =>
@@ -45,7 +45,7 @@ const addPasskey = async (page: Page, rpId: string) => {
       isResidentCredential: true,
       rpId,
       privateKey: privateKey.export({ format: 'der', type: 'pkcs8' }).toString('base64'),
-      userHandle: Buffer.from('universalphotos-user').toString('base64'),
+      userHandle: Buffer.from('universal_photos-user').toString('base64'),
       signCount: 0,
     },
   });
@@ -110,7 +110,7 @@ test.describe('login', () => {
       finishAuthentication: () => ({
         status: 201,
         json: loginResponse(data),
-        headers: { 'Set-Cookie': 'universalphotos_is_authenticated=true; Path=/' },
+        headers: { 'Set-Cookie': 'universal_photos_is_authenticated=true; Path=/' },
       }),
     });
     await page.goto(`${origin}${Route.login()}`);

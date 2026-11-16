@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/utils/camera.utils.dart';
+import 'package:universal_photos_mobile/utils/camera.utils.dart';
 
 void main() {
   group('getCameraName', () {

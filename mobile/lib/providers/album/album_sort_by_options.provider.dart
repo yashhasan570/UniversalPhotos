@@ -1,5 +1,5 @@
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
 
 // Store index allows us to re-arrange the values without affecting the saved prefs
 enum AlbumSortMode {

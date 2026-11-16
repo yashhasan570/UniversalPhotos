@@ -3,18 +3,18 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' show ClientException;
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/domain/models/config/app_config.dart';
-import 'package:universal_photos/domain/models/config/network_config.dart';
-import 'package:universal_photos/domain/models/log.model.dart';
-import 'package:universal_photos/domain/models/settings_key.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/services/log.service.dart';
-import 'package:universal_photos/domain/services/store.service.dart';
-import 'package:universal_photos/infrastructure/repositories/log.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/domain/models/config/app_config.dart';
+import 'package:universal_photos_mobile/domain/models/config/network_config.dart';
+import 'package:universal_photos_mobile/domain/models/log.model.dart';
+import 'package:universal_photos_mobile/domain/models/settings_key.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/services/log.service.dart';
+import 'package:universal_photos_mobile/domain/services/store.service.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/log.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/store.repository.dart';
 import 'package:logging/logging.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:openapi/api.dart' show ApiException;
@@ -210,20 +210,20 @@ void main() {
     const accessToken = 'Kq3Zr8WbN2xYp5aLm7cT9vQ4sD6fH1jE0gU2iO5wA8y';
 
     test('Replaces urls, the access token and header values when a line is logged', () async {
-      await StoreService.I.put(StoreKey.serverUrl, 'https://universalphotos.example.com');
+      await StoreService.I.put(StoreKey.serverUrl, 'https://universal_photos.example.com');
       await StoreService.I.put(StoreKey.serverEndpoint, 'https://api.example.com/api');
       await StoreService.I.put(StoreKey.accessToken, accessToken);
       when(() => mockSettingsRepository.appConfig).thenReturn(
         const AppConfig(
           network: NetworkConfig(
             localEndpoint: 'http://192.168.1.5:2283',
-            externalEndpointList: ['https://universalphotos.example.com', 'http://nas.lan:2283'],
+            externalEndpointList: ['https://universal_photos.example.com', 'http://nas.lan:2283'],
             customHeaders: {'X-Proxy-Key': 'cf-secret-abcdef0123', 'X-Debug': '1'},
           ),
         ),
       );
       const rows = {
-        'Resuming session at https://universalphotos.example.com/api': 'Resuming session at [EXTERNAL ENDPOINT 1]/api',
+        'Resuming session at https://universal_photos.example.com/api': 'Resuming session at [EXTERNAL ENDPOINT 1]/api',
         'GET http://nas.lan:2283/api/server/ping': 'GET [EXTERNAL ENDPOINT 2]/api/server/ping',
         'GET http://192.168.1.5:2283/api/server/ping': 'GET [LOCAL ENDPOINT]/api/server/ping',
         'Using server URL: https://api.example.com/api': 'Using server URL: [SERVER URL]/api',
@@ -248,10 +248,10 @@ void main() {
     test('Hides the host and ip in http client errors', () async {
       when(
         () => mockSettingsRepository.appConfig,
-      ).thenReturn(const AppConfig(network: NetworkConfig(externalEndpointList: ['http://universalphotos:2283'])));
+      ).thenReturn(const AppConfig(network: NetworkConfig(externalEndpointList: ['http://universal_photos:2283'])));
       final connectError = ClientException(
-        'java.net.ConnectException: Failed to connect to universalphotos/192.168.1.5:2283',
-        Uri.parse('http://universalphotos:2283/api/server/ping'),
+        'java.net.ConnectException: Failed to connect to universal_photos/192.168.1.5:2283',
+        Uri.parse('http://universal_photos:2283/api/server/ping'),
       );
       final unknownHostError = ClientException(
         'java.net.UnknownHostException: Unable to resolve host "typo.example.org": No address associated with hostname',
@@ -264,7 +264,7 @@ void main() {
           400,
           'HTTP connection failed: GET /server/ping',
           connectError,
-          StackTrace.fromString('#0 ApiService._isEndpointAvailable (package:universal_photos/services/api.service.dart)'),
+          StackTrace.fromString('#0 ApiService._isEndpointAvailable (package:universal_photos_mobile/services/api.service.dart)'),
         ),
       );
       Logger('Test').severe('Error validating auxiliary endpoint', unknownHostError);
@@ -276,7 +276,7 @@ void main() {
         'ApiException 400: HTTP connection failed: GET /server/ping (Inner exception: ClientException: '
         'java.net.ConnectException: Failed to connect to [EXTERNAL ENDPOINT 1]/[IP ADDRESS]:2283, '
         'uri=[EXTERNAL ENDPOINT 1]/api/server/ping)\n\n'
-        '#0 ApiService._isEndpointAvailable (package:universal_photos/services/api.service.dart)',
+        '#0 ApiService._isEndpointAvailable (package:universal_photos_mobile/services/api.service.dart)',
       );
       expect(
         stored.last.error,
@@ -287,11 +287,11 @@ void main() {
 
     test('Hides ipv6 addresses in http client errors', () async {
       const rows = {
-        'java.net.ConnectException: Failed to connect to universalphotos.example.com/[2001:db8::5]:443':
+        'java.net.ConnectException: Failed to connect to universal_photos.example.com/[2001:db8::5]:443':
             'java.net.ConnectException: Failed to connect to [OTHER URL]/[IP ADDRESS]:443',
-        'java.net.ConnectException: Failed to connect to universalphotos.example.com/2001:db8::5:443':
+        'java.net.ConnectException: Failed to connect to universal_photos.example.com/2001:db8::5:443':
             'java.net.ConnectException: Failed to connect to [OTHER URL]/[IP ADDRESS]',
-        'java.net.SocketTimeoutException: failed to connect to universalphotos.example.com/2001:db8::5 (port 443) '
+        'java.net.SocketTimeoutException: failed to connect to universal_photos.example.com/2001:db8::5 (port 443) '
                 'from /2001:db8:1234:5678:9abc:def0:1234:5678 (port 41234) after 30000ms':
             'java.net.SocketTimeoutException: failed to connect to [OTHER URL]/[IP ADDRESS] (port 443) '
             'from /[IP ADDRESS] (port 41234) after 30000ms',
@@ -304,7 +304,7 @@ void main() {
             '#0      ApiClient.invokeAPI (package:openapi/api_client.dart:131:7)',
       };
       for (final row in rows.keys) {
-        Logger('Test').severe('Upload error', ClientException(row, Uri.parse('https://universalphotos.example.com/api/assets')));
+        Logger('Test').severe('Upload error', ClientException(row, Uri.parse('https://universal_photos.example.com/api/assets')));
       }
       await sut.flush();
 
@@ -317,7 +317,7 @@ void main() {
     test('Keeps the labels of a line logged before a logout', () async {
       final settings = await SettingsRepository.ensureInitialized(db);
       addTearDown(SettingsRepository.reset);
-      await settings.write(SettingsKey.networkExternalEndpointList, ['https://universalphotos.example.com']);
+      await settings.write(SettingsKey.networkExternalEndpointList, ['https://universal_photos.example.com']);
       await StoreService.I.put(StoreKey.accessToken, accessToken);
       await sut.dispose();
       sut = await LogService.create(
@@ -326,7 +326,7 @@ void main() {
         storeService: StoreService.I,
       );
 
-      Logger('Test').info('Resuming session at https://universalphotos.example.com/api with $accessToken');
+      Logger('Test').info('Resuming session at https://universal_photos.example.com/api with $accessToken');
       // the store and settings changes of AuthService.clearLocalData
       await StoreService.I.delete(StoreKey.accessToken);
       await settings.clear(const [
@@ -335,7 +335,7 @@ void main() {
         .networkLocalEndpoint,
         .networkExternalEndpointList,
       ]);
-      Logger('Test').info('Resuming session at https://universalphotos.example.com/api');
+      Logger('Test').info('Resuming session at https://universal_photos.example.com/api');
       await sut.flush();
 
       final stored = verify(() => mockLogRepo.insertAll(captureAny())).captured.single as List<LogMessage>;

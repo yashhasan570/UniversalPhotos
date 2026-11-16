@@ -2,14 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/presentation/widgets/asset_viewer/video_viewer.widget.dart';
-import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
-import 'package:universal_photos/presentation/widgets/images/progressive_image.widget.dart';
-import 'package:universal_photos/providers/asset_viewer/video_player_provider.dart';
-import 'package:universal_photos/widgets/photo_view/photo_view.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/presentation/widgets/asset_viewer/video_viewer.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/progressive_image.widget.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/video_player_provider.dart';
+import 'package:universal_photos_mobile/widgets/photo_view/photo_view.dart';
 
 void _noop() {}
 

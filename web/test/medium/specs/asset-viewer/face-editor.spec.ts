@@ -2,7 +2,7 @@ import { Route } from '#lib/route.ts';
 import { factory } from '#test/common/factories.ts';
 import type { Rect } from '#test/medium/app.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import type { AssetResponseDto, PersonResponseDto } from '@universalphotos/sdk';
+import type { AssetResponseDto, PersonResponseDto } from '@universal_photos/sdk';
 
 const names = [
   'Alice Johnson',

@@ -7,7 +7,7 @@ import {
   Timestamp,
   UpdateDateColumn,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { ColumnType } from 'kysely';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { UserTable } from 'src/schema/tables/user.table.js';

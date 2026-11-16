@@ -1,23 +1,23 @@
-# @Universal Photos/sdk
+# @immich/sdk
 
-A TypeScript SDK for interfacing with the [Universal Photos](https:///) API.
+A TypeScript SDK for interfacing with the [Immich](https://immich.app/) API.
 
 ## Install
 
 ```bash
-npm i --save @Universal Photos/sdk
+npm i --save @immich/sdk
 ```
 
 ## Usage
 
-For a more detailed example, check out the [`@Universal Photos/cli`](https://github.com/yashhasan570/UniversalPhotos/tree/main/cli).
+For a more detailed example, check out the [`@immich/cli`](https://github.com/immich-app/immich/tree/main/cli).
 
 ```typescript
-import { getAllAlbums, getMyUser, init } from "@Universal Photos/sdk";
+import { getAllAlbums, getMyUser, init } from "@immich/sdk";
 
-const API_KEY = "<API_KEY>"; // process.env.UNIVERSAL PHOTOS_API_KEY
+const API_KEY = "<API_KEY>"; // process.env.IMMICH_API_KEY
 
-init({ baseUrl: "https://demo./api", apiKey: API_KEY });
+init({ baseUrl: "https://demo.immich.app/api", apiKey: API_KEY });
 
 const user = await getMyUser();
 const albums = await getAllAlbums({});

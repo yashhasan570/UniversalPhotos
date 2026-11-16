@@ -13,7 +13,7 @@ const authUser = {
   user1: {
     id: 'user-id',
     name: 'User 1',
-    email: 'universalphotos@test.com',
+    email: 'universal_photos@test.com',
     isAdmin: false,
     quotaSizeInBytes: null,
     quotaUsageInBytes: 0,

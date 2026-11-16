@@ -4,8 +4,8 @@ WORKDIR /usr/src/app
 COPY package* pnpm* .pnpmfile.cjs ./
 COPY ./packages ./packages/
 RUN npm install --global corepack@latest && corepack enable pnpm && \
-  pnpm --filter @universalphotos/sdk --filter @universalphotos/cli install --frozen-lockfile && \
-  pnpm --filter @universalphotos/sdk --filter @universalphotos/cli build
+  pnpm --filter @universal_photos/sdk --filter @universal_photos/cli install --frozen-lockfile && \
+  pnpm --filter @universal_photos/sdk --filter @universal_photos/cli build
 
 WORKDIR /import
 

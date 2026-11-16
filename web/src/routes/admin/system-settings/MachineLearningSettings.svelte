@@ -8,7 +8,7 @@
   import { featureFlagsManager } from '#lib/managers/feature-flags-manager.svelte.ts';
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getAdminConfigQuery } from '#lib/queries/config-admin.query.ts';
-  import { Button, IconButton } from '@Universal Photos/ui';
+  import { Button, IconButton } from '@immich/ui';
   import { mdiPlus, mdiTrashCanOutline } from '@mdi/js';
   import { cloneDeep, isEqual } from 'lodash-es';
   import { t } from 'svelte-i18n';
@@ -136,10 +136,10 @@
             isEdited={configToEdit.machineLearning.clip.modelName !== config.machineLearning.clip.modelName}
           >
             {#snippet descriptionSnippet()}
-              <p class="pb-2 text-sm Universal Photos-form-label">
+              <p class="pb-2 text-sm immich-form-label">
                 <FormatMessage key="admin.machine_learning_clip_model_description">
                   {#snippet children({ message })}
-                    <a target="_blank" href="https://huggingface.co/Universal Photos-app"><u>{message}</u></a>
+                    <a target="_blank" href="https://huggingface.co/immich-app"><u>{message}</u></a>
                   {/snippet}
                 </FormatMessage>
               </p>

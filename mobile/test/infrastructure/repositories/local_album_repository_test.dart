@@ -2,10 +2,10 @@ import 'package:async/async.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/infrastructure/repositories/local_album.repository.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/local_album.repository.dart';
 
 import '../../test_utils/medium_factory.dart';
 

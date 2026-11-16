@@ -1,9 +1,9 @@
 {
-  "name": "universalphotos-plugin-core",
+  "name": "universal_photos-plugin-core",
   "version": "2.0.1",
-  "title": "Universal Photos Core Plugin",
-  "description": "Core workflow capabilities for Universal Photos",
-  "author": "Universal Photos Team",
+  "title": "UniversalPhotos Core Plugin",
+  "description": "Core workflow capabilities for UniversalPhotos",
+  "author": "UniversalPhotos Team",
   "wasmPath": "dist/plugin.wasm",
   "templates": [
     {
@@ -13,7 +13,7 @@
       "trigger": "AssetCreate",
       "steps": [
         {
-          "method": "universalphotos-plugin-core#assetFileFilter",
+          "method": "universal_photos-plugin-core#assetFileFilter",
           "config": {
             "pattern": "screenshot",
             "matchType": "contains",
@@ -21,13 +21,13 @@
           }
         },
         {
-          "method": "universalphotos-plugin-core#assetArchive",
+          "method": "universal_photos-plugin-core#assetArchive",
           "config": {
             "inverse": false
           }
         },
         {
-          "method": "universalphotos-plugin-core#assetAddToAlbums",
+          "method": "universal_photos-plugin-core#assetAddToAlbums",
           "config": {
             "albumName": "Screenshots",
             "albumIds": []
@@ -43,11 +43,11 @@
       "trigger": "AssetMetadataExtraction",
       "steps": [
         {
-          "method": "universalphotos-plugin-core#assetMissingTimeZoneFilter",
+          "method": "universal_photos-plugin-core#assetMissingTimeZoneFilter",
           "config": {}
         },
         {
-          "method": "universalphotos-plugin-core#assetAddToAlbums",
+          "method": "universal_photos-plugin-core#assetAddToAlbums",
           "config": {
             "albumName": "Missing time zone",
             "albumIds": []
@@ -63,11 +63,11 @@
       "trigger": "AssetMetadataExtraction",
       "steps": [
         {
-          "method": "universalphotos-plugin-core#assetLocationFilter",
+          "method": "universal_photos-plugin-core#assetLocationFilter",
           "config": { "region": { "city": "Vancouver", "state": "British Columbia", "country": "Canada" } }
         },
         {
-          "method": "universalphotos-plugin-core#assetAddToAlbums",
+          "method": "universal_photos-plugin-core#assetAddToAlbums",
           "config": {
             "albumName": "Vancouver photos & videos",
             "albumIds": []
@@ -83,7 +83,7 @@
       "trigger": "AssetOcrExtraction",
       "steps": [
         {
-          "method": "universalphotos-plugin-core#assetOcrFilter",
+          "method": "universal_photos-plugin-core#assetOcrFilter",
           "config": {
             "caseSensitive": false,
             "pattern": "receipt.+total",
@@ -93,7 +93,7 @@
           }
         },
         {
-          "method": "universalphotos-plugin-core#assetAddToAlbums",
+          "method": "universal_photos-plugin-core#assetAddToAlbums",
           "config": {
             "albumName": "Receipts",
             "albumIds": []

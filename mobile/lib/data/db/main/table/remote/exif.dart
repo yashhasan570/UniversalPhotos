@@ -1,10 +1,10 @@
 import 'package:drift/drift.dart' hide Query;
-import 'package:universal_photos/data/db/main/table/remote/asset.dart';
-import 'package:universal_photos/data/db/main/table/remote/exif.drift.dart';
-import 'package:universal_photos/data/db/util/datetime_clamp_type.dart';
-import 'package:universal_photos/data/db/util/defaults_mixin.dart';
-import 'package:universal_photos/domain/models/exif.model.dart' as domain;
-import 'package:universal_photos/infrastructure/utils/exif.converter.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/exif.drift.dart';
+import 'package:universal_photos_mobile/data/db/util/datetime_clamp_type.dart';
+import 'package:universal_photos_mobile/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart' as domain;
+import 'package:universal_photos_mobile/infrastructure/utils/exif.converter.dart';
 
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_lat_lng ON remote_exif_entity (latitude, longitude)')
 @TableIndex.sql('''

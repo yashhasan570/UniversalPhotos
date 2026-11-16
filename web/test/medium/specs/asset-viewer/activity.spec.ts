@@ -2,7 +2,7 @@ import { Route } from '#lib/route.ts';
 import type { MockData } from '#test/common/data.ts';
 import { factory } from '#test/common/factories.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { ReactionType } from '@universalphotos/sdk';
+import { ReactionType } from '@universal_photos/sdk';
 
 const setup = (data: MockData) => {
   const other = factory.user();

@@ -16,8 +16,8 @@
   import { SlideshowNavigation, SlideshowState, slideshowStore } from '#lib/stores/slideshow.store.ts';
   import { handlePromiseError } from '#lib/utils.ts';
   import { fileUploadHandler, openFileUploadDialog } from '#lib/utils/file-uploader.ts';
-  import type { AlbumResponseDto, SharedLinkResponseDto } from '@Universal Photos/sdk';
-  import { ActionButton, IconButton, Logo, shortcut } from '@Universal Photos/ui';
+  import type { AlbumResponseDto, SharedLinkResponseDto } from '@immich/sdk';
+  import { ActionButton, IconButton, Logo, shortcut } from '@immich/ui';
   import { mdiDownload, mdiFileImagePlusOutline, mdiPresentationPlay } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import ControlAppBar from '../shared-components/ControlAppBar.svelte';

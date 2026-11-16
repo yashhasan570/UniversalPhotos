@@ -1,7 +1,7 @@
 <script lang="ts">
   import { locale } from '#lib/stores/preferences.store.ts';
-  import type { SystemConfigTemplateStorageOptionDto } from '@Universal Photos/sdk';
-  import { Card, CardBody, CardHeader, Heading, Text } from '@Universal Photos/ui';
+  import type { SystemConfigTemplateStorageOptionDto } from '@immich/sdk';
+  import { Card, CardBody, CardHeader, Heading, Text } from '@immich/ui';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
 

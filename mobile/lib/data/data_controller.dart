@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
-import 'package:universal_photos/data/db/logger/database.dart';
-import 'package:universal_photos/data/db/main/dao/person.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/server/activity.dart';
-import 'package:universal_photos/data/server/person.dart';
-import 'package:universal_photos/domain/services/store.service.dart';
-import 'package:universal_photos/infrastructure/repositories/store.repository.dart';
+import 'package:universal_photos_mobile/data/db/logger/database.dart';
+import 'package:universal_photos_mobile/data/db/main/dao/person.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/server/activity.dart';
+import 'package:universal_photos_mobile/data/server/person.dart';
+import 'package:universal_photos_mobile/domain/services/store.service.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/store.repository.dart';
 import 'package:openapi/api.dart';
 import 'package:sqlite3/common.dart';
 
@@ -23,7 +23,7 @@ class DataController {
   static Future<(DataController, bool)> init({required ApiClient apiClient, bool disableStoreWatching = false}) async {
     await configureSqliteCache();
 
-    final (db, updatePool) = await openSqliteConnectionWithUpdatePool(name: 'universalphotos');
+    final (db, updatePool) = await openSqliteConnectionWithUpdatePool(name: 'universal_photos');
     final drift = Drift.sqlite(db, updatePool);
 
     final (logDb, wasRecreated) = await _openLoggerDatabase();
@@ -35,7 +35,7 @@ class DataController {
 
   /// Open the logger database, recreating if corrupt. Returns the logger and whether it was recreated
   static Future<(DriftLogger, bool)> _openLoggerDatabase() async {
-    Future<DriftLogger> open() async => DriftLogger.sqlite(await openSqliteConnection(name: 'universalphotos_logs'));
+    Future<DriftLogger> open() async => DriftLogger.sqlite(await openSqliteConnection(name: 'universal_photos_logs'));
 
     final DriftLogger logDb = await open();
 
@@ -53,7 +53,7 @@ class DataController {
       }
 
       await logDb.close();
-      await deleteSqliteDatabase(name: 'universalphotos_logs');
+      await deleteSqliteDatabase(name: 'universal_photos_logs');
 
       return (await open(), true);
     }

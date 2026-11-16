@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link, Row, Text } from 'react-email';
-import UniversalPhotosLayout from 'src/emails/components/universalphotos.layout.js';
+import UniversalPhotosLayout from 'src/emails/components/universal_photos.layout.js';
 import { TestEmailProps } from 'src/repositories/email.repository.js';
 
 export const TestEmail = ({ baseUrl, displayName }: TestEmailProps) => (

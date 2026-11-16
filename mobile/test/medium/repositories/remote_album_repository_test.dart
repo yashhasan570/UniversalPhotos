@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/infrastructure/repositories/remote_album.repository.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/remote_album.repository.dart';
 
 import '../repository_context.dart';
 

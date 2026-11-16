@@ -6,7 +6,7 @@ import {
   Table,
   Timestamp,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { WorkflowResult } from 'src/enum.js';
 import { WorkflowStepTable } from 'src/schema/tables/workflow-step.table.js';
 import { WorkflowTable } from 'src/schema/tables/workflow.table.js';

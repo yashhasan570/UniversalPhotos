@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:http/http.dart' show ClientException;
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/domain/models/log.model.dart';
-import 'package:universal_photos/domain/models/settings_key.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/services/store.service.dart';
-import 'package:universal_photos/infrastructure/repositories/log.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
-import 'package:universal_photos/utils/debug_print.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/domain/models/log.model.dart';
+import 'package:universal_photos_mobile/domain/models/settings_key.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/services/store.service.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/log.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos_mobile/utils/debug_print.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart' show ApiException;
 

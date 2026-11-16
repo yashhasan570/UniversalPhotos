@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/utils/async_mutex.dart';
+import 'package:universal_photos_mobile/utils/async_mutex.dart';
 
 void main() {
   group('Test AsyncMutex grouped', () {

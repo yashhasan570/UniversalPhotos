@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button, type ButtonProps } from '@Universal Photos/ui';
+  import { Button, type ButtonProps } from '@immich/ui';
   import { mdiCheck } from '@mdi/js';
   import type { Snippet } from 'svelte';
 

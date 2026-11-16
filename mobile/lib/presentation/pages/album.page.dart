@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/presentation/widgets/album/album_selector.widget.dart';
-import 'package:universal_photos/providers/infrastructure/album.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/widgets/common/universalphotos_sliver_app_bar.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/presentation/widgets/album/album_selector.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_sliver_app_bar.dart';
 
 @RoutePage()
 class AlbumsPage extends ConsumerStatefulWidget {

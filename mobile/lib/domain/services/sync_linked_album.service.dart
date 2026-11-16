@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/services/store.service.dart';
-import 'package:universal_photos/infrastructure/repositories/local_album.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/remote_album.repository.dart';
-import 'package:universal_photos/providers/infrastructure/db.provider.dart';
-import 'package:universal_photos/providers/infrastructure/store.provider.dart';
-import 'package:universal_photos/repositories/album_api_repository.dart';
-import 'package:universal_photos/utils/debug_print.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/services/store.service.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/local_album.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/remote_album.repository.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/store.provider.dart';
+import 'package:universal_photos_mobile/repositories/album_api_repository.dart';
+import 'package:universal_photos_mobile/utils/debug_print.dart';
 import 'package:logging/logging.dart';
 
 final syncLinkedAlbumServiceProvider = Provider((ref) {

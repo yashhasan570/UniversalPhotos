@@ -3,7 +3,7 @@ import type { MockData } from '#test/common/data.ts';
 import { factory } from '#test/common/factories.ts';
 import type { App } from '#test/medium/app.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { SharedLinkType } from '@universalphotos/sdk';
+import { SharedLinkType } from '@universal_photos/sdk';
 
 const setup = (data: MockData) => {
   const asset = factory.asset();

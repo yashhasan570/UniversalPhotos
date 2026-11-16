@@ -1,7 +1,7 @@
 <script lang="ts">
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { updateAsset, type AssetResponseDto } from '@Universal Photos/sdk';
-  import { Textarea, shortcut, toastManager } from '@Universal Photos/ui';
+  import { updateAsset, type AssetResponseDto } from '@immich/sdk';
+  import { Textarea, shortcut, toastManager } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   interface Props {
@@ -31,7 +31,7 @@
   <section class="mt-10 px-4">
     <Textarea
       bind:value={description}
-      class="max-h-40 resize-none border-b border-gray-500 bg-transparent ps-0 ring-0 outline-none focus:border-b-2 focus:border-Universal Photos-primary focus:ring-0 dark:bg-transparent dark:focus:border-Universal Photos-dark-primary"
+      class="max-h-40 resize-none border-b border-gray-500 bg-transparent ps-0 ring-0 outline-none focus:border-b-2 focus:border-immich-primary focus:ring-0 dark:bg-transparent dark:focus:border-immich-dark-primary"
       rows={1}
       grow
       shape="rectangle"

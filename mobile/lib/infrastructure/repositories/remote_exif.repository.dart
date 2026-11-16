@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/db/main/table/remote/exif.drift.dart';
-import 'package:universal_photos/infrastructure/repositories/remote_exif.repository.drift.dart';
-import 'package:universal_photos/utils/option.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/exif.drift.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/remote_exif.repository.drift.dart';
+import 'package:universal_photos_mobile/utils/option.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 @DriftAccessor()

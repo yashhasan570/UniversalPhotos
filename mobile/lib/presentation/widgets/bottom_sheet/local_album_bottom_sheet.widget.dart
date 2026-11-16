@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/actions/action.widget.dart';
-import 'package:universal_photos/presentation/actions/asset_debug.action.dart';
-import 'package:universal_photos/presentation/actions/delete.action.dart';
-import 'package:universal_photos/presentation/actions/share.action.dart';
-import 'package:universal_photos/presentation/actions/upload.action.dart';
-import 'package:universal_photos/presentation/widgets/album/album_selector.widget.dart';
-import 'package:universal_photos/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:universal_photos/providers/infrastructure/action.provider.dart';
-import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.widget.dart';
+import 'package:universal_photos_mobile/presentation/actions/asset_debug.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/delete.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/share.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/upload.action.dart';
+import 'package:universal_photos_mobile/presentation/widgets/album/album_selector.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/action.provider.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_toast.dart';
 
 class LocalAlbumBottomSheet extends ConsumerStatefulWidget {
   const LocalAlbumBottomSheet({super.key});

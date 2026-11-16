@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/models/server_info/server_version.model.dart';
-import 'package:universal_photos/presentation/actions/action.dart';
-import 'package:universal_photos/presentation/actions/action.widget.dart';
-import 'package:universal_photos/presentation/actions/edit_asset.action.dart';
-import 'package:universal_photos/presentation/actions/edit_datetime.action.dart';
-import 'package:universal_photos/presentation/actions/edit_location.action.dart';
-import 'package:universal_photos/providers/server_info.provider.dart';
-import 'package:universal_photos/utils/option.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/models/server_info/server_version.model.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.widget.dart';
+import 'package:universal_photos_mobile/presentation/actions/edit_asset.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/edit_datetime.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/edit_location.action.dart';
+import 'package:universal_photos_mobile/providers/server_info.provider.dart';
+import 'package:universal_photos_mobile/utils/option.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 import 'package:mocktail/mocktail.dart';
 

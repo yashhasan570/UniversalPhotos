@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, ForeignKeyColumn, Table, Timestamp, type Generated } from '@universalphotos/sql-tools';
+import { Column, CreateDateColumn, ForeignKeyColumn, Table, Timestamp, type Generated } from '@universal_photos/sql-tools';
 import { PrimaryGeneratedUuidV7Column } from 'src/decorators.js';
 import { MemoryTable } from 'src/schema/tables/memory.table.js';
 

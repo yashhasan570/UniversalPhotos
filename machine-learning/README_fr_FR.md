@@ -1,4 +1,4 @@
-# Universal Photos Apprentissage machine
+# Immich Apprentissage machine
 
 - Classification d'images
 - Embarquement de CLIP

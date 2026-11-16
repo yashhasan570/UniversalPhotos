@@ -6,7 +6,7 @@ use native_core::convert::convert_1010102;
 use super::bitmap::{self, FORMAT_RGBA_1010102};
 
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_app_alextran_Universal Photos_NativeImage_convert1010102<'caller>(
+pub extern "system" fn Java_app_alextran_immich_NativeImage_convert1010102<'caller>(
     env: EnvUnowned<'caller>,
     _class: JClass<'caller>,
     bitmap: JObject<'caller>,

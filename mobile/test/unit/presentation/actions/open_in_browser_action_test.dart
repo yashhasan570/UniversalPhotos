@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/services/timeline.service.dart';
-import 'package:universal_photos/presentation/actions/action.widget.dart';
-import 'package:universal_photos/presentation/actions/open_in_browser.action.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/domain/services/timeline.service.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.widget.dart';
+import 'package:universal_photos_mobile/presentation/actions/open_in_browser.action.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 import '../presentation_context.dart';
 

@@ -9,7 +9,7 @@ import {
   Timestamp,
   UpdateDateColumn,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { person_delete_audit, person_delete_shares } from 'src/schema/functions.js';
 import { AssetFaceTable } from 'src/schema/tables/asset-face.table.js';

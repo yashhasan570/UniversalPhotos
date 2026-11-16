@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/presentation/actions/action.widget.dart';
-import 'package:universal_photos/presentation/actions/asset_debug.action.dart';
-import 'package:universal_photos/presentation/actions/delete.action.dart';
-import 'package:universal_photos/presentation/actions/restore.action.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.widget.dart';
+import 'package:universal_photos_mobile/presentation/actions/asset_debug.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/delete.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/restore.action.dart';
 
 class TrashBottomBar extends StatelessWidget {
   const TrashBottomBar({super.key});

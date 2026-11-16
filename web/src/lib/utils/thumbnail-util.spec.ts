@@ -1,6 +1,6 @@
 import type { TimelineAsset } from '#lib/managers/timeline-manager/types.ts';
 import { getAltText } from '#lib/utils/thumbnail-util.ts';
-import { AssetVisibility } from '@universalphotos/sdk';
+import { AssetVisibility } from '@universal_photos/sdk';
 import { init, register, waitLocale } from 'svelte-i18n';
 
 interface Person {

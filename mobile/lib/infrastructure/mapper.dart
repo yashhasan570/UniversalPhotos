@@ -1,6 +1,6 @@
-import 'package:universal_photos/data/db/main/table/user/partner.drift.dart';
-import 'package:universal_photos/data/db/main/table/user/user.drift.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/data/db/main/table/user/partner.drift.dart';
+import 'package:universal_photos_mobile/data/db/main/table/user/user.drift.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
 
 User mapToUser(UserEntityData data) => User(
   id: data.id,

@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/infrastructure/loaders/image_request.dart';
-import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
-import 'package:universal_photos/presentation/widgets/images/animated_image_stream_completer.dart';
-import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
-import 'package:universal_photos/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
-import 'package:universal_photos/utils/image_url_builder.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/infrastructure/loaders/image_request.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/animated_image_stream_completer.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/one_frame_multi_image_stream_completer.dart';
+import 'package:universal_photos_mobile/utils/image_url_builder.dart';
 import 'package:openapi/api.dart';
 
 class RemoteImageProvider extends ImageProvider<RemoteImageProvider> {

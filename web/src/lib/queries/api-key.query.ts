@@ -1,5 +1,5 @@
 import { asMutation, queryClient } from '#lib/queries/client.ts';
-import { createApiKey, deleteApiKey, getApiKeys, rotateApiKey, updateApiKey } from '@universalphotos/sdk';
+import { createApiKey, deleteApiKey, getApiKeys, rotateApiKey, updateApiKey } from '@universal_photos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 export const getApiKeysQuery = () =>

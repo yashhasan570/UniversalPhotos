@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
 
 part 'search_result.model.freezed.dart';
 

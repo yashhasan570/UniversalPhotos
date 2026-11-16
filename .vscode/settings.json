@@ -33,7 +33,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "cSpell.words": ["universalphotos"],
+  "cSpell.words": ["universal_photos"],
   "css.lint.unknownAtRules": "ignore",
   "editor.bracketPairColorization.enabled": true,
   "editor.formatOnSave": true,

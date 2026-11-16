@@ -4,20 +4,20 @@ import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/domain/services/background_worker.service.dart';
-import 'package:universal_photos/domain/utils/background_sync.dart';
-import 'package:universal_photos/main.dart' as app;
-import 'package:universal_photos/platform/background_worker_api.g.dart';
-import 'package:universal_photos/providers/app_life_cycle.provider.dart';
-import 'package:universal_photos/providers/background_sync.provider.dart';
-import 'package:universal_photos/providers/infrastructure/db.provider.dart';
-import 'package:universal_photos/services/api.service.dart';
-import 'package:universal_photos/utils/bootstrap.dart';
-import 'package:universal_photos/wm_executor.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/domain/services/background_worker.service.dart';
+import 'package:universal_photos_mobile/domain/utils/background_sync.dart';
+import 'package:universal_photos_mobile/main.dart' as app;
+import 'package:universal_photos_mobile/platform/background_worker_api.g.dart';
+import 'package:universal_photos_mobile/providers/app_life_cycle.provider.dart';
+import 'package:universal_photos_mobile/providers/background_sync.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos_mobile/services/api.service.dart';
+import 'package:universal_photos_mobile/utils/bootstrap.dart';
+import 'package:universal_photos_mobile/wm_executor.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'test_utils/fake_universalphotos_server.dart';
+import 'test_utils/fake_universal_photos_server.dart';
 
 // Issue #28082 end-to-end: a resume after a sync froze mid-flight starts a fresh sync.
 // Kept in its own file on purpose: run after the failed_sync_resume tests in one process,

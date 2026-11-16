@@ -4,15 +4,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/timeline.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/datetime_extensions.dart';
-import 'package:universal_photos/extensions/theme_extensions.dart';
-import 'package:universal_photos/providers/haptic_feedback.provider.dart';
-import 'package:universal_photos/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
-import 'package:universal_photos/providers/timeline/multiselect.provider.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/timeline.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/datetime_extensions.dart';
+import 'package:universal_photos_mobile/extensions/theme_extensions.dart';
+import 'package:universal_photos_mobile/providers/haptic_feedback.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos_mobile/providers/timeline/multiselect.provider.dart';
 
 class TimelineHeader extends HookWidget {
   final Bucket bucket;

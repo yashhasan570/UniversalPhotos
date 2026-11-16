@@ -1,11 +1,11 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/server/activity.dart';
-import 'package:universal_photos/data/server/person.dart';
-import 'package:universal_photos/providers/infrastructure/search.provider.dart';
-import 'package:universal_photos/providers/infrastructure/user.provider.dart';
-import 'package:universal_photos/repositories/album_api_repository.dart';
-import 'package:universal_photos/repositories/asset_api.repository.dart';
-import 'package:universal_photos/repositories/partner_api.repository.dart';
+import 'package:universal_photos_mobile/data/server/activity.dart';
+import 'package:universal_photos_mobile/data/server/person.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/search.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/user.provider.dart';
+import 'package:universal_photos_mobile/repositories/album_api_repository.dart';
+import 'package:universal_photos_mobile/repositories/asset_api.repository.dart';
+import 'package:universal_photos_mobile/repositories/partner_api.repository.dart';
 
 void invalidateAllApiRepositoryProviders(WidgetRef ref) {
   ref.invalidate(userApiRepositoryProvider);

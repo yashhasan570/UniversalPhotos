@@ -13,7 +13,7 @@ export async function up(db: Kysely<any>): Promise<void> {
     END
   $$;`.execute(db);
   await sql`CREATE TABLE "asset_edit_audit" (
-  "id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
+  "id" uuid NOT NULL DEFAULT universal_photos_uuid_v7(),
   "editId" uuid NOT NULL,
   "assetId" uuid NOT NULL,
   "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(),
@@ -22,7 +22,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   await sql`CREATE INDEX "asset_edit_audit_assetId_idx" ON "asset_edit_audit" ("assetId");`.execute(db);
   await sql`CREATE INDEX "asset_edit_audit_deletedAt_idx" ON "asset_edit_audit" ("deletedAt");`.execute(db);
   await sql`ALTER TABLE "asset_edit" ADD "updatedAt" timestamp with time zone NOT NULL DEFAULT now();`.execute(db);
-  await sql`ALTER TABLE "asset_edit" ADD "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7();`.execute(db);
+  await sql`ALTER TABLE "asset_edit" ADD "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7();`.execute(db);
   await sql`CREATE INDEX "asset_edit_updateId_idx" ON "asset_edit" ("updateId");`.execute(db);
   await sql`CREATE OR REPLACE TRIGGER "asset_edit_audit"
   AFTER DELETE ON "asset_edit"

@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/presentation/widgets/images/image_provider.dart';
-import 'package:universal_photos/presentation/widgets/images/progressive_image.widget.dart';
-import 'package:universal_photos/widgets/asset_grid/thumbnail_placeholder.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/progressive_image.widget.dart';
+import 'package:universal_photos_mobile/widgets/asset_grid/thumbnail_placeholder.dart';
 import 'package:octo_image/octo_image.dart';
 
 class FullImage extends StatelessWidget {

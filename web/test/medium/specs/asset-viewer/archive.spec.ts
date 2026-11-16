@@ -1,6 +1,6 @@
 import { Route } from '#lib/route.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { AssetVisibility } from '@universalphotos/sdk';
+import { AssetVisibility } from '@universal_photos/sdk';
 
 test('archive from the viewer, unarchive from the archive viewer', async ({ page, data, api, app }) => {
   const [asset, next] = data.addTimeline({ years: 1 });

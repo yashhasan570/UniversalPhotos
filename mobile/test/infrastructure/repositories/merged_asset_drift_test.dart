@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/timeline.model.dart';
+import 'package:universal_photos_mobile/domain/models/timeline.model.dart';
 
 import '../../medium/repository_context.dart';
 

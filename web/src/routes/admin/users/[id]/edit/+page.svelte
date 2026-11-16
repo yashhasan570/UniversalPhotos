@@ -5,7 +5,7 @@
   import { getUserAdminQuery, updateUserAdminMutation } from '#lib/queries/user-admin.query.ts';
   import { Route } from '#lib/route.ts';
   import { ByteUnit, convertFromBytes, convertToBytes } from '#lib/utils/byte-units.ts';
-  import { Field, FormModal, Input, Link, NumberInput, Switch, Text } from '@Universal Photos/ui';
+  import { Field, FormModal, Input, Link, NumberInput, Switch, Text } from '@immich/ui';
   import { mdiAccountEditOutline } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';

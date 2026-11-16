@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { LoadingSpinner } from '@Universal Photos/ui';
+  import { LoadingSpinner } from '@immich/ui';
 </script>
 
 <div class="delayed-spinner absolute flex h-full items-center justify-center">

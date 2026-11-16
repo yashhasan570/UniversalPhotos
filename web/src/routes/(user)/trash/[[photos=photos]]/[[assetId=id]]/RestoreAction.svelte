@@ -2,8 +2,8 @@
   import { assetMultiSelectManager } from '#lib/managers/asset-multi-select-manager.svelte.ts';
   import type { OnRestore } from '#lib/utils/actions.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { restoreAssets } from '@Universal Photos/sdk';
-  import { Button, toastManager } from '@Universal Photos/ui';
+  import { restoreAssets } from '@immich/sdk';
+  import { Button, toastManager } from '@immich/ui';
   import { mdiHistory } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

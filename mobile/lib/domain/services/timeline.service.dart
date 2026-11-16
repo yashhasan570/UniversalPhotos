@@ -2,15 +2,15 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:collection/collection.dart';
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/events.model.dart';
-import 'package:universal_photos/domain/models/map.model.dart';
-import 'package:universal_photos/domain/models/timeline.model.dart';
-import 'package:universal_photos/domain/utils/event_stream.dart';
-import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/timeline.repository.dart';
-import 'package:universal_photos/utils/async_mutex.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/events.model.dart';
+import 'package:universal_photos_mobile/domain/models/map.model.dart';
+import 'package:universal_photos_mobile/domain/models/timeline.model.dart';
+import 'package:universal_photos_mobile/domain/utils/event_stream.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/timeline.repository.dart';
+import 'package:universal_photos_mobile/utils/async_mutex.dart';
 
 typedef TimelineAssetSource = Future<List<BaseAsset>> Function(int index, int count);
 

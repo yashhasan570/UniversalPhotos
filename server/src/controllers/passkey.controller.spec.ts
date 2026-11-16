@@ -100,9 +100,9 @@ describe(PasskeyController.name, () => {
         .send({ response: authenticationResponse });
       expect(status).toEqual(201);
       expect(headers['set-cookie']).toEqual([
-        expect.stringContaining('universalphotos_access_token=token; Max-Age=34560000; Path=/; Expires='),
-        expect.stringContaining('universalphotos_auth_type=passkey; Max-Age=34560000; Path=/; Expires='),
-        expect.stringContaining('universalphotos_is_authenticated=true; Max-Age=34560000; Path=/; Expires='),
+        expect.stringContaining('universal_photos_access_token=token; Max-Age=34560000; Path=/; Expires='),
+        expect.stringContaining('universal_photos_auth_type=passkey; Max-Age=34560000; Path=/; Expires='),
+        expect.stringContaining('universal_photos_is_authenticated=true; Max-Age=34560000; Path=/; Expires='),
       ]);
     });
   });

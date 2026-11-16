@@ -1,5 +1,5 @@
-import 'package:universal_photos/domain/models/setting.model.dart';
-import 'package:universal_photos/domain/services/store.service.dart';
+import 'package:universal_photos_mobile/domain/models/setting.model.dart';
+import 'package:universal_photos_mobile/domain/services/store.service.dart';
 
 class SettingsService {
   final StoreService _storeService;

@@ -3,7 +3,7 @@
   import { getStorageQuery } from '#lib/queries/server-info.query.ts';
   import { locale } from '#lib/stores/preferences.store.ts';
   import { getByteUnitString } from '#lib/utils/byte-units.ts';
-  import { LoadingSpinner, Meter } from '@Universal Photos/ui';
+  import { LoadingSpinner, Meter } from '@immich/ui';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
 
@@ -49,7 +49,7 @@
       {thresholds}
     />
   {:else}
-    <p class="mb-4 font-medium text-Universal Photos-dark-gray dark:text-white">{$t('storage')}</p>
+    <p class="mb-4 font-medium text-immich-dark-gray dark:text-white">{$t('storage')}</p>
     <LoadingSpinner />
   {/if}
 </div>

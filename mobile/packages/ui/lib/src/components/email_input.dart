@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:universalphotos_ui/src/components/text_input.dart';
+import 'package:universal_photos_ui/src/components/text_input.dart';
 
 /// An UniversalPhotosTextInput customized for receiving email addresses
 class UniversalPhotosEmailInput extends UniversalPhotosTextInput {

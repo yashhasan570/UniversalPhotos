@@ -3,13 +3,13 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/infrastructure/repositories/settings.repository.dart';
-import 'package:universal_photos/providers/background_sync.provider.dart';
-import 'package:universal_photos/providers/backup/backup.provider.dart';
-import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/widgets/settings/backup_settings/backup_settings.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:universal_photos_mobile/providers/background_sync.provider.dart';
+import 'package:universal_photos_mobile/providers/backup/backup.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/widgets/settings/backup_settings/backup_settings.dart';
 import 'package:logging/logging.dart';
 
 @RoutePage()

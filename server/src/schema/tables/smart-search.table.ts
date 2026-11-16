@@ -1,4 +1,4 @@
-import { Column, ForeignKeyColumn, Index, Table } from '@universalphotos/sql-tools';
+import { Column, ForeignKeyColumn, Index, Table } from '@universal_photos/sql-tools';
 import { AssetTable } from 'src/schema/tables/asset.table.js';
 
 @Table({ name: 'smart_search' })

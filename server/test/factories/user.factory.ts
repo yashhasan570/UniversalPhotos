@@ -18,7 +18,7 @@ export class UserFactory {
     return new UserFactory({
       id: newUuid(),
       clusterGroupId: newUuid(),
-      email: 'test@',
+      email: 'test@universal_photos.cloud',
       password: '',
       pinCode: null,
       createdAt: newDate(),

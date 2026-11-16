@@ -11,7 +11,7 @@ vi.mock('hash-wasm', async (importOriginal) => {
   };
 });
 
-const content = 'hello universalphotos, this is a deterministic test payload';
+const content = 'hello universal_photos, this is a deterministic test payload';
 const knownSha1Hex = 'b5827d64afd7754a765416e79f9329ca6cebd07b';
 
 describe('hashFile', () => {

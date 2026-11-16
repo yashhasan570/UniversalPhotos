@@ -1,4 +1,4 @@
-import 'package:universal_photos/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
 
 abstract final class UserStub {
   const UserStub._();

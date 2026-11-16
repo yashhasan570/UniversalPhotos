@@ -1,4 +1,4 @@
-import { getAboutInfo, getServerConfig, getServerStatistics, getStorage, getVersionHistory } from '@universalphotos/sdk';
+import { getAboutInfo, getServerConfig, getServerStatistics, getStorage, getVersionHistory } from '@universal_photos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 export const getAboutInfoQuery = () =>

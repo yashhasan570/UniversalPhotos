@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/theme_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/pages/common/large_leading_tile.dart';
-import 'package:universal_photos/presentation/widgets/images/local_album_thumbnail.widget.dart';
-import 'package:universal_photos/providers/infrastructure/album.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/widgets/common/local_album_sliver_app_bar.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/theme_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/pages/common/large_leading_tile.dart';
+import 'package:universal_photos_mobile/presentation/widgets/images/local_album_thumbnail.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/widgets/common/local_album_sliver_app_bar.dart';
 
 @RoutePage()
 class LocalAlbumsPage extends StatelessWidget {

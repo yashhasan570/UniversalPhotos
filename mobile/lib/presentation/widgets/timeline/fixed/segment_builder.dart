@@ -1,7 +1,7 @@
-import 'package:universal_photos/domain/models/timeline.model.dart';
-import 'package:universal_photos/presentation/widgets/timeline/fixed/segment.model.dart';
-import 'package:universal_photos/presentation/widgets/timeline/segment.model.dart';
-import 'package:universal_photos/presentation/widgets/timeline/segment_builder.dart';
+import 'package:universal_photos_mobile/domain/models/timeline.model.dart';
+import 'package:universal_photos_mobile/presentation/widgets/timeline/fixed/segment.model.dart';
+import 'package:universal_photos_mobile/presentation/widgets/timeline/segment.model.dart';
+import 'package:universal_photos_mobile/presentation/widgets/timeline/segment_builder.dart';
 
 class FixedSegmentBuilder extends SegmentBuilder {
   final double tileHeight;

@@ -4,7 +4,7 @@
   import SearchBar from '#lib/elements/SearchBar.svelte';
   import { handleError } from '#lib/utils/handle-error.ts';
   import { searchNameLocal } from '#lib/utils/person.ts';
-  import { searchPerson, type PersonResponseDto } from '@Universal Photos/sdk';
+  import { searchPerson, type PersonResponseDto } from '@immich/sdk';
   import { t } from 'svelte-i18n';
 
   let searchedPeople: PersonResponseDto[] = [];

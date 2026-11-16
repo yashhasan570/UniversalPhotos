@@ -1,4 +1,4 @@
-import 'package:universal_photos/platform/connectivity_api.g.dart';
+import 'package:universal_photos_mobile/platform/connectivity_api.g.dart';
 
 extension NetworkCapabilitiesGetters on List<NetworkCapability> {
   // ignore: unused-code

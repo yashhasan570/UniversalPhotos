@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Img, Link, Section, Text } from 'react-email';
 import { UniversalPhotosButton } from 'src/emails/components/button.component.js';
-import UniversalPhotosLayout from 'src/emails/components/universalphotos.layout.js';
+import UniversalPhotosLayout from 'src/emails/components/universal_photos.layout.js';
 import { AlbumInviteEmailProps } from 'src/repositories/email.repository.js';
 import { replaceTemplateTags, templatePreview } from 'src/utils/replace-template-tags.js';
 

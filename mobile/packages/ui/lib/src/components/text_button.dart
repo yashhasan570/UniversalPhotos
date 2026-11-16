@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 class UniversalPhotosTextButton extends StatefulWidget {
   final String labelText;

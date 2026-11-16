@@ -1,4 +1,4 @@
-import 'package:universal_photos/domain/models/sync_event.model.dart';
+import 'package:universal_photos_mobile/domain/models/sync_event.model.dart';
 import 'package:openapi/api.dart';
 
 abstract final class SyncStreamStub {

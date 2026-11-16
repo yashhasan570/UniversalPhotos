@@ -1,14 +1,14 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/services/hash.service.dart';
-import 'package:universal_photos/domain/services/local_sync.service.dart';
-import 'package:universal_photos/domain/services/sync_stream.service.dart';
-import 'package:universal_photos/infrastructure/repositories/sync_api.repository.dart';
-import 'package:universal_photos/providers/api.provider.dart';
-import 'package:universal_photos/providers/infrastructure/cancel.provider.dart';
-import 'package:universal_photos/providers/infrastructure/db.provider.dart';
-import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
-import 'package:universal_photos/repositories/asset_media.repository.dart';
-import 'package:universal_photos/repositories/permission.repository.dart';
+import 'package:universal_photos_mobile/domain/services/hash.service.dart';
+import 'package:universal_photos_mobile/domain/services/local_sync.service.dart';
+import 'package:universal_photos_mobile/domain/services/sync_stream.service.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/sync_api.repository.dart';
+import 'package:universal_photos_mobile/providers/api.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/cancel.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos_mobile/repositories/asset_media.repository.dart';
+import 'package:universal_photos_mobile/repositories/permission.repository.dart';
 
 final syncStreamServiceProvider = Provider((ref) {
   final db = ref.watch(driftProvider);

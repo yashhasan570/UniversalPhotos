@@ -1,5 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/repositories/secure_storage.repository.dart';
+import 'package:universal_photos_mobile/repositories/secure_storage.repository.dart';
 
 final secureStorageServiceProvider = Provider(
   (ref) => SecureStorageService(ref.watch(secureStorageRepositoryProvider)),

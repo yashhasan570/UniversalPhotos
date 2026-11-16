@@ -12,7 +12,7 @@ export const envData: EnvData = {
   bull: {
     config: {
       connection: {},
-      prefix: 'universalphotos_bull',
+      prefix: 'universal_photos_bull',
     },
     queues: [{ name: 'queue-1' }],
   },
@@ -24,7 +24,7 @@ export const envData: EnvData = {
   database: {
     config: {
       connectionType: 'parts',
-      database: 'universalphotos',
+      database: 'universal_photos',
       host: 'database',
       port: 5432,
       username: 'postgres',
@@ -44,7 +44,7 @@ export const envData: EnvData = {
   },
 
   versionCheck: {
-    url: 'https://version./version',
+    url: 'https://version.universal_photos.cloud/version',
   },
 
   network: {
@@ -77,7 +77,7 @@ export const envData: EnvData = {
       root: '/build/www',
       indexHtml: '/build/www/index.html',
     },
-    corePlugin: '/build/plugins/universalphotos-plugin-core',
+    corePlugin: '/build/plugins/universal_photos-plugin-core',
   },
 
   setup: {

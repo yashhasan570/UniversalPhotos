@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/events.model.dart';
-import 'package:universal_photos/domain/models/memory.model.dart';
-import 'package:universal_photos/domain/utils/event_stream.dart';
-import 'package:universal_photos/extensions/datetime_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/widgets/memory/memory_title.widget.dart';
-import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/events.model.dart';
+import 'package:universal_photos_mobile/domain/models/memory.model.dart';
+import 'package:universal_photos_mobile/domain/utils/event_stream.dart';
+import 'package:universal_photos_mobile/extensions/datetime_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/widgets/memory/memory_title.widget.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
 import 'package:intl/intl.dart';
 
 class MemoryBottomInfo extends StatelessWidget {

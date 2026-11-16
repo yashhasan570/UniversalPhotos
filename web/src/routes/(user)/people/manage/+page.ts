@@ -1,5 +1,5 @@
 import { authenticate } from '#lib/utils/auth.ts';
-import { getAllPeople } from '@universalphotos/sdk';
+import { getAllPeople } from '@universal_photos/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ url }) => {

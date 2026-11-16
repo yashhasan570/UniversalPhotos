@@ -3,13 +3,13 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/models/upload/share_intent_attachment.model.dart';
-import 'package:universal_photos/pages/common/large_leading_tile.dart';
-import 'package:universal_photos/providers/asset_viewer/share_intent_upload.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/utils/url_helper.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/models/upload/share_intent_attachment.model.dart';
+import 'package:universal_photos_mobile/pages/common/large_leading_tile.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/share_intent_upload.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/utils/url_helper.dart';
 
 @RoutePage()
 class ShareIntentPage extends ConsumerWidget {
@@ -58,7 +58,7 @@ class ShareIntentPage extends ConsumerWidget {
       appBar: AppBar(
         title: Column(
           children: [
-            Text(context.t.upload_to_universalphotos(count: candidates.length)),
+            Text(context.t.upload_to_universal_photos(count: candidates.length)),
             Text(
               currentEndpoint,
               style: context.textTheme.labelMedium?.copyWith(color: context.colorScheme.onSurface.withAlpha(200)),

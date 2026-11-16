@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/components/form.dart';
-import 'package:universalphotos_ui/src/components/password_input.dart';
-import 'package:universalphotos_ui/src/components/text_input.dart';
-import 'package:universalphotos_ui/src/constants.dart';
-import 'package:universalphotos_ui/src/previews.dart';
+import 'package:universal_photos_ui/src/components/form.dart';
+import 'package:universal_photos_ui/src/components/password_input.dart';
+import 'package:universal_photos_ui/src/components/text_input.dart';
+import 'package:universal_photos_ui/src/constants.dart';
+import 'package:universal_photos_ui/src/previews.dart';
 
 @UniversalPhotosPreview(group: 'Form', name: 'Login Form')
 Widget previewFormLogin() => const _PreviewLoginForm();

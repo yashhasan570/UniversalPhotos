@@ -8,7 +8,7 @@ import {
   type PluginMethodResponseDto,
   type PluginTemplateResponseDto,
   type WorkflowTriggerResponseDto,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 import { t } from 'svelte-i18n';
 import { SvelteMap } from 'svelte/reactivity';
 import { get } from 'svelte/store';

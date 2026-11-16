@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:universal_photos/constants/enums.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
 
 part 'cleanup_config.freezed.dart';
 

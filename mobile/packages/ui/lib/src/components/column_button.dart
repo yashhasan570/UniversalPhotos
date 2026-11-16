@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:core';
 
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/constants.dart';
-import 'package:universalphotos_ui/src/internal.dart';
+import 'package:universal_photos_ui/src/constants.dart';
+import 'package:universal_photos_ui/src/internal.dart';
 
 class UniversalPhotosColumnButton extends StatefulWidget {
   final IconData icon;

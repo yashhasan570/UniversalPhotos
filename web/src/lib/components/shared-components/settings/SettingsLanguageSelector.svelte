@@ -3,7 +3,7 @@
   import { defaultLang } from '#lib/constants.ts';
   import { lang } from '#lib/stores/preferences.store.ts';
   import { convertBCP47, getClosestAvailableLocale, langCodes, langs } from '#lib/utils/i18n.ts';
-  import { Label, Text } from '@Universal Photos/ui';
+  import { Label, Text } from '@immich/ui';
   import { locale as i18nLocale, t } from 'svelte-i18n';
   import { refreshAll } from '$app/navigation';
 

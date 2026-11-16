@@ -3,19 +3,19 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/domain/models/events.model.dart';
-import 'package:universal_photos/domain/utils/event_stream.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/pages/search/paginated_search.provider.dart';
-import 'package:universal_photos/providers/haptic_feedback.provider.dart';
-import 'package:universal_photos/providers/infrastructure/album.provider.dart';
-import 'package:universal_photos/providers/infrastructure/memory.provider.dart';
-import 'package:universal_photos/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:universal_photos/providers/search/search_input_focus.provider.dart';
-import 'package:universal_photos/providers/tab.provider.dart';
-import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/domain/models/events.model.dart';
+import 'package:universal_photos_mobile/domain/utils/event_stream.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/pages/search/paginated_search.provider.dart';
+import 'package:universal_photos_mobile/providers/haptic_feedback.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/memory.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:universal_photos_mobile/providers/search/search_input_focus.provider.dart';
+import 'package:universal_photos_mobile/providers/tab.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
 
 @RoutePage()
 class TabShellPage extends ConsumerStatefulWidget {

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
 
 import 'generated/schema_v22.dart' as v22;
 
@@ -14,7 +14,7 @@ void main() {
   late File file;
 
   setUp(() async {
-    dir = await Directory.systemTemp.createTemp('universalphotos_migration_test');
+    dir = await Directory.systemTemp.createTemp('universal_photos_migration_test');
     file = File('${dir.path}/db.sqlite');
 
     final old = v22.DatabaseAtV22(NativeDatabase(file));

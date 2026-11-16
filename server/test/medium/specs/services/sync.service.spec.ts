@@ -1,4 +1,4 @@
-import { schemaFromCode } from '@universalphotos/sql-tools';
+import { schemaFromCode } from '@universal_photos/sql-tools';
 import { Kysely } from 'kysely';
 import { DateTime } from 'luxon';
 import { v4 } from 'uuid';

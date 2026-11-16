@@ -23,7 +23,7 @@ import { getKyselyDB } from 'test/utils.js';
 
 let defaultDatabase: Kysely<DB>;
 
-const origin = 'https://universalphotos.example';
+const origin = 'https://universal_photos.example';
 const headers = { origin };
 
 const registrationResponse = {
@@ -74,7 +74,7 @@ beforeAll(async () => {
   defaultDatabase = await getKyselyDB();
   const { ctx } = setup();
   await ctx.get(SystemMetadataRepository).set(SystemMetadataKey.SystemConfig, {
-    passkey: { enabled: true, domain: 'https://universalphotos.example', additionalDomains: [] },
+    passkey: { enabled: true, domain: 'https://universal_photos.example', additionalDomains: [] },
   });
 });
 
@@ -87,7 +87,7 @@ describe(PasskeyService.name, () => {
       await expect(sut.startRegistration(factory.auth({ user, session: {} }), headers)).resolves.toEqual(
         expect.objectContaining({
           challenge: expect.any(String),
-          rp: { id: 'universalphotos.example', name: 'UniversalPhotos' },
+          rp: { id: 'universal_photos.example', name: 'UniversalPhotos' },
           user: expect.objectContaining({ name: user.email, displayName: user.name }),
           excludeCredentials: [],
           authenticatorSelection: expect.objectContaining({ residentKey: 'required', userVerification: 'required' }),
@@ -166,7 +166,7 @@ describe(PasskeyService.name, () => {
       await expect(sut.startAuthentication(headers)).resolves.toEqual(
         expect.objectContaining({
           challenge: expect.any(String),
-          rpId: 'universalphotos.example',
+          rpId: 'universal_photos.example',
           userVerification: 'required',
         }),
       );

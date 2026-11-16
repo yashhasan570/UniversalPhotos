@@ -31,7 +31,7 @@ class NativeSyncApiImpl: UniversalPhotosPlugin, NativeSyncApi, FlutterPlugin {
   }
   
   private let defaults: UserDefaults
-  private let changeTokenKey = "universalphotos:changeToken"
+  private let changeTokenKey = "universal_photos:changeToken"
   private let albumTypes: [PHAssetCollectionType] = [.album, .smartAlbum]
   private let recoveredAlbumSubType = 1000000219
   

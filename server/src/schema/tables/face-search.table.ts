@@ -1,4 +1,4 @@
-import { Column, ForeignKeyColumn, Index, Table } from '@universalphotos/sql-tools';
+import { Column, ForeignKeyColumn, Index, Table } from '@universal_photos/sql-tools';
 import { AssetFaceTable } from 'src/schema/tables/asset-face.table.js';
 
 @Table({ name: 'face_search' })

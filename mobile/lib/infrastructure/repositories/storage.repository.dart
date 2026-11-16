@@ -2,8 +2,8 @@
 
 import 'dart:io';
 
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/extensions/platform_extensions.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/extensions/platform_extensions.dart';
 import 'package:logging/logging.dart';
 import 'package:photo_manager/photo_manager.dart';
 

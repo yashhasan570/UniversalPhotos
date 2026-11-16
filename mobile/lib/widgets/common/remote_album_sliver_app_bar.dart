@@ -5,16 +5,16 @@ import 'dart:ui';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/extensions/datetime_extensions.dart';
-import 'package:universal_photos/presentation/widgets/sliver_app_bar/item_count_text.widget.dart';
-import 'package:universal_photos/presentation/widgets/sliver_app_bar/random_asset_background_image.widget.dart';
-import 'package:universal_photos/providers/infrastructure/current_album.provider.dart';
-import 'package:universal_photos/providers/infrastructure/remote_album.provider.dart';
-import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
-import 'package:universal_photos/providers/timeline/multiselect.provider.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/widgets/album/remote_album_shared_user_icons.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/datetime_extensions.dart';
+import 'package:universal_photos_mobile/presentation/widgets/sliver_app_bar/item_count_text.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/sliver_app_bar/random_asset_background_image.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/current_album.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/remote_album.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos_mobile/providers/timeline/multiselect.provider.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/widgets/album/remote_album_shared_user_icons.dart';
 
 class RemoteAlbumSliverAppBar extends ConsumerStatefulWidget {
   const RemoteAlbumSliverAppBar({super.key, required this.kebabMenu, this.onEditTitle, this.onActivity});

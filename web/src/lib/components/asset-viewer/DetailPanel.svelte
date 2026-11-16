@@ -19,8 +19,8 @@
   import { getByteUnitString } from '#lib/utils/byte-units.ts';
   import { getCameraName } from '#lib/utils/camera-utils.ts';
   import { getParentPath } from '#lib/utils/tree-utils.ts';
-  import { AssetMediaSize, getAssetInfo, type AlbumResponseDto, type AssetResponseDto } from '@Universal Photos/sdk';
-  import { Icon, IconButton, Link, LoadingSpinner, Text } from '@Universal Photos/ui';
+  import { AssetMediaSize, getAssetInfo, type AlbumResponseDto, type AssetResponseDto } from '@immich/sdk';
+  import { Icon, IconButton, Link, LoadingSpinner, Text } from '@immich/ui';
   import { mdiCamera, mdiCameraIris, mdiClose, mdiImageOutline, mdiInformationOutline } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { onDestroy } from 'svelte';
@@ -113,7 +113,7 @@
         color="secondary"
         variant="ghost"
       />
-      <p class="text-lg text-Universal Photos-fg dark:text-Universal Photos-dark-fg">{$t('info')}</p>
+      <p class="text-lg text-immich-fg dark:text-immich-dark-fg">{$t('info')}</p>
     </div>
 
     {#if asset.isOffline}
@@ -314,7 +314,7 @@
   {/if}
 
   {#if currentAlbum && currentAlbum.albumUsers.length > 1 && asset.owner}
-    <section class="mt-4 px-6 dark:text-Universal Photos-dark-fg">
+    <section class="mt-4 px-6 dark:text-immich-dark-fg">
       <Text size="small" color="muted">{$t('shared_by')}</Text>
       <div class="flex gap-4 pt-4">
         <div>
@@ -331,7 +331,7 @@
   {/if}
 
   {#if albums.length > 0}
-    <section class="p-6 dark:text-Universal Photos-dark-fg">
+    <section class="p-6 dark:text-immich-dark-fg">
       <div class="pb-4">
         <Text size="small" color="muted">{$t('appears_in')}</Text>
       </div>
@@ -349,7 +349,7 @@
             </div>
 
             <div class="my-auto">
-              <p class="dark:text-Universal Photos-dark-primary">{album.albumName}</p>
+              <p class="dark:text-immich-dark-primary">{album.albumName}</p>
               <div class="flex flex-col gap-0 text-sm">
                 <div>
                   <AlbumListItemDetails {album} />
@@ -363,7 +363,7 @@
   {/if}
 
   {#if authManager.authenticated && authManager.preferences.tags.enabled}
-    <section class="relative px-2 pb-12 dark:bg-Universal Photos-dark-bg dark:text-Universal Photos-dark-fg">
+    <section class="relative px-2 pb-12 dark:bg-immich-dark-bg dark:text-immich-dark-fg">
       <DetailPanelTags {asset} {isOwner} />
     </section>
   {/if}

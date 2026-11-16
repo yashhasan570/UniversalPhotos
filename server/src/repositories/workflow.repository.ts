@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@universalphotos/plugin-sdk';
+import { WorkflowTrigger } from '@universal_photos/plugin-sdk';
 import { Injectable } from '@nestjs/common';
 import type { Insertable, Kysely, Updateable } from 'kysely';
 import { jsonArrayFrom, jsonObjectFrom } from 'kysely/helpers/postgres';

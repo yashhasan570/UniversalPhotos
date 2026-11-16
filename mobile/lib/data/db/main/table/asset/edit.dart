@@ -1,9 +1,9 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/table/asset/edit.drift.dart';
-import 'package:universal_photos/data/db/main/table/remote/asset.dart';
-import 'package:universal_photos/data/db/util/defaults_mixin.dart';
-import 'package:universal_photos/domain/models/asset_edit.model.dart';
-import 'package:universal_photos/extensions/object_extensions.dart';
+import 'package:universal_photos_mobile/data/db/main/table/asset/edit.drift.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos_mobile/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos_mobile/domain/models/asset_edit.model.dart';
+import 'package:universal_photos_mobile/extensions/object_extensions.dart';
 import 'package:openapi/api.dart' hide AssetEditAction;
 
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_asset_edit_asset_id ON asset_edit_entity (asset_id)')

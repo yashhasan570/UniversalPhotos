@@ -1,17 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:universal_photos/presentation/widgets/bottom_sheet/trash_bottom_sheet.widget.dart';
-import 'package:universal_photos/presentation/widgets/timeline/timeline.widget.dart';
-import 'package:universal_photos/providers/infrastructure/action.provider.dart';
-import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
-import 'package:universal_photos/providers/server_info.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/widgets/common/confirm_dialog.dart';
-import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/bottom_sheet/trash_bottom_sheet.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/timeline/timeline.widget.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/action.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos_mobile/providers/server_info.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/widgets/common/confirm_dialog.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_toast.dart';
 
 @RoutePage()
 class TrashPage extends StatelessWidget {

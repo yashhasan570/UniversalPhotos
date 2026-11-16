@@ -1,14 +1,14 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/services/local_album.service.dart';
-import 'package:universal_photos/domain/services/remote_album.service.dart';
-import 'package:universal_photos/infrastructure/repositories/local_album.repository.dart';
-import 'package:universal_photos/providers/infrastructure/db.provider.dart';
-import 'package:universal_photos/providers/infrastructure/remote_album.provider.dart';
-import 'package:universal_photos/repositories/album_api_repository.dart';
-import 'package:universal_photos/services/foreground_upload.service.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/services/local_album.service.dart';
+import 'package:universal_photos_mobile/domain/services/remote_album.service.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/local_album.repository.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/db.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/remote_album.provider.dart';
+import 'package:universal_photos_mobile/repositories/album_api_repository.dart';
+import 'package:universal_photos_mobile/services/foreground_upload.service.dart';
 
 final localAlbumProvider = StreamProvider<List<LocalAlbum>>(
   (ref) => LocalAlbumService(ref.watch(driftProvider).localAlbumRepository)

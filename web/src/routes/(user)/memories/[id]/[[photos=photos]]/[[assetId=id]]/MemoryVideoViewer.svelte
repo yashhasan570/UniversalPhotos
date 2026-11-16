@@ -3,7 +3,7 @@
   import type { TimelineAsset } from '#lib/managers/timeline-manager/types.ts';
   import { autoPlayVideo } from '#lib/stores/preferences.store.ts';
   import { getAssetMediaUrl, getAssetPlaybackUrl } from '#lib/utils.ts';
-  import { AssetMediaSize } from '@Universal Photos/sdk';
+  import { AssetMediaSize } from '@immich/sdk';
   import 'media-chrome/media-controller';
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';

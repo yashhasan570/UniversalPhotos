@@ -7,7 +7,7 @@
   import { Route } from '#lib/route.ts';
   import { getWorkflowActions } from '#lib/services/workflow.service.ts';
   import { getTriggerDescription, getTriggerName } from '#lib/utils/workflow.ts';
-  import type { WorkflowUpdateDto } from '@Universal Photos/sdk';
+  import type { WorkflowUpdateDto } from '@immich/sdk';
   import {
     ActionBar,
     AppShell,
@@ -31,7 +31,7 @@
     Textarea,
     VStack,
     modalManager,
-  } from '@Universal Photos/ui';
+  } from '@immich/ui';
   import {
     mdiArrowLeft,
     mdiCodeJson,

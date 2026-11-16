@@ -1,6 +1,6 @@
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/exif.model.dart';
-import 'package:universal_photos/infrastructure/utils/exif.converter.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart';
+import 'package:universal_photos_mobile/infrastructure/utils/exif.converter.dart';
 import 'package:openapi/api.dart' as api;
 
 extension DTOToAsset on api.AssetResponseDto {

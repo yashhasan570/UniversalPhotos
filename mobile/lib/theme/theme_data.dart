@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:universal_photos/constants/locales.dart';
-import 'package:universal_photos/extensions/theme_extensions.dart';
+import 'package:universal_photos_mobile/constants/locales.dart';
+import 'package:universal_photos_mobile/extensions/theme_extensions.dart';
 
 class UniversalPhotosTheme {
   final ColorScheme light;

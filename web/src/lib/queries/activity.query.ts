@@ -7,7 +7,7 @@ import {
   getActivities,
   getActivityStatistics,
   type ActivityResponseDto,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 import { queryOptions, type MutationMeta } from '@tanstack/svelte-query';
 
 export type ActivityParams = { albumId: string; assetId?: string };

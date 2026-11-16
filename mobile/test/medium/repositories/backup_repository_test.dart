@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
-import 'package:universal_photos/infrastructure/repositories/backup.repository.dart';
-import 'package:universal_photos/utils/option.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/backup.repository.dart';
+import 'package:universal_photos_mobile/utils/option.dart';
 
 import '../repository_context.dart';
 

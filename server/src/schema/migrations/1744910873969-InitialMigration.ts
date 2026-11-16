@@ -30,7 +30,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   await sql`CREATE EXTENSION IF NOT EXISTS "earthdistance";`.execute(db);
   await sql`CREATE EXTENSION IF NOT EXISTS "pg_trgm";`.execute(db);
   await sql`CREATE EXTENSION IF NOT EXISTS ${sql.raw(vectorExtension)} CASCADE`.execute(db);
-  await sql`CREATE OR REPLACE FUNCTION universalphotos_uuid_v7(p_timestamp timestamp with time zone default clock_timestamp())
+  await sql`CREATE OR REPLACE FUNCTION universal_photos_uuid_v7(p_timestamp timestamp with time zone default clock_timestamp())
   RETURNS uuid
   VOLATILE LANGUAGE SQL
   AS $$
@@ -55,7 +55,7 @@ export async function up(db: Kysely<any>): Promise<void> {
         clock_timestamp TIMESTAMP := clock_timestamp();
     BEGIN
         new."updatedAt" = clock_timestamp;
-        new."updateId" = universalphotos_uuid_v7(clock_timestamp);
+        new."updateId" = universal_photos_uuid_v7(clock_timestamp);
         return new;
     END;
   $$;`.execute(db);
@@ -108,23 +108,23 @@ export async function up(db: Kysely<any>): Promise<void> {
   $$;`.execute(db);
   await sql`CREATE TYPE "assets_status_enum" AS ENUM ('active','trashed','deleted');`.execute(db);
   await sql`CREATE TYPE "sourcetype" AS ENUM ('machine-learning','exif','manual');`.execute(db);
-  await sql`CREATE TABLE "users" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "email" character varying NOT NULL, "password" character varying NOT NULL DEFAULT '', "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "profileImagePath" character varying NOT NULL DEFAULT '', "isAdmin" boolean NOT NULL DEFAULT false, "shouldChangePassword" boolean NOT NULL DEFAULT true, "deletedAt" timestamp with time zone, "oauthId" character varying NOT NULL DEFAULT '', "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "storageLabel" character varying, "name" character varying NOT NULL DEFAULT '', "quotaSizeInBytes" bigint, "quotaUsageInBytes" bigint NOT NULL DEFAULT 0, "status" character varying NOT NULL DEFAULT 'active', "profileChangedAt" timestamp with time zone NOT NULL DEFAULT now(), "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "users" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "email" character varying NOT NULL, "password" character varying NOT NULL DEFAULT '', "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "profileImagePath" character varying NOT NULL DEFAULT '', "isAdmin" boolean NOT NULL DEFAULT false, "shouldChangePassword" boolean NOT NULL DEFAULT true, "deletedAt" timestamp with time zone, "oauthId" character varying NOT NULL DEFAULT '', "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "storageLabel" character varying, "name" character varying NOT NULL DEFAULT '', "quotaSizeInBytes" bigint, "quotaUsageInBytes" bigint NOT NULL DEFAULT 0, "status" character varying NOT NULL DEFAULT 'active', "profileChangedAt" timestamp with time zone NOT NULL DEFAULT now(), "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
-  await sql`CREATE TABLE "libraries" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "name" character varying NOT NULL, "ownerId" uuid NOT NULL, "importPaths" text[] NOT NULL, "exclusionPatterns" text[] NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "deletedAt" timestamp with time zone, "refreshedAt" timestamp with time zone, "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "libraries" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "name" character varying NOT NULL, "ownerId" uuid NOT NULL, "importPaths" text[] NOT NULL, "exclusionPatterns" text[] NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "deletedAt" timestamp with time zone, "refreshedAt" timestamp with time zone, "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "asset_stack" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "primaryAssetId" uuid NOT NULL, "ownerId" uuid NOT NULL);`.execute(
     db,
   );
-  await sql`CREATE TABLE "assets" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "deviceAssetId" character varying NOT NULL, "ownerId" uuid NOT NULL, "deviceId" character varying NOT NULL, "type" character varying NOT NULL, "originalPath" character varying NOT NULL, "fileCreatedAt" timestamp with time zone NOT NULL, "fileModifiedAt" timestamp with time zone NOT NULL, "isFavorite" boolean NOT NULL DEFAULT false, "duration" character varying, "encodedVideoPath" character varying DEFAULT '', "checksum" bytea NOT NULL, "isVisible" boolean NOT NULL DEFAULT true, "livePhotoVideoId" uuid, "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "isArchived" boolean NOT NULL DEFAULT false, "originalFileName" character varying NOT NULL, "sidecarPath" character varying, "thumbhash" bytea, "isOffline" boolean NOT NULL DEFAULT false, "libraryId" uuid, "isExternal" boolean NOT NULL DEFAULT false, "deletedAt" timestamp with time zone, "localDateTime" timestamp with time zone NOT NULL, "stackId" uuid, "duplicateId" uuid, "status" assets_status_enum NOT NULL DEFAULT 'active', "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "assets" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "deviceAssetId" character varying NOT NULL, "ownerId" uuid NOT NULL, "deviceId" character varying NOT NULL, "type" character varying NOT NULL, "originalPath" character varying NOT NULL, "fileCreatedAt" timestamp with time zone NOT NULL, "fileModifiedAt" timestamp with time zone NOT NULL, "isFavorite" boolean NOT NULL DEFAULT false, "duration" character varying, "encodedVideoPath" character varying DEFAULT '', "checksum" bytea NOT NULL, "isVisible" boolean NOT NULL DEFAULT true, "livePhotoVideoId" uuid, "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "isArchived" boolean NOT NULL DEFAULT false, "originalFileName" character varying NOT NULL, "sidecarPath" character varying, "thumbhash" bytea, "isOffline" boolean NOT NULL DEFAULT false, "libraryId" uuid, "isExternal" boolean NOT NULL DEFAULT false, "deletedAt" timestamp with time zone, "localDateTime" timestamp with time zone NOT NULL, "stackId" uuid, "duplicateId" uuid, "status" assets_status_enum NOT NULL DEFAULT 'active', "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
-  await sql`CREATE TABLE "albums" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "ownerId" uuid NOT NULL, "albumName" character varying NOT NULL DEFAULT 'Untitled Album', "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "albumThumbnailAssetId" uuid, "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "description" text NOT NULL DEFAULT '', "deletedAt" timestamp with time zone, "isActivityEnabled" boolean NOT NULL DEFAULT true, "order" character varying NOT NULL DEFAULT 'desc', "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "albums" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "ownerId" uuid NOT NULL, "albumName" character varying NOT NULL DEFAULT 'Untitled Album', "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "albumThumbnailAssetId" uuid, "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "description" text NOT NULL DEFAULT '', "deletedAt" timestamp with time zone, "isActivityEnabled" boolean NOT NULL DEFAULT true, "order" character varying NOT NULL DEFAULT 'desc', "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`COMMENT ON COLUMN "albums"."albumThumbnailAssetId" IS 'Asset ID to be used as thumbnail';`.execute(db);
-  await sql`CREATE TABLE "activity" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "albumId" uuid NOT NULL, "userId" uuid NOT NULL, "assetId" uuid, "comment" text, "isLiked" boolean NOT NULL DEFAULT false, "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "activity" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "albumId" uuid NOT NULL, "userId" uuid NOT NULL, "assetId" uuid, "comment" text, "isLiked" boolean NOT NULL DEFAULT false, "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "albums_assets_assets" ("albumsId" uuid NOT NULL, "assetsId" uuid NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now());`.execute(
@@ -133,19 +133,19 @@ export async function up(db: Kysely<any>): Promise<void> {
   await sql`CREATE TABLE "albums_shared_users_users" ("albumsId" uuid NOT NULL, "usersId" uuid NOT NULL, "role" character varying NOT NULL DEFAULT 'editor');`.execute(
     db,
   );
-  await sql`CREATE TABLE "api_keys" ("name" character varying NOT NULL, "key" character varying NOT NULL, "userId" uuid NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "id" uuid NOT NULL DEFAULT uuid_generate_v4(), "permissions" character varying[] NOT NULL, "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "api_keys" ("name" character varying NOT NULL, "key" character varying NOT NULL, "userId" uuid NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "id" uuid NOT NULL DEFAULT uuid_generate_v4(), "permissions" character varying[] NOT NULL, "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
-  await sql`CREATE TABLE "assets_audit" ("id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(), "assetId" uuid NOT NULL, "ownerId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp());`.execute(
+  await sql`CREATE TABLE "assets_audit" ("id" uuid NOT NULL DEFAULT universal_photos_uuid_v7(), "assetId" uuid NOT NULL, "ownerId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp());`.execute(
     db,
   );
-  await sql`CREATE TABLE "person" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "ownerId" uuid NOT NULL, "name" character varying NOT NULL DEFAULT '', "thumbnailPath" character varying NOT NULL DEFAULT '', "isHidden" boolean NOT NULL DEFAULT false, "birthDate" date, "faceAssetId" uuid, "isFavorite" boolean NOT NULL DEFAULT false, "color" character varying, "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "person" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "ownerId" uuid NOT NULL, "name" character varying NOT NULL DEFAULT '', "thumbnailPath" character varying NOT NULL DEFAULT '', "isHidden" boolean NOT NULL DEFAULT false, "birthDate" date, "faceAssetId" uuid, "isFavorite" boolean NOT NULL DEFAULT false, "color" character varying, "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "asset_faces" ("assetId" uuid NOT NULL, "personId" uuid, "imageWidth" integer NOT NULL DEFAULT 0, "imageHeight" integer NOT NULL DEFAULT 0, "boundingBoxX1" integer NOT NULL DEFAULT 0, "boundingBoxY1" integer NOT NULL DEFAULT 0, "boundingBoxX2" integer NOT NULL DEFAULT 0, "boundingBoxY2" integer NOT NULL DEFAULT 0, "id" uuid NOT NULL DEFAULT uuid_generate_v4(), "sourceType" sourcetype NOT NULL DEFAULT 'machine-learning', "deletedAt" timestamp with time zone);`.execute(
     db,
   );
-  await sql`CREATE TABLE "asset_files" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "assetId" uuid NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "type" character varying NOT NULL, "path" character varying NOT NULL, "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "asset_files" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "assetId" uuid NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "type" character varying NOT NULL, "path" character varying NOT NULL, "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "asset_job_status" ("assetId" uuid NOT NULL, "facesRecognizedAt" timestamp with time zone, "metadataExtractedAt" timestamp with time zone, "duplicatesDetectedAt" timestamp with time zone, "previewAt" timestamp with time zone, "thumbnailAt" timestamp with time zone);`.execute(
@@ -154,14 +154,14 @@ export async function up(db: Kysely<any>): Promise<void> {
   await sql`CREATE TABLE "audit" ("id" serial NOT NULL, "entityType" character varying NOT NULL, "entityId" uuid NOT NULL, "action" character varying NOT NULL, "ownerId" uuid NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now());`.execute(
     db,
   );
-  await sql`CREATE TABLE "exif" ("assetId" uuid NOT NULL, "make" character varying, "model" character varying, "exifImageWidth" integer, "exifImageHeight" integer, "fileSizeInByte" bigint, "orientation" character varying, "dateTimeOriginal" timestamp with time zone, "modifyDate" timestamp with time zone, "lensModel" character varying, "fNumber" double precision, "focalLength" double precision, "iso" integer, "latitude" double precision, "longitude" double precision, "city" character varying, "state" character varying, "country" character varying, "description" text NOT NULL DEFAULT '', "fps" double precision, "exposureTime" character varying, "livePhotoCID" character varying, "timeZone" character varying, "projectionType" character varying, "profileDescription" character varying, "colorspace" character varying, "bitsPerSample" integer, "autoStackId" character varying, "rating" integer, "updatedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(), "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "exif" ("assetId" uuid NOT NULL, "make" character varying, "model" character varying, "exifImageWidth" integer, "exifImageHeight" integer, "fileSizeInByte" bigint, "orientation" character varying, "dateTimeOriginal" timestamp with time zone, "modifyDate" timestamp with time zone, "lensModel" character varying, "fNumber" double precision, "focalLength" double precision, "iso" integer, "latitude" double precision, "longitude" double precision, "city" character varying, "state" character varying, "country" character varying, "description" text NOT NULL DEFAULT '', "fps" double precision, "exposureTime" character varying, "livePhotoCID" character varying, "timeZone" character varying, "projectionType" character varying, "profileDescription" character varying, "colorspace" character varying, "bitsPerSample" integer, "autoStackId" character varying, "rating" integer, "updatedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(), "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "face_search" ("faceId" uuid NOT NULL, "embedding" vector(512) NOT NULL);`.execute(db);
   await sql`CREATE TABLE "geodata_places" ("id" integer NOT NULL, "name" character varying(200) NOT NULL, "longitude" double precision NOT NULL, "latitude" double precision NOT NULL, "countryCode" character(2) NOT NULL, "admin1Code" character varying(20), "admin2Code" character varying(80), "modificationDate" date NOT NULL, "admin1Name" character varying, "admin2Name" character varying, "alternateNames" character varying);`.execute(
     db,
   );
-  await sql`CREATE TABLE "memories" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "deletedAt" timestamp with time zone, "ownerId" uuid NOT NULL, "type" character varying NOT NULL, "data" jsonb NOT NULL, "isSaved" boolean NOT NULL DEFAULT false, "memoryAt" timestamp with time zone NOT NULL, "seenAt" timestamp with time zone, "showAt" timestamp with time zone, "hideAt" timestamp with time zone, "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "memories" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "deletedAt" timestamp with time zone, "ownerId" uuid NOT NULL, "type" character varying NOT NULL, "data" jsonb NOT NULL, "isSaved" boolean NOT NULL DEFAULT false, "memoryAt" timestamp with time zone NOT NULL, "seenAt" timestamp with time zone, "showAt" timestamp with time zone, "hideAt" timestamp with time zone, "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "memories_assets_assets" ("memoriesId" uuid NOT NULL, "assetsId" uuid NOT NULL);`.execute(db);
@@ -171,13 +171,13 @@ export async function up(db: Kysely<any>): Promise<void> {
   await sql`CREATE TABLE "naturalearth_countries" ("id" integer NOT NULL GENERATED ALWAYS AS IDENTITY, "admin" character varying(50) NOT NULL, "admin_a3" character varying(3) NOT NULL, "type" character varying(50) NOT NULL, "coordinates" polygon NOT NULL);`.execute(
     db,
   );
-  await sql`CREATE TABLE "partners_audit" ("id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(), "sharedById" uuid NOT NULL, "sharedWithId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp());`.execute(
+  await sql`CREATE TABLE "partners_audit" ("id" uuid NOT NULL DEFAULT universal_photos_uuid_v7(), "sharedById" uuid NOT NULL, "sharedWithId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp());`.execute(
     db,
   );
-  await sql`CREATE TABLE "partners" ("sharedById" uuid NOT NULL, "sharedWithId" uuid NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "inTimeline" boolean NOT NULL DEFAULT false, "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "partners" ("sharedById" uuid NOT NULL, "sharedWithId" uuid NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "inTimeline" boolean NOT NULL DEFAULT false, "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
-  await sql`CREATE TABLE "sessions" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "token" character varying NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "userId" uuid NOT NULL, "deviceType" character varying NOT NULL DEFAULT '', "deviceOS" character varying NOT NULL DEFAULT '', "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "sessions" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "token" character varying NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "userId" uuid NOT NULL, "deviceType" character varying NOT NULL DEFAULT '', "deviceOS" character varying NOT NULL DEFAULT '', "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "shared_links" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "description" character varying, "userId" uuid NOT NULL, "key" bytea NOT NULL, "type" character varying NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "expiresAt" timestamp with time zone, "allowUpload" boolean NOT NULL DEFAULT false, "albumId" uuid, "allowDownload" boolean NOT NULL DEFAULT true, "showExif" boolean NOT NULL DEFAULT true, "password" character varying);`.execute(
@@ -186,16 +186,16 @@ export async function up(db: Kysely<any>): Promise<void> {
   await sql`CREATE TABLE "shared_link__asset" ("assetsId" uuid NOT NULL, "sharedLinksId" uuid NOT NULL);`.execute(db);
   await sql`CREATE TABLE "smart_search" ("assetId" uuid NOT NULL, "embedding" vector(512) NOT NULL);`.execute(db);
   await sql`ALTER TABLE "smart_search" ALTER COLUMN "embedding" SET STORAGE EXTERNAL;`.execute(db);
-  await sql`CREATE TABLE "session_sync_checkpoints" ("sessionId" uuid NOT NULL, "type" character varying NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "ack" character varying NOT NULL, "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "session_sync_checkpoints" ("sessionId" uuid NOT NULL, "type" character varying NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "ack" character varying NOT NULL, "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "system_metadata" ("key" character varying NOT NULL, "value" jsonb NOT NULL);`.execute(db);
-  await sql`CREATE TABLE "tags" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "userId" uuid NOT NULL, "value" character varying NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "color" character varying, "parentId" uuid, "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "tags" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "userId" uuid NOT NULL, "value" character varying NOT NULL, "createdAt" timestamp with time zone NOT NULL DEFAULT now(), "updatedAt" timestamp with time zone NOT NULL DEFAULT now(), "color" character varying, "parentId" uuid, "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "tag_asset" ("assetsId" uuid NOT NULL, "tagsId" uuid NOT NULL);`.execute(db);
   await sql`CREATE TABLE "tags_closure" ("id_ancestor" uuid NOT NULL, "id_descendant" uuid NOT NULL);`.execute(db);
-  await sql`CREATE TABLE "users_audit" ("userId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(), "id" uuid NOT NULL DEFAULT universalphotos_uuid_v7());`.execute(
+  await sql`CREATE TABLE "users_audit" ("userId" uuid NOT NULL, "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(), "id" uuid NOT NULL DEFAULT universal_photos_uuid_v7());`.execute(
     db,
   );
   await sql`CREATE TABLE "user_metadata" ("userId" uuid NOT NULL, "key" character varying NOT NULL, "value" jsonb NOT NULL);`.execute(

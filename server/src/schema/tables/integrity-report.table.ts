@@ -6,7 +6,7 @@ import {
   Timestamp,
   Unique,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { PrimaryGeneratedUuidV7Column } from 'src/decorators.js';
 import { IntegrityReport } from 'src/enum.js';
 import { AssetFileTable } from 'src/schema/tables/asset-file.table.js';

@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@universalphotos/plugin-sdk';
+import { WorkflowTrigger } from '@universal_photos/plugin-sdk';
 import { ShallowDehydrateObject } from 'kysely';
 import { Mocked } from 'vitest';
 import { VECTOR_EXTENSIONS } from 'src/constants.js';

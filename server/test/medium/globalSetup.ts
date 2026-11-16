@@ -8,7 +8,7 @@ import { getKyselyConfig } from 'src/utils/database.js';
 
 const globalSetup = async () => {
   const templateName = 'mich';
-  const postgresContainer = await new GenericContainer('/postgres:14-vectorchord0.4.3')
+  const postgresContainer = await new GenericContainer('ghcr.io/universal_photos-app/postgres:14-vectorchord0.4.3')
     .withExposedPorts(5432)
     .withEnvironment({
       POSTGRES_PASSWORD: 'postgres',

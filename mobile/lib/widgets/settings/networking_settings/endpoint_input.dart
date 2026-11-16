@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/models/auth/auxilary_endpoint.model.dart';
-import 'package:universal_photos/providers/auth.provider.dart';
-import 'package:universal_photos/widgets/settings/networking_settings/networking_settings.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/models/auth/auxilary_endpoint.model.dart';
+import 'package:universal_photos_mobile/providers/auth.provider.dart';
+import 'package:universal_photos_mobile/widgets/settings/networking_settings/networking_settings.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 class EndpointInput extends StatefulHookConsumerWidget {
   const EndpointInput({
@@ -118,7 +118,7 @@ class EndpointInputState extends ConsumerState<EndpointInput> {
           autovalidateMode: .onUserInteraction,
           validator: validateUrl,
           keyboardAction: .next,
-          hintText: 'http(s)://universalphotos.domain.com',
+          hintText: 'http(s)://universal_photos.domain.com',
           controller: controller,
           focusNode: focusNode,
         ),

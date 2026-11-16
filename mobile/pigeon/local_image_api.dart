@@ -5,10 +5,10 @@ import 'package:pigeon/pigeon.dart';
     dartOut: 'lib/platform/local_image_api.g.dart',
     swiftOut: 'ios/Runner/Images/LocalImages.g.swift',
     swiftOptions: SwiftOptions(includeErrorClass: false),
-    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universalphotos/images/LocalImages.g.kt',
-    kotlinOptions: KotlinOptions(package: 'app.alextran.images'),
+    kotlinOut: 'android/app/src/main/kotlin/app/alextran/universal_photos/images/LocalImages.g.kt',
+    kotlinOptions: KotlinOptions(package: 'app.alextran.universal_photos.images'),
     dartOptions: DartOptions(),
-    dartPackageName: 'universal_photos',
+    dartPackageName: 'universal_photos_mobile',
   ),
 )
 @HostApi()

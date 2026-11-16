@@ -6,7 +6,7 @@ import type { BrowserContext, Request, Route, WebSocketRoute } from '@playwright
 const apiPattern = /^https?:\/\/[^/]+\/api\//;
 const socketPattern = /\/api\/socket\.io\//;
 const customCssPattern = /^https?:\/\/[^/]+\/custom\.css$/;
-const mapStylePattern = /^https:\/\/tiles\\.cloud\//;
+const mapStylePattern = /^https:\/\/tiles\.universal_photos\.cloud\//;
 
 const sockets = new WeakMap<BrowserContext, WebSocketRoute>();
 const socketMockedContexts = new WeakSet<BrowserContext>();

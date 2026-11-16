@@ -3,10 +3,10 @@
 import 'package:drift/drift.dart';
 import 'package:drift_dev/api/migrations_native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/domain/models/timeline.model.dart';
-import 'package:universal_photos/infrastructure/repositories/timeline.repository.dart';
-import 'package:universal_photos/utils/migration.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/domain/models/timeline.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/timeline.repository.dart';
+import 'package:universal_photos_mobile/utils/migration.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'generated/schema.dart';

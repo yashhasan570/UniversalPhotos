@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/services/timeline.service.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/presentation/actions/action.dart';
-import 'package:universal_photos/presentation/actions/delete.action.dart';
-import 'package:universal_photos/presentation/actions/edit_asset.action.dart';
-import 'package:universal_photos/presentation/actions/restore.action.dart';
-import 'package:universal_photos/presentation/actions/share.action.dart';
-import 'package:universal_photos/presentation/actions/upload.action.dart';
-import 'package:universal_photos/presentation/widgets/action_buttons/add_action_button.widget.dart';
-import 'package:universal_photos/presentation/widgets/asset_viewer/ocr_toggle_button.widget.dart';
-import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:universal_photos/providers/infrastructure/readonly_mode.provider.dart';
-import 'package:universal_photos/providers/infrastructure/timeline.provider.dart';
-import 'package:universal_photos/providers/routes.provider.dart';
-import 'package:universal_photos/widgets/asset_viewer/video_controls.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/domain/services/timeline.service.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.dart';
+import 'package:universal_photos_mobile/presentation/actions/delete.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/edit_asset.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/restore.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/share.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/upload.action.dart';
+import 'package:universal_photos_mobile/presentation/widgets/action_buttons/add_action_button.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/asset_viewer/ocr_toggle_button.widget.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/readonly_mode.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/timeline.provider.dart';
+import 'package:universal_photos_mobile/providers/routes.provider.dart';
+import 'package:universal_photos_mobile/widgets/asset_viewer/video_controls.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 // Resolved here rather than as an ActionColumnButton so a hidden restore
 // takes no slot in the spaceEvenly row below.

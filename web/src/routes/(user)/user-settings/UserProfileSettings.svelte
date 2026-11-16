@@ -1,8 +1,8 @@
 <script lang="ts">
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { updateMyUser } from '@Universal Photos/sdk';
-  import { Button, Field, Input, toastManager } from '@Universal Photos/ui';
+  import { updateMyUser } from '@immich/sdk';
+  import { Button, Field, Input, toastManager } from '@immich/ui';
   import { cloneDeep } from 'lodash-es';
   import { t } from 'svelte-i18n';
   import { createBubbler, preventDefault } from 'svelte/legacy';

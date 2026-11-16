@@ -44,7 +44,7 @@ export class SyncCheckpointRepository {
   getNow() {
     return this.db
       .selectNoFrom((eb) => [
-        eb.fn<string>('universalphotos_uuid_v7', [sql.raw<Date>("now() - interval '1 millisecond'")]).as('nowId'),
+        eb.fn<string>('universal_photos_uuid_v7', [sql.raw<Date>("now() - interval '1 millisecond'")]).as('nowId'),
       ])
       .executeTakeFirstOrThrow();
   }

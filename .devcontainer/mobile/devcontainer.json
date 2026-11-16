@@ -1,12 +1,12 @@
 {
   "name": "UniversalPhotos - Mobile",
-  "service": "universalphotos-server",
+  "service": "universal_photos-server",
   "runServices": [
-    "universalphotos-init",
-    "universalphotos-server",
+    "universal_photos-init",
+    "universal_photos-server",
     "redis",
     "database",
-    "universalphotos-machine-learning"
+    "universal_photos-machine-learning"
   ],
   "dockerComposeFile": [
     "../../docker/docker-compose.dev.yml",
@@ -48,6 +48,6 @@
     //  The database username
     "DB_USERNAME": "${localEnv:DB_USERNAME:postgres}",
     //  The database name
-    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:universalphotos}"
+    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:universal_photos}"
   }
 }

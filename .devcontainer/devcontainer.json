@@ -1,12 +1,12 @@
 {
   "name": "UniversalPhotos - Backend, Frontend and ML",
-  "service": "universalphotos-server",
+  "service": "universal_photos-server",
   "runServices": [
-    "universalphotos-init",
-    "universalphotos-server",
+    "universal_photos-init",
+    "universal_photos-server",
     "redis",
     "database",
-    "universalphotos-machine-learning"
+    "universal_photos-machine-learning"
   ],
   "dockerComposeFile": [
     "../docker/docker-compose.dev.yml",
@@ -35,7 +35,7 @@
             {
               "label": "UniversalPhotos API Server (Nest)",
               "type": "shell",
-              "command": "[ -f /universalphotos-devcontainer/container-start-backend.sh ] && /universalphotos-devcontainer/container-start-backend.sh || exit 0",
+              "command": "[ -f /universal_photos-devcontainer/container-start-backend.sh ] && /universal_photos-devcontainer/container-start-backend.sh || exit 0",
               "isBackground": true,
               "presentation": {
                 "echo": true,
@@ -55,7 +55,7 @@
             {
               "label": "UniversalPhotos Web Server (Vite)",
               "type": "shell",
-              "command": "[ -f /universalphotos-devcontainer/container-start-frontend.sh ] && /universalphotos-devcontainer/container-start-frontend.sh || exit 0",
+              "command": "[ -f /universal_photos-devcontainer/container-start-frontend.sh ] && /universal_photos-devcontainer/container-start-frontend.sh || exit 0",
               "isBackground": true,
               "presentation": {
                 "echo": true,
@@ -75,7 +75,7 @@
             {
               "label": "Build UniversalPhotos CLI",
               "type": "shell",
-              "command": "pnpm --filter @universalphotos/cli build:dev"
+              "command": "pnpm --filter @universal_photos/cli build:dev"
             }
           ]
         }
@@ -121,6 +121,6 @@
     //  The database username
     "DB_USERNAME": "${localEnv:DB_USERNAME:postgres}",
     //  The database name
-    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:universalphotos}"
+    "DB_DATABASE_NAME": "${localEnv:DB_DATABASE_NAME:universal_photos}"
   }
 }

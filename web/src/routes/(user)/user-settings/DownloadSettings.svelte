@@ -5,8 +5,8 @@
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { ByteUnit, convertFromBytes, convertToBytes } from '#lib/utils/byte-units.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { updateMyPreferences } from '@Universal Photos/sdk';
-  import { Button, toastManager } from '@Universal Photos/ui';
+  import { updateMyPreferences } from '@immich/sdk';
+  import { Button, toastManager } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
 

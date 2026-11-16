@@ -1,6 +1,6 @@
 <script lang="ts">
   import { transformManager } from '#lib/managers/edit/transform-manager.svelte.ts';
-  import { Button, HStack, IconButton, shortcuts } from '@Universal Photos/ui';
+  import { Button, HStack, IconButton, shortcuts } from '@immich/ui';
   import { mdiFlipHorizontal, mdiFlipVertical, mdiRotateLeft, mdiRotateRight } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

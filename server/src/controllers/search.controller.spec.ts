@@ -62,7 +62,7 @@ describe(SearchController.name, () => {
     it('should reject an visibility as not an enum', async () => {
       const { status, body } = await request(ctx.getHttpServer())
         .post('/search/metadata')
-        .send({ visibility: 'universalphotos' });
+        .send({ visibility: 'universal_photos' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([
@@ -74,7 +74,7 @@ describe(SearchController.name, () => {
     it('should reject an isFavorite as not a boolean', async () => {
       const { status, body } = await request(ctx.getHttpServer())
         .post('/search/metadata')
-        .send({ isFavorite: 'universalphotos' });
+        .send({ isFavorite: 'universal_photos' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([
@@ -86,7 +86,7 @@ describe(SearchController.name, () => {
     it('should reject an isEncoded as not a boolean', async () => {
       const { status, body } = await request(ctx.getHttpServer())
         .post('/search/metadata')
-        .send({ isEncoded: 'universalphotos' });
+        .send({ isEncoded: 'universal_photos' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([
@@ -98,7 +98,7 @@ describe(SearchController.name, () => {
     it('should reject an isOffline as not a boolean', async () => {
       const { status, body } = await request(ctx.getHttpServer())
         .post('/search/metadata')
-        .send({ isOffline: 'universalphotos' });
+        .send({ isOffline: 'universal_photos' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([
@@ -108,7 +108,7 @@ describe(SearchController.name, () => {
     });
 
     it('should reject an isMotion as not a boolean', async () => {
-      const { status, body } = await request(ctx.getHttpServer()).post('/search/metadata').send({ isMotion: 'universalphotos' });
+      const { status, body } = await request(ctx.getHttpServer()).post('/search/metadata').send({ isMotion: 'universal_photos' });
       expect(status).toBe(400);
       expect(body).toEqual(
         errorDto.validationError([{ path: ['isMotion'], message: 'Invalid input: expected boolean, received string' }]),
@@ -159,7 +159,7 @@ describe(SearchController.name, () => {
       it('should reject if withStacked is not a boolean', async () => {
         const { status, body } = await request(ctx.getHttpServer())
           .post('/search/random')
-          .send({ withStacked: 'universalphotos' });
+          .send({ withStacked: 'universal_photos' });
         expect(status).toBe(400);
         expect(body).toEqual(
           errorDto.validationError([
@@ -171,7 +171,7 @@ describe(SearchController.name, () => {
       it('should reject if withPeople is not a boolean', async () => {
         const { status, body } = await request(ctx.getHttpServer())
           .post('/search/random')
-          .send({ withPeople: 'universalphotos' });
+          .send({ withPeople: 'universal_photos' });
         expect(status).toBe(400);
         expect(body).toEqual(
           errorDto.validationError([

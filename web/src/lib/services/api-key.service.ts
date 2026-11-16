@@ -4,8 +4,8 @@ import ApiKeyUpdateModal from '#lib/modals/ApiKeyUpdateModal.svelte';
 import { deleteApiKeyMutation, rotateApiKeyMutation } from '#lib/queries/api-key.query.ts';
 import { executeMutation } from '#lib/queries/client.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import type { ApiKeyResponseDto } from '@universalphotos/sdk';
-import { modalManager, toastManager, type ActionItem } from '@universalphotos/ui';
+import type { ApiKeyResponseDto } from '@universal_photos/sdk';
+import { modalManager, toastManager, type ActionItem } from '@universal_photos/ui';
 import { mdiAutorenew, mdiPencilOutline, mdiPlus, mdiTrashCanOutline } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';
 

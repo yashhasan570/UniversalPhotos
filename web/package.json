@@ -1,5 +1,5 @@
 {
-  "name": "universalphotos-web",
+  "name": "universal_photos-web",
   "version": "3.4.0-rc.0",
   "license": "GNU Affero General Public License version 3",
   "type": "module",
@@ -34,9 +34,9 @@
   "dependencies": {
     "@formatjs/icu-messageformat-parser": "^3.0.0",
     "@futo-org/backups-orchestrator-ui": "1.16.0",
-    "@universalphotos/justified-layout-wasm": "^0.4.3",
-    "@universalphotos/sdk": "workspace:*",
-    "@universalphotos/ui": "^0.92.0",
+    "@universal_photos/justified-layout-wasm": "^0.4.3",
+    "@universal_photos/sdk": "workspace:*",
+    "@universal_photos/ui": "^0.92.0",
     "@mdi/js": "^7.4.47",
     "@noble/hashes": "^2.2.0",
     "@photo-sphere-viewer/core": "^5.14.0",

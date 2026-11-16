@@ -1,4 +1,4 @@
-import { Column, PrimaryGeneratedColumn, Table, Unique, type Generated } from '@universalphotos/sql-tools';
+import { Column, PrimaryGeneratedColumn, Table, Unique, type Generated } from '@universal_photos/sql-tools';
 import type { PathType } from 'src/enum.js';
 
 @Table('move_history')

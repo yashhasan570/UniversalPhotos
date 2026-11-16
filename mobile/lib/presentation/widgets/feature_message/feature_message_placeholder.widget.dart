@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/widgets/common/universalphotos_logo.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_logo.dart';
 
 class _SplatColors {
   static const primary = Color(0xFF4250AF);

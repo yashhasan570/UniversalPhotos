@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:universal_photos/constants/constants.dart';
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/extensions/platform_extensions.dart';
-import 'package:universal_photos/infrastructure/repositories/local_album.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/local_asset.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/trashed_local_asset.repository.dart';
-import 'package:universal_photos/platform/native_sync_api.g.dart';
+import 'package:universal_photos_mobile/constants/constants.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/extensions/platform_extensions.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/local_album.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/local_asset.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/trashed_local_asset.repository.dart';
+import 'package:universal_photos_mobile/platform/native_sync_api.g.dart';
 import 'package:logging/logging.dart';
 
 const String _kHashCancelledCode = "HASH_CANCELLED";

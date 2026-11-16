@@ -1,5 +1,5 @@
 {
-  "name": "@universalphotos/cli",
+  "name": "@universal_photos/cli",
   "version": "3.4.0-rc.0",
   "description": "Command Line Interface (CLI) for UniversalPhotos",
   "repository": {
@@ -10,16 +10,16 @@
   "type": "module",
   "exports": "./dist/index.js",
   "bin": {
-    "universalphotos": "./bin/universalphotos"
+    "universal_photos": "./bin/universal_photos"
   },
   "license": "GNU Affero General Public License version 3",
   "keywords": [
-    "universalphotos",
+    "universal_photos",
     "cli"
   ],
   "devDependencies": {
     "@eslint/js": "^10.0.0",
-    "@universalphotos/sdk": "workspace:*",
+    "@universal_photos/sdk": "workspace:*",
     "@types/byte-size": "^8.1.0",
     "@types/cli-progress": "^3.11.0",
     "@types/lodash-es": "^4.17.12",

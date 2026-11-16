@@ -1,4 +1,4 @@
-import type { AssetResponseDto } from '@universalphotos/sdk';
+import type { AssetResponseDto } from '@universal_photos/sdk';
 import { canCopyImageToClipboard, getAssetFilename, getFilenameExtension } from './asset-utils';
 
 describe('get file extension from filename', () => {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/widgets/common/universalphotos_loading_indicator.dart';
-import 'package:universal_photos/widgets/common/scaffold_error_body.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_loading_indicator.dart';
+import 'package:universal_photos_mobile/widgets/common/scaffold_error_body.dart';
 import 'package:logging/logging.dart';
 
 extension LogOnError<T> on AsyncValue<T> {

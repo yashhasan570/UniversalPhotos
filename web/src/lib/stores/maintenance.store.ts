@@ -1,4 +1,4 @@
-import { type MaintenanceAuthDto, type MaintenanceStatusResponseDto } from '@universalphotos/sdk';
+import { type MaintenanceAuthDto, type MaintenanceStatusResponseDto } from '@universal_photos/sdk';
 import { writable } from 'svelte/store';
 
 export const maintenanceStore = {

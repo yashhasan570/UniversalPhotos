@@ -3,8 +3,8 @@
   import MapModal from '#lib/modals/MapModal.svelte';
   import { getAlbumMapMarkersQuery } from '#lib/queries/album.query.ts';
   import { navigate } from '#lib/utils/navigation.ts';
-  import { type AlbumResponseDto } from '@Universal Photos/sdk';
-  import { IconButton, modalManager } from '@Universal Photos/ui';
+  import { type AlbumResponseDto } from '@immich/sdk';
+  import { IconButton, modalManager } from '@immich/ui';
   import { mdiMapOutline } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { onDestroy } from 'svelte';

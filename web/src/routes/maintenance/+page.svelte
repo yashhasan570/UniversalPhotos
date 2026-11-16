@@ -5,8 +5,8 @@
   import { handleSetMaintenanceMode } from '#lib/services/maintenance.service.ts';
   import { maintenanceStore } from '#lib/stores/maintenance.store.ts';
   import { ViewStatusModal, YuccaContext } from '@futo-org/backups-orchestrator-ui';
-  import { MaintenanceAction } from '@Universal Photos/sdk';
-  import { Button, Heading, Link, ProgressBar, Scrollable, Text } from '@Universal Photos/ui';
+  import { MaintenanceAction } from '@immich/sdk';
+  import { Button, Heading, Link, ProgressBar, Scrollable, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
   import MaintenanceRestoreFlow from './MaintenanceRestoreFlow.svelte';
@@ -96,7 +96,7 @@
           <FormatMessage key="maintenance_description">
             {#snippet children({ tag, message })}
               {#if tag === 'link'}
-                <Link href="https://docs./administration/maintenance-mode">
+                <Link href="https://docs.immich.app/administration/maintenance-mode">
                   {message}
                 </Link>
               {/if}

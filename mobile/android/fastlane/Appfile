@@ -1,2 +1,2 @@
-json_key_file("universalphotos-play-store-key.json")
-package_name("app.alextran")
+json_key_file("universal_photos-play-store-key.json")
+package_name("app.alextran.universal_photos")

@@ -5,8 +5,8 @@
   import { getAlbumActions } from '#lib/services/album.service.ts';
   import { albumViewSettings } from '#lib/stores/preferences.store.ts';
   import { isAlbumGroupCollapsed, toggleAlbumGroupCollapsing, type AlbumGroup } from '#lib/utils/album-utils.ts';
-  import type { AlbumResponseDto } from '@Universal Photos/sdk';
-  import { Icon, menuManager, type ActionItem } from '@Universal Photos/ui';
+  import type { AlbumResponseDto } from '@immich/sdk';
+  import { Icon, menuManager, type ActionItem } from '@immich/ui';
   import { mdiChevronRight } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { flip } from 'svelte/animate';
@@ -51,14 +51,14 @@
     <button
       type="button"
       onclick={() => toggleAlbumGroupCollapsing(group.id)}
-      class="mt-2 w-full cursor-pointer rounded-md py-2 pe-2 text-start transition-colors hover:bg-subtle hover:text-primary dark:text-Universal Photos-dark-fg dark:hover:bg-Universal Photos-dark-gray"
+      class="mt-2 w-full cursor-pointer rounded-md py-2 pe-2 text-start transition-colors hover:bg-subtle hover:text-primary dark:text-immich-dark-fg dark:hover:bg-immich-dark-gray"
       aria-expanded={!isCollapsed}
     >
       <Icon icon={mdiChevronRight} size="24" class="-mt-2.5 inline-block transition-all duration-250 {iconRotation}" />
       <span class="text-3xl font-bold text-black dark:text-white">{group.name}</span>
       <span class="ms-1.5">({$t('albums_count', { values: { count: albums.length } })})</span>
     </button>
-    <hr class="dark:border-Universal Photos-dark-gray" />
+    <hr class="dark:border-immich-dark-gray" />
   </div>
 {/if}
 

@@ -12,17 +12,17 @@ enum BackgroundTaskType { case refresh, processing }
  
  ## For background refresh (short-running sync):
  
- e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"app.alextran.background.refreshUpload"]
+ e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"app.alextran.universal_photos.background.refreshUpload"]
  
  ## For background processing (long-running upload):
  
- e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"app.alextran.background.processingUpload"]
+ e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"app.alextran.universal_photos.background.processingUpload"]
 
  * To simulate task expiration (useful for testing expiration handlers):
  
- e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"app.alextran.background.refreshUpload"]
+ e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"app.alextran.universal_photos.background.refreshUpload"]
  
- e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"app.alextran.background.processingUpload"]
+ e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateExpirationForTaskWithIdentifier:@"app.alextran.universal_photos.background.processingUpload"]
  
  * 3. Resume the application to see the background code execute
  * 
@@ -83,7 +83,7 @@ class BackgroundWorker: BackgroundWorkerBgHostApi {
     // Start the Flutter engine with the specified callback as the entry point
     let isRunning = engine.run(
       withEntrypoint: "backgroundSyncNativeEntrypoint",
-      libraryURI: "package:universal_photos/domain/services/background_worker.service.dart"
+      libraryURI: "package:universal_photos_mobile/domain/services/background_worker.service.dart"
     )
     
     // Verify that the Flutter engine started successfully

@@ -1,11 +1,11 @@
 import 'package:drift/drift.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/db/main/table/app/store.drift.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/infrastructure/repositories/store.repository.drift.dart';
-import 'package:universal_photos/infrastructure/repositories/user.repository.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/table/app/store.drift.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/store.repository.drift.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/user.repository.dart';
 
 @DriftAccessor()
 class StoreRepository extends DatabaseAccessor<Drift> with $StoreRepositoryMixin {

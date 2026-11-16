@@ -1,4 +1,4 @@
-import { Column, PrimaryColumn, Table } from '@universalphotos/sql-tools';
+import { Column, PrimaryColumn, Table } from '@universal_photos/sql-tools';
 import { SystemMetadataKey } from 'src/enum.js';
 import type { SystemMetadata } from 'src/types.js';
 

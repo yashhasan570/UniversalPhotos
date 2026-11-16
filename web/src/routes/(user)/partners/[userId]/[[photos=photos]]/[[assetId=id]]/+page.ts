@@ -1,6 +1,6 @@
 import { authenticate } from '#lib/utils/auth.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { getUser } from '@universalphotos/sdk';
+import { getUser } from '@universal_photos/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ params, url }) => {

@@ -3,13 +3,13 @@ import 'dart:ui';
 
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/store.dart';
-import 'package:universal_photos/domain/services/log.service.dart';
+import 'package:universal_photos_mobile/data/store.dart';
+import 'package:universal_photos_mobile/domain/services/log.service.dart';
 // ignore: library_prefixes
-import 'package:universal_photos/entities/store.entity.dart' as dbStore;
-import 'package:universal_photos/providers/infrastructure/cancel.provider.dart';
-import 'package:universal_photos/utils/bootstrap.dart';
-import 'package:universal_photos/wm_executor.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart' as dbStore;
+import 'package:universal_photos_mobile/providers/infrastructure/cancel.provider.dart';
+import 'package:universal_photos_mobile/utils/bootstrap.dart';
+import 'package:universal_photos_mobile/wm_executor.dart';
 import 'package:logging/logging.dart';
 import 'package:worker_manager/worker_manager.dart' show Cancelable;
 

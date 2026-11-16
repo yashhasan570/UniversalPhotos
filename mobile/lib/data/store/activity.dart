@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/server/activity.dart';
-import 'package:universal_photos/data/server/errors.dart';
-import 'package:universal_photos/data/store/util/cache.dart';
-import 'package:universal_photos/models/activities/activity.model.dart';
+import 'package:universal_photos_mobile/data/server/activity.dart';
+import 'package:universal_photos_mobile/data/server/errors.dart';
+import 'package:universal_photos_mobile/data/store/util/cache.dart';
+import 'package:universal_photos_mobile/models/activities/activity.model.dart';
 import 'package:logging/logging.dart';
 
 final _log = Logger("ActivityStore");

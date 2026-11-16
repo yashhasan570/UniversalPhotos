@@ -1,17 +1,17 @@
 import 'dart:typed_data';
 
 import 'package:flutter/widgets.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/asset_edit.model.dart';
-import 'package:universal_photos/domain/models/exif.model.dart';
-import 'package:universal_photos/domain/models/tag.model.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/platform/native_sync_api.g.dart';
-import 'package:universal_photos/services/foreground_upload.service.dart';
-import 'package:universal_photos/utils/option.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset_edit.model.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart';
+import 'package:universal_photos_mobile/domain/models/tag.model.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/platform/native_sync_api.g.dart';
+import 'package:universal_photos_mobile/services/foreground_upload.service.dart';
+import 'package:universal_photos_mobile/utils/option.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 import 'package:mocktail/mocktail.dart' as mock;
 import 'package:mocktail/mocktail.dart';

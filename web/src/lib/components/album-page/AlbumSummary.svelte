@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getAlbumDateRange } from '#lib/utils/date-time.ts';
-  import type { AlbumResponseDto } from '@Universal Photos/sdk';
+  import type { AlbumResponseDto } from '@immich/sdk';
   import { t } from 'svelte-i18n';
 
   type Props = {

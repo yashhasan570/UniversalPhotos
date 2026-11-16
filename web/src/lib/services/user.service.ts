@@ -7,8 +7,8 @@ import {
   resetPinCode,
   type ChangePasswordDto,
   type PinCodeResetDto,
-} from '@universalphotos/sdk';
-import { toastManager, type ActionItem } from '@universalphotos/ui';
+} from '@universal_photos/sdk';
+import { toastManager, type ActionItem } from '@universal_photos/ui';
 import { mdiLockOutline } from '@mdi/js';
 import type { MessageFormatter } from 'svelte-i18n';
 

@@ -4,8 +4,8 @@
   import { AssetAction } from '#lib/constants.ts';
   import { toggleArchive } from '#lib/utils/asset-utils.ts';
   import { toTimelineAsset } from '#lib/utils/timeline-util.ts';
-  import type { AssetResponseDto } from '@Universal Photos/sdk';
-  import { shortcut } from '@Universal Photos/ui';
+  import type { AssetResponseDto } from '@immich/sdk';
+  import { shortcut } from '@immich/ui';
   import { mdiArchiveArrowDownOutline, mdiArchiveArrowUpOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

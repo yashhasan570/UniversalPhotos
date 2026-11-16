@@ -22,10 +22,10 @@ class ClientCertPrompt {
     swiftOut: 'ios/Runner/Core/Network.g.swift',
     swiftOptions: SwiftOptions(includeErrorClass: false),
     kotlinOut:
-        'android/app/src/main/kotlin/app/alextran/universalphotos/core/Network.g.kt',
-    kotlinOptions: KotlinOptions(package: 'app.alextran.core', includeErrorClass: true),
+        'android/app/src/main/kotlin/app/alextran/universal_photos/core/Network.g.kt',
+    kotlinOptions: KotlinOptions(package: 'app.alextran.universal_photos.core', includeErrorClass: true),
     dartOptions: DartOptions(),
-    dartPackageName: 'universal_photos',
+    dartPackageName: 'universal_photos_mobile',
   ),
 )
 @HostApi()

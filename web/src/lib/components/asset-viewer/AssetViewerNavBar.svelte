@@ -25,8 +25,8 @@
     type AssetResponseDto,
     type PersonResponseDto,
     type StackResponseDto,
-  } from '@Universal Photos/sdk';
-  import { ActionButton, CommandPaletteDefaultProvider, Tooltip, type ActionItem } from '@Universal Photos/ui';
+  } from '@immich/sdk';
+  import { ActionButton, CommandPaletteDefaultProvider, Tooltip, type ActionItem } from '@immich/ui';
   import { mdiArrowLeft, mdiArrowRight, mdiDotsVertical, mdiVideoOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

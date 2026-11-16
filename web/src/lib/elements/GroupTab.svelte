@@ -13,7 +13,7 @@
 </script>
 
 <fieldset
-  class="flex h-full rounded-2xl bg-gray-200 ring-gray-400 has-focus-visible:ring dark:bg-Universal Photos-dark-gray dark:ring-gray-600"
+  class="flex h-full rounded-2xl bg-gray-200 ring-gray-400 has-focus-visible:ring dark:bg-immich-dark-gray dark:ring-gray-600"
 >
   <legend class="sr-only">{label}</legend>
   {#each filters as filter, index (`${id}-${index}`)}

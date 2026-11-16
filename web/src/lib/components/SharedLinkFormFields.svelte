@@ -1,6 +1,6 @@
 <script lang="ts">
   import SharedLinkExpiration from '#lib/components/SharedLinkExpiration.svelte';
-  import { Field, HelperText, Input, PasswordInput, Switch, Text } from '@Universal Photos/ui';
+  import { Field, HelperText, Input, PasswordInput, Switch, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {

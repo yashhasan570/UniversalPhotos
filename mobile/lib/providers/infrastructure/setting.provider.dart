@@ -1,9 +1,9 @@
 // ignore_for_file: use-ref-and-state-synchronously
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/setting.model.dart';
-import 'package:universal_photos/domain/services/setting.service.dart';
-import 'package:universal_photos/providers/infrastructure/store.provider.dart';
+import 'package:universal_photos_mobile/domain/models/setting.model.dart';
+import 'package:universal_photos_mobile/domain/services/setting.service.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/store.provider.dart';
 
 class SettingsNotifier extends Notifier<SettingsService> {
   @override

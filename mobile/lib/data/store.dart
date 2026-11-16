@@ -1,13 +1,13 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/data_controller.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/store/activity.dart';
-import 'package:universal_photos/data/store/ocr.dart';
-import 'package:universal_photos/data/store/passkey.dart';
-import 'package:universal_photos/data/store/person.dart';
-import 'package:universal_photos/data/store/tag.dart';
-import 'package:universal_photos/data/store/user_metadata.dart';
-import 'package:universal_photos/services/api.service.dart';
+import 'package:universal_photos_mobile/data/data_controller.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/store/activity.dart';
+import 'package:universal_photos_mobile/data/store/ocr.dart';
+import 'package:universal_photos_mobile/data/store/passkey.dart';
+import 'package:universal_photos_mobile/data/store/person.dart';
+import 'package:universal_photos_mobile/data/store/tag.dart';
+import 'package:universal_photos_mobile/data/store/user_metadata.dart';
+import 'package:universal_photos_mobile/services/api.service.dart';
 
 /// The [DataController] backing this container's store
 ///

@@ -1,5 +1,5 @@
 import { OpenQueryParam, type SharedLinkTab } from '#lib/constants.ts';
-import { IntegrityReport, QueueName, getBaseUrl, type MetadataSearchDto, type SmartSearchDto } from '@universalphotos/sdk';
+import { IntegrityReport, QueueName, getBaseUrl, type MetadataSearchDto, type SmartSearchDto } from '@universal_photos/sdk';
 import { omitBy } from 'lodash-es';
 
 const asQueueSlug = (name: QueueName) => {

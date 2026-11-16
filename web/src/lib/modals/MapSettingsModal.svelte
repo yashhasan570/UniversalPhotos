@@ -1,6 +1,6 @@
 <script lang="ts">
   import { mapSettings, type MapSettings } from '#lib/stores/preferences.store.ts';
-  import { Button, DatePicker, Field, FormModal, Select, Stack, Switch } from '@Universal Photos/ui';
+  import { Button, DatePicker, Field, FormModal, Select, Stack, Switch } from '@immich/ui';
   import { DateTime, Duration } from 'luxon';
   import { t } from 'svelte-i18n';
   import { fly } from 'svelte/transition';

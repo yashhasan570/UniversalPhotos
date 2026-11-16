@@ -1,7 +1,7 @@
 <script lang="ts">
   import { updateAlbumInfoMutation } from '#lib/queries/album.query.ts';
   import { executeMutation } from '#lib/queries/client.ts';
-  import { Textarea, shortcut } from '@Universal Photos/ui';
+  import { Textarea, shortcut } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   interface Props {

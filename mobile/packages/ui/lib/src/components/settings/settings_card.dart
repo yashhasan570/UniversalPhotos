@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/extensions/build_context_extensions.dart';
+import 'package:universal_photos_ui/extensions/build_context_extensions.dart';
 
 class SettingsCard extends StatelessWidget {
   const SettingsCard({super.key, required this.icon, required this.title, required this.subtitle, required this.onTap});

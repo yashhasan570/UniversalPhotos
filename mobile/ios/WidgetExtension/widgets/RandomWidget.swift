@@ -142,7 +142,7 @@ struct UniversalPhotosRandomProvider: AppIntentTimelineProvider {
 }
 
 struct UniversalPhotosRandomWidget: Widget {
-  let kind: String = "com.widget.random"
+  let kind: String = "com.universal_photos.widget.random"
 
   var body: some WidgetConfiguration {
     AppIntentConfiguration(

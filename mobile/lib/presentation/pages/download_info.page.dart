@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/pages/common/download_task_tile.dart';
-import 'package:universal_photos/providers/asset_viewer/download.provider.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/pages/common/download_task_tile.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/download.provider.dart';
 
 @RoutePage()
 class DownloadInfoPage extends ConsumerWidget {

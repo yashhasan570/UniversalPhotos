@@ -41,8 +41,8 @@
     type AssetResponseDto,
     type PersonResponseDto,
     type StackResponseDto,
-  } from '@Universal Photos/sdk';
-  import { CommandPaletteDefaultProvider, shortcuts } from '@Universal Photos/ui';
+  } from '@immich/sdk';
+  import { CommandPaletteDefaultProvider, shortcuts } from '@immich/ui';
   import { createQuery, type MutationMeta } from '@tanstack/svelte-query';
   import { onDestroy, onMount, untrack } from 'svelte';
   import type { SwipeCustomEvent } from 'svelte-gestures';
@@ -499,7 +499,7 @@
 ></svelte:document>
 
 <section
-  id="Universal Photos-asset-viewer"
+  id="immich-asset-viewer"
   class="fixed inset-s-0 top-0 grid size-full grid-cols-4 grid-rows-[64px_1fr] overflow-hidden bg-black"
   {@attach focusTrap()}
   bind:this={assetViewerHtmlElement}
@@ -624,7 +624,7 @@
       transition:fly={{ duration: 150 }}
       data-testid="detail-panel"
       class={[
-        'row-span-4 row-start-1 overflow-y-auto bg-light transition-all dark:border-l dark:border-s-Universal Photos-dark-gray',
+        'row-span-4 row-start-1 overflow-y-auto bg-light transition-all dark:border-l dark:border-s-immich-dark-gray',
         showDetailPanel ? 'w-90' : 'w-100',
       ]}
       translate="yes"
@@ -675,7 +675,7 @@
     <div
       transition:fly={{ duration: 150 }}
       id="activity-panel"
-      class="row-span-5 row-start-1 w-90 overflow-y-auto transition-all md:w-115 dark:border-l dark:border-s-Universal Photos-dark-gray"
+      class="row-span-5 row-start-1 w-90 overflow-y-auto transition-all md:w-115 dark:border-l dark:border-s-immich-dark-gray"
       translate="yes"
     >
       <ActivityViewer
@@ -690,7 +690,7 @@
 </section>
 
 <style>
-  #Universal Photos-asset-viewer {
+  #immich-asset-viewer {
     contain: layout;
   }
 

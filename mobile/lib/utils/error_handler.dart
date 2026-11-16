@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/utils/debug_print.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/utils/debug_print.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 import 'package:openapi/api.dart';
 // ignore: depend_on_referenced_packages
 import 'package:stack_trace/stack_trace.dart';

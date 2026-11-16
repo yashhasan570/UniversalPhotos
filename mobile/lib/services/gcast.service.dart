@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:cast/session.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/models/cast/cast_manager_state.dart';
-import 'package:universal_photos/models/sessions/session_create_response.model.dart';
-import 'package:universal_photos/repositories/asset_api.repository.dart';
-import 'package:universal_photos/repositories/gcast.repository.dart';
-import 'package:universal_photos/repositories/sessions_api.repository.dart';
-import 'package:universal_photos/utils/image_url_builder.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/models/cast/cast_manager_state.dart';
+import 'package:universal_photos_mobile/models/sessions/session_create_response.model.dart';
+import 'package:universal_photos_mobile/repositories/asset_api.repository.dart';
+import 'package:universal_photos_mobile/repositories/gcast.repository.dart';
+import 'package:universal_photos_mobile/repositories/sessions_api.repository.dart';
+import 'package:universal_photos_mobile/utils/image_url_builder.dart';
 // ignore: import_rule_openapi, we are only using the AssetMediaSize enum
 import 'package:openapi/api.dart';
 

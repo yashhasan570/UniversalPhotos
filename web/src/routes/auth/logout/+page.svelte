@@ -1,6 +1,6 @@
 <script lang="ts">
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
-  import { LoadingSpinner } from '@Universal Photos/ui';
+  import { LoadingSpinner } from '@immich/ui';
 
   void authManager.logout();
 </script>

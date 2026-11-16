@@ -1,7 +1,7 @@
 import 'package:background_downloader/background_downloader.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/models/download/download_state.model.dart';
-import 'package:universal_photos/services/download.service.dart';
+import 'package:universal_photos_mobile/models/download/download_state.model.dart';
+import 'package:universal_photos_mobile/services/download.service.dart';
 
 class DownloadStateNotifier extends StateNotifier<DownloadState> {
   final DownloadService _downloadService;

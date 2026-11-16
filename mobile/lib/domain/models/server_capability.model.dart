@@ -1,4 +1,4 @@
-import 'package:universal_photos/utils/semver.dart';
+import 'package:universal_photos_mobile/utils/semver.dart';
 
 enum ServerCapability {
   // Feature Support

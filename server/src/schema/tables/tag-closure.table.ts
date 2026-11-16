@@ -1,4 +1,4 @@
-import { ForeignKeyColumn, Table } from '@universalphotos/sql-tools';
+import { ForeignKeyColumn, Table } from '@universal_photos/sql-tools';
 import { TagTable } from 'src/schema/tables/tag.table.js';
 
 @Table('tag_closure')

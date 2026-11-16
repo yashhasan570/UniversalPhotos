@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon } from '@Universal Photos/ui';
+  import { Icon } from '@immich/ui';
   import { mdiAutoFix, mdiFilterVariant } from '@mdi/js';
 
   type Props = {

@@ -1,13 +1,13 @@
-import { BeforeUpdateTrigger, Column, ColumnOptions } from '@universalphotos/sql-tools';
+import { BeforeUpdateTrigger, Column, ColumnOptions } from '@universal_photos/sql-tools';
 import { SetMetadata, applyDecorators } from '@nestjs/common';
 import { ApiOperation, ApiOperationOptions, ApiTags } from '@nestjs/swagger';
 import { chunk, flatten } from 'lodash-es';
 import { ApiCustomExtension, ApiTag, UniversalPhotosWorker, JobName, MetadataKey, QueueName } from 'src/enum.js';
 import { EmitEvent } from 'src/repositories/event.repository.js';
-import { universalphotos_uuid_v7, updated_at } from 'src/schema/functions.js';
+import { universal_photos_uuid_v7, updated_at } from 'src/schema/functions.js';
 
 const GeneratedUuidV7Column = (options: Omit<ColumnOptions, 'type' | 'default' | 'nullable'> = {}) =>
-  Column({ ...options, type: 'uuid', nullable: false, default: () => `${universalphotos_uuid_v7.name}()` });
+  Column({ ...options, type: 'uuid', nullable: false, default: () => `${universal_photos_uuid_v7.name}()` });
 
 export const UpdateIdColumn = (options: Omit<ColumnOptions, 'type' | 'default' | 'nullable'> = {}) =>
   GeneratedUuidV7Column(options);

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { executeMutation } from '#lib/queries/client.ts';
   import { updateLibraryMutation } from '#lib/queries/library.query.ts';
-  import type { LibraryResponseDto } from '@Universal Photos/sdk';
-  import { Field, FormModal, HelperText, Input, Text } from '@Universal Photos/ui';
+  import type { LibraryResponseDto } from '@immich/sdk';
+  import { Field, FormModal, HelperText, Input, Text } from '@immich/ui';
   import { mdiFolderSync } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

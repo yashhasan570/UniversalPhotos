@@ -8,7 +8,7 @@
     getContextMenuPositionFromEvent,
     type Align,
   } from '#lib/utils/context-menu.ts';
-  import { IconButton, shortcuts, type Color, type Size, type Variants } from '@Universal Photos/ui';
+  import { IconButton, shortcuts, type Color, type Size, type Variants } from '@immich/ui';
   import type { Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
 

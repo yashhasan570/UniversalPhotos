@@ -53,7 +53,7 @@ const quotaSizeInBytesSchema = z.coerce
 
 export const OAuthProfileSchema = z.object({
   defaults: z.object({
-    universalphotos_quota_bytes: quotaSizeInBytesSchema,
+    universal_photos_quota_bytes: quotaSizeInBytesSchema,
   }),
   sub: z.string(),
   email: z.string().trim().toLowerCase().optional().catch(undefined),
@@ -63,9 +63,9 @@ export const OAuthProfileSchema = z.object({
   family_name: z.string().trim().optional().catch(undefined),
   preferred_username: z.string().trim().optional().catch(undefined),
   picture: z.string().optional().catch(undefined),
-  universalphotos_storage_label: storageLabelClaimSchema,
-  universalphotos_quota_bytes: quotaSizeInBytesSchema,
-  universalphotos_role: z
+  universal_photos_storage_label: storageLabelClaimSchema,
+  universal_photos_quota_bytes: quotaSizeInBytesSchema,
+  universal_photos_role: z
     .union([z.string(), z.array(z.string())])
     .optional()
     .transform((value) => {

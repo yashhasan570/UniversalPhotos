@@ -1,2 +1,2 @@
 // TODO: Remove
-export 'package:universalphotos_ui/extensions/theme_extensions.dart';
+export 'package:universal_photos_ui/extensions/theme_extensions.dart';

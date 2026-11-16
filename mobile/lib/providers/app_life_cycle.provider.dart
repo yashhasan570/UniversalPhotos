@@ -1,20 +1,20 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/services/log.service.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/extensions/platform_extensions.dart';
-import 'package:universal_photos/providers/auth.provider.dart';
-import 'package:universal_photos/providers/background_sync.provider.dart';
-import 'package:universal_photos/providers/backup/backup.provider.dart';
-import 'package:universal_photos/providers/gallery_permission.provider.dart';
-import 'package:universal_photos/providers/infrastructure/memory.provider.dart';
-import 'package:universal_photos/providers/infrastructure/platform.provider.dart';
-import 'package:universal_photos/providers/infrastructure/settings.provider.dart';
-import 'package:universal_photos/providers/permission.provider.dart';
-import 'package:universal_photos/providers/server_info.provider.dart';
-import 'package:universal_photos/providers/websocket.provider.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/services/log.service.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/extensions/platform_extensions.dart';
+import 'package:universal_photos_mobile/providers/auth.provider.dart';
+import 'package:universal_photos_mobile/providers/background_sync.provider.dart';
+import 'package:universal_photos_mobile/providers/backup/backup.provider.dart';
+import 'package:universal_photos_mobile/providers/gallery_permission.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/memory.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/platform.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/settings.provider.dart';
+import 'package:universal_photos_mobile/providers/permission.provider.dart';
+import 'package:universal_photos_mobile/providers/server_info.provider.dart';
+import 'package:universal_photos_mobile/providers/websocket.provider.dart';
 import 'package:logging/logging.dart';
 
 enum AppLifeCycleEnum { active, inactive, paused, resumed, detached, hidden }

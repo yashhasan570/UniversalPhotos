@@ -3,8 +3,8 @@
   import PinCodeCreateForm from '#lib/components/user-settings-page/PinCodeCreateForm.svelte';
   import { Route } from '#lib/route.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { unlockAuthSession } from '@Universal Photos/sdk';
-  import { Button, Icon, PinInput } from '@Universal Photos/ui';
+  import { unlockAuthSession } from '@immich/sdk';
+  import { Button, Icon, PinInput } from '@immich/ui';
   import { mdiLockOpenVariantOutline, mdiLockOutline, mdiLockSmart } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';

@@ -7,9 +7,9 @@ import 'package:background_downloader/background_downloader.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/models/download/livephotos_medatada.model.dart';
-import 'package:universal_photos/repositories/download.repository.dart';
-import 'package:universal_photos/repositories/file_media.repository.dart';
+import 'package:universal_photos_mobile/models/download/livephotos_medatada.model.dart';
+import 'package:universal_photos_mobile/repositories/download.repository.dart';
+import 'package:universal_photos_mobile/repositories/file_media.repository.dart';
 import 'package:logging/logging.dart';
 
 final downloadServiceProvider = Provider(

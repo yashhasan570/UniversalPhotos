@@ -5,7 +5,7 @@
   import { featureFlagsManager } from '#lib/managers/feature-flags-manager.svelte.ts';
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getAdminConfigQuery } from '#lib/queries/config-admin.query.ts';
-  import { QueueName, type AdminConfigJobDto } from '@Universal Photos/sdk';
+  import { QueueName, type AdminConfigJobDto } from '@immich/sdk';
   import { cloneDeep } from 'lodash-es';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';

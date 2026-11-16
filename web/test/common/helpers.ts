@@ -1,4 +1,4 @@
-import type { AssetResponseDto } from '@universalphotos/sdk';
+import type { AssetResponseDto } from '@universal_photos/sdk';
 
 const minimalMp4Base64 =
   'AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAr9tZGF0AAACoAYF//+c' +

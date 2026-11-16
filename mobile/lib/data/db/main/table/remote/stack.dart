@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/table/user/user.dart';
-import 'package:universal_photos/data/db/util/datetime_clamp_type.dart';
-import 'package:universal_photos/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos_mobile/data/db/main/table/user/user.dart';
+import 'package:universal_photos_mobile/data/db/util/datetime_clamp_type.dart';
+import 'package:universal_photos_mobile/data/db/util/defaults_mixin.dart';
 
 @TableIndex.sql('CREATE INDEX IF NOT EXISTS idx_stack_primary_asset_id ON stack_entity (primary_asset_id)')
 class StackEntity extends Table with DriftDefaultsMixin {

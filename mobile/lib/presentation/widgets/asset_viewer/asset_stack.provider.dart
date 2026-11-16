@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/providers/infrastructure/asset.provider.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/asset.provider.dart';
 
 class StackChildrenNotifier extends AutoDisposeFamilyAsyncNotifier<List<RemoteAsset>, BaseAsset> {
   @override

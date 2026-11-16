@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/person.model.dart';
-import 'package:universal_photos/domain/models/tag.model.dart';
-import 'package:universal_photos/utils/option.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/person.model.dart';
+import 'package:universal_photos_mobile/domain/models/tag.model.dart';
+import 'package:universal_photos_mobile/utils/option.dart';
 
 part 'search_filter.model.freezed.dart';
 

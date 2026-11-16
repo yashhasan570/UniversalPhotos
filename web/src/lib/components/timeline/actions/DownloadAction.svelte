@@ -4,8 +4,8 @@
   import { authManager } from '#lib/managers/auth-manager.svelte.ts';
   import { handleDownloadAsset } from '#lib/services/asset.service.ts';
   import { downloadArchive } from '#lib/utils/asset-utils.ts';
-  import { getAssetInfo } from '@Universal Photos/sdk';
-  import { IconButton, shortcut } from '@Universal Photos/ui';
+  import { getAssetInfo } from '@immich/sdk';
+  import { IconButton, shortcut } from '@immich/ui';
   import { mdiDownload } from '@mdi/js';
   import { t } from 'svelte-i18n';
 
@@ -14,7 +14,7 @@
     menuItem?: boolean;
   }
 
-  let { filename = 'Universal Photos', menuItem = false }: Props = $props();
+  let { filename = 'immich', menuItem = false }: Props = $props();
 
   const handleDownloadFiles = async () => {
     const assets = assetMultiSelectManager.assets;

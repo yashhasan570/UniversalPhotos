@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/services/store.service.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/routing/router.dart';
-import 'package:universal_photos/services/api.service.dart';
-import 'package:universal_photos/services/auth.service.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/services/store.service.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
+import 'package:universal_photos_mobile/services/api.service.dart';
+import 'package:universal_photos_mobile/services/auth.service.dart';
 import 'package:logging/logging.dart';
 import 'package:openapi/api.dart';
 

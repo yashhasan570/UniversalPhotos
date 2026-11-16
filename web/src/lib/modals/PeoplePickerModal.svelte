@@ -4,8 +4,8 @@
   import { getPeopleThumbnailUrl } from '#lib/utils.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
   import { normalizeSearchString } from '#lib/utils/string-utils.ts';
-  import { getAllPeople, type PersonResponseDto } from '@Universal Photos/sdk';
-  import { Button, HStack, LoadingSpinner, Modal, ModalBody, ModalFooter } from '@Universal Photos/ui';
+  import { getAllPeople, type PersonResponseDto } from '@immich/sdk';
+  import { Button, HStack, LoadingSpinner, Modal, ModalBody, ModalFooter } from '@immich/ui';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
 
@@ -64,7 +64,7 @@
     <div class="flex flex-col gap-4">
       <SearchBar bind:name={searchName} placeholder={$t('search_people')} showLoadingSpinner={false} />
 
-      <div class="max-h-96 Universal Photos-scrollbar overflow-y-auto">
+      <div class="max-h-96 immich-scrollbar overflow-y-auto">
         {#if loading}
           <div class="flex justify-center p-8">
             <LoadingSpinner />

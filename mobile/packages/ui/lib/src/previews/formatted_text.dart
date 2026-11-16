@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/components/formatted_text.dart';
-import 'package:universalphotos_ui/src/previews.dart';
+import 'package:universal_photos_ui/src/components/formatted_text.dart';
+import 'package:universal_photos_ui/src/previews.dart';
 
 @UniversalPhotosPreview(group: 'FormattedText', name: 'Bold')
 Widget previewFormattedTextBold() => const UniversalPhotosFormattedText('This is <b>bold text</b>.');

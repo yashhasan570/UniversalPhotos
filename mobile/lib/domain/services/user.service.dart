@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:typed_data';
 
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/domain/services/store.service.dart';
-import 'package:universal_photos/infrastructure/repositories/user.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/user_api.repository.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/domain/services/store.service.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/user.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/user_api.repository.dart';
 import 'package:logging/logging.dart';
 
 class UserService {

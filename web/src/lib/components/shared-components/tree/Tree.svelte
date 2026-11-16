@@ -1,7 +1,7 @@
 <script lang="ts">
   import TreeItems from '#lib/components/shared-components/tree/TreeItems.svelte';
   import { TreeNode } from '#lib/utils/tree-utils.ts';
-  import { Icon } from '@Universal Photos/ui';
+  import { Icon } from '@immich/ui';
   import { mdiChevronDown, mdiChevronRight } from '@mdi/js';
 
   interface Props {

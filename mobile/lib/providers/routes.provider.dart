@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/routing/router.dart';
+import 'package:universal_photos_mobile/routing/router.dart';
 
 @visibleForTesting
 bool isRouteInStack(Ref ref, String routeName) {

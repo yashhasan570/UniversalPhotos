@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/user.model.dart';
-import 'package:universal_photos/infrastructure/repositories/remote_album.repository.dart';
-import 'package:universal_photos/models/albums/album_search.model.dart';
-import 'package:universal_photos/providers/album/album_sort_by_options.provider.dart';
-import 'package:universal_photos/repositories/album_api_repository.dart';
-import 'package:universal_photos/services/foreground_upload.service.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/user.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/remote_album.repository.dart';
+import 'package:universal_photos_mobile/models/albums/album_search.model.dart';
+import 'package:universal_photos_mobile/providers/album/album_sort_by_options.provider.dart';
+import 'package:universal_photos_mobile/repositories/album_api_repository.dart';
+import 'package:universal_photos_mobile/services/foreground_upload.service.dart';
 import 'package:logging/logging.dart';
 
 /// Categorizes a heterogeneous asset selection into the candidates that can

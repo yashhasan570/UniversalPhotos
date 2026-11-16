@@ -1,7 +1,7 @@
 import { eventManager } from '#lib/managers/event-manager.svelte.ts';
 import { authenticate } from '#lib/utils/auth.ts';
 import { getFormatter } from '#lib/utils/i18n.ts';
-import { getConfig, updateConfig } from '@universalphotos/sdk';
+import { getConfig, updateConfig } from '@universal_photos/sdk';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ url }) => {

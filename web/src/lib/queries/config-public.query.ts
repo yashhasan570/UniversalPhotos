@@ -1,4 +1,4 @@
-import { getPublicConfig } from '@universalphotos/sdk';
+import { getPublicConfig } from '@universal_photos/sdk';
 import { queryOptions } from '@tanstack/svelte-query';
 
 export const getPublicConfigQuery = () =>

@@ -1,32 +1,32 @@
 services:
-  universalphotos-app-base:
+  universal_photos-app-base:
     image: busybox
-  universalphotos-server:
+  universal_photos-server:
     extends:
-      service: universalphotos-app-base
+      service: universal_photos-app-base
     profiles: !reset []
-    image: universalphotos-server-dev:latest
+    image: universal_photos-server-dev:latest
     build:
       target: dev-container-server
     env_file: !reset []
-    hostname: universalphotos-dev
+    hostname: universal_photos-dev
     environment:
       - UNIVERSALPHOTOS_SERVER_URL=http://127.0.0.1:2283/
     volumes:
       - ${UPLOAD_LOCATION:-upload-devcontainer-volume}${UPLOAD_LOCATION:+/photos}:/data
       - /etc/localtime:/etc/localtime:ro
       - build_cache:/buildcache
-      - ../packages/plugin-core:/build/plugins/universalphotos-plugin-core
-  universalphotos-web:
+      - ../packages/plugin-core:/build/plugins/universal_photos-plugin-core
+  universal_photos-web:
     env_file: !reset []
-  universalphotos-machine-learning:
+  universal_photos-machine-learning:
     env_file: !reset []
   database:
     env_file: !reset []
     environment: !override
       POSTGRES_PASSWORD: ${DB_PASSWORD-postgres}
       POSTGRES_USER: ${DB_USERNAME-postgres}
-      POSTGRES_DB: ${DB_DATABASE_NAME-universalphotos}
+      POSTGRES_DB: ${DB_DATABASE_NAME-universal_photos}
       POSTGRES_INITDB_ARGS: '--data-checksums'
       POSTGRES_HOST_AUTH_METHOD: md5
     volumes:

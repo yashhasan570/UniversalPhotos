@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
 
 import 'general_helper.dart';
 

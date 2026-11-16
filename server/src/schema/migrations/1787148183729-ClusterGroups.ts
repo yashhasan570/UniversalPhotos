@@ -34,7 +34,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   "name" character varying,
   "createdAt" timestamp with time zone NOT NULL DEFAULT now(),
   "updatedAt" timestamp with time zone NOT NULL DEFAULT now(),
-  "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
+  "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7(),
   CONSTRAINT "cluster_group_pkey" PRIMARY KEY ("id")
 );`.execute(db);
   await sql`CREATE INDEX "cluster_group_updateId_idx" ON "cluster_group" ("updateId");`.execute(db);
@@ -69,9 +69,9 @@ export async function up(db: Kysely<any>): Promise<void> {
   "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
   "clusterGroupId" uuid NOT NULL,
   "createdAt" timestamp with time zone NOT NULL DEFAULT now(),
-  "createId" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
+  "createId" uuid NOT NULL DEFAULT universal_photos_uuid_v7(),
   "updatedAt" timestamp with time zone NOT NULL DEFAULT now(),
-  "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
+  "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7(),
   CONSTRAINT "person_group_clusterGroupId_fkey" FOREIGN KEY ("clusterGroupId") REFERENCES "cluster_group" ("id") ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT "person_group_pkey" PRIMARY KEY ("id")
 );`.execute(db);
@@ -89,7 +89,7 @@ export async function up(db: Kysely<any>): Promise<void> {
   FOR EACH ROW
   EXECUTE FUNCTION updated_at();`.execute(db);
   await sql`CREATE TABLE "person_group_audit" (
-  "id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
+  "id" uuid NOT NULL DEFAULT universal_photos_uuid_v7(),
   "personGroupId" uuid NOT NULL,
   "clusterGroupId" uuid NOT NULL,
   "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(),

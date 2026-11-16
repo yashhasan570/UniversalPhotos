@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:universalphotos_ui/src/constants.dart';
-import 'package:universalphotos_ui/src/previews.dart';
-import 'package:universalphotos_ui/src/snackbar.dart';
+import 'package:universal_photos_ui/src/constants.dart';
+import 'package:universal_photos_ui/src/previews.dart';
+import 'package:universal_photos_ui/src/snackbar.dart';
 
 @UniversalPhotosPreview(group: 'Snackbar', name: 'Types')
 Widget previewSnackbarTypes() => const _SnackbarDemo();

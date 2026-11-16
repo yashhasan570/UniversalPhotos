@@ -14,8 +14,8 @@ import {
   checkBulkUpload,
   getBaseUrl,
   type AssetMediaResponseDto,
-} from '@universalphotos/sdk';
-import { toastManager } from '@universalphotos/ui';
+} from '@universal_photos/sdk';
+import { toastManager } from '@universal_photos/ui';
 import { tick } from 'svelte';
 import { t } from 'svelte-i18n';
 import { get } from 'svelte/store';

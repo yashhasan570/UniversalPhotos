@@ -1,10 +1,10 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/db/main/table/memory/memory.drift.dart';
-import 'package:universal_photos/data/db/main/table/remote/asset.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/memory.model.dart';
-import 'package:universal_photos/infrastructure/repositories/memory.repository.drift.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/table/memory/memory.drift.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/memory.model.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/memory.repository.drift.dart';
 
 @DriftAccessor()
 class MemoryRepository extends DatabaseAccessor<Drift> with $MemoryRepositoryMixin {

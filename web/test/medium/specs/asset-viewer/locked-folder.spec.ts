@@ -1,6 +1,6 @@
 import { Route } from '#lib/route.ts';
 import { expect, test } from '#test/medium/fixtures.ts';
-import { AssetVisibility } from '@universalphotos/sdk';
+import { AssetVisibility } from '@universal_photos/sdk';
 
 test('moves an asset to the locked folder from the viewer', async ({ page, data, api, app }) => {
   const [asset, next] = data.addTimeline({ years: 1 });

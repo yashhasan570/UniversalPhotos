@@ -8,7 +8,7 @@
   import { featureFlagsManager } from '#lib/managers/feature-flags-manager.svelte.ts';
   import { createPreloadedQuery } from '#lib/queries/client.ts';
   import { getAdminConfigQuery } from '#lib/queries/config-admin.query.ts';
-  import { Link } from '@Universal Photos/ui';
+  import { Link } from '@immich/ui';
   import { cloneDeep } from 'lodash-es';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
@@ -75,7 +75,7 @@
               isEdited={configToEdit.library.scan.cronExpression !== config.library.scan.cronExpression}
             >
               {#snippet descriptionSnippet()}
-                <p class="text-sm dark:text-Universal Photos-dark-fg">
+                <p class="text-sm dark:text-immich-dark-fg">
                   <FormatMessage key="admin.cron_expression_description">
                     {#snippet children({ message })}
                       <Link

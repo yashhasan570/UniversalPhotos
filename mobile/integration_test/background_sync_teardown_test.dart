@@ -2,19 +2,19 @@ import 'dart:async';
 
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/db/main/table/user/user.drift.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/utils/background_sync.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/main.dart' as app;
-import 'package:universal_photos/services/api.service.dart';
-import 'package:universal_photos/utils/bootstrap.dart';
-import 'package:universal_photos/wm_executor.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/table/user/user.drift.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/utils/background_sync.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/main.dart' as app;
+import 'package:universal_photos_mobile/services/api.service.dart';
+import 'package:universal_photos_mobile/utils/bootstrap.dart';
+import 'package:universal_photos_mobile/wm_executor.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:openapi/api.dart';
 
-import 'test_utils/fake_universalphotos_server.dart';
+import 'test_utils/fake_universal_photos_server.dart';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();

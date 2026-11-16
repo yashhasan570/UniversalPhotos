@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Quiet mode suppresses informational output (enabled for universalphotos-admin)
+# Quiet mode suppresses informational output (enabled for universal_photos-admin)
 QUIET=false
-if [ "$1" = "universalphotos-admin" ]; then
+if [ "$1" = "universal_photos-admin" ]; then
   QUIET=true
 fi
 

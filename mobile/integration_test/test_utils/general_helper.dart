@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/store.dart';
+import 'package:universal_photos_mobile/data/store.dart';
 // ignore: library_prefixes
-import 'package:universal_photos/entities/store.entity.dart' as dbStore;
-import 'package:universal_photos/main.dart' as app;
-import 'package:universal_photos/utils/bootstrap.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart' as dbStore;
+import 'package:universal_photos_mobile/main.dart' as app;
+import 'package:universal_photos_mobile/utils/bootstrap.dart';
 import 'package:integration_test/integration_test.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
@@ -54,7 +54,7 @@ class UniversalPhotosTestHelper {
 }
 
 @isTest
-void universalphotosWidgetTest(String description, Future<void> Function(WidgetTester, UniversalPhotosTestHelper) test) {
+void universal_photosWidgetTest(String description, Future<void> Function(WidgetTester, UniversalPhotosTestHelper) test) {
   testWidgets(description, (widgetTester) async {
     await UniversalPhotosTestHelper.loadApp(widgetTester);
     await test(widgetTester, UniversalPhotosTestHelper(widgetTester));

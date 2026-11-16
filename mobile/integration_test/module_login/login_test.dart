@@ -7,7 +7,7 @@ void main() async {
   await UniversalPhotosTestHelper.initialize();
 
   group("Login tests", () {
-    universalphotosWidgetTest("Test correct credentials", (tester, helper) async {
+    universal_photosWidgetTest("Test correct credentials", (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();
       await helper.loginHelper.enterCredentialsOf(
@@ -17,7 +17,7 @@ void main() async {
       await helper.loginHelper.assertLoginSuccess();
     });
 
-    universalphotosWidgetTest("Test login with wrong password", (tester, helper) async {
+    universal_photosWidgetTest("Test login with wrong password", (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();
       await helper.loginHelper.enterCredentialsOf(
@@ -27,7 +27,7 @@ void main() async {
       await helper.loginHelper.assertLoginFailed();
     });
 
-    universalphotosWidgetTest("Test login with wrong server URL",
+    universal_photosWidgetTest("Test login with wrong server URL",
         (tester, helper) async {
       await helper.loginHelper.waitForLoginScreen();
       await helper.loginHelper.acknowledgeNewServerVersion();

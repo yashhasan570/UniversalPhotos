@@ -1,5 +1,5 @@
 [project]
-name = "universalphotos-ml"
+name = "universal_photos-ml"
 version = "3.4.0rc0"
 description = ""
 authors = [{ name = "Hau Tran", email = "alex.tran1502@gmail.com" }]
@@ -9,7 +9,7 @@ dependencies = [
     "fastapi>=0.95.2,<1.0",
     "gunicorn>=21.1.0",
     "huggingface-hub>=1.0,<2.0",
-    "universalphotos-model",
+    "universal_photos-model",
     "numpy>=2.4.0,<3.0",
     "onnx>=1.22.0",
     "opencv-python-headless>=4.7.0.72,<5.0",
@@ -74,7 +74,7 @@ compile-bytecode = true
 override-dependencies = ["opencv-python ; sys_platform == 'never'"] # only install the headless version
 
 [tool.uv.sources]
-universalphotos-model = { git = "https://github.com/universalphotos-app/ml-models.git", rev = "f5d9c851010c47324f8fa4cae8a3fd8d0340b90e" }
+universal_photos-model = { git = "https://github.com/universal_photos-app/ml-models.git", rev = "f5d9c851010c47324f8fa4cae8a3fd8d0340b90e" }
 onnxruntime-gpu = { index = "onnxruntime-cuda-12" }
 openvino = { index = "openvino-nightly" }
 

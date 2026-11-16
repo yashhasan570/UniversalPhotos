@@ -3,8 +3,8 @@
   import { assetMultiSelectManager } from '#lib/managers/asset-multi-select-manager.svelte.ts';
   import type { OnSetVisibility } from '#lib/utils/actions.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import { AssetVisibility, updateAssets } from '@Universal Photos/sdk';
-  import { Button, modalManager } from '@Universal Photos/ui';
+  import { AssetVisibility, updateAssets } from '@immich/sdk';
+  import { Button, modalManager } from '@immich/ui';
   import { mdiLockOpenVariantOutline, mdiLockOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

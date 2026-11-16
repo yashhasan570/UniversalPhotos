@@ -1,18 +1,18 @@
-import 'package:universal_photos/domain/models/album/local_album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/domain/models/asset_edit.model.dart';
-import 'package:universal_photos/domain/models/exif.model.dart';
-import 'package:universal_photos/domain/models/store.model.dart';
-import 'package:universal_photos/domain/models/tag.model.dart';
-import 'package:universal_photos/entities/store.entity.dart';
-import 'package:universal_photos/extensions/platform_extensions.dart';
-import 'package:universal_photos/infrastructure/repositories/local_asset.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/remote_asset.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/remote_exif.repository.dart';
-import 'package:universal_photos/infrastructure/repositories/trashed_local_asset.repository.dart';
-import 'package:universal_photos/repositories/asset_api.repository.dart';
-import 'package:universal_photos/repositories/asset_media.repository.dart';
-import 'package:universal_photos/utils/option.dart';
+import 'package:universal_photos_mobile/domain/models/album/local_album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset_edit.model.dart';
+import 'package:universal_photos_mobile/domain/models/exif.model.dart';
+import 'package:universal_photos_mobile/domain/models/store.model.dart';
+import 'package:universal_photos_mobile/domain/models/tag.model.dart';
+import 'package:universal_photos_mobile/entities/store.entity.dart';
+import 'package:universal_photos_mobile/extensions/platform_extensions.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/local_asset.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/remote_asset.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/remote_exif.repository.dart';
+import 'package:universal_photos_mobile/infrastructure/repositories/trashed_local_asset.repository.dart';
+import 'package:universal_photos_mobile/repositories/asset_api.repository.dart';
+import 'package:universal_photos_mobile/repositories/asset_media.repository.dart';
+import 'package:universal_photos_mobile/utils/option.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 class AssetService {

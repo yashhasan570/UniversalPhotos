@@ -2,23 +2,23 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/enums.dart';
-import 'package:universal_photos/domain/models/album/album.model.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/actions/action.widget.dart';
-import 'package:universal_photos/presentation/actions/archive.action.dart';
-import 'package:universal_photos/presentation/actions/lock.action.dart';
-import 'package:universal_photos/presentation/widgets/action_buttons/base_action_button.widget.dart';
-import 'package:universal_photos/presentation/widgets/album/album_selector.widget.dart';
-import 'package:universal_photos/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
-import 'package:universal_photos/providers/asset_viewer/asset_viewer.provider.dart';
-import 'package:universal_photos/providers/infrastructure/action.provider.dart';
-import 'package:universal_photos/providers/infrastructure/album.provider.dart';
-import 'package:universal_photos/providers/user.provider.dart';
-import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/constants/enums.dart';
+import 'package:universal_photos_mobile/domain/models/album/album.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/actions/action.widget.dart';
+import 'package:universal_photos_mobile/presentation/actions/archive.action.dart';
+import 'package:universal_photos_mobile/presentation/actions/lock.action.dart';
+import 'package:universal_photos_mobile/presentation/widgets/action_buttons/base_action_button.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/album/album_selector.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/bottom_sheet/base_bottom_sheet.widget.dart';
+import 'package:universal_photos_mobile/providers/asset_viewer/asset_viewer.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/action.provider.dart';
+import 'package:universal_photos_mobile/providers/infrastructure/album.provider.dart';
+import 'package:universal_photos_mobile/providers/user.provider.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_toast.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 
 enum AddToMenuItem { album }
 

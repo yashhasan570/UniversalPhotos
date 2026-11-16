@@ -37,7 +37,7 @@ android {
   }
 
   defaultConfig {
-    applicationId "com.universalphotos.app"
+    applicationId "app.alextran.universal_photos"
     minSdk = 26
     targetSdk = flutter.targetSdkVersion
     versionCode flutter.versionCode
@@ -78,7 +78,7 @@ android {
       }
     }
   }
-  namespace 'com.universalphotos.app'
+  namespace 'app.alextran.universal_photos'
 }
 
 flutter {

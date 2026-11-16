@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/table/remote/album.dart';
-import 'package:universal_photos/data/db/main/table/remote/asset.dart';
-import 'package:universal_photos/data/db/util/defaults_mixin.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/album.dart';
+import 'package:universal_photos_mobile/data/db/main/table/remote/asset.dart';
+import 'package:universal_photos_mobile/data/db/util/defaults_mixin.dart';
 
 @TableIndex.sql(
   'CREATE INDEX IF NOT EXISTS idx_remote_album_asset_album_asset ON remote_album_asset_entity (album_id, asset_id)',

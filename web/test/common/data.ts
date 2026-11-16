@@ -76,7 +76,7 @@ import {
   type WorkflowResponseDto,
   type WorkflowStepDto,
   type WorkflowUpdateDto,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 
 export type TimelineFilter = {
   albumId?: string;

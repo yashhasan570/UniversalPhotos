@@ -231,7 +231,7 @@ class TestBase:
         encoder.download()
 
         snapshot_download.assert_called_once_with(
-            "universalphotos-app/ViT-B-32__openai",
+            "universal_photos-app/ViT-B-32__openai",
             revision=settings.model_revision,
             cache_dir=encoder.cache_dir,
             local_dir=encoder.cache_dir,
@@ -2129,7 +2129,7 @@ class TestCache:
         model_cache = ModelCache()
         bare = model_cache.get(InferenceEntry(OpenClipTextualEncoder, "ViT-B-32__openai", TextualOptions()))
         prefixed = model_cache.get(
-            InferenceEntry(OpenClipTextualEncoder, "universalphotos-app/ViT-B-32__openai", TextualOptions(language="en-US"))
+            InferenceEntry(OpenClipTextualEncoder, "universal_photos-app/ViT-B-32__openai", TextualOptions(language="en-US"))
         )
         assert bare is prefixed
 

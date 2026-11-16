@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/presentation/widgets/people/person_edit_birthday_modal.widget.dart';
+import 'package:universal_photos_mobile/presentation/widgets/people/person_edit_birthday_modal.widget.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:scroll_date_picker/scroll_date_picker.dart';

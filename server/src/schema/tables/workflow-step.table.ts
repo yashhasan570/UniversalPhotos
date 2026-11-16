@@ -1,5 +1,5 @@
-import { WorkflowStepConfig } from '@universalphotos/plugin-sdk';
-import { Column, ForeignKeyColumn, PrimaryGeneratedColumn, Table, type Generated } from '@universalphotos/sql-tools';
+import { WorkflowStepConfig } from '@universal_photos/plugin-sdk';
+import { Column, ForeignKeyColumn, PrimaryGeneratedColumn, Table, type Generated } from '@universal_photos/sql-tools';
 import { PluginMethodTable } from 'src/schema/tables/plugin-method.table.js';
 import { WorkflowTable } from 'src/schema/tables/workflow.table.js';
 

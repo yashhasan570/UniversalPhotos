@@ -13,7 +13,7 @@ import {
   TranscodePolicy,
   VideoCodec,
   VideoContainer,
-} from '@universalphotos/sdk';
+} from '@universal_photos/sdk';
 
 const serverConfig = (overrides: Partial<ResponseOf<'getServerConfig'>> = {}): ResponseOf<'getServerConfig'> => ({
   loginPageMessage: '',
@@ -24,8 +24,8 @@ const serverConfig = (overrides: Partial<ResponseOf<'getServerConfig'>> = {}): R
   isOnboarded: true,
   externalDomain: '',
   publicUsers: true,
-  mapDarkStyleUrl: 'https://tiles./v1/style/dark.json',
-  mapLightStyleUrl: 'https://tiles./v1/style/light.json',
+  mapDarkStyleUrl: 'https://tiles.universal_photos.cloud/v1/style/dark.json',
+  mapLightStyleUrl: 'https://tiles.universal_photos.cloud/v1/style/light.json',
   maintenanceMode: false,
   minFaces: 3,
   ...overrides,
@@ -58,8 +58,8 @@ const userConfig = (overrides: Partial<ResponseOf<'getUserConfig'>> = {}): Respo
   },
   map: {
     enabled: true,
-    lightStyle: 'https://tiles./v1/style/light.json',
-    darkStyle: 'https://tiles./v1/style/dark.json',
+    lightStyle: 'https://tiles.universal_photos.cloud/v1/style/light.json',
+    darkStyle: 'https://tiles.universal_photos.cloud/v1/style/dark.json',
   },
   reverseGeocoding: { enabled: true },
   oauth: { autoLaunch: false, buttonText: 'Login with OAuth', enabled: false, accountManagementUrl: '' },
@@ -105,8 +105,8 @@ const aboutInfo = (overrides: Partial<ResponseOf<'getAboutInfo'>> = {}): Respons
   build: '1234567890',
   buildUrl: 'https://github.com/yashhasan570/UniversalPhotos/actions/runs/1234567890',
   buildImage: 'test',
-  buildImageUrl: 'https://github.com/yashhasan570/UniversalPhotos/pkgs/container/universalphotos-server',
-  repository: 'universalphotos-app/universalphotos',
+  buildImageUrl: 'https://github.com/yashhasan570/UniversalPhotos/pkgs/container/universal_photos-server',
+  repository: 'universal_photos-app/universal_photos',
   repositoryUrl: 'https://github.com/yashhasan570/UniversalPhotos',
   sourceRef: 'test',
   sourceCommit: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
@@ -198,7 +198,7 @@ const adminConfig = (overrides: Partial<ResponseOf<'getAdminConfig'>> = {}): Res
   logging: { enabled: true, level: LogLevel.Log },
   machineLearning: {
     enabled: false,
-    urls: ['http://universalphotos-machine-learning:3003'],
+    urls: ['http://universal_photos-machine-learning:3003'],
     availabilityChecks: { enabled: true, timeout: 2000, interval: 30_000 },
     clip: { enabled: true, modelName: 'ViT-B-32__openai' },
     duplicateDetection: { enabled: true, maxDistance: 0.01 },
@@ -213,8 +213,8 @@ const adminConfig = (overrides: Partial<ResponseOf<'getAdminConfig'>> = {}): Res
   },
   map: {
     enabled: true,
-    lightStyle: 'https://tiles./v1/style/light.json',
-    darkStyle: 'https://tiles./v1/style/dark.json',
+    lightStyle: 'https://tiles.universal_photos.cloud/v1/style/light.json',
+    darkStyle: 'https://tiles.universal_photos.cloud/v1/style/dark.json',
   },
   reverseGeocoding: { enabled: true },
   metadata: { faces: { import: false } },
@@ -236,8 +236,8 @@ const adminConfig = (overrides: Partial<ResponseOf<'getAdminConfig'>> = {}): Res
     signingAlgorithm: 'RS256',
     profileSigningAlgorithm: 'none',
     storageLabelClaim: 'preferred_username',
-    storageQuotaClaim: 'universalphotos_quota',
-    roleClaim: 'universalphotos_role',
+    storageQuotaClaim: 'universal_photos_quota',
+    roleClaim: 'universal_photos_role',
     tokenEndpointAuthMethod: OAuthTokenEndpointAuthMethod.ClientSecretPost,
     timeout: 30_000,
     allowInsecureRequests: false,

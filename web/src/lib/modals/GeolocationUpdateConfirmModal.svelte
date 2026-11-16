@@ -1,7 +1,7 @@
 <script lang="ts">
   import { assetMultiSelectManager } from '#lib/managers/asset-multi-select-manager.svelte.ts';
   import type { LatLng } from '#lib/types.ts';
-  import { Alert, ConfirmModal } from '@Universal Photos/ui';
+  import { Alert, ConfirmModal } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   type Props = {

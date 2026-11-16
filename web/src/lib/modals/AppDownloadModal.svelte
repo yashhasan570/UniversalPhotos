@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { BasicModal, Button, Constants, appStoreBadge, playStoreBadge } from '@Universal Photos/ui';
+  import { BasicModal, Button, Constants, appStoreBadge, playStoreBadge } from '@immich/ui';
   import { mdiOpenInNew } from '@mdi/js';
   import { t } from 'svelte-i18n';
 

@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, PrimaryGeneratedColumn, Table, Timestamp, type Generated } from '@universalphotos/sql-tools';
+import { Column, CreateDateColumn, PrimaryGeneratedColumn, Table, Timestamp, type Generated } from '@universal_photos/sql-tools';
 
 @Table('version_history')
 export class VersionHistoryTable {

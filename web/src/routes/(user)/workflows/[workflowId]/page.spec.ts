@@ -8,7 +8,7 @@ import { page } from 'vitest/browser';
 import Page from './+page.svelte';
 import { load } from './+page.ts';
 
-const favoriteStep = { method: 'universalphotos#favorite', config: null, enabled: true };
+const favoriteStep = { method: 'universal_photos#favorite', config: null, enabled: true };
 
 const setup = async (data: MockData, router: MockRouter) => {
   data.addPluginMethods(factory.pluginMethod({ key: favoriteStep.method, title: 'Mark as favorite' }));
@@ -25,7 +25,7 @@ describe('workflow page', () => {
 
     await page.getByRole('button', { name: 'JSON', exact: true }).click();
 
-    await expect.element(page.getByText(/universalphotos#favorite/).first()).toBeVisible();
+    await expect.element(page.getByText(/universal_photos#favorite/).first()).toBeVisible();
     await expect.element(page.getByText(/step-\d/)).not.toBeInTheDocument();
   });
 

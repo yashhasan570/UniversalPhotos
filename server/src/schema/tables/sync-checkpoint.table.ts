@@ -7,7 +7,7 @@ import {
   Timestamp,
   UpdateDateColumn,
   type Generated,
-} from '@universalphotos/sql-tools';
+} from '@universal_photos/sql-tools';
 import { UpdateIdColumn, UpdatedAtTrigger } from 'src/decorators.js';
 import { SyncEntityType } from 'src/enum.js';
 import { SessionTable } from 'src/schema/tables/session.table.js';

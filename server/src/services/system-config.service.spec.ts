@@ -109,7 +109,7 @@ const updatedConfig = Object.freeze<SystemConfig>({
   },
   machineLearning: {
     enabled: true,
-    urls: ['http://universalphotos-machine-learning:3003'],
+    urls: ['http://universal_photos-machine-learning:3003'],
     availabilityChecks: {
       enabled: true,
       interval: 30_000,
@@ -140,8 +140,8 @@ const updatedConfig = Object.freeze<SystemConfig>({
   },
   map: {
     enabled: true,
-    lightStyle: 'https://tiles./v1/style/light.json',
-    darkStyle: 'https://tiles./v1/style/dark.json',
+    lightStyle: 'https://tiles.universal_photos.cloud/v1/style/light.json',
+    darkStyle: 'https://tiles.universal_photos.cloud/v1/style/dark.json',
   },
   nightlyTasks: {
     startTime: '00:00',
@@ -175,8 +175,8 @@ const updatedConfig = Object.freeze<SystemConfig>({
     timeout: 30_000,
     allowInsecureRequests: false,
     storageLabelClaim: 'preferred_username',
-    storageQuotaClaim: 'universalphotos_quota',
-    roleClaim: 'universalphotos_role',
+    storageQuotaClaim: 'universal_photos_quota',
+    roleClaim: 'universal_photos_role',
   },
   passkey: {
     enabled: true,
@@ -300,16 +300,16 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should load the config from a json file', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify(partialConfig));
 
       await expect(sut.getAdminConfig()).resolves.toEqual(updatedConfig);
 
-      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('universalphotos-config.json');
+      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('universal_photos-config.json');
     });
 
     it('should transform booleans', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({ ffmpeg: { twoPass: 'false' } }));
 
       await expect(sut.getAdminConfig()).resolves.toMatchObject({
@@ -318,7 +318,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should transform numbers', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({ ffmpeg: { threads: '42' } }));
 
       await expect(sut.getAdminConfig()).resolves.toMatchObject({
@@ -327,7 +327,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should accept valid cron expressions', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(
         JSON.stringify({ library: { scan: { cronExpression: '0 0 */3 * *' } } }),
       );
@@ -343,7 +343,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should reject an invalid issuer URL', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({ oauth: { issuerUrl: 'accounts.google.com' } }));
 
       await expect(sut.getAdminConfig()).rejects.toThrow(
@@ -352,29 +352,29 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should reject invalid cron expressions', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({ library: { scan: { cronExpression: 'foo' } } }));
 
       await expect(sut.getAdminConfig()).rejects.toThrow('[library.scan.cronExpression] Invalid cron expression');
     });
 
     it('should log errors with the config file', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
 
       mocks.systemMetadata.readFile.mockResolvedValue(`{ "ffmpeg2": true, "ffmpeg2": true }`);
 
       await expect(sut.getAdminConfig()).rejects.toBeInstanceOf(Error);
 
-      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('universalphotos-config.json');
+      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('universal_photos-config.json');
       expect(mocks.logger.error).toHaveBeenCalledTimes(2);
-      expect(mocks.logger.error.mock.calls[0][0]).toEqual('Unable to load configuration file: universalphotos-config.json');
+      expect(mocks.logger.error.mock.calls[0][0]).toEqual('Unable to load configuration file: universal_photos-config.json');
       expect(mocks.logger.error.mock.calls[1][0].toString()).toEqual(
         expect.stringContaining('YAMLException: duplicated mapping key (1:21)'),
       );
     });
 
     it('should load the config from a yaml file', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.yaml' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.yaml' }));
       const partialConfig = `
         ffmpeg:
           crf: 30
@@ -389,25 +389,25 @@ describe(SystemConfigService.name, () => {
 
       await expect(sut.getAdminConfig()).resolves.toEqual(updatedConfig);
 
-      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('universalphotos-config.yaml');
+      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('universal_photos-config.yaml');
     });
 
     it('should accept an empty configuration file', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({}));
 
       await expect(sut.getAdminConfig()).resolves.toEqual(defaults);
 
-      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('universalphotos-config.json');
+      expect(mocks.systemMetadata.readFile).toHaveBeenCalledWith('universal_photos-config.json');
     });
 
     it('should allow underscores in the machine learning url', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
-      const partialConfig = { machineLearning: { urls: ['universalphotos_machine_learning'] } };
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
+      const partialConfig = { machineLearning: { urls: ['universal_photos_machine_learning'] } };
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify(partialConfig));
 
       const config = await sut.getAdminConfig();
-      expect(config.machineLearning.urls).toEqual(['universalphotos_machine_learning']);
+      expect(config.machineLearning.urls).toEqual(['universal_photos_machine_learning']);
     });
 
     const externalDomainTests = [
@@ -423,7 +423,7 @@ describe(SystemConfigService.name, () => {
 
     for (const { should, externalDomain, result = 'https://demo.' } of externalDomainTests) {
       it(`should normalize an external domain ${should}`, async () => {
-        mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+        mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
         const partialConfig = { server: { externalDomain } };
         mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify(partialConfig));
 
@@ -433,7 +433,7 @@ describe(SystemConfigService.name, () => {
     }
 
     it('should warn for unknown options in yaml', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.yaml' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.yaml' }));
       const partialConfig = `
         unknownOption: true
       `;
@@ -470,7 +470,7 @@ describe(SystemConfigService.name, () => {
 
     for (const test of tests) {
       it(`should ${test.should}`, async () => {
-        mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+        mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
         mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify(test.config));
 
         if (test.throws) {
@@ -497,7 +497,7 @@ describe(SystemConfigService.name, () => {
     });
 
     it('should throw an error if a config file is in use', async () => {
-      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universalphotos-config.json' }));
+      mocks.config.getEnv.mockReturnValue(mockEnvData({ configFile: 'universal_photos-config.json' }));
       mocks.systemMetadata.readFile.mockResolvedValue(JSON.stringify({}));
       await expect(sut.updateAdminConfig(defaults)).rejects.toBeInstanceOf(BadRequestException);
       expect(mocks.systemMetadata.set).not.toHaveBeenCalled();

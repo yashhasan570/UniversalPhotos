@@ -12,7 +12,7 @@ export class AppController {
   ) {}
 
   @ApiExcludeEndpoint()
-  @Get('.well-known/universalphotos')
+  @Get('.well-known/universal_photos')
   @Authenticated({ public: true })
   getUniversalPhotosWellKnown() {
     return {

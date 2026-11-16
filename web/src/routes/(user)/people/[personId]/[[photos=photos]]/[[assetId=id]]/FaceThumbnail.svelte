@@ -1,7 +1,7 @@
 <script lang="ts">
   import ImageThumbnail from '#lib/components/assets/thumbnail/ImageThumbnail.svelte';
   import { getPeopleThumbnailUrl } from '#lib/utils.ts';
-  import { type PersonResponseDto } from '@Universal Photos/sdk';
+  import { type PersonResponseDto } from '@immich/sdk';
 
   interface Props {
     person: PersonResponseDto;
@@ -37,8 +37,8 @@
     class:rounded-full={circle}
     class:rounded-lg={!circle}
     class:border-transparent={!border}
-    class:dark:border-Universal Photos-dark-primary={border}
-    class:border-Universal Photos-primary={border}
+    class:dark:border-immich-dark-primary={border}
+    class:border-immich-primary={border}
   >
     <!-- Trigger a re-render on person change as <Image> captures only the first src -->
     {#key person.id}
@@ -47,7 +47,7 @@
   </div>
 
   <div
-    class="absolute inset-s-0 top-0 size-full bg-Universal Photos-primary/30 opacity-0"
+    class="absolute inset-s-0 top-0 size-full bg-immich-primary/30 opacity-0"
     class:hover:opacity-100={selectable}
     class:rounded-full={circle}
     class:rounded-lg={!circle}

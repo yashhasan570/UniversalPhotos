@@ -31,15 +31,15 @@ final Map<String, Map<String, Object?>> openApiPatches = {
   'PublicConfigDto': {
     'map': PublicConfigMapDto(
       enabled: true,
-      lightStyle: 'https://tiles./v1/style/light.json',
-      darkStyle: 'https://tiles./v1/style/dark.json',
+      lightStyle: 'https://tiles.universal_photos.cloud/v1/style/light.json',
+      darkStyle: 'https://tiles.universal_photos.cloud/v1/style/dark.json',
     ).toJson(),
     'ffmpeg': PublicConfigFFmpegDto(realtime: PublicConfigFFmpegRealtimeDto(enabled: false)).toJson(),
     'passkey': {'enabled': false},
   },
   'ServerConfigDto': {
-    'mapLightStyleUrl': 'https://tiles./v1/style/light.json',
-    'mapDarkStyleUrl': 'https://tiles./v1/style/dark.json',
+    'mapLightStyleUrl': 'https://tiles.universal_photos.cloud/v1/style/light.json',
+    'mapDarkStyleUrl': 'https://tiles.universal_photos.cloud/v1/style/dark.json',
     'minFaces': 3,
   },
   'UserResponseDto': {'profileChangedAt': _now},

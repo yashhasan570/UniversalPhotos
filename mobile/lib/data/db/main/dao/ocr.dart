@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:universal_photos/data/db/main/dao/ocr.drift.dart';
-import 'package:universal_photos/data/db/main/database.dart';
-import 'package:universal_photos/data/db/main/table/asset/ocr.drift.dart';
-import 'package:universal_photos/domain/models/ocr.model.dart';
+import 'package:universal_photos_mobile/data/db/main/dao/ocr.drift.dart';
+import 'package:universal_photos_mobile/data/db/main/database.dart';
+import 'package:universal_photos_mobile/data/db/main/table/asset/ocr.drift.dart';
+import 'package:universal_photos_mobile/domain/models/ocr.model.dart';
 
 @DriftAccessor()
 class OcrRepository extends DatabaseAccessor<Drift> with $OcrRepositoryMixin {

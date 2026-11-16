@@ -26,14 +26,14 @@ export async function up(db: Kysely<any>): Promise<void> {
     END
   $$;`.execute(db);
   await sql`CREATE TABLE "asset_ocr_audit" (
-  "id" uuid NOT NULL DEFAULT universalphotos_uuid_v7(),
+  "id" uuid NOT NULL DEFAULT universal_photos_uuid_v7(),
   "assetId" uuid NOT NULL,
   "deletedAt" timestamp with time zone NOT NULL DEFAULT clock_timestamp(),
   CONSTRAINT "asset_ocr_audit_pkey" PRIMARY KEY ("id")
 );`.execute(db);
   await sql`CREATE INDEX "asset_ocr_audit_assetId_idx" ON "asset_ocr_audit" ("assetId");`.execute(db);
   await sql`CREATE INDEX "asset_ocr_audit_deletedAt_idx" ON "asset_ocr_audit" ("deletedAt");`.execute(db);
-  await sql`ALTER TABLE "asset_ocr" ADD "updateId" uuid NOT NULL DEFAULT universalphotos_uuid_v7();`.execute(db);
+  await sql`ALTER TABLE "asset_ocr" ADD "updateId" uuid NOT NULL DEFAULT universal_photos_uuid_v7();`.execute(db);
   await sql`CREATE INDEX "asset_ocr_updateId_idx" ON "asset_ocr" ("updateId");`.execute(db);
   await sql`CREATE OR REPLACE TRIGGER "asset_ocr_delete_audit"
   AFTER DELETE ON "asset_ocr"

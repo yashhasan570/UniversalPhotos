@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/domain/services/partner.service.dart';
+import 'package:universal_photos_mobile/domain/services/partner.service.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../service_context.dart';

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { searchManager } from '#lib/managers/search-manager.svelte.ts';
   import { searchStore } from '#lib/stores/search.svelte.ts';
-  import { Icon, IconButton, Text } from '@Universal Photos/ui';
+  import { Icon, IconButton, Text } from '@immich/ui';
   import { mdiClockOutline, mdiClose } from '@mdi/js';
   import { t } from 'svelte-i18n';
 
@@ -87,7 +87,7 @@
         <button
           id={getId(0)}
           type="button"
-          class="rounded-lg p-2 font-semibold text-primary hover:bg-Universal Photos-primary/25 aria-selected:bg-Universal Photos-primary/25"
+          class="rounded-lg p-2 font-semibold text-primary hover:bg-immich-primary/25 aria-selected:bg-immich-primary/25"
           role="option"
           onclick={() => handleClearAll()}
           tabindex="-1"

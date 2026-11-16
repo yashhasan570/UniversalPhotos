@@ -4,7 +4,7 @@
   import { mediaQueryManager } from '#lib/stores/media-query-manager.svelte.ts';
   import { getTabbable } from '#lib/utils/focus-util.ts';
   import { type ScrubberListener } from '#lib/utils/timeline-util.ts';
-  import { Icon } from '@Universal Photos/ui';
+  import { Icon } from '@immich/ui';
   import { mdiPlay } from '@mdi/js';
   import { clamp } from 'lodash-es';
   import { onMount } from 'svelte';
@@ -537,7 +537,7 @@
   {#if usingMobileDevice && ((timelineManager.scrolling && scrollHoverLabel) || isHover || isDragging)}
     <div
       id="time-label"
-      class="w-8 rounded-s-full bg-Universal Photos-primary ps-2 text-white select-none hover:cursor-pointer dark:bg-gray-600"
+      class="w-8 rounded-s-full bg-immich-primary ps-2 text-white select-none hover:cursor-pointer dark:bg-gray-600"
       style:top="{PADDING_TOP + (scrollY - 50 / 2)}px"
       style:height="50px"
       style:right="0"
@@ -553,7 +553,7 @@
           style:bottom={50 / 2 - 30 / 2 + 'px'}
           style:right="36px"
           style:width="fit-content"
-          class="pointer-events-none absolute w-8 truncate rounded-full bg-Universal Photos-primary/90 px-4 py-2 text-sm font-semibold text-white select-none hover:cursor-pointer dark:bg-gray-500"
+          class="pointer-events-none absolute w-8 truncate rounded-full bg-immich-primary/90 px-4 py-2 text-sm font-semibold text-white select-none hover:cursor-pointer dark:bg-gray-500"
         >
           {scrollHoverLabel}
         </p>
@@ -566,7 +566,7 @@
       {#if timelineManager.scrolling && scrollHoverLabel && !isHover}
         <p
           transition:fade={{ duration: 200 }}
-          class="pointer-events-none absolute inset-e-0 bottom-0 z-1 w-fit max-w-64 min-w-20 truncate rounded-tl-md border-b-2 border-Universal Photos-primary bg-subtle/90 p-1 text-sm font-medium shadow-[0_0_8px_rgba(0,0,0,0.25)] dark:border-Universal Photos-dark-primary dark:text-Universal Photos-dark-fg"
+          class="pointer-events-none absolute inset-e-0 bottom-0 z-1 w-fit max-w-64 min-w-20 truncate rounded-tl-md border-b-2 border-immich-primary bg-subtle/90 p-1 text-sm font-medium shadow-[0_0_8px_rgba(0,0,0,0.25)] dark:border-immich-dark-primary dark:text-immich-dark-fg"
         >
           {scrollHoverLabel}
         </p>
@@ -590,7 +590,7 @@
     >
       {#if !usingMobileDevice}
         {#if segment.hasLabel}
-          <div class="absolute inset-e-5 bottom-0 font-mono text-[13px] dark:text-Universal Photos-dark-fg">
+          <div class="absolute inset-e-5 bottom-0 font-mono text-[13px] dark:text-immich-dark-fg">
             {segment.year}
           </div>
         {/if}

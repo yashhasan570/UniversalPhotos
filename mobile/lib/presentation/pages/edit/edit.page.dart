@@ -6,16 +6,16 @@ import 'package:crop_image/crop_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/constants/aspect_ratios.dart';
-import 'package:universal_photos/domain/models/asset_edit.model.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
-import 'package:universal_photos/generated/translations.g.dart';
-import 'package:universal_photos/presentation/pages/edit/editor.provider.dart';
-import 'package:universal_photos/providers/theme.provider.dart';
-import 'package:universal_photos/theme/theme_data.dart';
-import 'package:universal_photos/utils/editor.utils.dart';
-import 'package:universal_photos/widgets/common/universalphotos_toast.dart';
-import 'package:universalphotos_ui/universalphotos_ui.dart';
+import 'package:universal_photos_mobile/constants/aspect_ratios.dart';
+import 'package:universal_photos_mobile/domain/models/asset_edit.model.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
+import 'package:universal_photos_mobile/presentation/pages/edit/editor.provider.dart';
+import 'package:universal_photos_mobile/providers/theme.provider.dart';
+import 'package:universal_photos_mobile/theme/theme_data.dart';
+import 'package:universal_photos_mobile/utils/editor.utils.dart';
+import 'package:universal_photos_mobile/widgets/common/universal_photos_toast.dart';
+import 'package:universal_photos_ui/universal_photos_ui.dart';
 import 'package:openapi/api.dart' show MirrorAxis, MirrorParameters, RotateParameters;
 
 @RoutePage()
@@ -113,7 +113,7 @@ class _EditImagePageState extends ConsumerState<EditImagePage> with TickerProvid
         }
       },
       child: Theme(
-        data: getThemeData(colorScheme: ref.watch(universalphotosThemeProvider).dark, locale: context.locale),
+        data: getThemeData(colorScheme: ref.watch(universal_photosThemeProvider).dark, locale: context.locale),
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.black,
@@ -135,7 +135,7 @@ class _EditImagePageState extends ConsumerState<EditImagePage> with TickerProvid
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: ref.watch(universalphotosThemeProvider).dark.surface,
+                      color: ref.watch(universal_photosThemeProvider).dark.surface,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),

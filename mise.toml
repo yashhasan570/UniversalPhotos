@@ -50,28 +50,28 @@ lockfile_platforms = [
 
 [tasks.release]
 run = [
-  "pnpm --filter @universalphotos/scripts install --frozen-lockfile",
-  "pnpm --filter @universalphotos/scripts build",
-  "pnpm --filter @universalphotos/scripts cli release {{arg(name='args', var=true)}}",
+  "pnpm --filter @universal_photos/scripts install --frozen-lockfile",
+  "pnpm --filter @universal_photos/scripts build",
+  "pnpm --filter @universal_photos/scripts cli release {{arg(name='args', var=true)}}",
   { task = "//:open-api" },
 ]
 
 [tasks.notes]
 run = [
-  "pnpm --filter @universalphotos/scripts install --frozen-lockfile",
-  "pnpm --filter @universalphotos/scripts build",
-  "pnpm --filter @universalphotos/scripts cli notes {{arg(name='args', var=true)}}",
+  "pnpm --filter @universal_photos/scripts install --frozen-lockfile",
+  "pnpm --filter @universal_photos/scripts build",
+  "pnpm --filter @universal_photos/scripts cli notes {{arg(name='args', var=true)}}",
 ]
 
 [tasks.plugins]
 run = [
-  "pnpm --filter @universalphotos/sdk --filter @universalphotos/plugin-sdk --filter @universalphotos/plugin-core install --frozen-lockfile",
-  "pnpm --filter @universalphotos/sdk --filter @universalphotos/plugin-sdk --filter @universalphotos/plugin-core build",
+  "pnpm --filter @universal_photos/sdk --filter @universal_photos/plugin-sdk --filter @universal_photos/plugin-core install --frozen-lockfile",
+  "pnpm --filter @universal_photos/sdk --filter @universal_photos/plugin-sdk --filter @universal_photos/plugin-core build",
 ]
 
 [tasks.open-api-typescript]
 run = [
-  "oazapfts --optimistic --argumentStyle=object --useEnumType --allSchemas open-api/universalphotos-openapi-specs.json packages/sdk/src/fetch-client.ts",
+  "oazapfts --optimistic --argumentStyle=object --useEnumType --allSchemas open-api/universal_photos-openapi-specs.json packages/sdk/src/fetch-client.ts",
   { task = "//:sdk:install" },
   { task = "//:sdk:build" },
 ]
@@ -79,7 +79,7 @@ run = [
 [tasks.open-api-dart]
 dir = "open-api"
 sources = [
-  "universalphotos-openapi-specs.json",
+  "universal_photos-openapi-specs.json",
   "openapitools.json",
   "templates/**/*",
   "patch/*",
@@ -115,7 +115,7 @@ depends_post = "//:dev-down"
 run = { task = "//:dev", args = ["--build", "-V"] }
 
 [tasks.dev-scale]
-run = { task = "//:dev", args = ["--build", "-V", "--scale universalphotos-server=3"] }
+run = { task = "//:dev", args = ["--build", "-V", "--scale universal_photos-server=3"] }
 
 [tasks.dev-down]
 dir = "docker"
@@ -133,8 +133,8 @@ depends_post = "//:prod-down"
 run = { task = "//:prod", args = [
   "--build",
   "-V",
-  "--scale universalphotos-server=3",
-  "--scale universalphotos-microservices",
+  "--scale universal_photos-server=3",
+  "--scale universal_photos-microservices",
 ] }
 
 [tasks.prod-down]
@@ -171,7 +171,7 @@ run = "docker compose -f ./docker-compose.dev.yml down --remove-orphans"
 # SDK tasks
 [tasks."sdk:install"]
 dir = "packages/sdk"
-run = "pnpm --filter @universalphotos/sdk install --frozen-lockfile"
+run = "pnpm --filter @universal_photos/sdk install --frozen-lockfile"
 
 [tasks."sdk:build"]
 dir = "packages/sdk"

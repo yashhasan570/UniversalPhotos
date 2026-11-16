@@ -1,4 +1,4 @@
-# Universal Photos Machine Learning
+# Immich Machine Learning
 
 - CLIP embeddings
 - Facial recognition

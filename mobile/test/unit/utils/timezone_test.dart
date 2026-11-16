@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universal_photos/utils/timezone.dart';
+import 'package:universal_photos_mobile/utils/timezone.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 void main() {

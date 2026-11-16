@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:universal_photos/extensions/build_context_extensions.dart';
+import 'package:universal_photos_mobile/extensions/build_context_extensions.dart';
 
 class DragHandle extends StatelessWidget {
   const DragHandle({super.key});

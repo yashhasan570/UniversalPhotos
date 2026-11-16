@@ -6,8 +6,8 @@
     loadDatabaseBackups,
   } from '#lib/services/database-backups.service.ts';
   import { handleError } from '#lib/utils/handle-error.ts';
-  import type { DatabaseBackupDto } from '@Universal Photos/sdk';
-  import { Alert, Button, HStack, Heading, Icon, Text } from '@Universal Photos/ui';
+  import type { DatabaseBackupDto } from '@immich/sdk';
+  import { Alert, Button, HStack, Heading, Icon, Text } from '@immich/ui';
   import { mdiArrowRight, mdiRefresh } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
@@ -38,7 +38,7 @@
 
 {#if backups === undefined}
   <HStack>
-    <Icon icon={mdiRefresh} color="rgb(var(--Universal Photos-ui-primary))" />
+    <Icon icon={mdiRefresh} color="rgb(var(--immich-ui-primary))" />
     <Text>{$t('maintenance_restore_loading_backups')}</Text>
   </HStack>
 {:else if latest === undefined}

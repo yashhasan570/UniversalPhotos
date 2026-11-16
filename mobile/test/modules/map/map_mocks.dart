@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/models/map/map_state.model.dart';
-import 'package:universal_photos/providers/map/map_state.provider.dart';
+import 'package:universal_photos_mobile/models/map/map_state.model.dart';
+import 'package:universal_photos_mobile/providers/map/map_state.provider.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockMapStateNotifier extends Notifier<MapState> with Mock implements MapStateNotifier {

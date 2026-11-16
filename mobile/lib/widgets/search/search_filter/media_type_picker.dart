@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
-import 'package:universal_photos/generated/translations.g.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/generated/translations.g.dart';
 
 class MediaTypePicker extends HookWidget {
   const MediaTypePicker({super.key, required this.onSelect, this.filter});

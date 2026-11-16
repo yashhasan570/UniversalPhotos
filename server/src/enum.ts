@@ -1,4 +1,4 @@
-import { WorkflowTrigger } from '@universalphotos/plugin-sdk';
+import { WorkflowTrigger } from '@universal_photos/plugin-sdk';
 import z from 'zod';
 import { asIntegerEnum } from 'src/utils/helpers.js';
 
@@ -14,25 +14,25 @@ export enum AuthChallengeType {
 }
 
 export enum UniversalPhotosCookie {
-  AccessToken = 'universalphotos_access_token',
-  MaintenanceToken = 'universalphotos_maintenance_token',
-  AuthType = 'universalphotos_auth_type',
-  IsAuthenticated = 'universalphotos_is_authenticated',
-  SharedLinkToken = 'universalphotos_shared_link_token',
-  OAuthState = 'universalphotos_oauth_state',
-  OAuthCodeVerifier = 'universalphotos_oauth_code_verifier',
+  AccessToken = 'universal_photos_access_token',
+  MaintenanceToken = 'universal_photos_maintenance_token',
+  AuthType = 'universal_photos_auth_type',
+  IsAuthenticated = 'universal_photos_is_authenticated',
+  SharedLinkToken = 'universal_photos_shared_link_token',
+  OAuthState = 'universal_photos_oauth_state',
+  OAuthCodeVerifier = 'universal_photos_oauth_code_verifier',
 }
 
 export enum UniversalPhotosHeader {
   ApiKey = 'x-api-key',
-  UserToken = 'x-universalphotos-user-token',
-  SessionToken = 'x-universalphotos-session-token',
-  SharedLinkKey = 'x-universalphotos-share-key',
-  SharedLinkSlug = 'x-universalphotos-share-slug',
-  Checksum = 'x-universalphotos-checksum',
+  UserToken = 'x-universal_photos-user-token',
+  SessionToken = 'x-universal_photos-session-token',
+  SharedLinkKey = 'x-universal_photos-share-key',
+  SharedLinkSlug = 'x-universal_photos-share-slug',
+  Checksum = 'x-universal_photos-checksum',
   CorrelationId = 'X-Correlation-ID',
-  HlsInitSegment = 'x-universalphotos-hls-msn',
-  HlsPosition = 'x-universalphotos-hls-pos',
+  HlsInitSegment = 'x-universal_photos-hls-msn',
+  HlsPosition = 'x-universal_photos-hls-pos',
 }
 
 export enum UniversalPhotosQuery {
@@ -639,11 +639,11 @@ export enum LogFormat {
 export const LogFormatSchema = z.enum(LogFormat).describe('Log format').meta({ id: 'LogFormat' });
 
 export enum ApiCustomExtension {
-  Permission = 'x-universalphotos-permission',
-  AdminOnly = 'x-universalphotos-admin-only',
-  History = 'x-universalphotos-history',
-  State = 'x-universalphotos-state',
-  Required = 'x-universalphotos-required',
+  Permission = 'x-universal_photos-permission',
+  AdminOnly = 'x-universal_photos-admin-only',
+  History = 'x-universal_photos-history',
+  State = 'x-universal_photos-state',
+  Required = 'x-universal_photos-required',
 }
 
 export enum MetadataKey {

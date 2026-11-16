@@ -1,5 +1,5 @@
-import { isHttpError } from '@universalphotos/sdk';
-import { toastManager } from '@universalphotos/ui';
+import { isHttpError } from '@universal_photos/sdk';
+import { toastManager } from '@universal_photos/ui';
 
 export function getServerErrorMessage(error: unknown) {
   if (!isHttpError(error)) {

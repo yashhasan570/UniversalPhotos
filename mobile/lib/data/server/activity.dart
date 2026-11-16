@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/data/server/api_repository.dart';
-import 'package:universal_photos/infrastructure/utils/user.converter.dart';
-import 'package:universal_photos/models/activities/activity.model.dart';
-import 'package:universal_photos/providers/api.provider.dart';
+import 'package:universal_photos_mobile/data/server/api_repository.dart';
+import 'package:universal_photos_mobile/infrastructure/utils/user.converter.dart';
+import 'package:universal_photos_mobile/models/activities/activity.model.dart';
+import 'package:universal_photos_mobile/providers/api.provider.dart';
 import 'package:openapi/api.dart';
 
 final activityApiRepositoryProvider = Provider(

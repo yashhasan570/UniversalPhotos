@@ -6,8 +6,8 @@
   import { untagAssetsMutation } from '#lib/queries/tag.query.ts';
   import { Route } from '#lib/route.ts';
   import { getAssetActions } from '#lib/services/asset.service.ts';
-  import { getAssetInfo, type AssetResponseDto } from '@Universal Photos/sdk';
-  import { Badge, Link, Text } from '@Universal Photos/ui';
+  import { getAssetInfo, type AssetResponseDto } from '@immich/sdk';
+  import { Badge, Link, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
 
   interface Props {

@@ -2,7 +2,7 @@ import type { MockData } from '#test/common/data.ts';
 import { factory } from '#test/common/factories.ts';
 import { fromBase64, minimalMp4, placeholderImage } from '#test/common/helpers.ts';
 import type { Handlers } from '#test/common/types.ts';
-import { AssetUploadAction, WorkflowTrigger, WorkflowType } from '@universalphotos/sdk';
+import { AssetUploadAction, WorkflowTrigger, WorkflowType } from '@universal_photos/sdk';
 
 const notFound = { status: 404, json: { message: 'Not found', statusCode: 404 } };
 const passwordRequired = { status: 401, json: { message: 'Password required', statusCode: 401 } };
@@ -339,7 +339,7 @@ export const createHandlers = (data: MockData): Handlers => {
     downloadArchive: () => ({
       body: emptyZip,
       contentType: 'application/zip',
-      headers: { 'Content-Disposition': 'attachment; filename="universalphotos.zip"' },
+      headers: { 'Content-Disposition': 'attachment; filename="universal_photos.zip"' },
     }),
 
     searchWorkflows: () => ({ json: data.workflowList() }),

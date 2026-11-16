@@ -1,4 +1,4 @@
-import type sdk from '@universalphotos/sdk';
+import type sdk from '@universal_photos/sdk';
 
 type Sdk = typeof sdk;
 type FunctionKeys<T> = { [K in keyof T]-?: T[K] extends (...args: never[]) => unknown ? K : never }[keyof T];

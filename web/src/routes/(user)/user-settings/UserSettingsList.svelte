@@ -34,6 +34,7 @@
   import UserApiKeyList from './UserApiKeyList.svelte';
   import UserPasskeyList from './UserPasskeyList.svelte';
   import UserProfileSettings from './UserProfileSettings.svelte';
+  import UserPurchaseSettings from './UserPurchaseSettings.svelte';
   import UserUsageStatistic from './UserUsageStatistic.svelte';
 
   const query = createPreloadedQuery(getUserConfigQuery);
@@ -153,6 +154,7 @@
   subtitle={$t('user_purchase_settings_description')}
   autoScrollTo={true}
 >
+  <UserPurchaseSettings />
 </SettingAccordion>
 
 <SettingAccordion

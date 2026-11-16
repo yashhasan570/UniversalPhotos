@@ -290,7 +290,7 @@ describe('crawl', () => {
         continue;
       }
       it(name, async () => {
-        await using root = await mkdtempDisposable(join(tmpdir(), 'universalphotos-cli-'));
+        await using root = await mkdtempDisposable(join(tmpdir(), 'universal_photos-cli-'));
         vi.spyOn(process, 'cwd').mockReturnValue(join(root.path, 'cwd'));
 
         // The file contents is the same as the path.

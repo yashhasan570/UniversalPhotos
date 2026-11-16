@@ -10,8 +10,8 @@
     type DifferingMetadataFields,
   } from '#lib/utils/duplicate-utils.ts';
   import { navigate } from '#lib/utils/navigation.ts';
-  import { getAssetInfo, type AssetResponseDto } from '@Universal Photos/sdk';
-  import { Button, Icon, shortcuts } from '@Universal Photos/ui';
+  import { getAssetInfo, type AssetResponseDto } from '@immich/sdk';
+  import { Button, Icon, shortcuts } from '@immich/ui';
   import { mdiCheck, mdiChevronDown, mdiChevronUp, mdiImageMultipleOutline, mdiTrashCanOutline } from '@mdi/js';
   import { onDestroy, onMount } from 'svelte';
   import { t } from 'svelte-i18n';

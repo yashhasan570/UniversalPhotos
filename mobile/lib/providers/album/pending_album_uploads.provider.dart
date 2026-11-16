@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:universal_photos/domain/models/asset/base_asset.model.dart';
+import 'package:universal_photos_mobile/domain/models/asset/base_asset.model.dart';
 
 part 'pending_album_uploads.provider.freezed.dart';
 
