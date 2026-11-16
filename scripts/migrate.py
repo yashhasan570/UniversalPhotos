@@ -11,17 +11,15 @@ ROOT = Path(__file__).resolve().parent.parent
 #  - yucca.v1BackupFileName EXIF tag (photo metadata interop)
 #  -  container images (postgres/base, build dependencies)
 ANCHORS = [
-    '', '', '', 'yucca.v1BackupFileName',
-    '', '', '',
+    'immich.app', 'yucca.v1BackupFileName',
 ]
 REPL = [
-    ('github.com/yashhasan570/UniversalPhotos', 'github.com/yashhasan570/UniversalPhotos'),
-    ('universal_photos_ml', 'universal_photos_ml'),
-    ('universal_photos', 'universal_photos'),
-    ('UNIVERSALPHOTOS_', 'UNIVERSALPHOTOS_'),
-    ('UNIVERSAL PHOTOS', 'UNIVERSAL PHOTOS'),
-    ('UniversalPhotos', 'UniversalPhotos'),
-    ('universalphotos', 'universalphotos'),
+    ('github.com/immich-app/immich', 'github.com/yashhasan570/UniversalPhotos'),
+    ('immich_ml', 'universal_photos_ml'),
+    ('immich', 'universal_photos'),
+    ('IMMICH_', 'UNIVERSALPHOTOS_'),
+    ('IMMICH', 'UNIVERSAL PHOTOS'),
+    ('Immich', 'UniversalPhotos'),
 ]
 
 def main():
