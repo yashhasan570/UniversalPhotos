@@ -34,6 +34,7 @@ services:
       UNIVERSALPHOTOS_ENV: testing
       UNIVERSALPHOTOS_PORT: '2285'
       UNIVERSALPHOTOS_IGNORE_MOUNT_CHECK_ERRORS: 'true'
+      UNIVERSALPHOTOS_HELMET_FILE: 'true'
     volumes:
       - ./test-assets:/test-assets
     depends_on:

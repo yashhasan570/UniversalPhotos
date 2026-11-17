@@ -46,6 +46,7 @@ services:
     command:
       - |
         mise install
+        pnpm --filter universal_photos --filter universal_photos-web --filter @universal_photos/sdk --filter @universal_photos/plugin-sdk exec true
         touch /tmp/init-complete
         exec tail -f /dev/null
     volumes:
