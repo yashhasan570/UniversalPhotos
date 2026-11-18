@@ -68,7 +68,7 @@ FROM plugin-sdk AS plugins
 
 ARG TARGETPLATFORM
 
-COPY --from=ghcr.io/jdx/mise:2026.11.6@sha256:d4de1845114f6d73e90e15f7642885f74f3ca93074491038a2b9c43e4b897f21 /usr/local/bin/mise /usr/local/bin/mise
+COPY --from=ghcr.io/jdx/mise:2026.11.9@sha256:9a182adba2584a6f5b29ddc1f2c7651c93694a5f829d74452b90214616baacf4 /usr/local/bin/mise /usr/local/bin/mise
 
 COPY ./mise.toml ./mise.toml
 COPY ./mise.lock ./mise.lock
@@ -119,8 +119,8 @@ ENV UNIVERSALPHOTOS_SOURCE_REF=${BUILD_SOURCE_REF}
 ENV UNIVERSALPHOTOS_SOURCE_COMMIT=${BUILD_SOURCE_COMMIT}
 ENV UNIVERSALPHOTOS_SOURCE_URL=https://github.com/yashhasan570/UniversalPhotos/commit/${BUILD_SOURCE_COMMIT}
 
-COPY --from=ghcr.io/futo-org/backups/restic-proxy:v1.11.2@sha256:a88252d884d22a55749f45dd39a2458c6391ca3e4d3b0d9e0c2246786cf923be /usr/local/bin/restic-proxy /usr/local/bin/restic-proxy
-COPY --from=ghcr.io/futo-org/restic:sha-1e904f0@sha256:501bb3e696bd78db0d89ae4e5c51b6993b9cb3f88e657020777dba49226169bc /usr/bin/restic /usr/local/bin/restic
+COPY --from=ghcr.io/futo-org/backups/restic-proxy:v1.18.1@sha256:8ce6e9ba833c16985d1353cdf06437161322fcd6825cd60f2bb19c4154bacd60 /usr/local/bin/restic-proxy /usr/local/bin/restic-proxy
+COPY --from=ghcr.io/futo-org/restic:0.19.1-futo.2@sha256:72a88670ee0bbb5485c74bd9a7fb3f36d46bf3f8e29c6d0886cd6039077a3184 /usr/bin/restic /usr/local/bin/restic
 
 VOLUME /data
 EXPOSE 2283
