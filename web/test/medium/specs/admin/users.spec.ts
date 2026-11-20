@@ -4,6 +4,16 @@ import { expect, test } from '#test/medium/fixtures.ts';
 import { UserStatus } from '@universal_photos/sdk';
 
 test.describe('user administration', () => {
+  test('shows new users from another source', async ({ page, data, api, app }) => {
+    await page.goto(Route.users());
+    await expect(app.text(data.user.email)).toBeVisible();
+
+    data.addUsers({ email: 'new@universal_photos.cloud' });
+    await api.emitResourceEvent({ changed: ['/admin/users'] });
+
+    await expect(app.text('new@universal_photos.cloud')).toBeVisible();
+  });
+
   test('lists users and creates a new one', async ({ page, data, api, app }) => {
     const { form } = app.admin.users;
     await page.goto(Route.users());

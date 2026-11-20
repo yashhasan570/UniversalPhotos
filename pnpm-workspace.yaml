@@ -75,3 +75,4 @@ minimumReleaseAgeExclude:
   - '@universal_photos/sql-tools@0.7.0'
   - '@nestjs/cli@12.0.1'
   - '@futo-org/*'
+  - '@universal_photos/nestjs-standard-schema@0.1.0'
